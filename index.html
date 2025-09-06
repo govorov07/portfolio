@@ -8,66 +8,66 @@
 </head>
 <body>
     <!-- Sidebar toggle checkbox & button for small screens -->
-    <input type="checkbox" id="sidebarToggle" aria-hidden="true" hidden />
-    <label for="sidebarToggle" class="sidebar-toggle-button" aria-label="Toggle sidebar menu" tabindex="0">☰ Menu</label>
+  <input type="checkbox" id="sidebarToggle" hidden aria-hidden="true" />
+  <label for="sidebarToggle" class="sidebar-toggle-button" tabindex="0" aria-label="Toggle sidebar menu">☰ Menu</label>
 
-    <header>
-        <div class="logo" tabindex="0">MyPortfolio</div>
-        <nav aria-label="Primary navigation">
+  <header>
+    <div class="logo" tabindex="0">MyPortfolio</div>
+    <nav aria-label="Primary navigation">
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Сайдбар -->
+  <aside class="sidebar" aria-label="Sidebar page navigation">
+    <h3>Site Structure</h3>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+
+        <li>
+          <details open>
+            <summary>About</summary>
             <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
+              <li><a href="#about">Overview</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#experience">Experience</a></li>
             </ul>
-        </nav>
-    </header>
+          </details>
+        </li>
 
-    <!-- Sidebar navigation with page structure -->
-    <aside class="sidebar" aria-label="Sidebar page navigation">
-        <h3>Site Structure</h3>
-        <nav>
+        <li>
+          <details>
+            <summary>Portfolio</summary>
             <ul>
-                <li><a href="#hero">Home</a></li>
-
-                <li>
-                    <details open>
-                        <summary>About</summary>
-                        <ul>
-                            <li><a href="#about">Overview</a></li>
-                            <li><a href="#about#skills">Skills</a></li>
-                            <li><a href="#about#experience">Experience</a></li>
-                        </ul>
-                    </details>
-                </li>
-
-                <li>
-                    <details>
-                        <summary>Portfolio</summary>
-                        <ul>
-                            <li><a href="#portfolio">All Projects</a></li>
-                            <li>
-                                <details>
-                                    <summary>Project Categories</summary>
-                                    <ul>
-                                        <li><a href="#portfolio#websites">Websites</a></li>
-                                        <li><a href="#portfolio#apps">Apps</a></li>
-                                        <li><a href="#portfolio#designs">Designs</a></li>
-                                    </ul>
-                                </details>
-                            </li>
-                        </ul>
-                    </details>
-                </li>
-
-                <li><a href="#contact">Contact</a></li>
+              <li><a href="#portfolio">All Projects</a></li>
+              <li>
+                <details>
+                  <summary>Project Categories</summary>
+                  <ul>
+                    <li><a href="#websites">Websites</a></li>
+                    <li><a href="#apps">Apps</a></li>
+                    <li><a href="#designs">Designs</a></li>
+                  </ul>
+                </details>
+              </li>
             </ul>
-        </nav>
-    </aside>
+          </details>
+        </li>
+
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
 
     <!-- Main content container that shifts with sidebar -->
-    <div class="main-container sidebar-expanded">
-        <main>
+  <div class="main-container">
+    <main>
             <!-- Hero Section -->
             <section class="hero" id="hero" tabindex="0" aria-label="Introduction">
                 <h1>Hello, I'm Jane Doe</h1>
