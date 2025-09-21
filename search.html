@@ -1,46 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Search Result</title>
-    <link rel="stylesheet" href="combined.css"/>
-    <script src="jquery/jquery-3.2.1.min.js"></script>
-    <script src="tipuesearch/tipuesearch_content.js"></script>
-    <script src="tipuesearch/tipuesearch_set.js"></script>
-    <script src="tipuesearch/tipuesearch.min.js"></script>
-    <script src="split/split.min.js"></script>
-
-</head>
-
-<div class="full-height-container">
-<div id="sidebar" class="split">
-<div class="navgroup" id="search">
-<form action="search.html" class="aui">
-<input type="text" name="q" id="tipue_search_input" class="medium-field text">
-<input class="button submit" type="submit" value="Search"></form>
-</div>
-<div class="navgroup" id="navigation">
-<ul><li><span><a href="page292700432.html">SSM - Soft Systems Methodology by Checkland</a></span><input type="checkbox"/><ul><li><span><a href="page292700446.html">1. [SSM] Черновик и Чистовик</a></span><input type="checkbox"/><ul><li><span><a href="page298994988.html">Часть 1: API GET методы для UI</a></span></li></ul></li><li><span><a href="page292702311.html">2. [SSM] Формирование заявок/отчетов. Отправка в ОРД. Статусная модель. Excel-выгрузки.</a></span></li><li><span><a href="page298997495.html">3. [SSM] Проработка фичей вне БФТ</a></span></li><li><span><a href="page309407588.html">4. [SSM] Получение актуальных DTO из ОРД Яндекс</a></span></li><li><span><a href="page292700439.html">XX. [SSM] Шаблон</a></span></li></ul></li></ul>
-</div>
-</div>
-<div id="content" class="split">
-<div class='wiki-page'>
-<div class="wiki-title">
-<h1>Search Result</h1>
-</div>
-<div id="tipue_search_content"></div>
-</div>
-</div>
-</div>
-<script>
-Split(['#sidebar', '#content'], {
-    sizes: [15, 85],
-    minSize: 100
-});
-    $(document).ready(function() {
-        $('#tipue_search_input').tipuesearch();
-    });
-</script>
+    <head>
+        <meta charset="UTF-8">
+        <title>Search Result</title>
+        <link rel="stylesheet" href="combined.css"/>
+        <script src="jquery/jquery-3.2.1.min.js"></script>
+        <script src="tipuesearch/tipuesearch_content.js"></script>
+        <script src="tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch/tipuesearch.min.js"></script>
+        <script src="split/split.min.js"></script>
+    </head>
+    
+    <div class="full-height-container">
+        <div id="sidebar" class="split">
+            <div class="navgroup" id="search">
+                <form action="search.html" class="aui">
+                    <input type="text" name="q" id="tipue_search_input" class="medium-field text">
+                    <input class="button submit" type="submit" value="Search">
+                </form>
+            </div>
+            
+            <div class="navgroup" id="navigation">
+                <ul>
+                    <li>
+                        <span><a href="page292700432.html">SSM - Soft Systems Methodology by Checkland</a></span>
+                        <input type="checkbox"/>
+                        <ul>
+                            <li>
+                                <span><a href="page292700446.html">1. [SSM] Черновик и Чистовик</a></span>
+                                <input type="checkbox"/>
+                                <ul>
+                                    <li>
+                                        <span><a href="page298994988.html">Часть 1: API GET методы для UI</a></span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span><a href="page292702311.html">2. [SSM] Формирование заявок/отчетов. Отправка в ОРД. Статусная модель. Excel-выгрузки.</a></span>
+                            </li>
+                            <li>
+                                <span><a href="page298997495.html">3. [SSM] Проработка фичей вне БФТ</a></span>
+                            </li>
+                            <li>
+                                <span><a href="page309407588.html">4. [SSM] Получение актуальных DTO из ОРД Яндекс</a></span>
+                            </li>
+                            <li>
+                                <span><a href="page292700439.html">XX. [SSM] Шаблон</a></span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="content" class="split">
+            <div class='wiki-page'>
+                <div class="wiki-title">
+                    <h1>Search Result</h1>
+                </div>
+                
+                <div id="tipue_search_content"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        Split(['#sidebar', '#content'], {
+            sizes: [15, 85],
+            minSize: 100
+        });
+        $(document).ready(function() {
+            $('#tipue_search_input').tipuesearch();
+        });
+    </script>
 </body>
 </html>
 </div>
+
