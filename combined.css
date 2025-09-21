@@ -1770,6 +1770,7 @@ form.aui .button {
 }
 /*splitter*/
 .full-height-container {
+	display: flex;
     height: 100%;
 }
 .gutter {
@@ -1877,3 +1878,4 @@ form.aui .button {
     font-weight: normal;
     font-style: normal;
 }
+
