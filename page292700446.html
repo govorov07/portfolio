@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 6.0.0-GA -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="combined.css"/>
+    <link rel="stylesheet" href="custom.css"/>
+    <script src="split/split.min.js"></script>
+    <link rel="stylesheet" href="inline_styles.css"/>
+</head>
+<body>
+
+<div class="full-height-container">
+<div id="sidebar" class="split">
+<div class="navgroup" id="search">
+<form action="search.html" class="aui">
+<input type="text" name="q" id="tipue_search_input" class="medium-field text">
+<input class="button submit" type="submit" value="Search"></form>
+</div>
+<div class="navgroup" id="navigation">
+<ul><li><span><a href="page292700432.html">SSM - Soft Systems Methodology by Checkland</a></span><input type="checkbox" checked/><ul><li><span>1. [SSM] Черновик и Чистовик</span><input type="checkbox" checked/><ul><li><span><a href="page298994988.html">Часть 1: API GET методы для UI</a></span></li></ul></li><li><span><a href="page292702311.html">2. [SSM] Формирование заявок/отчетов. Отправка в ОРД. Статусная модель. Excel-выгрузки.</a></span></li><li><span><a href="page298997495.html">3. [SSM] Проработка фичей вне БФТ</a></span></li><li><span><a href="page309407588.html">4. [SSM] Получение актуальных DTO из ОРД Яндекс</a></span></li><li><span><a href="page292700439.html">XX. [SSM] Шаблон</a></span></li></ul></li></ul>
+</div>
+</div>
+<div id="content" class="split">
+<div class='wiki-page'>
+<div class='wiki-title'>
+<h1 class='page-title-lvl-cover' id='Bookmark5'>1. [SSM] Черновик и Чистовик</h1>
+</div>
+<div class='wiki-content'>
+<div class="contentLayout2">
+<div class="columnLayout two-right-sidebar" data-layout="two-right-sidebar">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<a name="Bookmark6"></a><h1 style="text-decoration: none;" id="Bookmark6"><span class="nh-number">1. </span><span class="nh-number">Введение</span></h1><a name="Bookmark7"></a><h2 id="Bookmark7"><span class="nh-number">1.1. </span>Общая информация</h2><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 99.96082%;; font-size:1.0em"><colgroup><col style="" /><col style="" /></colgroup><tbody><tr><td class="highlight-grey confluenceTd" data-highlight-colour="grey" style="padding:0.5em"><strong title="">Наименование продукта</strong></td><td class="confluenceTd" style="padding:0.5em"><ul><li><span style="color: rgb(0,51,102);">Сервис отчетности в РКН</span></li><li><span style="color: rgb(0,51,102);">ORD MS</span></li></ul></td></tr><tr><td class="highlight-#f4f5f7 confluenceTd" data-highlight-colour="#f4f5f7" style="padding:0.5em"><strong>Ответственный за продукт</strong></td><td class="confluenceTd" style="padding:0.5em"><div class="content-wrapper"><p>-</p></div></td></tr><tr><td class="highlight-#f4f5f7 confluenceTd" data-highlight-colour="#f4f5f7" style="padding:0.5em"><strong title="">Ответственный за тех.реализацию продукта</strong></td><td class="confluenceTd" style="padding:0.5em"><div class="content-wrapper"><p><a class="confluence-userlink user-mention" data-username="sbuldyaev" data-linked-resource-id="241411435" data-linked-resource-version="3" data-linked-resource-type="userinfo" data-base-url="https://confluence.cyrm.ru" href="https://confluence.cyrm.ru/display/~sbuldyaev" title="https://confluence.cyrm.ru/display/~sbuldyaev">Сергей Бульдяев </a> </p></div></td></tr><tr><td class="highlight-grey confluenceTd" data-highlight-colour="grey" style="padding:0.5em"><strong title="">Ответственный за документ</strong></td><td class="confluenceTd" style="padding:0.5em"><div class="content-wrapper"><p><span>Системный аналитик <a class="confluence-userlink user-mention" data-username="r.aliev@cyrm.ru" data-linked-resource-id="255951919" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://confluence.cyrm.ru" href="https://confluence.cyrm.ru/display/~r.aliev@cyrm.ru" title="https://confluence.cyrm.ru/display/~r.aliev@cyrm.ru">Рустам Алиев</a> <br /></span></p></div></td></tr><tr><td class="highlight-grey confluenceTd" data-highlight-colour="grey" style="padding:0.5em"><strong title="">Тип продукта и операционная система</strong></td><td class="confluenceTd" style="padding:0.5em"><p><span style="color: rgb(0,51,102);">Web desktop </span></p></td></tr><tr><td class="highlight-grey confluenceTd" data-highlight-colour="grey" style="padding:0.5em"><strong title="">Epic</strong></td><td class="confluenceTd" style="padding:0.5em"><div class="content-wrapper"><p><span style="color: rgb(0,51,102);">
+<span class="jira-issue" data-jira-key="RKN-5778">
+                    <a href="https://jira.cyrm.ru/browse/RKN-5778" class="jira-issue-key"><img class="icon" src="" />RKN-5778</a>
+                            -
+            <span class="summary">61. [СТ] Вне БФТ - Упразднение rps_core_schema. Часть 1: API GET методы для UI</span>
+                                                <span class="aui-lozenge aui-lozenge-subtle             aui-lozenge-current      jira-macro-single-issue-export-pdf">В работе</span>
+                </span>
+</span></p></div></td></tr></tbody></table></div></div>
+</div>
+<div class="cell aside" data-type="aside">
+<div class="innerCell">
+<p></p><div class="toc-macro rbtoc1739270404925">
+<ul class="toc-indentation">
+<li><a href="#Bookmark6" title="1. Введение">1. Введение</a>
+<ul class="toc-indentation">
+<li><a href="#Bookmark7" title="1.1. Общая информация">1.1. Общая информация</a></li>
+<li><a href="#Bookmark8" title="1.2. История изменений">1.2. История изменений</a></li>
+</ul>
+</li>
+<li><a href="#Bookmark17" title="2. SSM Описание">2. SSM Описание</a>
+<ul class="toc-indentation">
+<li><a href="#Bookmark18" title="2.1. Введение в проблематику">2.1. Введение в проблематику</a></li>
+<li><a href="#Bookmark19" title="2.2. Корневая суть проблемы">2.2. Корневая суть проблемы</a></li>
+<li><a href="#Bookmark20" title="2.3. Концептуальная модель">2.3. Концептуальная модель</a></li>
+<li><a href="#Bookmark21" title="2.4. Риски. Реалии. Приоритеты">2.4. Риски. Реалии. Приоритеты</a></li>
+<li><a href="#Bookmark22" title="2.5. Согласование">2.5. Согласование</a></li>
+</ul>
+</li>
+</ul>
+</div><p></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<a name="Bookmark8"></a><h2 id="Bookmark8"><span class="nh-number">1.2. </span>История изменений</h2><a name="Bookmark9"></a><div class="expand-container" id="Bookmark9"><a name="Bookmark10"></a><div role="heading" aria-level="6" class="expand-control" id="Bookmark10"><a name="Bookmark11"></a><button type="button" class="aui-button aui-button-link aui-button-link-icon-text" aria-expanded="true" aria-controls="expander-content-1878588796" id="Bookmark11"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down" aria-hidden="true"></span><span class="expand-control-text conf-macro-render">История изменений</span></button></div><a name="Bookmark12"></a><div role="region" class="expand-content" aria-labelledby="expand-button-1878588796" id="Bookmark12"><div class="table-wrap"><table class="wrapped confluenceTable" data-snooker-col-series="numbers" data-snooker-locked-cols="0" style="text-decoration: none;; font-size:0.9em"><colgroup><col /><col /><col /><col /></colgroup><tbody><tr><td class="numberingColumn confluenceTd" contenteditable="false" data-mce-resize="false" style="text-align: left;; padding:0.45em">1</td><td class="confluenceTd" style="text-align: left;; padding:0.45em"><div class="content-wrapper"><p><time datetime="2024-08-29" class="date-past">29.08.2024</time> </p></div></td><td class="confluenceTd" style="text-align: left;; padding:0.45em"><div class="content-wrapper"><p><a class="confluence-userlink user-mention" data-username="r.aliev@cyrm.ru" data-linked-resource-id="255951919" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://confluence.cyrm.ru" href="https://confluence.cyrm.ru/display/~r.aliev@cyrm.ru" title="https://confluence.cyrm.ru/display/~r.aliev@cyrm.ru">Рустам Алиев</a> </p></div></td><td class="confluenceTd" style="text-align: left;; padding:0.45em"><p>Создание страницы. Начало описания</p></td></tr><tr><td class="numberingColumn confluenceTd" contenteditable="false" data-mce-resize="false" style="text-align: left;; padding:0.45em">2</td><td class="confluenceTd" style="text-align: left;; padding:0.45em"><div class="content-wrapper"><p><br /></p></div></td><td class="confluenceTd" style="text-align: left;; padding:0.45em"><div class="content-wrapper"><p><br /></p></div></td><td class="confluenceTd" style="text-align: left;; padding:0.45em"><p><br /></p></td></tr></tbody></table></div></div></div></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<a name="Bookmark13"></a><div class="expand-container" id="Bookmark13"><a name="Bookmark14"></a><div role="heading" aria-level="6" class="expand-control" id="Bookmark14"><a name="Bookmark15"></a><button type="button" class="aui-button aui-button-link aui-button-link-icon-text" aria-expanded="true" aria-controls="expander-content-1644564762" id="Bookmark15"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down" aria-hidden="true"></span><span class="expand-control-text conf-macro-render">SSM Steps - Шпаргалка</span></button></div><a name="Bookmark16"></a><div role="region" class="expand-content" aria-labelledby="expand-button-1644564762" id="Bookmark16"><p></p><div class="table-wrap"><table class="confluenceTable" style="font-size:1.0em"><colgroup class=""><col class="" /><col class="" /></colgroup><tbody class=""><tr class=""><th class="confluenceTh">Шаг</th><th class="confluenceTh">Описание</th></tr><tr class=""><td class="confluenceTd" style="padding:0.5em"><strong>Введение в проблемную ситуации</strong></td><td class="confluenceTd" style="padding:0.5em"><p><em><span>Уясни суть проблемы</span></em></p><p><span>Нужно посмотреть на проблему и собрать информацию о проблемных аспектах и возможностях улучшения.</span></p></td></tr><tr class=""><td class="confluenceTd" style="padding:0.5em"><strong>Определение корневой проблемы</strong></td><td class="confluenceTd" style="padding:0.5em"><p><em><span>Структурно опиши проблему</span></em></p><p><span>Структурное определение системы или процесса с указанием, кто выполняет какую задачу и для какой цели</span></p></td></tr><tr class=""><td class="confluenceTd" style="padding:0.5em"><strong>Построение концептуальных моделей</strong></td><td class="confluenceTd" style="padding:0.5em"><p><em><span>Построй концептуальную модель</span></em></p><p><span>На этом этапе строятся возможные решения, описываются гипотезы</span></p></td></tr><tr class=""><td class="confluenceTd" style="padding:0.5em"><strong>Сравнение моделей с реальной ситуацией</strong></td><td class="confluenceTd" style="padding:0.5em"><p><em><span>Оцени риски, реалии и приоритеты</span></em></p><p><span><span style="text-decoration: none;">Существует несколько групп факторов, которые необходимо учитывать: </span></span></p><ul><li><span><span style="text-decoration: none;">осуществимость, </span></span></li><li><span><span style="text-decoration: none;">приоритеты</span></span></li><li><span><span style="text-decoration: none;">нагрузка</span></span></li><li><span><span style="text-decoration: none;">риски</span></span></li></ul></td></tr><tr class=""><td class="confluenceTd" style="padding:0.5em"><strong>Выбор желаемых и возможных изменений</strong></td><td class="confluenceTd" style="padding:0.5em"><p><em><span>Согласуй</span></em></p><p><span>Требуются диалог и убеждение разных заинтересованных сторон и посредников для достижения консенсуса</span></p></td></tr><tr class=""><td class="confluenceTd" style="padding:0.5em"><strong>Применение выбранной модели для улучшения ситуации</strong></td><td class="confluenceTd" style="padding:0.5em"><p><em>Опиши все требуемые изменения, необходимые для реализации выбранной модели решения</em></p><p>При реализации изменений, обеспечивающих достижение поставленных целей, следует учитывать два основных правила управления изменениями: 1. Рекомендуется последовательно вносить изменения, после проведения оценки влияния очередного из них</p></td></tr></tbody></table></div><p><br /></p><div role="region" aria-label="Info" class="confluence-information-macro  confluence-information-macro-information"><p class="title conf-macro-render">Примечание</p><span role="presentation" class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Этапы не обязательно следуют в линейной последовательности, их можно пропускать, уточнять или повторять в зависимости от особенностей ситуации.</p></div></div><p><br /></p><p></p></div></div><p><br /></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<a name="Bookmark17"></a><h1 id="Bookmark17"><span class="nh-number">2. </span>SSM Описание</h1><a name="Bookmark18"></a><h2 id="Bookmark18"><span class="nh-number">2.1. </span>Введение в проблематику</h2><p>На данный момент сервис AccOrd излишне усложнен тем, что большое кол-во &quot;логики&quot; сильно разнесено по функциональным частям проекта, причем часть этой логики, необходимой для решения задач и пользовательских потребностей дублируется.</p><p>Причем при появлении новых БФТ, возникновении багов и тд, необходимо дорабатывать данную &quot;логику&quot; во всех местах, а также поддерживать функциональность в работоспособном и актуальном состоянии, что увеличивает нагрузку на аналитику, разработку и тестирование.</p><p>В данной статье предлагаю рассмотреть следующую проблему:</p><p>В системе AccOrd имеется излишняя валидация сущностей, которая на данный момент обеспечивается следующими &quot;функциональностями&quot;:</p><ul style="list-style-type: square;"><li>Схемы по валидатору</li><li>rps_core_schema</li><li>Статусная модель</li></ul><p><br /></p><p>На данный момент в сервисе AccOrd имеется концептуальная проблема (и очень тонкий момент), который является первоисточником причин, из-за которых сервис AccOrd излишне устранен.</p><div role="region" aria-label="Info" class="confluence-information-macro  confluence-information-macro-information"><p class="title conf-macro-render">Историческая справка</p><span role="presentation" class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>В самом начале проекта была принята концепция &quot;Черновик&quot; и &quot;Чистовик&quot;: rps_draft_schema и rps_core_schema, - соответственно.</p><p>Концепция заключалась в следующем:</p><p>В Черновик попадают все данные, получаемые из СИ. Поскольку было требование к сервису, согласно которому необходимо сохранять вообще все данные без учета ФЛК и правил валидации, Черновик не должен быть с ограничениями (на уровне БД).</p><p>Чистовик же наоборот должен хранить в себе только проверенные и валидные с точки зрения ОРД и ЕРИР (РКН) данные.</p></div></div><p>Однако у концепции &quot;Черновик&quot; и &quot;Чистовик&quot; всегда была следующая концептуальная проблема: у одной и той же записи в разных схемах один статус (см рис)</p><p><img class="drawio-diagram-image" style="width:1192px;max-width: 100%;" src="img_1.png" width="624" height="184" /></p><p>Риторический вопрос: как запись, находясь, в чистовике может быть в статусе &quot;Ошибка валидации&quot;?</p><p>Получается, что гарантом валидности сущности и ее готовности к отправке в ОРД является не наличие &quot;Чистовика&quot;, а наличие опресненного статуса.</p><p>И ведь так оно и есть. На данный момент в API GET методах, которые вызываются для визуализации данных при просмотре данных в режиме отправки в ОРД, производится отбор данных из rps_core_schema (Чистовика), но поскольку доверять ему нельзя, на отобранные записи также накладываются условия согласно статичной модели.</p><a name="Bookmark19"></a><h2 id="Bookmark19"><span class="nh-number">2.2. </span>Корневая суть проблемы</h2><p>Чистовик - rps_core_schema - является лишним в сервисе AccOrd.</p><p>Наличие излишней схемы в итоге привело к ряду слудующих проблем, оказывающих большое влияние не только на саму систему AccOrd, но и на ее команду, которая занимается развитием и поддержкой сервиса.</p><p>Проблемы-&quot;следствие&quot;:</p><ul style="list-style-type: square;"><li>Есть дублирующая логика: Схемы валидатора = Ограничениям таблиц (в rps_core_schema)</li><li>Лишняя нагрузка: перенос данных из Черновика в Чистовик</li><li>Неоднозначность: один статус на два состояния</li><li>Переусложнение: в два раза больше лишних таблиц, в два раза больше API GET методов, - что приводит к большим временным затратам на поддержку и доработки.</li><li>Отсутствие унификации: Ответ API GET методов из draft и из core отличается, - что в итоге усложняет работу FE</li></ul><p><br /></p><p>Исходя из всего ранее описанного, хочется сделать вывод: наличие rps_core_schema не является обязательным, усложняет сервис дополнительной дублирующей логикой, обременяет на дополнительные и &quot;ненужные&quot; доработки.</p><p>В свое время rps_core_schema была введена в сервис AccOrd для обеспечения следующей концепции: В &quot;Чистовике&quot; гарантированном лежат полностью валидные данные, которые соответствуют требованиям ОРД и ЕРИР. Однако стоит отметить, что наличие определенного статуса делает то же самое.</p><a name="Bookmark20"></a><h2 id="Bookmark20"><span class="nh-number">2.3. </span>Концептуальная модель</h2><p><strong>Необходимо:</strong></p><ul style="list-style-type: square;"><li><span style="letter-spacing: 0.0px;">произвести постепенное упразднение rps_core_schema.</span></li></ul><p>На данный момент на данной схеме завязано следующее:</p><ol><li>Перенос данных из &quot;Черновика в Чистовик&quot; (+ присвоение того самого статуса &quot;Готово к отправке в ОРД&quot;</li><li>Чтение данных для последующей визуализации на интерфейсе при просмотре в режиме отправки даных в ОРД происходит при помощи: чтение из rps_core_schema + статусная модель</li><li>Отправка данных в ОРД производится при помощи: отбор данных из rps_core_schema + статусная модель</li><li>Формирование слепка производится при начале FLOW по отправке данных в ОРД, &quot;копирование&quot; данных производится из rps_core_schema</li></ol><p><strong>Предлагаемое решение: </strong></p><ul style="list-style-type: square;"><li>производить везде работу с данным не ориентируясь на Чистовик (rps_core_schema), а ориентироваться на Статусную Модель</li></ul><p><strong>Концепция реализации:</strong></p><p>Постепенное &quot;избавление&quot; от rps_core_schema в описанных ранее функциональных частях проекта</p><p><strong>План реализации:</strong></p><p><strong>
+<span class="jira-issue" data-jira-key="RKN-5778">
+                    <a href="https://jira.cyrm.ru/browse/RKN-5778" class="jira-issue-key"><img class="icon" src="" />RKN-5778</a>
+                            -
+            <span class="summary">61. [СТ] Вне БФТ - Упразднение rps_core_schema. Часть 1: API GET методы для UI</span>
+                                                <span class="aui-lozenge aui-lozenge-subtle             aui-lozenge-current      jira-macro-single-issue-export-pdf">В работе</span>
+                </span>
+</strong></p><ol><li><a rel="nofollow" href="page298994988.html#Bookmark23" title="Часть 1: API GET методы для UI">Перевести API GET методы &quot;Чистовика&quot; на &quot;Черновик&quot;, оставив имеющиеся условия по статусам</a><ol><li>
+<span class="jira-issue resolved" data-jira-key="RKN-5998">
+                    <a href="https://jira.cyrm.ru/browse/RKN-5998" class="jira-issue-key"><img class="icon" src="" />RKN-5998</a>
+                            -
+            <span class="summary">STORY: Упразднение rps_core_schema. Часть 1: API GET методы для UI</span>
+                                                <span class="aui-lozenge aui-lozenge-subtle             aui-lozenge-success      jira-macro-single-issue-export-pdf">Готово</span>
+                </span>
+<ol><li>
+<span class="jira-issue resolved" data-jira-key="RKN-5779">
+                    <a href="https://jira.cyrm.ru/browse/RKN-5779" class="jira-issue-key"><img class="icon" src="" />RKN-5779</a>
+                            -
+            <span class="summary">[СА] 61. [СТ] Упразднение rps_core_schema. Часть 1: API GET методы для UI</span>
+                                                <span class="aui-lozenge aui-lozenge-subtle             aui-lozenge-success      jira-macro-single-issue-export-pdf">Готово</span>
+                </span>
+</li></ol></li></ol></li><li>Перевести отправку данных на чтение &quot;Черновик&quot;, оставив имеющиеся условия по статусам</li><li>Перевести формирование слепка на &quot;Черновик&quot;</li><li>Перевести отправку в ОРД на rps_draft_schema с соблюдением всех имеющихся условий, которые необходимым для отправки в ОРД</li><li>Упразднить Перенос данных из черника в чистовик, дополнив реализацию валидатора переходом в конечный статус &quot;Готово к Отправке в ОРД&quot;</li><li>Убедиться, что rps_core_schema более нигде не используется<ol><li>В случае чего доработать</li></ol></li><li>Удалить rps_core_schema</li><li>Перевести DELTA_CHECK на rps_draft_schema вместо rps_core_schema</li></ol><a name="Bookmark21"></a><h2 id="Bookmark21"><span class="nh-number">2.4. </span>Риски. Реалии. Приоритеты</h2><p>{Перечислить риск реалии приоритеты + предложить декомпоизровать }</p><a name="Bookmark22"></a><h2 id="Bookmark22"><span class="nh-number">2.5. </span>Согласование</h2><p>{Перечень заинтересованных лиц}</p><p><br /></p><p><br /></p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+Split(['#sidebar', '#content'], {
+    sizes: [15, 85],
+    minSize: 100
+});
+</script>
+
+</body>
+</html>

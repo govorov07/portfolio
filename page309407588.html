@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 6.0.0-GA -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="combined.css"/>
+    <link rel="stylesheet" href="custom.css"/>
+    <script src="split/split.min.js"></script>
+    <link rel="stylesheet" href="inline_styles.css"/>
+</head>
+<body>
+
+<div class="full-height-container">
+<div id="sidebar" class="split">
+<div class="navgroup" id="search">
+<form action="search.html" class="aui">
+<input type="text" name="q" id="tipue_search_input" class="medium-field text">
+<input class="button submit" type="submit" value="Search"></form>
+</div>
+<div class="navgroup" id="navigation">
+<ul><li><span><a href="page292700432.html">SSM - Soft Systems Methodology by Checkland</a></span><input type="checkbox" checked/><ul><li><span><a href="page292700446.html">1. [SSM] Черновик и Чистовик</a></span><input type="checkbox"/><ul><li><span><a href="page298994988.html">Часть 1: API GET методы для UI</a></span></li></ul></li><li><span><a href="page292702311.html">2. [SSM] Формирование заявок/отчетов. Отправка в ОРД. Статусная модель. Excel-выгрузки.</a></span></li><li><span><a href="page298997495.html">3. [SSM] Проработка фичей вне БФТ</a></span></li><li><span>4. [SSM] Получение актуальных DTO из ОРД Яндекс</span></li><li><span><a href="page292700439.html">XX. [SSM] Шаблон</a></span></li></ul></li></ul>
+</div>
+</div>
+<div id="content" class="split">
+<div class='wiki-page'>
+<div class='wiki-title'>
+<h1 class='page-title-lvl-cover' id='Bookmark105'>4. [SSM] Получение актуальных DTO из ОРД Яндекс</h1>
+</div>
+<div class='wiki-content'>
+<div class="contentLayout2">
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<a name="Bookmark106"></a><h1 id="Bookmark106"><span class="nh-number">1. </span>История изменений</h1><a name="Bookmark107"></a><div class="expand-container" id="Bookmark107"><a name="Bookmark108"></a><div role="heading" aria-level="6" class="expand-control" id="Bookmark108"><a name="Bookmark109"></a><button type="button" class="aui-button aui-button-link aui-button-link-icon-text" aria-expanded="true" aria-controls="expander-content-1770507078" id="Bookmark109"><span class="expand-icon aui-icon aui-icon-small aui-iconfont-chevron-down" aria-hidden="true"></span><span class="expand-control-text conf-macro-render">История изменений</span></button></div><a name="Bookmark110"></a><div role="region" class="expand-content" aria-labelledby="expand-button-1770507078" id="Bookmark110"><div class="table-wrap"><table class="wrapped confluenceTable" data-snooker-col-series="numbers" data-snooker-locked-cols="0" style="letter-spacing: 0.0px;; font-size:0.9em"><colgroup><col /><col /><col /><col /></colgroup><tbody><tr><td class="numberingColumn confluenceTd" contenteditable="false" data-mce-resize="false" style="padding:0.45em">1</td><td class="confluenceTd" style="padding:0.45em"><div class="content-wrapper"><p><time datetime="2025-01-15" class="date-past">15.01.2025</time> </p></div></td><td class="confluenceTd" style="padding:0.45em"><div class="content-wrapper"><p><a class="confluence-userlink user-mention current-user-mention" data-username="agovorov" data-linked-resource-id="299001915" data-linked-resource-version="2" data-linked-resource-type="userinfo" data-base-url="https://confluence.cyrm.ru" href="https://confluence.cyrm.ru/display/~agovorov" title="https://confluence.cyrm.ru/display/~agovorov">Андрей Говоров</a>  </p></div></td><td class="confluenceTd" style="padding:0.45em"><p>Исходная страница</p></td></tr><tr><td class="numberingColumn confluenceTd" contenteditable="false" data-mce-resize="false" style="padding:0.45em">2</td><td class="confluenceTd" style="padding:0.45em"><div class="content-wrapper"><p><time datetime="2025-01-27" class="date-past">27.01.2025</time> </p></div></td><td class="confluenceTd" style="padding:0.45em"><div class="content-wrapper"><p><a class="confluence-userlink user-mention current-user-mention" data-username="agovorov" data-linked-resource-id="299001915" data-linked-resource-version="2" data-linked-resource-type="userinfo" data-base-url="https://confluence.cyrm.ru" href="https://confluence.cyrm.ru/display/~agovorov" title="https://confluence.cyrm.ru/display/~agovorov">Андрей Говоров</a> </p></div></td><td class="confluenceTd" style="padding:0.45em"><p>Внесение правок и вариантов по результатам обсуждений и комментариев</p></td></tr></tbody></table></div></div></div></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<hr /></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p></p><div class="toc-macro rbtoc1739270405410">
+<ul class="toc-indentation">
+<li><a href="#Bookmark106" title="1. История изменений">1. История изменений</a></li>
+<li><a href="#Bookmark111" title="2. Введение">2. Введение</a>
+<ul class="toc-indentation">
+<li><a href="#Bookmark112" title="2.1. Общая информация">2.1. Общая информация</a></li>
+</ul>
+</li>
+<li><a href="#Bookmark113" title="3. SSM Описание">3. SSM Описание</a>
+<ul class="toc-indentation">
+<li><a href="#Bookmark114" title="3.1. Введение в проблематику">3.1. Введение в проблематику</a></li>
+<li><a href="#Bookmark115" title="3.2. Суть проблемы">3.2. Суть проблемы</a></li>
+<li><a href="#Bookmark116" title="3.3. Концептуальная модель">3.3. Концептуальная модель</a>
+<ul class="toc-indentation">
+<li><a href="#Bookmark117" title="3.3.1. Сравнение DTO">3.3.1. Сравнение DTO</a></li>
+<li><a href="#Bookmark118" title="3.3.2. Интерфейс">3.3.2. Интерфейс</a>
+<ul class="toc-indentation">
+<li><a href="#Bookmark119" title="3.3.2.1. Вариант 1">3.3.2.1. Вариант 1</a></li>
+<li><a href="#Bookmark120" title="3.3.2.2. Вариант 2">3.3.2.2. Вариант 2</a></li>
+<li><a href="#Bookmark121" title="3.3.2.3. Вариант 3">3.3.2.3. Вариант 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#Bookmark122" title="3.4. Риски. Реалии. Приоритеты">3.4. Риски. Реалии. Приоритеты</a></li>
+</ul>
+</li>
+</ul>
+</div><p></p></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<hr /></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<a name="Bookmark111"></a><h1 style="text-decoration: none;" id="Bookmark111"><span class="nh-number">2. </span><span class="nh-number">Введение</span></h1><a name="Bookmark112"></a><h2 id="Bookmark112"><span class="nh-number">2.1. </span>Общая информация</h2><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 99.9608%;; font-size:1.0em"><colgroup class=""><col class="" style="" /><col class="" style="" /></colgroup><tbody class=""><tr class=""><td class="highlight-grey confluenceTd" data-highlight-colour="grey" style="padding:0.5em"><strong title="">Наименование продукта</strong></td><td class="confluenceTd" style="padding:0.5em"><ul><li><span style="color: rgb(0,51,102);">AccOrd</span></li></ul></td></tr><tr class=""><td class="highlight-#f4f5f7 confluenceTd" data-highlight-colour="#f4f5f7" style="padding:0.5em"><strong>Ответственный за продукт</strong></td><td class="confluenceTd" style="padding:0.5em"><div class="content-wrapper"><p>-</p></div></td></tr><tr class=""><td class="highlight-#f4f5f7 confluenceTd" data-highlight-colour="#f4f5f7" style="padding:0.5em"><strong title="">Ответственный за тех.реализацию продукта</strong></td><td class="confluenceTd" style="padding:0.5em"><div class="content-wrapper"><p><a class="confluence-userlink user-mention" data-username="sbuldyaev" data-linked-resource-id="241411435" data-linked-resource-version="3" data-linked-resource-type="userinfo" data-base-url="https://confluence.cyrm.ru" href="https://confluence.cyrm.ru/display/~sbuldyaev" title="https://confluence.cyrm.ru/display/~sbuldyaev">Сергей Бульдяев </a> </p></div></td></tr><tr class=""><td class="highlight-grey confluenceTd" data-highlight-colour="grey" style="padding:0.5em"><strong title="">Ответственный за документ</strong></td><td class="confluenceTd" style="padding:0.5em"><div class="content-wrapper"><p><span>Системный аналитик <a class="confluence-userlink user-mention current-user-mention" data-username="agovorov" data-linked-resource-id="299001915" data-linked-resource-version="2" data-linked-resource-type="userinfo" data-base-url="https://confluence.cyrm.ru" href="https://confluence.cyrm.ru/display/~agovorov" title="https://confluence.cyrm.ru/display/~agovorov">Андрей Говоров</a> <br /></span></p></div></td></tr><tr class=""><td class="highlight-grey confluenceTd" data-highlight-colour="grey" style="padding:0.5em"><strong title="">Тип продукта и операционная система</strong></td><td class="confluenceTd" style="padding:0.5em"><p><span style="color: rgb(0,51,102);">Web desktop </span></p></td></tr><tr class=""><td class="highlight-grey confluenceTd" data-highlight-colour="grey" style="padding:0.5em"><strong title="">Epic</strong></td><td class="confluenceTd" style="padding:0.5em"><div class="content-wrapper"><p><span style="color: rgb(0,51,102);">
+<span class="jira-issue" data-jira-key="RKN-6566" data-client-id="SINGLE_8835b6b9-5676-3de4-ad59-bbe987416662_309407588_ff80808291e7c2400193abb68c21001c">
+                    <a href="https://jira.cyrm.ru/browse/RKN-6566" class="jira-issue-key"><span class="aui-icon aui-icon-wait issue-placeholder"></span>RKN-6566</a>
+                            -
+            <span class="summary">Получение подробных данных проблемы...</span>
+                                                <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">СТАТУС</span>
+                </span>
+</span></p></div></td></tr></tbody></table></div></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<hr /></div>
+</div>
+</div>
+<div class="columnLayout single" data-layout="single">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<a name="Bookmark113"></a><h1 id="Bookmark113"><span class="nh-number">3. </span>SSM Описание</h1><a name="Bookmark114"></a><h2 id="Bookmark114"><span class="nh-number">3.1. </span>Введение в проблематику</h2><p>В системе AccOrd у пользователя отсутствует возможность узнать о том, <span style="color: rgb(23,43,77);">в каком на данный момент состоянии находится сущность в ОРД Яндекс</span><span class="inline-comment-marker" data-ref="a7d11fdb-40c1-4b61-b5d5-1020918baf59">.</span></p><a name="Bookmark115"></a><h2 id="Bookmark115"><span class="nh-number">3.2. </span>Суть проблемы</h2><p>Пример</p><ol><li>Сущность_v.1 отправлена в ОРД</li><li>Приходит обновление от СИ (Сущность_v.2):<ol><li>AccOrd в ходе различных flow пережевывает и переваривает изменения и на выходе предоставляет возможность пользователю отправить обновлённые данные в ОРД</li><li>AccOrd в интерфейсе отображает только Сущность_v.2</li></ol></li><li>Чтобы принять решение о необходимости обновления (я предполагаю, что пользователи проверяют данные) пользователь должен пройти следующие шаги:<ol><li>Проверить данные Сущности_v.2. Это можно сделать в интерфейсе</li><li>Проверить данные Сущности_v.1. Это можно сделать только исключительно с помощью отчётов</li><li>Вручную сравнить эти данные и принять решение о необходимости повторной отправки данных в ОРД</li></ol></li></ol><a name="Bookmark116"></a><h2 style="text-align: left;" id="Bookmark116"><span class="nh-number">3.3. </span>Концептуальная модель</h2><p>Предлагается реализовать для пользователя возможность автосравнения/автопроверки_различий сущностей в Accord и в ОРД. Полученную разницу отображать в интерфейсе, что будет для пользователя удобней и позволит пользователю более оперативно принимать решения.</p><a name="Bookmark117"></a><h3 id="Bookmark117"><span class="nh-number">3.3.1. </span>Сравнение DTO</h3><ol><li>Сравнение DTO в режиме стандартного просмотра и отображение разницы в интерфейсе<ol><li>Пользователь сможет при определённых условиях (на основе статуса Сущности) вызвать проверку данных по конкретной сущности.</li><li>Разница отобразится в интерфейсе просмотра сущности.</li></ol></li><li>Сравнение DTO в режиме просмотра истории отправок:<ol><li>Проверять что отправили и что принял ОРД. Показывать разницу, если таковая появится. Но какие дальнейшие действия?<ol><li>Технически вся инфа будет храниться в слепке. Т.е. слепок будет создаваться не перед отправкой, а после получения результата отправки и вызова ручки с новым методом. Разница запишется в слепок.</li></ol></li><li>Дополнительно можно выстроить цепочку проверок &quot;что было в ОРД&quot; → &quot;что отправили в ОРД&quot; → &quot;что стало в ОРД&quot;. Но кажется это избыточно.</li></ol></li></ol><a name="Bookmark118"></a><h3 id="Bookmark118"><span class="nh-number">3.3.2. </span>Интерфейс</h3><a name="Bookmark119"></a><h4 id="Bookmark119"><span class="nh-number">3.3.2.1. </span>Вариант 1</h4><p>Добавить возможность сравнения в режиме стандартного просмотра рекламной компании. Например:</p><ol><li>Добавить новый пункт меню в выпадающем списке &quot;Проверить данные из ОРД&quot;</li><li>Добавить тултип для обозначения полей с расхождением. При наведении курсора тултип раскрывается, а внутри находится текст: &quot;Текущее значение в ОРД: {Значение полученное из проксирующего метода}</li><li>На время, от подачи запроса до получения ответа, менять шашлык на лоадер для:<ol><li>Очевидности выполняемого действия системой</li><li>Избегания спама запросами</li><li>Чтоб юзер не зашёл в редактирование сущности</li></ol></li><li>Для сущностей, у которых нет шашлык-меню - добавить для этого действия</li></ol><div role="region" aria-label="Warning" class="confluence-information-macro  confluence-information-macro-warning"><p class="title conf-macro-render">Возможные недостатки</p><span role="presentation" class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><ol><li><span style="color: rgb(23,43,77);">Кебаб-меню как-будто не интуитивное место для такой функции (куда ещё можно поместить кнопку?)</span></li><li><span style="color: rgb(23,43,77);">У пользователя может выработаться привычка постоянно тыркать кнопку для душевного равновесия (Кажется, можно ограничить одним вызовом до обновления страницы + жестким контролем статусов, в которых можно вызывать метод)</span></li></ol></div></div><a name="Bookmark120"></a><h4 style="text-align: left;" id="Bookmark120"><span class="nh-number">3.3.2.2. </span><s>Вариант 2</s></h4><p style="text-align: left;"><s>Вариант 1 + автоматизация вызова метода без возможности юзеру участвовать. Т.е. юзер раскрывает сущность, при получении данных происходит сверка с ОРД при определённых условиях (на основе статуса Сущности), и сущность отображается уже с информацией, что по каким-то полям есть расхождения.</s></p><div role="region" aria-label="Warning" class="confluence-information-macro  confluence-information-macro-warning"><p class="title conf-macro-render">Возможные недостатки</p><span role="presentation" class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><ol><li><s>Внезапное информирование о расхождении данных - новый функционал для пользователя, который может вызвать легкие испуги и недопонимания. (Пройдёт с выработкой привычки и понимания функционала)</s></li></ol></div></div><a name="Bookmark121"></a><h4 style="text-align: left;" id="Bookmark121"><span class="nh-number">3.3.2.3. </span>Вариант 3</h4><p>Использовать в рамках просмотра истории отправок.</p><p>Фронт будет получать инфу о разнице в рамках обычной ручки. Поэтому не подразумевается никаких дополнительных действий в интерфейсе. Просто, при наличии расхождений - отобразить их.</p><div role="region" aria-label="Warning" class="confluence-information-macro  confluence-information-macro-warning"><p class="title conf-macro-render">Возможные недостатки</p><span role="presentation" class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><ol><li>Насколько такой функционал нужен пользователю? Больше похоже на поиск возможных ошибок, которым будут заниматься после звонка в Техподдержку.</li></ol></div></div><a name="Bookmark122"></a><h2 style="text-align: left;" id="Bookmark122"><span class="nh-number">3.4. </span>Риски. Реалии. Приоритеты</h2><ol><li>Существуют статусы, в которых выполнение метода бессмысленно, соответственно лишняя нагрузка. Необходимо состояние для кнопки запроса = Disable, завязанное на текущем статусе сущности.</li><li><p>Данные действия можно выполнять только с сущностями типа:</p><ol><li>Организция</li><li>Договор</li><li>Акт</li><li>Креатив</li></ol></li></ol></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+Split(['#sidebar', '#content'], {
+    sizes: [15, 85],
+    minSize: 100
+});
+</script>
+
+</body>
+</html>
