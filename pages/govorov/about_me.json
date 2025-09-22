@@ -1,0 +1,151 @@
+{
+    "meta": {
+        "id": "about",
+        "title": "Говоров Андрей Сергеевич - Обо мне",
+        "description": "Персональная страница системного аналитика",
+        "keywords": ["системный аналитик", "портфолио", "резюме"],
+        "created": "2024-01-15",
+        "updated": "2024-01-20"
+    },
+    "page": {
+        "title": "Говоров Андрей Сергеевич",
+        "breadcrumbs": [
+            {"title": "Главная", "url": "?page=main"},
+            {"title": "Обо мне", "url": "?page=about"}
+        ]
+    },
+    "sections": [
+        {
+            "type": "header",
+            "data": {
+                "anchor": "personal-info",
+                "number": "1",
+                "title": "Персональная информация"
+            }
+        },
+        {
+            "type": "table",
+            "data": {
+                "classes": "personal-table",
+                "rows": [
+                    {
+                        "label": "ФИО",
+                        "content": "<strong>Говоров Андрей Сергеевич</strong>"
+                    },
+                    {
+                        "label": "Должность",
+                        "content": "Системный аналитик"
+                    },
+                    {
+                        "label": "Специализация",
+                        "content": "Бизнес-анализ, проектирование систем, требования"
+                    },
+                    {
+                        "label": "Опыт работы",
+                        "content": "5+ лет в IT-аналитике"
+                    },
+                    {
+                        "label": "Локация",
+                        "content": "Москва, Россия"
+                    },
+                    {
+                        "label": "Контакты",
+                        "content": "<a href='mailto:govorov@example.com'>govorov@example.com</a><br><a href='https://t.me/govorov_as'>Telegram</a><br><a href='https://linkedin.com/in/govorov'>LinkedIn</a>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "data": {
+                "anchor": "skills",
+                "number": "2",
+                "title": "Профессиональные навыки"
+            }
+        },
+        {
+            "type": "table",
+            "data": {
+                "classes": "skills-table",
+                "rows": [
+                    {
+                        "label": "Бизнес-анализ",
+                        "content": "Сбор требований, BPMN, Use Cases, User Stories, SWOT-анализ"
+                    },
+                    {
+                        "label": "Проектирование систем",
+                        "content": "UML, ERD, архитектурные схемы, API проектирование"
+                    },
+                    {
+                        "label": "Документирование",
+                        "content": "Технические задания, спецификации, руководства пользователя"
+                    },
+                    {
+                        "label": "Инструменты",
+                        "content": "Confluence, Jira, Figma, Draw.io, Postman, SQL"
+                    },
+                    {
+                        "label": "Методологии",
+                        "content": "Agile/Scrum, Waterfall, SSM (Soft Systems Methodology)"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "header",
+            "data": {
+                "anchor": "experience",
+                "number": "3",
+                "title": "Ключевые проекты"
+            }
+        },
+        {
+            "type": "section",
+            "data": {
+                "paragraphs": [
+                    "<strong>Система фильтрации событий</strong> - разработка требований и спецификаций для системы мониторинга событий в реальном времени.",
+                    "<strong>REST API проектирование</strong> - создание API для интеграции с внешними системами.",
+                    "<strong>База данных событий</strong> - проектирование архитектуры хранения и обработки событий."
+                ]
+            }
+        },
+        {
+            "type": "note",
+            "data": {
+                "text": "Подробное описание каждого проекта доступно в разделе <a href='?page=portfolio' data-page='portfolio'>Портфолио</a>",
+                "type": "info"
+            }
+        },
+        {
+            "type": "header",
+            "data": {
+                "anchor": "education",
+                "number": "4",
+                "title": "Образование и сертификации"
+            }
+        },
+        {
+            "type": "table",
+            "data": {
+                "rows": [
+                    {
+                        "label": "Высшее образование",
+                        "content": "МГТУ им. Баумана<br>Факультет информатики и систем управления<br>Магистр компьютерных наук"
+                    },
+                    {
+                        "label": "Сертификации",
+                        "content": "IIBA CBAP (в процессе)<br>Scrum Master Certified<br>ISTQB Foundation Level"
+                    }
+                ]
+            }
+        }
+    ],
+    "navigation": {
+        "previous": null,
+        "next": {
+            "title": "Резюме",
+            "url": "?page=cv",
+            "page": "cv"
+        }
+    }
+}
