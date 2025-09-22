@@ -4,9 +4,12 @@ class PageBuilder {
         this.currentPage = null;
         this.templatesBasePath = 'assets/templates/'; // ✅ Правильный путь
         this.dataBasePath = 'data/'; // ✅ Путь к данным
+        this.staticContent = document.getElementById('static-content');
+        this.dynamicContent = document.getElementById('dynamic-content');
     }
 
     // Загрузка всех шаблонов
+/**
     async loadTemplates() {
         const templateFiles = [
             'base.html', 
@@ -33,8 +36,43 @@ class PageBuilder {
 
         await Promise.all(loadPromises);
     }
+**/
+    async loadTemplates() {
+        console.log('📁 Загружаем шаблоны...');
+        
+        const templateFiles = [
+            'base.html', 
+            'sidebar.html', 
+            'search.html', 
+            'navigation.html', 
+            'content.html',
+            'components/header.html', 
+            'components/table.html',
+            'components/note.html', 
+            'components/section.html'
+        ];
 
-    // Рендер шаблона с данными
+        for (const file of templateFiles) {
+            try {
+                const templateUrl = `${this.templatesBasePath}${file}`;
+                console.log('📄 Загружаем шаблон:', templateUrl);
+                
+                const response = await fetch(templateUrl);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status} - ${templateUrl}`);
+                }
+                
+                this.templates[file] = await response.text();
+                console.log('✅ Шаблон загружен:', file);
+                
+            } catch (error) {
+                console.error(`❌ Ошибка загрузки шаблона ${file}:`, error);
+                this.templates[file] = `<div class="error">Шаблон ${file} не загружен: ${error.message}</div>`;
+            }
+        }
+    }
+
+/** // Рендер шаблона с данными
     renderTemplate(templateName, data = {}) {
         if (!this.templates[templateName]) {
             console.error(`Шаблон ${templateName} не найден`);
@@ -70,6 +108,29 @@ class PageBuilder {
 
         return html;
     }
+*/
+    // Простой рендерер без сложных конструкций
+    renderTemplate(templateName, data = {}) {
+        if (!this.templates[templateName]) {
+            return `<div>Шаблон ${templateName} не найден</div>`;
+        }
+
+        let html = this.templates[templateName];
+        
+        // Замена простых переменных {{variable}}
+        html = html.replace(/\{\{(\w+)\}\}/g, (match, key) => {
+            // Для вложенных свойств типа page.title
+            const value = this.getNestedValue(data, key);
+            return value !== undefined ? value : '';
+        });
+        
+        // Простая замена {{json data}}
+        html = html.replace(/\{\{json (\w+)\}\}/g, (match, key) => {
+            return JSON.stringify(data[key] || {});
+        });
+
+        return html;
+    }
 
     // Вспомогательная функция для получения вложенных свойств
     getNestedValue(obj, path) {
@@ -81,25 +142,34 @@ class PageBuilder {
     // Сборка полной страницы
     async buildPage(pageData) {
         try {
+            console.log('🏗️ Собираем страницу...');
+            
             await this.loadTemplates();
             
-            // Собираем компоненты
-            const sidebarHTML = this.renderTemplate('sidebar.html', pageData);
+            // Сначала просто попробуем отобразить базовый контент
             const contentHTML = this.renderTemplate('content.html', pageData);
+            console.log('✅ Контент сгенерирован');
             
-            // Собираем базовую страницу
             const fullHTML = this.renderTemplate('base.html', {
-                ...pageData,
-                sidebar: sidebarHTML,
+                title: pageData.meta?.title || pageData.page?.title || 'Портфолио',
                 content: contentHTML
             });
-
-            // ✅ Безопасная замена контента
-            this.replacePageContent(fullHTML);
+            
+            console.log('✅ Полная страница сгенерирована');
+            
+            // Заменяем контент
+            this.dynamicContent.innerHTML = fullHTML;
+            this.staticContent.style.display = 'none';
+            this.dynamicContent.style.display = 'block';
+            
+            console.log('✅ DOM обновлен');
+            
+            // Переинициализируем Split.js
+            this.reinitializeScripts();
             
         } catch (error) {
-            console.error('Ошибка сборки страницы:', error);
-            this.showError('Ошибка загрузки страницы');
+            console.error('❌ Ошибка сборки страницы:', error);
+            throw error;
         }
     }
 
@@ -113,16 +183,29 @@ class PageBuilder {
 
     // Переинициализация скриптов
     reinitializeScripts() {
-        // Инициализация Split.js
+        console.log('🔄 Переинициализация Split.js...');
+        
         if (typeof Split !== 'undefined') {
-            Split(['#sidebar', '#content'], {
-                sizes: [15, 85],
-                minSize: 100
-            });
+            // Удаляем старый split если есть
+            const sidebar = document.getElementById('sidebar');
+            const content = document.getElementById('content');
+            
+            if (sidebar && content) {
+                Split(['#sidebar', '#content'], {
+                    sizes: [15, 85],
+                    minSize: 100,
+                    gutterSize: 8,
+                    onDrag: function() {
+                        console.log('📏 Размеры изменены');
+                    }
+                });
+                console.log('✅ Split.js инициализирован');
+            } else {
+                console.error('❌ Элементы sidebar/content не найдены');
+            }
+        } else {
+            console.error('❌ Split.js не загружен');
         }
-
-        // Инициализация обработчиков событий
-        this.initializeEventHandlers();
     }
 
     // Инициализация обработчиков событий
@@ -146,30 +229,47 @@ class PageBuilder {
         });
     }
 
+    showLoading() {
+        console.log('⏳ Показываем индикатор загрузки...');
+    }
+    
     // Показать ошибку
     showError(message) {
-        document.body.innerHTML = `
-            <div style="padding: 20px; text-align: center; color: #d00;">
+        console.error('💥 Показываем ошибку:', message);
+        this.dynamicContent.innerHTML = `
+            <div style="padding: 50px; text-align: center; color: #d00;">
                 <h2>Ошибка</h2>
                 <p>${message}</p>
                 <button onclick="location.reload()">Перезагрузить</button>
             </div>
         `;
+        this.staticContent.style.display = 'none';
+        this.dynamicContent.style.display = 'block';
     }
 
     // Загрузка данных страницы
     async loadPage(pageId) {
         try {
+            console.log('🚀 Начинаем загрузку страницы:', pageId);
             console.log(`Загрузка страницы: ${pageId}`);
+
+            // Показываем загрузку
+            this.showLoading();
+
+            // Проверяем доступность данных
+            const dataUrl = `${this.dataBasePath}pages/${pageId}.json`;
+            console.log('📊 Загружаем данные из:', dataUrl);
             
             const response = await fetch(`${this.dataBasePath}pages/${pageId}.json`);
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            if (!response.ok) throw new Error(`HTTP ${response.status} - ${dataUrl}`);
             
             const pageData = await response.json();
+            console.log('✅ Данные загружены:', pageData);
+
             await this.buildPage(pageData);
             
             // Обновляем URL без перезагрузки
-            window.history.pushState({}, '', `?page=${pageId}`);
+            window.history.pushState({ page: pageId }, '', `?page=${pageId}`);
             
         } catch (error) {
             console.error('Ошибка загрузки страницы:', error);

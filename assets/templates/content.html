@@ -1,10 +1,25 @@
 <div class='wiki-page'>
     <div class='wiki-title'>
-        <h1 class='page-title-lvl-cover' id='Bookmark1'>{{pageTitle}}</h1>
+        <h1 class='page-title-lvl-cover'>{{page.title}}</h1>
     </div>
+    
     <div class='wiki-content'>
-        {{#each sections}}
-            {{> section}}
-        {{/each}}
+        <p>Это тестовый контент для страницы: <strong>{{page.title}}</strong></p>
+        
+        {{#if sections}}
+            <p>Количество секций: {{sections.length}}</p>
+        {{else}}
+            <p>Секции не загружены</p>
+        {{/if}}
+        
+        <div class="debug-info">
+            <h3>Отладочная информация:</h3>
+            <pre id="debug-output"></pre>
+        </div>
     </div>
 </div>
+
+<script>
+    // Выводим отладочную информацию
+    document.getElementById('debug-output').textContent = JSON.stringify({{json page}}, null, 2);
+</script>
