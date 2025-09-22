@@ -1,0 +1,21 @@
+{
+    "title": "SSM - Soft Systems Methodology by Checkland",
+    "pageTitle": "SSM - Soft Systems Methodology by Checkland",
+    "sections": [
+        {
+            "header": {
+                "anchor": "Bookmark2",
+                "number": "1", 
+                "title": "Введение"
+            },
+            "table": {
+                "rows": [
+                    {
+                        "label": "Ответственный за тех.реализацию продукта",
+                        "content": "<p><a href=\"#\">Сергей Бульдяев</a></p>"
+                    }
+                ]
+            }
+        }
+    ]
+}
