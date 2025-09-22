@@ -48,7 +48,7 @@
         <script>
             // Конфигурация приложения
             const APP_CONFIG = {
-                defaultPage: 'about_me',
+                defaultPage: 'about',
                 templatesPath: 'assets/templates/',
                 dataPath: 'pages/',
                 pagesPath: 'pages/govorov'
@@ -70,7 +70,7 @@
                         let pageId = urlParams.get('page');
                         
                         if (!pageId) {
-                            // Если страница не указана в URL, используем about_me
+                            // Если страница не указана в URL, используем about
                             pageId = APP_CONFIG.defaultPage;
                             // Обновляем URL без перезагрузки
                             window.history.replaceState({}, '', `?page=${pageId}`);
@@ -200,7 +200,7 @@
                             <p>${message}</p>
                             <button onclick="location.reload()">Перезагрузить</button>
                             <br><br>
-                            <a href="?page=about_me">Попробовать загрузить about_me</a>
+                            <a href="?page=about">Попробовать загрузить about</a>
                         </div>
                     `;
                 }

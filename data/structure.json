@@ -10,7 +10,7 @@
                 {
                     "id": "about",
                     "title": "Обо мне",
-                    "file": "pages/govorov/about_me.html",
+                    "file": "pages/govorov/about.html",
                     "type": "article"
                 },
                 {
