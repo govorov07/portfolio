@@ -1,25 +1,53 @@
 <div class='wiki-page'>
+    <!-- Хлебные крошки -->
+    {{#if page.breadcrumbs}}
+    <nav class="breadcrumbs">
+        {{#each page.breadcrumbs}}
+            {{#if url}}<a href="{{url}}" data-page="{{page}}">{{title}}</a>{{else}}<span>{{title}}</span>{{/if}}
+            {{#unless @last}} &raquo; {{/unless}}
+        {{/each}}
+    </nav>
+    {{/if}}
+    
     <div class='wiki-title'>
-        <h1 class='page-title-lvl-cover'>{{page.title}}</h1>
+        <h1 class='page-title-lvl-cover' id='page-title'>{{page.title}}</h1>
     </div>
     
     <div class='wiki-content'>
-        <p>Это тестовый контент для страницы: <strong>{{page.title}}</strong></p>
+        {{#each sections}}
+            <div class="content-section" id="section-{{@index}}">
+                {{#if (eq type "header")}}
+                    {{> components/header anchor=data.anchor number=data.number title=data.title}}
+                
+                {{else if (eq type "table")}}
+                    <div class="{{data.classes}}">
+                        {{> components/table rows=data.rows}}
+                    </div>
+                
+                {{else if (eq type "section")}}
+                    {{> components/section paragraphs=data.paragraphs}}
+                
+                {{else if (eq type "note")}}
+                    {{> components/note text=data.text type=data.type}}
+                {{/if}}
+            </div>
+        {{/each}}
         
-        {{#if sections}}
-            <p>Количество секций: {{sections.length}}</p>
-        {{else}}
-            <p>Секции не загружены</p>
-        {{/if}}
-        
-        <div class="debug-info">
-            <h3>Отладочная информация:</h3>
-            <pre id="debug-output"></pre>
+        <!-- Навигация между страницами -->
+        {{#if navigation}}
+        <div class="page-navigation">
+            {{#if navigation.previous}}
+            <a href="{{navigation.previous.url}}" data-page="{{navigation.previous.page}}" class="nav-button prev">
+                ← {{navigation.previous.title}}
+            </a>
+            {{/if}}
+            
+            {{#if navigation.next}}
+            <a href="{{navigation.next.url}}" data-page="{{navigation.next.page}}" class="nav-button next">
+                {{navigation.next.title}} →
+            </a>
+            {{/if}}
         </div>
+        {{/if}}
     </div>
 </div>
-
-<script>
-    // Выводим отладочную информацию
-    document.getElementById('debug-output').textContent = JSON.stringify({{json page}}, null, 2);
-</script>
