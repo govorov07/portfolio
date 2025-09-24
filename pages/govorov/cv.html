@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 6.0.0-GA -->
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<link rel="stylesheet" href="assets/styles/combined.css" />
+		<link rel="stylesheet" href="assets/styles/custom.css" />
+		<link rel="stylesheet" href="assets/styles/inline_styles.css" />
+
+		<script src="assets/scripts/split/split.min.js"></script>
+	</head>
+
+	<body>
+		<div class="full-height-container">
+			<div id="sidebar" class="split">
+				<div class="navgroup" id="search">
+					<form
+						action="C:\Users\nevsk\Downloads\SSM - Soft Systems Methodology by Checkland-v2-20250211_134004\pages\portofolio\search.html"
+						class="aui">
+						<input type="text" name="q" id="tipue_search_input" class="medium-field text">
+						<input class="button submit" type="submit" value="Search">
+					</form>
+				</div>
+
+				<div class="navgroup" id="navigation">
+					<ul>
+						<li>
+							<span>Говоров Андрей Сергеевич</span><input type="checkbox" checked />
+							<ul>
+								<li><span><a href="pages/govorov/about.html">Обо мне</a></span></li>
+								<li><span><a href="pages/govorov/cv.html">Резюме</a></span></li>
+							</ul>
+						</li>
+						<li>
+							<span>Портфолио</span><input type="checkbox" />
+							<ul>
+								<li><span>01. Требования</span><input type="checkbox" />
+									<ul>
+										<li><span>Требования к фильтрации событий</span></li>
+									</ul>
+								</li>
+								<li><span>02. Спецификации</span><input type="checkbox" />
+									<ul>
+										<li><span>Спецификация. Фильтрация событий</span></li>
+									</ul>
+								</li>
+								<li><span>03. База данных</span><input type="checkbox" />
+									<ul>
+										<li><span>Группы событий (smart) (Архитектурная модель)</span></li>
+										<li><span>Типы событий (smart) (Архитектурная модель)</span></li>
+										<li><span>Группы-типы событий (smart) (Архитектурная модель)</span></li>
+									</ul>
+								</li>
+								<li><span>04. REST API</span><input type="checkbox" />
+									<ul>
+										<li><span>POST api/v3/events</span></li>
+										<li><span>GET api/v3/events/filters</span></li>
+										<li><span>POST api/v3/events</span></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+
+            
+		</div>
+
+		<script>
+			Split(['#sidebar', '#content'], {
+				sizes: [15, 85],
+				minSize: 100
+			});
+		</script>
+	</body>
+</html>

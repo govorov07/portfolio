@@ -1,8 +1,0 @@
-RewriteEngine On
-RewriteBase /portfolio/
-
-# Перенаправление корневой страницы
-RewriteRule ^$ index.html?page=about [L,QSA]
-
-# Перенаправление названий страниц
-RewriteRule ^([a-zA-Z0-9_-]+)/?$ index.html?page=$1 [L,QSA]
