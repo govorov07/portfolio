@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="/portfolio/assets/styles/combined.css" />
 		<link rel="stylesheet" href="/portfolio/assets/styles/custom.css" />
 		<link rel="stylesheet" href="/portfolio/assets/styles/inline_styles.css" />
+		<link rel="stylesheet" href="/portfolio/assets/styles/plantuml.css" />
 		<script src="/portfolio/assets/scripts/jquery-3.2.1.min.js"></script>
 		<script src="/portfolio/assets/scripts/split/split.min.js"></script>
 	</head>
@@ -71,7 +72,7 @@
 			<div id="content" class="split">
 				<div class='wiki-page'>
 					<div class='wiki-title'>
-						<h1 class='page-title-lvl-cover' id='Bookmark1'>Спецификация. Фильтрация событий</h1>
+						<h1 class='page-title-lvl-cover' id='Bookmark0001'>Спецификация. Фильтрация событий</h1>
 					</div>
 
 					<div class='wiki-content'>
@@ -79,8 +80,8 @@
 							<div class="columnLayout single" data-layout="single">
 								<div class="cell normal" data-type="normal">
 									<div class="innerCell">
-										<a name="Bookmark2"></a>
-										<h1 style="text-decoration: none;" id="Bookmark2"><span class="nh-number">История изменений</span></h1>
+										<a name="Bookmark1000"></a>
+										<h1 style="text-decoration: none;" id="Bookmark1000"><span class="nh-number">История изменений</span></h1>
 										<div class="table-wrap">
 											<table class="confluenceTable" style="font-size:1.0em">
 												<tbody>
@@ -144,6 +145,16 @@
 										<p></p>
 										<div class="toc-macro rbtoc1739270405410">
 											<ul class="toc-indentation">
+												<li><a href="#Bookmark1000" title="История изменений">История изменений</a></li>
+												<li><a href="#Bookmark2000" title="Сценарии">Сценарии</a>
+													<ul class="toc-indentation">
+														<li><a href="#Bookmark2100" title="Открытие страницы События">Открытие страницы "События"</a></li>
+													</ul>
+												</li>
+												<li><a href="#Bookmark106" title="1. История изменений">1. История изменений</a></li>
+												<li><a href="#Bookmark106" title="1. История изменений">1. История изменений</a></li>
+												<li><a href="#Bookmark106" title="1. История изменений">1. История изменений</a></li>
+												<li><a href="#Bookmark106" title="1. История изменений">1. История изменений</a></li>
 												<li><a href="#Bookmark106" title="1. История изменений">1. История изменений</a></li>
 												<li><a href="#Bookmark111" title="2. Введение">2. Введение</a>
 													<ul class="toc-indentation">
@@ -185,10 +196,10 @@
 							<div class="columnLayout single" data-layout="single">
 								<div class="cell normal" data-type="normal">
 									<div class="innerCell">
-										<a name="Bookmark3"></a>
-										<h1 style="text-decoration: none;" id="Bookmark3"><span class="nh-number">Сценарии</span></h1>
-										<a name="Bookmark4"></a>
-										<h2 id="Bookmark4"><span class="nh-number">Открытие страницы "События"</span></h2>
+										<a name="Bookmark2000"></a>
+										<h1 style="text-decoration: none;" id="Bookmark2000"><span class="nh-number">Сценарии</span></h1>
+										<a name="Bookmark2100"></a>
+										<h2 id="Bookmark2100"><span class="nh-number">Открытие страницы "События"</span></h2>
 										<div class="table-wrap">
 											<table class="confluenceTable" style="font-size:1.0em">
 												<tbody>
@@ -312,25 +323,79 @@
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"><b>5б</b></td>
 														<td class="confluenceTd" style="padding: 0.5em;">
-
+															<ul>
+																<li>Если Бэкенд УД возвращает ЛК/МП УД ответ с ошибкой:</p>
+																	<ul>
+																		<li>ЛК УД отображает ошибку в виде нотификации
+																			<ul>
+																				<li>Заголовок: "Что-то пошло не так"</li>
+																				<li>Текст: "Не удалось загрузить список фильтров"</li>
+																			</ul>
+																		</li>
+																		<li>МП УД отображает ошибку в виде шторки:
+																			<ul>
+																				<li>Заголовок: "Что-то пошло не так"</li>
+																				<li>Текст: "Не удалось загрузить список фильтров"</li>
+																				<li>Кнопка: "Попробовать ещё раз" (перезапускает процесс с 3 шага)</li>
+																			</ul>
+																		</li>
+																	</ul>
+																</li>
+															</ul>
 														</td>
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"><b>12а</b></td>
 														<td class="confluenceTd" style="padding: 0.5em;">
-															
+															<ul>
+																<li>Если Бэкенд УД по таймауту не возвращает ЛК/МП УД ответ:
+																	<ul>
+																		<li>ЛК УД отображает ошибку в виде нотификации:
+																			<ul>
+																				<li>Заголовок: "Что-то пошло не так"</li>
+																				<li>Текст: "Не удалось загрузить список событий"</li>
+																			</ul>
+																		</li>
+																		<li>МП УД отображает ошибку в виде шторки:
+																			<ul>
+																				<li>Заголовок: "Что-то пошло не так"</li>
+																				<li>Текст: "Не удалось загрузить список событий"</li>
+																				<li>Кнопка: "Попробовать ещё раз" (перезапускает процесс с 7 шага)</li>
+																			</ul>
+																		</li>
+																	</ul>
+																</li>
+															</ul>
 														</td>
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"><b>12б</b></td>
 														<td class="confluenceTd" style="padding: 0.5em;">
-
+															<ul>
+																<li>Если Бэкенд УД возвращает ЛК/МП УД ответ с ошибкой:
+																	<ul>
+																		<li>ЛК УД отображает ошибку в виде нотификации:
+																			<ul>
+																				<li>Заголовок: "Что-то пошло не так"</li>
+																				<li>Текст: "{message}"</li>
+																			</ul>
+																		</li>
+																		<li>МП УД отображает ошибку в виде шторки:
+																			<ul>
+																				<li>Заголовок: "Что-то пошло не так"</li>
+																				<li>Текст: "{message}"</li>
+																				<li>Кнопка: "Попробовать ещё раз" (перезапускает процесс с 7 шага)</li>
+																			</ul>
+																		</li>
+																	</ul>
+																</li>
+															</ul>
 														</td>
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"><b>12в</b></td>
 														<td class="confluenceTd" style="padding: 0.5em;">
-															
+															<p>Если Бэкенд УД вернул ЛК/МП УД пустой список (для установленных по умолчанию фильтров нет событий), ЛК/МП УД отображает текст «Нет событий».</p>
 														</td>
 													</tr>
 												</tbody>
@@ -342,13 +407,363 @@
 							<div class="columnLayout single" data-layout="single">
 								<div class="cell normal" data-type="normal">
 									<div class="innerCell">
+										<hr>
 									</div>
 								</div>
 							</div>
 							<div class="columnLayout single" data-layout="single">
 								<div class="cell normal" data-type="normal">
 									<div class="innerCell">
+										<a name="Bookmark4000"></a>
+										<h1 style="text-decoration: none;" id="Bookmark4000"><span class="nh-number">Схема открытия страницы "События"</span></h1>
 									</div>
+									
+									<section class="diagram-section">
+										<h2>Архитектура системы</h2>
+										<div class="diagram-container">
+											<img src="/portfolio/assets/images/diagrams/sequence-events-open.png" alt="Диаграмма архитектуры системы" class="plantuml-diagram">
+											<div class="diagram-controls">
+												<button onclick="toggleZoom(this)">Увеличить</button>
+												<a href="/portfolio/assets/images/diagrams/sequence-events-open.png" download>Скачать SVG</a>
+												<a href="/portfolio/assets/images/diagrams/sequence-events-open.png" download>Скачать PNG</a>
+											</div>
+										</div>
+									</section>
+									
+									<section class="diagram-section">
+										<h2>Последовательность действий</h2>
+										<div class="diagram-container">
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="SEQUENCE" height="1030px" preserveAspectRatio="none" style="width:977px;height:1030px;background:#FFFFFF;" version="1.1" viewBox="0 0 977 1030" width="977px" zoomAndPan="magnify">
+												<defs/>
+												<g>
+													<g>
+														<title>.......... ..........</title>
+														<rect fill="#FFFFFF" height="827.8047" style="stroke:#181818;stroke-width:1;" width="10" x="337.7329" y="112.4297" />
+													</g>
+													<g>
+														<title>...... ..</title>
+														<rect fill="#FFFFFF" height="286.9375" style="stroke:#181818;stroke-width:1;" width="10" x="577.144" y="185.8281" />
+													</g>
+													<g>
+														<title>...... ..</title>
+														<rect fill="#FFFFFF" height="357.0703" style="stroke:#181818;stroke-width:1;" width="10" x="577.144" y="538.0313" />
+													</g>
+													<g>
+														<title>EStore</title>
+														<rect fill="#FFFFFF" height="29.1328" style="stroke:#181818;stroke-width:1;" width="10" x="925.5063" y="633.4297" />
+													</g>
+													<rect fill="none" height="309.0703" style="stroke:#000000;stroke-width:1.5;" width="864.8247" x="10" y="200.8281" />
+													<rect fill="none" height="379.2031" style="stroke:#000000;stroke-width:1.5;" width="960.5845" x="10" y="553.0313" />
+													<g>
+														<title>............ ..</title>
+														<rect fill="#000000" fill-opacity="0.00000" height="867.9375" width="8" x="82.5093" y="81.2969" />
+														<line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5,5;" x1="86" x2="86" y1="81.2969" y2="949.2344" />
+													</g>
+													<g>
+														<title>.......... ..........</title>
+														<rect fill="#000000" fill-opacity="0.00000" height="867.9375" width="8" x="338.7329" y="81.2969" />
+														<line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5,5;" x1="342.5161" x2="342.5161" y1="81.2969"
+															y2="949.2344" />
+													</g>
+													<g>
+														<title>...... ..</title>
+														<rect fill="#000000" fill-opacity="0.00000" height="867.9375" width="8" x="578.144" y="81.2969" />
+														<line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5,5;" x1="581.5894" x2="581.5894" y1="81.2969"
+															y2="949.2344" />
+													</g>
+													<g>
+														<title>EStore</title>
+														<rect fill="#000000" fill-opacity="0.00000" height="867.9375" width="8" x="926.5063" y="81.2969" />
+														<line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5,5;" x1="930.4282" x2="930.4282" y1="81.2969"
+															y2="949.2344" />
+													</g>
+													<g class="participant participant-head" data-participant="u"><text fill="#000000" font-family="sans-serif"
+															font-size="14" lengthAdjust="spacing" textLength="127.0186" x="20" y="77.9951">Пользователь УД</text>
+														<ellipse cx="86.5093" cy="13.5" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+														<path
+															d="M86.5093,21.5 L86.5093,48.5 M73.5093,29.5 L99.5093,29.5 M86.5093,48.5 L73.5093,63.5 M86.5093,48.5 L99.5093,63.5"
+															fill="none" style="stroke:#181818;stroke-width:0.5;" />
+													</g>
+													<g class="participant participant-tail" data-participant="u"><text fill="#000000" font-family="sans-serif"
+															font-size="14" lengthAdjust="spacing" textLength="127.0186" x="20" y="961.2295">Пользователь УД</text>
+														<ellipse cx="86.5093" cy="973.0313" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+														<path
+															d="M86.5093,981.0313 L86.5093,1008.0313 M73.5093,989.0313 L99.5093,989.0313 M86.5093,1008.0313 L73.5093,1023.0313 M86.5093,1008.0313 L99.5093,1023.0313"
+															fill="none" style="stroke:#181818;stroke-width:0.5;" />
+													</g>
+													<g class="participant participant-head" data-participant="f">
+														<rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="198.4336"
+															x="243.5161" y="50" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+															textLength="184.4336" x="250.5161" y="69.9951">Клиентское приложение</text>
+													</g>
+													<g class="participant participant-tail" data-participant="f">
+														<rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="198.4336"
+															x="243.5161" y="948.2344" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+															textLength="184.4336" x="250.5161" y="968.2295">Клиентское приложение</text>
+													</g>
+													<g class="participant participant-head" data-participant="b">
+														<rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="91.1094"
+															x="536.5894" y="50" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+															textLength="77.1094" x="543.5894" y="69.9951">Бэкенд УД</text>
+													</g>
+													<g class="participant participant-tail" data-participant="b">
+														<rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="91.1094"
+															x="536.5894" y="948.2344" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+															textLength="77.1094" x="543.5894" y="968.2295">Бэкенд УД</text>
+													</g>
+													<g class="participant participant-head" data-participant="e">
+														<rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="60.1563"
+															x="900.4282" y="50" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+															textLength="46.1563" x="907.4282" y="69.9951">EStore</text>
+													</g>
+													<g class="participant participant-tail" data-participant="e">
+														<rect fill="#E2E2F0" height="30.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="60.1563"
+															x="900.4282" y="948.2344" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing"
+															textLength="46.1563" x="907.4282" y="968.2295">EStore</text>
+													</g>
+													<g>
+														<title>.......... ..........</title>
+														<rect fill="#FFFFFF" height="827.8047" style="stroke:#181818;stroke-width:1;" width="10" x="337.7329"
+															y="112.4297" />
+													</g>
+													<g>
+														<title>...... ..</title>
+														<rect fill="#FFFFFF" height="286.9375" style="stroke:#181818;stroke-width:1;" width="10" x="577.144" y="185.8281" />
+													</g>
+													<g>
+														<title>...... ..</title>
+														<rect fill="#FFFFFF" height="357.0703" style="stroke:#181818;stroke-width:1;" width="10" x="577.144" y="538.0313" />
+													</g>
+													<g>
+														<title>EStore</title>
+														<rect fill="#FFFFFF" height="29.1328" style="stroke:#181818;stroke-width:1;" width="10" x="925.5063" y="633.4297" />
+													</g>
+													<g class="message" data-participant-1="u" data-participant-2="f">
+														<polygon fill="#181818" points="325.7329,108.4297,335.7329,112.4297,325.7329,116.4297,329.7329,112.4297"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;" x1="86.5093" x2="331.7329" y1="112.4297" y2="112.4297" /><text
+															fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing"
+															textLength="9.0454" x="93.5093" y="107.3638">1</text><text fill="#000000" font-family="sans-serif"
+															font-size="13" lengthAdjust="spacing" textLength="219.1782" x="106.5547" y="107.3638">Открывает страницу
+															"События"</text>
+													</g>
+													<g class="message" data-participant-1="f" data-participant-2="u">
+														<polygon fill="#181818" points="97.5093,152.6953,87.5093,156.6953,97.5093,160.6953,93.5093,156.6953"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;" x1="91.5093" x2="336.7329" y1="156.6953" y2="156.6953" /><text
+															fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing"
+															textLength="9.0454" x="103.5093" y="144.063">2</text><text fill="#000000" font-family="sans-serif"
+															font-size="13" lengthAdjust="spacing" textLength="153.8037" x="116.5547" y="136.4966">Отображает
+															страницу</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+															textLength="201.7666" x="116.5547" y="151.6294">с заполнителями и лоадером</text>
+													</g>
+													<g class="message" data-participant-1="f" data-participant-2="b">
+														<polygon fill="#181818" points="565.144,181.8281,575.144,185.8281,565.144,189.8281,569.144,185.8281"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;" x1="347.7329" x2="571.144" y1="185.8281" y2="185.8281" /><text
+															fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing"
+															textLength="9.0454" x="354.7329" y="180.7622">3</text><text fill="#000000" font-family="sans-serif"
+															font-size="13" lengthAdjust="spacing" textLength="160.1069" x="367.7783" y="180.7622">GET
+															api/v3/events/filters</text>
+													</g>
+													<path d="M10,200.8281 L74.4429,200.8281 L74.4429,207.9609 L64.4429,217.9609 L10,217.9609 L10,200.8281" fill="#EEEEEE"
+														style="stroke:#000000;stroke-width:1.5;" />
+													<rect fill="none" height="309.0703" style="stroke:#000000;stroke-width:1.5;" width="864.8247" x="10" y="200.8281" />
+													<text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing"
+														textLength="19.4429" x="25" y="213.895">alt</text><text fill="#000000" font-family="sans-serif" font-size="11"
+														font-weight="bold" lengthAdjust="spacing" textLength="47.2119" x="89.4429" y="213.0386">[Успех]</text>
+													<g class="message" data-participant-1="b" data-participant-2="b">
+														<line style="stroke:#181818;stroke-width:1;" x1="587.144" x2="629.144" y1="254.2266" y2="254.2266" />
+														<line style="stroke:#181818;stroke-width:1;" x1="629.144" x2="629.144" y1="254.2266" y2="267.2266" />
+														<line style="stroke:#181818;stroke-width:1;" x1="588.144" x2="629.144" y1="267.2266" y2="267.2266" />
+														<polygon fill="#181818" points="598.144,263.2266,588.144,267.2266,598.144,271.2266,594.144,267.2266"
+															style="stroke:#181818;stroke-width:1;" /><text fill="#000000" font-family="sans-serif" font-size="13"
+															font-weight="bold" lengthAdjust="spacing" textLength="9.0454" x="594.144" y="241.5942">4</text><text
+															fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="241.5029" x="607.1895"
+															y="234.0278">Формирует ответ по данным из БД</text><text fill="#000000" font-family="sans-serif" font-size="13"
+															lengthAdjust="spacing" textLength="201.3096" x="607.1895" y="249.1606">(events_groups и event_types)</text>
+													</g>
+													<g class="message" data-participant-1="b" data-participant-2="f">
+														<polygon fill="#181818" points="358.7329,292.3594,348.7329,296.3594,358.7329,300.3594,354.7329,296.3594"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;stroke-dasharray:2,2;" x1="352.7329" x2="576.144" y1="296.3594"
+															y2="296.3594" /><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold"
+															lengthAdjust="spacing" textLength="9.0454" x="364.7329" y="291.2935">5</text><text fill="#000000"
+															font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="192.3657" x="377.7783"
+															y="291.2935">Ответ со списком фильтров</text>
+													</g>
+													<g class="message" data-participant-1="f" data-participant-2="u">
+														<polygon fill="#181818" points="97.5093,336.625,87.5093,340.625,97.5093,344.625,93.5093,340.625"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;" x1="91.5093" x2="336.7329" y1="340.625" y2="340.625" /><text
+															fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing"
+															textLength="9.0454" x="103.5093" y="327.9927">6</text><text fill="#000000" font-family="sans-serif"
+															font-size="13" lengthAdjust="spacing" textLength="136.4238" x="116.5547" y="320.4263">Отображает
+															список</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing"
+															textLength="137.0649" x="116.5547" y="335.5591">активных фильтров</text>
+													</g>
+													<line style="stroke:#000000;stroke-width:1;stroke-dasharray:2,2;" x1="10" x2="874.8247" y1="349.625" y2="349.625" />
+													<text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing"
+														textLength="142.8174" x="15" y="359.8354">[Ошибка по таймауту]</text>
+													<g class="message" data-participant-1="b" data-participant-2="f">
+														<polygon fill="#181818" points="358.7329,395.6953,348.7329,399.6953,358.7329,403.6953,354.7329,399.6953"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:2;" x1="559.144" x2="569.144" y1="394.6953" y2="404.6953" />
+														<line style="stroke:#181818;stroke-width:2;" x1="559.144" x2="569.144" y1="404.6953" y2="394.6953" />
+														<line style="stroke:#181818;stroke-width:1;stroke-dasharray:2,2;" x1="352.7329" x2="564.144" y1="399.6953"
+															y2="399.6953" /><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold"
+															lengthAdjust="spacing" textLength="38.7461" x="364.7329" y="387.063">[5а1]</text><text fill="#000000"
+															font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="125.9692" x="407.479"
+															y="379.4966">Превышено время</text><text fill="#000000" font-family="sans-serif" font-size="13"
+															lengthAdjust="spacing" textLength="120.6943" x="407.479" y="394.6294">ожидания ответа</text>
+													</g>
+													<g class="message" data-participant-1="f" data-participant-2="u">
+														<polygon fill="#181818" points="97.5093,424.8281,87.5093,428.8281,97.5093,432.8281,93.5093,428.8281"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;" x1="91.5093" x2="336.7329" y1="428.8281" y2="428.8281" /><text
+															fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing"
+															textLength="38.7461" x="103.5093" y="423.7622">[5а2]</text><text fill="#000000" font-family="sans-serif"
+															font-size="13" lengthAdjust="spacing" textLength="141.2354" x="146.2554" y="423.7622">Отображает ошибку</text>
+													</g>
+													<line style="stroke:#000000;stroke-width:1;stroke-dasharray:2,2;" x1="10" x2="874.8247" y1="437.8281" y2="437.8281" />
+													<text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing"
+														textLength="182.2144" x="15" y="448.0386">[Ошибка запроса фильтров]</text>
+													<g class="message" data-participant-1="b" data-participant-2="f">
+														<polygon fill="#181818" points="358.7329,468.7656,348.7329,472.7656,358.7329,476.7656,354.7329,472.7656"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;stroke-dasharray:2,2;" x1="352.7329" x2="581.144" y1="472.7656"
+															y2="472.7656" /><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold"
+															lengthAdjust="spacing" textLength="39.0508" x="364.7329" y="467.6997">[5б1]</text><text fill="#000000"
+															font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="117.019" x="407.7837"
+															y="467.6997">Ответ с ошибкой</text>
+													</g>
+													<g class="message" data-participant-1="f" data-participant-2="u">
+														<polygon fill="#181818" points="97.5093,497.8984,87.5093,501.8984,97.5093,505.8984,93.5093,501.8984"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;" x1="91.5093" x2="336.7329" y1="501.8984" y2="501.8984" /><text
+															fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing"
+															textLength="39.0508" x="103.5093" y="496.8325">[5б2]</text><text fill="#000000" font-family="sans-serif"
+															font-size="13" lengthAdjust="spacing" textLength="141.2354" x="146.5601" y="496.8325">Отображает ошибку</text>
+													</g>
+													<g class="message" data-participant-1="f" data-participant-2="b">
+														<polygon fill="#181818" points="565.144,534.0313,575.144,538.0313,565.144,542.0313,569.144,538.0313"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;" x1="347.7329" x2="571.144" y1="538.0313" y2="538.0313" /><text
+															fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing"
+															textLength="9.0454" x="354.7329" y="532.9653">7</text><text fill="#000000" font-family="sans-serif"
+															font-size="13" lengthAdjust="spacing" textLength="126.75" x="367.7783" y="532.9653">POST api/v3/events</text>
+													</g>
+													<path d="M10,553.0313 L74.4429,553.0313 L74.4429,560.1641 L64.4429,570.1641 L10,570.1641 L10,553.0313" fill="#EEEEEE"
+														style="stroke:#000000;stroke-width:1.5;" />
+													<rect fill="none" height="379.2031" style="stroke:#000000;stroke-width:1.5;" width="960.5845" x="10" y="553.0313" />
+													<text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing"
+														textLength="19.4429" x="25" y="566.0981">alt</text><text fill="#000000" font-family="sans-serif" font-size="11"
+														font-weight="bold" lengthAdjust="spacing" textLength="47.2119" x="89.4429" y="565.2417">[Успех]</text>
+													<g class="message" data-participant-1="b" data-participant-2="b">
+														<line style="stroke:#181818;stroke-width:1;" x1="587.144" x2="629.144" y1="591.2969" y2="591.2969" />
+														<line style="stroke:#181818;stroke-width:1;" x1="629.144" x2="629.144" y1="591.2969" y2="604.2969" />
+														<line style="stroke:#181818;stroke-width:1;" x1="588.144" x2="629.144" y1="604.2969" y2="604.2969" />
+														<polygon fill="#181818" points="598.144,600.2969,588.144,604.2969,598.144,608.2969,594.144,604.2969"
+															style="stroke:#181818;stroke-width:1;" /><text fill="#000000" font-family="sans-serif" font-size="13"
+															font-weight="bold" lengthAdjust="spacing" textLength="9.0454" x="594.144" y="586.231">8</text><text
+															fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="186.7417" x="607.1895"
+															y="586.231">формирует запрос в EStore</text>
+													</g>
+													<g class="message" data-participant-1="b" data-participant-2="e">
+														<polygon fill="#181818" points="913.5063,629.4297,923.5063,633.4297,913.5063,637.4297,917.5063,633.4297"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;" x1="587.144" x2="919.5063" y1="633.4297" y2="633.4297" /><text
+															fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing"
+															textLength="9.0454" x="594.144" y="628.3638">9</text><text fill="#000000" font-family="sans-serif"
+															font-size="13" lengthAdjust="spacing" textLength="228.249" x="607.1895" y="628.3638">POST
+															api/estore/events/by_devices</text>
+													</g>
+													<g class="message" data-participant-1="e" data-participant-2="b">
+														<polygon fill="#181818" points="598.144,658.5625,588.144,662.5625,598.144,666.5625,594.144,662.5625"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;" x1="592.144" x2="929.5063" y1="662.5625" y2="662.5625" /><text
+															fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing"
+															textLength="18.0908" x="604.144" y="657.4966">10</text><text fill="#000000" font-family="sans-serif"
+															font-size="13" lengthAdjust="spacing" textLength="183.2441" x="626.2349" y="657.4966">Ответ со списком
+															событий</text>
+													</g>
+													<g class="message" data-participant-1="b" data-participant-2="b">
+														<line style="stroke:#181818;stroke-width:1;" x1="587.144" x2="629.144" y1="691.6953" y2="691.6953" />
+														<line style="stroke:#181818;stroke-width:1;" x1="629.144" x2="629.144" y1="691.6953" y2="704.6953" />
+														<line style="stroke:#181818;stroke-width:1;" x1="588.144" x2="629.144" y1="704.6953" y2="704.6953" />
+														<polygon fill="#181818" points="598.144,700.6953,588.144,704.6953,598.144,708.6953,594.144,704.6953"
+															style="stroke:#181818;stroke-width:1;" /><text fill="#000000" font-family="sans-serif" font-size="13"
+															font-weight="bold" lengthAdjust="spacing" textLength="18.0908" x="594.144" y="686.6294">11</text><text
+															fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="292.2715" x="616.2349"
+															y="686.6294">Обогащает полученные события данными</text>
+													</g>
+													<g class="message" data-participant-1="b" data-participant-2="f">
+														<polygon fill="#181818" points="358.7329,729.8281,348.7329,733.8281,358.7329,737.8281,354.7329,733.8281"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;" x1="352.7329" x2="576.144" y1="733.8281" y2="733.8281" /><text
+															fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing"
+															textLength="18.0908" x="364.7329" y="728.7622">12</text><text fill="#000000" font-family="sans-serif"
+															font-size="13" lengthAdjust="spacing" textLength="183.2441" x="386.8237" y="728.7622">Ответ со списком
+															событий</text>
+													</g>
+													<g class="message" data-participant-1="f" data-participant-2="u">
+														<polygon fill="#181818" points="97.5093,758.9609,87.5093,762.9609,97.5093,766.9609,93.5093,762.9609"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;" x1="91.5093" x2="336.7329" y1="762.9609" y2="762.9609" /><text
+															fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing"
+															textLength="18.0908" x="103.5093" y="757.895">13</text><text fill="#000000" font-family="sans-serif"
+															font-size="13" lengthAdjust="spacing" textLength="198.4087" x="125.6001" y="757.895">Отображает список
+															событий</text>
+													</g>
+													<line style="stroke:#000000;stroke-width:1;stroke-dasharray:2,2;" x1="10" x2="970.5845" y1="771.9609" y2="771.9609" />
+													<text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing"
+														textLength="142.8174" x="15" y="782.1714">[Ошибка по таймауту]</text>
+													<g class="message" data-participant-1="b" data-participant-2="f">
+														<polygon fill="#181818" points="358.7329,818.0313,348.7329,822.0313,358.7329,826.0313,354.7329,822.0313"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:2;" x1="559.144" x2="569.144" y1="817.0313" y2="827.0313" />
+														<line style="stroke:#181818;stroke-width:2;" x1="559.144" x2="569.144" y1="827.0313" y2="817.0313" />
+														<line style="stroke:#181818;stroke-width:1;stroke-dasharray:2,2;" x1="352.7329" x2="564.144" y1="822.0313"
+															y2="822.0313" /><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold"
+															lengthAdjust="spacing" textLength="47.7915" x="364.7329" y="809.3989">[11а1]</text><text fill="#000000"
+															font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="125.9692" x="416.5244"
+															y="801.8325">Превышено время</text><text fill="#000000" font-family="sans-serif" font-size="13"
+															lengthAdjust="spacing" textLength="120.6943" x="416.5244" y="816.9653">ожидания ответа</text>
+													</g>
+													<g class="message" data-participant-1="f" data-participant-2="u">
+														<polygon fill="#181818" points="97.5093,847.1641,87.5093,851.1641,97.5093,855.1641,93.5093,851.1641"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;" x1="91.5093" x2="336.7329" y1="851.1641" y2="851.1641" /><text
+															fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing"
+															textLength="47.7915" x="103.5093" y="846.0981">[11а2]</text><text fill="#000000" font-family="sans-serif"
+															font-size="13" lengthAdjust="spacing" textLength="141.2354" x="155.3008" y="846.0981">Отображает ошибку</text>
+													</g>
+													<line style="stroke:#000000;stroke-width:1;stroke-dasharray:2,2;" x1="10" x2="970.5845" y1="860.1641" y2="860.1641" />
+													<text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing"
+														textLength="173.3091" x="15" y="870.3745">[Ошибка запроса событий]</text>
+													<g class="message" data-participant-1="b" data-participant-2="f">
+														<polygon fill="#181818" points="358.7329,891.1016,348.7329,895.1016,358.7329,899.1016,354.7329,895.1016"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;stroke-dasharray:2,2;" x1="352.7329" x2="581.144" y1="895.1016"
+															y2="895.1016" /><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold"
+															lengthAdjust="spacing" textLength="48.0962" x="364.7329" y="890.0356">[11б1]</text><text fill="#000000"
+															font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="117.019" x="416.8291"
+															y="890.0356">Ответ с ошибкой</text>
+													</g>
+													<g class="message" data-participant-1="f" data-participant-2="u">
+														<polygon fill="#181818" points="97.5093,920.2344,87.5093,924.2344,97.5093,928.2344,93.5093,924.2344"
+															style="stroke:#181818;stroke-width:1;" />
+														<line style="stroke:#181818;stroke-width:1;" x1="91.5093" x2="336.7329" y1="924.2344" y2="924.2344" /><text
+															fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing"
+															textLength="48.0962" x="103.5093" y="919.1685">[11б2]</text><text fill="#000000" font-family="sans-serif"
+															font-size="13" lengthAdjust="spacing" textLength="141.2354" x="155.6055" y="919.1685">Отображает ошибку</text>
+													</g>
+													<!--SRC=[rLJ1JXDH5DtFLxnqWou84cDCY271XBWock1E3PbfRyd4CZFEcocoewqe1WmnOUK2OlG3XagXb59-uRu_yhmtKsPe8JI6XJPDEhrpxxddddVka-zSBx13UrM490FVa_ISfBHNw2dL_BM5CFJNH1J6P4t9oqn9xsFooiFCXPgxuecA6r8vSdtFikF8z-9LXqBBiknov8UYn0Syu3ErmoVuRNEYcjpH_mN_vBsIiAM8BO17RjaDR2z2mNS-uowIpbLJDRY7iexW2xM1u1d-7EjNEi4KLqUAlwclAD4PHta7nvggs97js99q2YSWamW-miCvscohpJotubn1N5p25AHVa6N5OdfULES4xsEAdjfGsteYxgYcK0smtJ20NVL9jT3d1yWU0ho9o6v9w-7MxOX0kQfnuWn79-d2uvkGtdYg8JHZlj1IcdWguYxtkIlqLmkJOA0EAWVS5saBPquyMtmbxC2TgJ-SeJfvaPofkhM8GfdpSN1MjGWAGEqB86nQ0Xyd0-1VF00e6c7Ubc68G1E3cqTGAWY9pZYP4m6Dzy3xNjfoUINquq1geYQm7Aq79EyFsnGqRMSA0DIGwMO6w0lrKH-_sZ7Qm4Yc-1OTCu01zy05qPu-2lH8JtmCaMgm1w2s43z4soIT3aK9dqA0HBMGspATSwSB6Vd1QApqn9b__OYJ1szBsPGVfgVDb0Terk4s66mPbqAzjWdrrQvcgVtTpGI5RGfQStBxpCZEsD_0yvePZR6q190gkLxdoQOzpAUzxamBv01yQZ8hL73X7KpdLQp29IGUNwx1onTB8timgVyXo9Z_2vBX-B8x8g-YGZ-I-jrmzvprvGhLtJB9bF-GGbfCmvMxPHKQ-SKohYDTtTvzo3NWtp3lbw6AvXQ1bpyR0-gjxLp1rAuhR3HtSyJgtv2RV4j7Ykzw8MTd_ykD75Tqmc7_YONy0m00]-->
+												</g>
+											</svg>
+										</div>
+									</section>
+
 								</div>
 							</div>
 							<div class="columnLayout single" data-layout="single">
