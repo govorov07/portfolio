@@ -8,9 +8,6 @@
 		<link rel="stylesheet" href="/portfolio/assets/styles/combined.css" />
 		<link rel="stylesheet" href="/portfolio/assets/styles/custom.css" />
 		<link rel="stylesheet" href="/portfolio/assets/styles/inline_styles.css" />
-
-		<script src="/portfolio/assets/scripts/split/split.min.js"></script>
-		<script src="/portfolio/assets/scripts/navigation-manager.js"></script>
 	</head>
 
 	<body>
@@ -303,6 +300,12 @@
 			</div>
 		</div>
 
+		<!-- ПОДКЛЮЧЕНИЕ СКРИПТОВ В ПРАВИЛЬНОМ ПОРЯДКЕ -->
+		<script src="/portfolio/assets/scripts/jquery-3.2.1.min.js"></script>
+		<script src="/portfolio/assets/scripts/split/split.min.js"></script>
+		
+		<!-- СНАЧАЛА подключаем скрипт с NavigationManager -->
+		<script src="/portfolio/assets/scripts/navigation-manager.js"></script>
 		<script>
 			Split(['#sidebar', '#content'], {
 				sizes: [15, 85],
