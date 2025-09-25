@@ -3,12 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <title>Search Result</title>
-        <link rel="stylesheet" href="combined.css"/>
-        <script src="jquery/jquery-3.2.1.min.js"></script>
-        <script src="tipuesearch/tipuesearch_content.js"></script>
-        <script src="tipuesearch/tipuesearch_set.js"></script>
-        <script src="tipuesearch/tipuesearch.min.js"></script>
-        <script src="split/split.min.js"></script>
+		<link rel="stylesheet" href="/portfolio/assets/styles/combined.css" />
+		<link rel="stylesheet" href="/portfolio/assets/styles/custom.css" />
+		<link rel="stylesheet" href="/portfolio/assets/styles/inline_styles.css" />
     </head>
     
     <div class="full-height-container">
@@ -22,30 +19,67 @@
             
             <div class="navgroup" id="navigation">
                 <ul>
-                    <li>
-                        <span><a href="page292700432.html">SSM - Soft Systems Methodology by Checkland</a></span>
-                        <input type="checkbox"/>
+                    <li data-category="author">
+                        <span>Говоров Андрей Сергеевич</span><input type="checkbox" />
                         <ul>
-                            <li>
-                                <span><a href="page292700446.html">1. [SSM] Черновик и Чистовик</a></span>
-                                <input type="checkbox"/>
+                            <li data-page="about">
+                                <span><a href="/portfolio/pages/govorov/about.html">Обо мне</a></span>
+                            </li>
+                            <li data-page="cv">
+                                <span><a href="/portfolio/pages/govorov/cv.html">Резюме</a></span>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li data-category="portfolio">
+                        <span>Портфолио</span><input type="checkbox" />
+                        <ul>
+                            <li data-category="requirements">
+                                <span>01. Требования</span><input type="checkbox" />
                                 <ul>
-                                    <li>
-                                        <span><a href="page298994988.html">Часть 1: API GET методы для UI</a></span>
+                                    <li data-page="rfilters">
+                                        <span><a href="/portfolio/pages/portofolio/requirements/rfilters.html">Требования к фильтрации событий</a></span>
                                     </li>
                                 </ul>
                             </li>
-                            <li>
-                                <span><a href="page292702311.html">2. [SSM] Формирование заявок/отчетов. Отправка в ОРД. Статусная модель. Excel-выгрузки.</a></span>
+                            
+                            <li data-category="specifications">
+                                <span>02. Спецификации</span><input type="checkbox" />
+                                <ul>
+                                    <li data-page="sfilters">
+                                        <span><a href="/portfolio/pages/portofolio/specifications/sfilters.html">Спецификация. Фильтрация событий</a></span>
+                                    </li>
+                                </ul>
                             </li>
-                            <li>
-                                <span><a href="page298997495.html">3. [SSM] Проработка фичей вне БФТ</a></span>
+                            
+                            <li data-category="database">
+                                <span>03. База данных</span><input type="checkbox" />
+                                <ul>
+                                    <li data-page="events_groups">
+                                        <span><a href="/portfolio/pages/portofolio/database/events_groups.html">Группы событий</a></span>
+                                    </li>
+                                    <li data-page="event_types">
+                                        <span><a href="/portfolio/pages/portofolio/database/event_types.html">Типы событий</a></span>
+                                    </li>
+                                    <li data-page="event_types_groups">
+                                        <span><a href="/portfolio/pages/portofolio/database/event_types_groups.html">Группы-типы событий</a></span>
+                                    </li>
+                                </ul>
                             </li>
-                            <li>
-                                <span><a href="page309407588.html">4. [SSM] Получение актуальных DTO из ОРД Яндекс</a></span>
-                            </li>
-                            <li>
-                                <span><a href="page292700439.html">XX. [SSM] Шаблон</a></span>
+                            
+                            <li data-category="api">
+                                <span>04. REST API</span><input type="checkbox" />
+                                <ul>
+                                    <li data-page="postevents">
+                                        <span><a href="/portfolio/pages/portofolio/api/postevents.html">POST api/v3/events</a></span>
+                                    </li>
+                                    <li data-page="getfilters">
+                                        <span><a href="/portfolio/pages/portofolio/api/getfilters.html">GET api/v3/events/filters</a></span>
+                                    </li>
+                                    <li data-page="postdays">
+                                        <span><a href="/portfolio/pages/portofolio/api/postdays.html">POST api/v3/events/days</a></span>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>
@@ -64,6 +98,16 @@
         </div>
     </div>
     
+    <!-- ПОДКЛЮЧЕНИЕ СКРИПТОВ В ПРАВИЛЬНОМ ПОРЯДКЕ -->
+    <script src="/portfolio/assets/scripts/jquery-3.2.1.min.js"></script>
+    <script src="tipuesearch/tipuesearch_content.js"></script>
+    <script src="tipuesearch/tipuesearch_set.js"></script>
+    <script src="tipuesearch/tipuesearch.min.js"></script>
+    <script src="/portfolio/assets/scripts/split/split.min.js"></script>
+    <script src="/portfolio/assets/scripts/navigation-manager.js"></script>
+    <script src="/portfolio/assets/scripts/main.js"></script>
+
+
     <script>
         Split(['#sidebar', '#content'], {
             sizes: [15, 85],
@@ -72,6 +116,27 @@
         $(document).ready(function() {
             $('#tipue_search_input').tipuesearch();
         });
+
+        // Инициализация навигации после загрузки DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📖 Инициализация NavigationManager...');
+            new NavigationManager();
+        });
+        
+        // Альтернатива: если страница загружается динамически
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initNavigation);
+        } else {
+            initNavigation();
+        }
+        
+        function initNavigation() {
+            try {
+                new NavigationManager();
+            } catch (error) {
+                console.error('Ошибка инициализации навигации:', error);
+            }
+        }
     </script>
 </body>
 </html>

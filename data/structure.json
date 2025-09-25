@@ -1,0 +1,113 @@
+{
+    "title": "Портфолио",
+    "children": [
+        {
+            "id": "author",
+            "title": "Говоров Андрей Сергеевич",
+            "type": "category",
+            "expanded": true,
+            "children": [
+                {
+                    "id": "about",
+                    "title": "Обо мне",
+                    "file": "pages/author/about.html",
+                    "type": "article"
+                },
+                {
+                    "id": "cv", 
+                    "title": "Резюме",
+                    "file": "pages/author/cv.html",
+                    "type": "article"
+                }
+            ]
+        },
+        {
+            "id": "portfolio",
+            "title": "Портфолио", 
+            "type": "category",
+            "expanded": true,
+            "children": [
+                {
+                    "id": "requirements",
+                    "title": "01. Требования",
+                    "type": "category", 
+                    "expanded": true,
+                    "children": [
+                        {
+                            "id": "event-filters-req",
+                            "title": "Требования к фильтрации событий",
+                            "file": "pages/portfolio/requirements/event-filters.html",
+                            "type": "article"
+                        }
+                    ]
+                },
+                {
+                    "id": "specifications", 
+                    "title": "02. Спецификации",
+                    "type": "category",
+                    "expanded": true,
+                    "children": [
+                        {
+                            "id": "event-filters-spec",
+                            "title": "Спецификация. Фильтрация событий",
+                            "file": "pages/portfolio/specifications/event-filters.html",
+                            "type": "article"
+                        }
+                    ]
+                },
+                {
+                    "id": "database",
+                    "title": "03. База данных", 
+                    "type": "category",
+                    "expanded": true,
+                    "children": [
+                        {
+                            "id": "event-groups",
+                            "title": "Группы событий (Архитектурная модель)",
+                            "file": "pages/portfolio/database/event-groups.html",
+                            "type": "article"
+                        },
+                        {
+                            "id": "event-types",
+                            "title": "Типы событий (Архитектурная модель)", 
+                            "file": "pages/portfolio/database/event-types.html",
+                            "type": "article"
+                        },
+                        {
+                            "id": "event-types-groups",
+                            "title": "Связь групп и типов событий (Архитектурная модель)",
+                            "file": "pages/portfolio/database/event-types-groups.html",
+                            "type": "article"
+                        }
+                    ]
+                },
+                {
+                    "id": "api",
+                    "title": "04. REST API",
+                    "type": "category",
+                    "expanded": true, 
+                    "children": [
+                        {
+                            "id": "api-events-days",
+                            "title": "POST /api/v3/events/days",
+                            "file": "pages/portfolio/api/events-days.html",
+                            "type": "article"
+                        },
+                        {
+                            "id": "api-events-filters",
+                            "title": "GET /api/v3/events/filters",
+                            "file": "pages/portfolio/api/events-filters.html",
+                            "type": "article"
+                        },
+                        {
+                            "id": "api-events",
+                            "title": "POST /api/v3/events",
+                            "file": "pages/portfolio/api/events.html",
+                            "type": "article"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
