@@ -72,3 +72,38 @@
     }
     /* ... и т.д. для остальных статусов */
 }
+
+.yfm .wiki-toc {
+    border: 1px solid var(--g-color-line-generic);
+    border-radius: var(--g-border-radius-xl);
+    margin-bottom: 16px;
+    padding: 20px;
+    white-space: normal;
+    width: fit-content;
+}
+
+.yfm * {
+    box-sizing: border-box;
+}
+
+.yfm .wiki-toc__head {
+    border-bottom: 1px solid var(--g-color-line-generic);
+    margin-top: 0;
+    padding-bottom: 12px;
+}
+
+.yfm .wiki-toc__content p:has(.wiki-toc__item_depth_1) {
+    padding-left: 0;
+}
+
+.yfm .wiki-toc__content p:has(.wiki-toc__item_depth_2) {
+    padding-left: 24px;
+}
+
+.yfm .wiki-toc__content p:has(.wiki-toc__item_depth_3) {
+    padding-left: 48px;
+}
+
+.yfm .wiki-toc__content p {
+    margin: 0 0 3px;
+}
