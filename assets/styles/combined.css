@@ -1874,69 +1874,37 @@ form.aui .button {
 
 @font-face {
     font-family: "Atlassian Icons";
-    src: url(fonts/Atlassian-icons.ttf) format("truetype");
+    src: url(/portfolio/assets/fonts/Atlassian-icons.ttf) format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
-/* Стили для активной (текущей) страницы */
-.nav-current-page {
+/* Стили для текущей страницы в навигации */
+#navigation a.current-page {
     color: #666 !important;
     font-weight: bold !important;
-    cursor: default !important;
     text-decoration: none !important;
-    display: block;
-    padding: 5px 10px;
-    background-color: #f0f0f0;
-    border-left: 3px solid #0052cc;
-    margin-left: -3px;
+    cursor: default !important;
+    pointer-events: none !important;
+    background-color: #f5f5f5 !important;
+    border-left: 3px solid #0052cc !important;
+    padding-left: 10px !important;
+    margin-left: -3px !important;
 }
 
-/* Индикатор текущей страницы */
-.nav-current-page::before {
-    content: "▶ ";
-    color: #0052cc;
-    margin-right: 5px;
+/* Убедитесь, что навигация видима */
+#navigation {
+    display: block !important;
+    visibility: visible !important;
 }
 
-/* Стили для раскрытых категорий */
-.navgroup li.nav-expanded > span:first-child {
-    font-weight: bold;
-    color: #0052cc;
+#navigation a {
+    display: block !important;
+    padding: 5px 10px !important;
+    color: #0366d6 !important;
+    text-decoration: none !important;
 }
 
-/* Анимация раскрытия/закрытия */
-.navgroup ul {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-}
-
-.navgroup input[type="checkbox"]:checked + ul {
-    max-height: 1000px; /* Достаточно для раскрытия */
-}
-
-/* Внешний вид чекбоксов */
-.navgroup input[type="checkbox"] {
-    display: none; /* Скрываем стандартные чекбоксы */
-}
-
-.navgroup li > span:first-child {
-    cursor: pointer;
-    position: relative;
-    padding-left: 20px;
-    display: block;
-}
-
-/* Кастомные стрелочки вместо чекбоксов */
-.navgroup li > span:first-child::before {
-    content: "▶";
-    position: absolute;
-    left: 0;
-    transition: transform 0.2s ease;
-}
-
-.navgroup input[type="checkbox"]:checked + ul + span::before,
-.navgroup input[type="checkbox"]:checked + span::before {
-    transform: rotate(90deg);
+#navigation a:hover {
+    background-color: #f6f8fa !important;
 }
