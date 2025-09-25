@@ -80,35 +80,12 @@
 		<!-- ПОДКЛЮЧЕНИЕ СКРИПТОВ В ПРАВИЛЬНОМ ПОРЯДКЕ -->
 		<script src="/portfolio/assets/scripts/jquery-3.2.1.min.js"></script>
 		<script src="/portfolio/assets/scripts/split/split.min.js"></script>
-		<script src="/portfolio/assets/scripts/navigation-manager.js"></script>
-		<script src="/portfolio/assets/scripts/main.js"></script>
 		
 		<script>
 			Split(['#sidebar', '#content'], {
 				sizes: [15, 85],
 				minSize: 100
 			});
-
-			// Инициализация навигации после загрузки DOM
-			document.addEventListener('DOMContentLoaded', function() {
-				console.log('📖 Инициализация NavigationManager...');
-				new NavigationManager();
-			});
-			
-			// Альтернатива: если страница загружается динамически
-			if (document.readyState === 'loading') {
-				document.addEventListener('DOMContentLoaded', initNavigation);
-			} else {
-				initNavigation();
-			}
-			
-			function initNavigation() {
-				try {
-					new NavigationManager();
-				} catch (error) {
-					console.error('Ошибка инициализации навигации:', error);
-				}
-			}
 		</script>
 	</body>
 </html>
