@@ -222,6 +222,133 @@
 												</tbody>
 											</table>
 										</div>
+										<p><strong>Основной сценарий:</strong></p>
+										<div class="table-wrap">
+											<table class="confluenceTable" style="font-size:1.0em">
+												<tbody>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>1</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Пользователь открывает страницу «События» (ЛК УД) / экран «События» (МП УД)</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>2</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">ЛК/МП УД отображает страницу «События» / экран «События» с предзагруженными неактивными фильтрами и лоадером</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>3</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">ЛК/МП УД вызывает метод Бэкенда УД GET api/v3/events/filters для получения типов фильтров событий</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>4</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Бэкенд УД формирует ответ на основании данных в БД events_groups и event_types</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>5</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Бэкенд УД возвращает ЛК/МП УД ответ со списком типов фильтров</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>6</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">ЛК/МП УД отображает активные фильтры</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>7</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">ЛК/МП УД вызывает метод Бэкенда УД POST api/v3/events для получения списка событий, подходящих под установленные по умолчанию фильтры</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>8</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Бэкенд УД формирует параметры запроса в EStore по переданным значениям фильтров</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>9</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Бэкенд УД вызывает метод EStore POST /api/estore/events/by_devices для получения списка событий</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>10</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">EStore возвращает Бэкенду УД ответ со списком событий</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>11</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Бэкенд УД обогащает события данными</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>12</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Бэкенд УД возвращает ЛК/МП УД ответ со списком событий, подходящих под установленные по умолчанию фильтры</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>13</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">ЛК/МП УД отображает список событий</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<p><strong>Расширения:</strong></p>
+										<div class="table-wrap">
+											<table class="confluenceTable" style="font-size:1.0em">
+												<tbody>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>5а</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">
+															<ul>
+																<li>
+																	<p>Если Бэкенд УД по таймауту не возвращает ЛК/МП УД ответ:</p>
+																	<ul>
+																		<li>
+																			<p>ЛК УД отображает ошибку в виде нотификации:</p>
+																			<ul>
+																				<li>
+																					<p>Заголовок: "Что-то пошло не так"</p>
+																				</li>
+																				<li>
+																					<p>Текст: "Не удалось загрузить список фильтров"</p>
+																				</li>
+																			</ul>
+																		</li>
+																		<li>
+																			<p>МП УД отображает ошибку в виде шторки:</p>
+																			<ul>
+																				<li>
+																					<p>Заголовок: "Что-то пошло не так"</p>
+																				</li>
+																				<li>
+																					<p>Текст: "Не удалось загрузить список фильтров"</p>
+																				</li>
+																				<li>
+																					<p>Кнопка: "Попробовать ещё раз" (перезапускает процесс с 3 шага)</p>
+																				</li>
+																			</ul>
+																		</li>
+																	</ul>
+																</li>
+															</ul>
+														</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>5б</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">
+
+														</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>12а</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">
+															
+														</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>12б</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">
+
+														</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"><b>12в</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">
+															
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
 									</div>
 								</div>
 							</div>
