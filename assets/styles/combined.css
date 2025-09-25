@@ -1879,3 +1879,64 @@ form.aui .button {
     font-style: normal;
 }
 
+/* Стили для активной (текущей) страницы */
+.nav-current-page {
+    color: #666 !important;
+    font-weight: bold !important;
+    cursor: default !important;
+    text-decoration: none !important;
+    display: block;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border-left: 3px solid #0052cc;
+    margin-left: -3px;
+}
+
+/* Индикатор текущей страницы */
+.nav-current-page::before {
+    content: "▶ ";
+    color: #0052cc;
+    margin-right: 5px;
+}
+
+/* Стили для раскрытых категорий */
+.navgroup li.nav-expanded > span:first-child {
+    font-weight: bold;
+    color: #0052cc;
+}
+
+/* Анимация раскрытия/закрытия */
+.navgroup ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.navgroup input[type="checkbox"]:checked + ul {
+    max-height: 1000px; /* Достаточно для раскрытия */
+}
+
+/* Внешний вид чекбоксов */
+.navgroup input[type="checkbox"] {
+    display: none; /* Скрываем стандартные чекбоксы */
+}
+
+.navgroup li > span:first-child {
+    cursor: pointer;
+    position: relative;
+    padding-left: 20px;
+    display: block;
+}
+
+/* Кастомные стрелочки вместо чекбоксов */
+.navgroup li > span:first-child::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    transition: transform 0.2s ease;
+}
+
+.navgroup input[type="checkbox"]:checked + ul + span::before,
+.navgroup input[type="checkbox"]:checked + span::before {
+    transform: rotate(90deg);
+}
