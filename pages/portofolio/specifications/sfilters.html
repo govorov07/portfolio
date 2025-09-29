@@ -305,11 +305,11 @@
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"><b>3</b></td>
-														<td class="confluenceTd" style="padding: 0.5em;">ЛК/МП УД вызывает метод Бэкенда УД GET api/v3/events/filters для получения типов фильтров событий</td>
+														<td class="confluenceTd" style="padding: 0.5em;">ЛК/МП УД вызывает метод Бэкенда УД <a href="/portfolio/pages/portofolio/api/getfilters.html">GET api/v3/events/filters</a> для получения типов фильтров событий</td>
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"><b>4</b></td>
-														<td class="confluenceTd" style="padding: 0.5em;">Бэкенд УД формирует ответ на основании данных в БД events_groups и event_types</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Бэкенд УД формирует ответ на основании данных в БД <a href="/portfolio/pages/portofolio/database/events_groups.html">events_groups</a> и <a href="/portfolio/pages/portofolio/database/event_types.html">event_types</a></td>
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"><b>5</b></td>
@@ -321,7 +321,7 @@
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"><b>7</b></td>
-														<td class="confluenceTd" style="padding: 0.5em;">ЛК/МП УД вызывает метод Бэкенда УД POST api/v3/events для получения списка событий, подходящих под установленные по умолчанию фильтры</td>
+														<td class="confluenceTd" style="padding: 0.5em;">ЛК/МП УД вызывает метод Бэкенда УД <a href="/portfolio/pages/portofolio/api/postevents.html">POST api/v3/events</a> для получения списка событий, подходящих под установленные по умолчанию фильтры</td>
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"><b>8</b></td>
@@ -329,7 +329,7 @@
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"><b>9</b></td>
-														<td class="confluenceTd" style="padding: 0.5em;">Бэкенд УД вызывает метод EStore POST /api/estore/events/by_devices для получения списка событий</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Бэкенд УД вызывает метод EStore <b>POST /api/estore/events/by_devices</b> для получения списка событий</td>
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"><b>10</b></td>
@@ -929,21 +929,227 @@ end
 											<li>Если камера в промопериоде, то события по такой камере продолжают приходить до тех пор, пока не закончится промопериод. После выхода камеры из промопериода проводится проверка, находится ли аккаунт в финансовой блокировке. Если аккаунт в финансовой блокировке, отправка событий по камере приостанавливается.</li>
 										</ol>
 										<p>Карточка события формируется из данных, возвращённых в ответе на запрос <a href="/portfolio/pages/portofolio/api/postevents.html">POST api/v3/events</a>:</p>
+										<ul>
+											<li>Наименование события - поле message;</li>
+											<li>Иконка события - хранится локально на фронте и подставляется на основании поля icon (метод POST api/v3/events, параметр events.icon);</li>
+											<li>Дата события - Время события - указывается на основании поля update_at;</li>
+											<li>Ссылка на устройство (если есть устройство, вид ссылки <b>/devices/{origin_id}</b>):
+												<ol>
+													<li>origin_type = Device::Camera;</li>
+													<li>origin_type = Device::Zwave;</li>
+												</ol>
+											</li>
+											<li>Если origin_type = Device::Camera:
+												<ol>
+													<li>ЛК УД: В рамках первого этапа меняем скриншот на «шеврон» (иконка [>]) в адаптиве, т.к. пока не умеем переходить к конкретному событию;</li>
+													<li>МП УД: справа должен быть скриншот события;</li>
+												</ol>
+											</li>
+											<li>Если <b>origin_type = Device</b> справа должна быть иконка «шеврон».</li>
+										</ul>
 									</div>
 								</div>
 							</div>
+							<!---------------------------------------------------->
+							<!---------------------------------------------------->
+							<!---------------------------------------------------->
+							<div class="columnLayout single" data-layout="single">
+								<div class="cell normal" data-type="normal">
+									<div class="innerCell">
+										<hr>
+									</div>
+								</div>
+							</div>
+							<!---------------------------------------------------->
+							<!--	Нефункциональные требования					-->
+							<!---------------------------------------------------->
+							<div class="columnLayout single" data-layout="single">
+								<div class="cell normal" data-type="normal">
+									<div class="innerCell">
+										<a name="Bookmark2000"></a>
+										<h1 id="Bookmark2000">Нефункциональные требования</h1>
+										<a name="Bookmark2100"></a>
+										<h2 id="Bookmark2100">Требования к интерфейсу пользователя</h2>
+										<a name="Bookmark2100"></a>
+										<h3 id="Bookmark2100">Таблица 1 — Элементы интерфейса страницы «События» (ЛК УД)</h3>
+										<div class="table-wrap">
+											<table class="confluenceTable" style="font-size:1.0em">
+												<tbody>
+													<tr>
+														<th class="confluenceTh">Элемент интерфейса</th>
+														<th class="confluenceTh"></th>
+														<th class="confluenceTh"></th>
+														<th class="confluenceTh">Описание</th>
+														<th class="confluenceTh">Данные</th>
+														<th class="confluenceTh">Валидация</th>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;">Дата</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Отображается в виде текста формата <b>День недели дд.мм.гггг</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events, параметр <b>date_from</b></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;">Список событий</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Список карточек событий, подходящих под установленные фильтры</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Карточка события</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Блок с информацией о событии</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Иконка события</td>
+														<td class="confluenceTd" style="padding: 0.5em;">В зависимости от типа события отображается</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events, параметр events.icon</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!---------------------------------------------------->
+							<!--												-->
+							<!---------------------------------------------------->
 							<div class="columnLayout single" data-layout="single">
 								<div class="cell normal" data-type="normal">
 									<div class="innerCell">
 									</div>
 								</div>
 							</div>
+							<!---------------------------------------------------->
+							<!--												-->
+							<!---------------------------------------------------->
 							<div class="columnLayout single" data-layout="single">
 								<div class="cell normal" data-type="normal">
 									<div class="innerCell">
 									</div>
 								</div>
 							</div>
+							<!---------------------------------------------------->
+							<!--												-->
+							<!---------------------------------------------------->
+							<div class="columnLayout single" data-layout="single">
+								<div class="cell normal" data-type="normal">
+									<div class="innerCell">
+									</div>
+								</div>
+							</div>
+							<!---------------------------------------------------->
+							<!--												-->
+							<!---------------------------------------------------->
+							<div class="columnLayout single" data-layout="single">
+								<div class="cell normal" data-type="normal">
+									<div class="innerCell">
+									</div>
+								</div>
+							</div>
+							<!---------------------------------------------------->
+							<!--												-->
+							<!---------------------------------------------------->
+							<div class="columnLayout single" data-layout="single">
+								<div class="cell normal" data-type="normal">
+									<div class="innerCell">
+									</div>
+								</div>
+							</div>
+							<!---------------------------------------------------->
+							<!--												-->
+							<!---------------------------------------------------->
+							<div class="columnLayout single" data-layout="single">
+								<div class="cell normal" data-type="normal">
+									<div class="innerCell">
+									</div>
+								</div>
+							</div>
+							<!---------------------------------------------------->
+							<!--												-->
+							<!---------------------------------------------------->
 							<div class="columnLayout single" data-layout="single">
 								<div class="cell normal" data-type="normal">
 									<div class="innerCell">
