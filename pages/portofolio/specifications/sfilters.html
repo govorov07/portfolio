@@ -1513,56 +1513,102 @@ end
 								</div>
 							</div>
 							<!---------------------------------------------------->
-							<!--												-->
+							<!--	Приложения									-->
 							<!---------------------------------------------------->
 							<div class="columnLayout single" data-layout="single">
 								<div class="cell normal" data-type="normal">
 									<div class="innerCell">
+										<a name="Bookmark2000"></a>
+										<h1 id="Bookmark2000">Приложения</h1>
+										<!---------------------------------------------------->
+										<!-- ##	Описание БД									-->
+										<!---------------------------------------------------->
+										<a name="Bookmark2100"></a>
+										<h2 id="Bookmark2100">Описание БД</h2>
+										<p>Сущности БД УД (smart-back), используемые в сценариях:</p>
+										<ol>
+											<li><a href="/portfolio/pages/portofolio/database/events_groups.html">events_groups</a> - Группы событий. Сущность для создания групп событий и дальнейшего использования этих групп в фильтрации в разделе события.</li>
+											<li><a href="/portfolio/pages/portofolio/database/event_types.html">event_types</a> - Справочник событий с параметрами событий для использования в разделе УД "События" при отображении записи и для фильтрации событий.</li>
+											<li><a href="/portfolio/pages/portofolio/database/event_types_groups.html">event_types_groups</a> - JOIN-таблица.</li>
+										</ol>
+										<!---------------------------------------------------->
+										<!-- ##	Скрипт наполнения БД event_groups			-->
+										<!---------------------------------------------------->
+										<a name="Bookmark2100"></a>
+										<h2 id="Bookmark2100">Скрипт наполнения таблицы БД "Группы событий" (event_groups)</h2>
+										<ol>
+											<li>"id": auto, "name": "Учётная запись"</li>
+											<li>"id": auto, "name": "Устройства"</li>
+											<li>"id": auto, "name": "Камеры"</li>
+											<li>"id": auto, "name": "Мой дом"</li>
+											<li>"id": auto, "name": "Мои сценарии"</li>
+											<li>"id": auto, "name": "Баланс и услуги"</li>
+										</ol>
+										<!---------------------------------------------------->
+										<!-- ##	Скрипт наполнения БД event_types			-->
+										<!---------------------------------------------------->
+										<a name="Bookmark2100"></a>
+										<h2 id="Bookmark2100">Скрипт наполнения таблицы БД "Типы событий" (event_types)</h2>
+										<ol>
+											<li>"id": auto</li>
+											<li>"event_name": "register_event" из definitions.rb</li>
+											<li>"filter_name":
+												<ol>
+													<li>{"filter_name": "Человек в кадре", для события с "eid": 20104}</li>
+													<li>{"filter_name": "Обнаружение лиц", для события с "eid": 20102}</li>
+													<li>{"filter_name": "Движение", для события с"eid": 20002}</li>
+													<li>{"filter_name": "Звук", для события с"eid": 20007}</li>
+													<li>{"filter_name": "Пересечение линии", для события с"eid": 20004}</li>
+													<li>{"filter_name": "Перекрытие обзора", для события с"eid": 20003}</li>
+													<li>{"filter_name": "Камера онлайн", для события с"eid": 32000}</li>
+													<li>{"filter_name": "Камера офлайн", для события с"eid": 32001}</li>
+													<li>{"filter_name": "Обрыв трансляции", для события с"eid": 60000}</li>
+												</ol>
+											</li>
+											<li>"origin_class": "origin_class" из definitions.rb</li>
+											<li>"eid": "eid" из definitions.rb</li>
+											<li>"icon_name": "icon" из definitions.rb</li>
+											<li>"default_message": "default" из events.yml для event_type = event_name</li>
+											<li>"popup": "popup" из definitions.rb</li>
+										</ol>
+										<!---------------------------------------------------->
+										<!-- ##	Скрипт наполнения join-таблицы (event_types_groups)	-->
+										<!---------------------------------------------------->
+										<a name="Bookmark2100"></a>
+										<h2 id="Bookmark2100">Скрипт наполнения join-таблицы (event_types_groups)</h2>
+										<ol>
+											<li>"id" группы "Учётная запись" из event_groups | "id" типа события из event_types, для которых "origin_class" = Account + User</li>
+											<li>"id" группы "Устройства" из event_groups | "id" типа события из event_types, для которых "origin_class" = Device + Node</li>
+											<li>"id" группы "Камеры" из event_groups | "id" типа события из event_types, для которых "origin_class" = Device:Camera</li>
+											<li>"id" группы "Мой дом" из event_groups | "id" типа события из event_types, для которых "origin_class" = Home + Home:Mode + Room</li>
+											<li>"id" группы "Мои сценарии" из event_groups | "id" типа события из event_types, для которых "origin_class" = Rule</li>
+											<li>"id" группы "Баланс и услуги" из event_groups | "id" типа события из event_types, для которых "origin_class" = TariffOption</li>
+										</ol>
+										<!---------------------------------------------------->
+										<!-- ##	Описание API								-->
+										<!---------------------------------------------------->
+										<a name="Bookmark2100"></a>
+										<h2 id="Bookmark2100">Описание API</h2>
+										<p>Методы Бэкенда УД (smart-back), используемые в сценариях:</p>
+										<ul>
+											<li><a href="/portofolio/pages/portofolio/api/getfilters.html">GET api/v3/events/filters</a>;</li>
+											<li><a href="/portofolio/pages/portofolio/api/postevents.html">POST api/v3/events</a>;</li>
+											<li><a href="/portofolio/pages/portofolio/api/postdays.html">POST api/v3/events/days</a></li>
+										</ul>
+										<p>Методы EStore, используемые в сценариях:</p>
+										<ul>
+											<li>POST /api/estore/events/by_devices</li>
+										</ul>
 									</div>
 								</div>
 							</div>
 							<!---------------------------------------------------->
-							<!--												-->
+							<!---------------------------------------------------->
 							<!---------------------------------------------------->
 							<div class="columnLayout single" data-layout="single">
 								<div class="cell normal" data-type="normal">
 									<div class="innerCell">
-									</div>
-								</div>
-							</div>
-							<!---------------------------------------------------->
-							<!--												-->
-							<!---------------------------------------------------->
-							<div class="columnLayout single" data-layout="single">
-								<div class="cell normal" data-type="normal">
-									<div class="innerCell">
-									</div>
-								</div>
-							</div>
-							<!---------------------------------------------------->
-							<!--												-->
-							<!---------------------------------------------------->
-							<div class="columnLayout single" data-layout="single">
-								<div class="cell normal" data-type="normal">
-									<div class="innerCell">
-									</div>
-								</div>
-							</div>
-							<!---------------------------------------------------->
-							<!--												-->
-							<!---------------------------------------------------->
-							<div class="columnLayout single" data-layout="single">
-								<div class="cell normal" data-type="normal">
-									<div class="innerCell">
-									</div>
-								</div>
-							</div>
-							<!---------------------------------------------------->
-							<!--												-->
-							<!---------------------------------------------------->
-							<div class="columnLayout single" data-layout="single">
-								<div class="cell normal" data-type="normal">
-									<div class="innerCell">
+										<hr>
 									</div>
 								</div>
 							</div>
