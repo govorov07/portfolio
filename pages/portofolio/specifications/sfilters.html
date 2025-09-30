@@ -976,26 +976,33 @@ end
 											<table class="confluenceTable" style="font-size:1.0em">
 												<tbody>
 													<tr>
-														<th class="confluenceTh" colspan="3">Элемент интерфейса</th>
+														<th class="confluenceTh">Элемент интерфейса</th>
+														<th class="confluenceTh"></th>
+														<th class="confluenceTh"></th>
 														<th class="confluenceTh">Описание</th>
 														<th class="confluenceTh">Данные</th>
 														<th class="confluenceTh">Валидация</th>
 													</tr>
 													<tr>
-														<td class="confluenceTd" style="padding: 0.5em;" colspan="3">Дата</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Дата</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
 														<td class="confluenceTd" style="padding: 0.5em;">Отображается в виде текста формата <b>День недели дд.мм.гггг</b></td>
 														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events, параметр <b>date_from</b></td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 													</tr>
 													<tr>
-														<td class="confluenceTd" style="padding: 0.5em;" colspan="3">Список событий</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Список событий</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
 														<td class="confluenceTd" style="padding: 0.5em;">Список карточек событий, подходящих под установленные фильтры</td>
 														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events</td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;" colspan="2">Карточка события</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Карточка события</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
 														<td class="confluenceTd" style="padding: 0.5em;">Блок с информацией о событии</td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
@@ -1011,75 +1018,180 @@ end
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Текст события</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events, параметр events.message</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Дата события</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Дата и время события</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events, параметр events.extra.begin</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Название устройства</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events, параметр events.origin_id</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events events.origin_type = Device::Camera и events.origin_type = Device</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Ссылка на устройство</td>
+														<td class="confluenceTd" style="padding: 0.5em;">По нажатии на событие открывается страница устройства</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events, параметр events.origin_id</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events events.origin_type = Device::Camera и events.origin_type = Device</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;">Фильтры по событиям</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Фильтры для настройки условий отображения событий. Подробное описание здесь: Настройка фильтров событий</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<a name="Bookmark2100"></a>
+										<h3 id="Bookmark2100">Таблица 2 — Элементы интерфейса экрана «События» (МП УД)</h3>
+										<div class="table-wrap">
+											<table class="confluenceTable" style="font-size:1.0em">
+												<tbody>
+													<tr>
+														<th class="confluenceTh">Элемент интерфейса</th>
+														<th class="confluenceTh"></th>
+														<th class="confluenceTh"></th>
+														<th class="confluenceTh">Описание</th>
+														<th class="confluenceTh">Данные</th>
+														<th class="confluenceTh">Валидация</th>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;">Кнопка Колокольчик</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">По кнопке открывается экран «Уведомления»</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод GET /api/v2/notifications</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;">Фильтры по событиям</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Фильтры для настройки условий отображения событий. Подробное описание здесь: Настройка фильтров событий</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;">Список событий</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Список карточек событий, подходящих под установленные фильтры</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Карточка события</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Блок с информацией о событии</td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-													</tr>
-													<tr>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Иконка события</td>
+														<td class="confluenceTd" style="padding: 0.5em;">В зависимости от типа события отображается</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events, параметр events.icon</td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Текст события</td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-													</tr>
-													<tr>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events, параметр events.message</td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-													</tr>
-													<tr>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Дата события</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Дата и время события</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events, параметр events.extra.begin</td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Название устройства</td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
-														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events, параметр events.origin_id</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events events.origin_type = Device::Camera и events.origin_type = Device</td>
 													</tr>
 													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Ссылка на устройство</td>
+														<td class="confluenceTd" style="padding: 0.5em;">По нажатии на событие открывается страница устройства. По нажатии на событие камеры открывается это событие в плеере камеры</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events, параметр events.origin_id</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events events.origin_type = Device::Camera и events.origin_type = Device</td>
+													</tr>
+													<tr>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Превью камеры</td>
+														<td class="confluenceTd" style="padding: 0.5em;">Отображается в карточке события камеры справа от основной информации о событии</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Метод POST api/v3/events events.origin_type = Device::Camera</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd" style="padding: 0.5em;">Фильтры по событиям</td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;"></td>
+														<td class="confluenceTd" style="padding: 0.5em;">Фильтры для настройки условий отображения событий. Подробное описание здесь: Настройка фильтров событий</td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 														<td class="confluenceTd" style="padding: 0.5em;"></td>
 													</tr>
+												</tbody>
+											</table>
+										</div>
+										<a name="Bookmark2100"></a>
+										<h2 id="Bookmark2100">Макеты</h2>
+										<p>Макеты ЛК УД (Web): https://www.figma.com/design/HRrRCYSTtqxPSmAgnBUrPf/%D0%90%D0%BD%D0%B4%D1%80%D0%B5%D0%B9-%D0%93%D0%BE%D0%B2%D0%BE%D1%80%D0%BE%D0%B2-s-team-library?node-id=2311-27413&t=1kX1Y1xjDreJpCJp-4</p>
+										<p>Макеты МП УД (Android): https://www.figma.com/design/HRrRCYSTtqxPSmAgnBUrPf/%D0%90%D0%BD%D0%B4%D1%80%D0%B5%D0%B9-%D0%93%D0%BE%D0%B2%D0%BE%D1%80%D0%BE%D0%B2-s-team-library?node-id=2311-150674&t=1kX1Y1xjDreJpCJp-4</p>
+										<p>Макеты МП УД (iOS): https://www.figma.com/design/HRrRCYSTtqxPSmAgnBUrPf/%D0%90%D0%BD%D0%B4%D1%80%D0%B5%D0%B9-%D0%93%D0%BE%D0%B2%D0%BE%D1%80%D0%BE%D0%B2-s-team-library?node-id=2311-159524&t=1kX1Y1xjDreJpCJp-4</p>
+										<a name="Bookmark2100"></a>
+										<h2 id="Bookmark2100">Требования к разграничению доступа</h2>
+										<div class="table-wrap">
+											<table class="confluenceTable" style="font-size:1.0em">
+												<thead>
+													<tr>
+														<th rowspan="2">Функция</th>
+														<th colspan="3">Владелец УД (owner)</th>
+														<th colspan="3">Пользователь с правами полного управления (adult)</th>
+														<th colspan="3">Пользователь с правами ограниченного управления (child)</th>
+														<th colspan="3">Пользователь с правами демо-режима (demo)</th>
+													</tr>
+													<tr>
+														<th>Web</th>
+														<th>iOS</th>
+														<th>Android</th>
+														<th>Web</th>
+														<th>iOS</th>
+														<th>Android</th>
+														<th>Web</th>
+														<th>iOS</th>
+														<th>Android</th>
+													</tr>
+												</thead>
+												<tbody>
 												</tbody>
 											</table>
 										</div>
