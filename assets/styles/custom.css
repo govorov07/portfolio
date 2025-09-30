@@ -72,3 +72,30 @@
     }
     /* ... и т.д. для остальных статусов */
 }
+
+.event-name {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.metric-name {
+    color: #4a5568;
+    font-family: 'Courier New', monospace;
+    background: #f7fafc;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.optional {
+    color: #718096;
+    font-style: italic;
+}
+
+.param-values {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    background: #edf2f7;
+    padding: 6px;
+    border-radius: 4px;
+}

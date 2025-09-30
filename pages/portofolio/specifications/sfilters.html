@@ -1360,7 +1360,7 @@ end
 														<td class="confluenceTd">Клик по событию</td>
 														<td class="confluenceTd">events_event-element_click</td>
 														<td class="confluenceTd">[<i>event_type</i>]</td>
-														<td class="confluenceTd"><a href="/portfolio/pages/portofolio/database/event_types.html"></a></td>
+														<td class="confluenceTd"><a href="/portfolio/pages/portofolio/database/event_types.html">event_types</a></td>
 														<td class="confluenceTd">Кол-во кликов по событиям</td>
 														<td class="confluenceTd">Помогает определить востребованные события</td>
 													</tr>
@@ -1399,16 +1399,116 @@ end
 												</tbody>
 											</table>
 										</div>
-
+										<!---------------------------------------------------->
+										<!-- ###	Метрики mobile							-->
+										<!---------------------------------------------------->
+										<a name="Bookmark2100"></a>
+										<h3 id="Bookmark2100">Метрики mobile</h3>
+										<!---------------------------------------------------->
+										<!-- ####	Экраны firebase							-->
+										<!---------------------------------------------------->
+										<a name="Bookmark2100"></a>
+										<h3 id="Bookmark2100">Экраны firebase</h3>
+										<div class="table-wrap">
+											<table class="confluenceTable" style="font-size:1.0em">
+												<thead>
+													<tr>
+														<th class="confluenceTh">№ <br>п/п</th>
+														<th class="confluenceTh">Название экрана</th>
+														<th class="confluenceTh">Firebase</th>
+														<th class="confluenceTh">Комментарий</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="confluenceTd"><b>1</b></td>
+														<td class="confluenceTd">Экран "События и уведомления"</td>
+														<td class="confluenceTd">screen_events_open</td>
+														<td class="confluenceTd"></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<!---------------------------------------------------->
+										<!-- ####	События firebase						-->
+										<!---------------------------------------------------->
+										<a name="Bookmark2100"></a>
+										<h3 id="Bookmark2100">События firebase</h3>
+										<div class="table-wrap">
+											<table class="confluenceTable" style="font-size:1.0em">
+												<thead>
+													<tr>
+														<th class="confluenceTh">Название события</th>
+														<th class="confluenceTh">Название метрики</th>
+														<th class="confluenceTh">Доп. параметры</th>
+														<th class="confluenceTh">Значения доп.параметров</th>
+														<th class="confluenceTh">Комментарий</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="confluenceTd">Тап по пункту "События" в таб-баре</td>
+														<td class="confluenceTd"><span class="metric-name">action_menu_events_tap</span></td>
+														<td class="confluenceTd"></td>
+														<td class="confluenceTd"class="param-values"></td>
+														<td class="confluenceTd">Отслеживание навигации пользователя. Помогает определить востребованность раздела.</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd">Тап по фильтру событий</td>
+														<td class="confluenceTd"><span class="metric-name">action_events_filter_tap</span></td>
+														<td class="confluenceTd">[<i>filter_type</i>]</td>
+														<td class="confluenceTd">
+															<ul>filter_type:
+																<li>event_data</li>
+																<li>event_time</li>
+																<li>event_groups</li>
+																<li>event_types</li>
+																<li>devices</li>
+															</ul>
+														</td>
+														<td class="confluenceTd">Измерение взаимодействия с фильтрами. Показывает, какие параметры фильтрации наиболее востребованы.</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd">Применение фильтра</td>
+														<td class="confluenceTd"><span class="metric-name">action_events_filter-apply_tap</span></td>
+														<td class="confluenceTd">[<i>filter_type</i>]-[<i>filter_value</i>]</td>
+														<td class="confluenceTd">devices-camera, devices-controller</td>
+														<td class="confluenceTd">Фиксация момента применения фильтров. Анализ среднего количества используемых фильтров. При фильтрации по конкретному устройству, записывать только тип устройства без uuid. При фильтрации по дате и времени, записывать только тип фильтра.</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd">Очистка фильтра</td>
+														<td class="confluenceTd"><span class="metric-name">action_events_filter-clear_tap</span></td>
+														<td class="confluenceTd">[<i>filter_type</i>]</td>
+														<td class="confluenceTd"></td>
+														<td class="confluenceTd">Отслеживание сброса отдельных фильтров. Помогает понять, какие фильтры пользователи чаще сбрасывают.</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd">Сброс всех фильтров</td>
+														<td class="confluenceTd"><span class="metric-name">action_events_filters-clear_tap</span></td>
+														<td class="confluenceTd"></td>
+														<td class="confluenceTd"></td>
+														<td class="confluenceTd">Фиксация полного сброса фильтров. Показывает частоту возврата к исходным настройкам.</td>
+													</tr>
+													<tr>
+														<td class="confluenceTd">Тап по событию в списке</td>
+														<td class="confluenceTd"><span class="metric-name">action_event-element_tap</span></td>
+														<td class="confluenceTd">[<i>event_type</i>]</td>
+														<td class="confluenceTd"><a href="/portfolio/pages/portofolio/database/event_types.html">event_types</a></td>
+														<td class="confluenceTd">Помогает определить востребованные события.</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
 									</div>
 								</div>
 							</div>
 							<!---------------------------------------------------->
-							<!--												-->
+							<!---------------------------------------------------->
 							<!---------------------------------------------------->
 							<div class="columnLayout single" data-layout="single">
 								<div class="cell normal" data-type="normal">
 									<div class="innerCell">
+										<hr>
 									</div>
 								</div>
 							</div>
