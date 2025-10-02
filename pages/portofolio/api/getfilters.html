@@ -1,91 +1,651 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- 6.0.0-GA -->
-<html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интернет-магазин электроники - Главная</title>
+    <meta name="description" content="Лучший интернет-магазин электроники с гарантией качества">
+	<meta name="keywords" content="электроника, смартфоны, ноутбуки, техника">
+	<meta name="author" content="TechStore">
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../assets/styles/combined.css">
+    <link rel="stylesheet" href="../../../assets/styles/custom.css">
+    <link rel="stylesheet" href="../../../assets/styles/inline_styles.css">
 
-		<link rel="stylesheet" href="/portfolio/assets/styles/combined.css" />
-		<link rel="stylesheet" href="/portfolio/assets/styles/custom.css" />
-		<link rel="stylesheet" href="/portfolio/assets/styles/inline_styles.css" />
-		<script src="/portfolio/assets/scripts/jquery-3.2.1.min.js"></script>
-		<script src="/portfolio/assets/scripts/split/split.min.js"></script>
-	</head>
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <!-- Prism.js Core -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+    <!-- Автозагрузка -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+	<style>
+		.code-container {
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .code-header {
+            background: #2d2d2d;
+            color: white;
+            padding: 10px 15px;
+            font-family: monospace;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+        
+        .code-language {
+            font-weight: bold;
+        }
+        
+        .copy-btn {
+            background: #4CAF50;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: auto;
+        }
+        
+        pre[class*="language-"] {
+            margin: 0;
+            border-radius: 0;
+        }
+    </style>
+	
+	<script src="../../../assets/scripts/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../../assets/scripts/split/split.min.js"></script>
+</head>
 
-	<body>
-		<div class="full-height-container">
-			<div id="sidebar" class="split">
-				<div class="navgroup" id="search">
-					<form
-						action="C:\Users\nevsk\Downloads\SSM - Soft Systems Methodology by Checkland-v2-20250211_134004\pages\portofolio\search.html"
-						class="aui">
-						<input type="text" name="q" id="tipue_search_input" class="medium-field text">
-						<input class="button submit" type="submit" value="Search">
-					</form>
-				</div>
-
-				<div class="navgroup" id="navigation">
-					<ul>
-						<li><span>Говоров Андрей Сергеевич</span><input type="checkbox" />
-							<ul>
-								<li><span><a href="/portfolio/pages/govorov/about.html">Обо мне</a></span></li>
-								<li><span><a href="/portfolio/pages/govorov/cv.html">Резюме</a></span></li>
-							</ul>
-						</li>
-						
-						<li><span>Портфолио</span><input type="checkbox" checked/>
-							<ul>
-								<li><span>01. Требования</span><input type="checkbox" />
-									<ul>
-										<li><span><a href="/portfolio/pages/portofolio/requirements/rfilters.html">Требования к фильтрации событий</a></span></li>
-									</ul>
-								</li>
-								
-								<li><span>02. Спецификации</span><input type="checkbox" />
-									<ul>
-										<li><span><a href="/portfolio/pages/portofolio/specifications/sfilters.html">Спецификация. Фильтрация событий</a></span></li>
-									</ul>
-								</li>
-								
-								<li><span>03. База данных</span><input type="checkbox" />
-									<ul>
-										<li><span><a href="/portfolio/pages/portofolio/database/events_groups.html">Группы событий</a></span></li>
-										<li><span><a href="/portfolio/pages/portofolio/database/event_types.html">Типы событий</a></span></li>
-										<li><span><a href="/portfolio/pages/portofolio/database/event_types_groups.html">Группы-типы событий</a></span></li>
-									</ul>
-								</li>
-								
-								<li><span>04. REST API</span><input type="checkbox" checked/>
-									<ul>
-										<li><span><a href="/portfolio/pages/portofolio/api/postevents.html">POST api/v3/events</a></span></li>
-										<li><span><b>GET api/v3/events/filters</b></span></li>
-										<li><span><a href="/portfolio/pages/portofolio/api/postdays.html">POST api/v3/events/days</a></span></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+<body>
+	<div class="full-height-container">
+		<div id="sidebar" class="split">
+			<div class="navgroup" id="search">
+				<form action="../../../pages/search.html" class="aui">
+					<input type="text" name="q" id="tipue_search_input" class="medium-field text">
+					<input class="button submit" type="submit" value="Search">
+				</form>
 			</div>
 
-			<div id="content" class="split">
-				<div class='wiki-page'>
-					<div class='wiki-title'>
-						<h1 class='page-title-lvl-cover' id='Bookmark1'>Резюме</h1>
-					</div>
+			<div class="navgroup" id="navigation">
+				<ul>
+					<li><span>Говоров Андрей Сергеевич</span><input type="checkbox" />
+						<ul>
+							<li><span><a href="../../../pages/govorov/about.html">Обо мне</a></span></li>
+							<li><span><a href="../../../pages/govorov/cv.html">Резюме</a></span></li>
+						</ul>
+					</li>
+					
+					<li><span>Портфолио</span><input type="checkbox" checked/>
+						<ul>
+							<li><span>01. Требования</span><input type="checkbox" />
+								<ul>
+									<li><span><a href="../../../pages/portofolio/requirements/rfilters.html">Требования к фильтрации событий</a></span></li>
+								</ul>
+							</li>
+							
+							<li><span>02. Спецификации</span><input type="checkbox" />
+								<ul>
+									<li><span><a href="../../../pages/portofolio/specifications/sfilters.html">Спецификация. Фильтрация событий</a></span></li>
+								</ul>
+							</li>
+							
+							<li><span>03. База данных</span><input type="checkbox" />
+								<ul>
+									<li><span><a href="../../../pages/portofolio/database/events_groups.html">Группы событий</a></span></li>
+									<li><span><a href="../../../pages/portofolio/database/event_types.html">Типы событий</a></span></li>
+									<li><span><a href="../../../pages/portofolio/database/event_types_groups.html">Группы-типы событий</a></span></li>
+								</ul>
+							</li>
+							
+							<li><span>04. REST API</span><input type="checkbox" checked/>
+								<ul>
+									<li><span><a href="../../../pages/portofolio/api/postevents.html">POST api/v3/events</a></span></li>
+									<li><span><b>GET api/v3/events/filters</b></span></li>
+									<li><span><a href="../../../pages/portofolio/api/postdays.html">POST api/v3/events/days</a></span></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
 
-					<div class='wiki-content'>
+		<div id="content" class="split">
+			<div class='wiki-page'>
+				<div class='wiki-title'>
+					<h1 class='page-title-lvl-cover' id='Bookmark1'>GET api/v3/events/filters</h1>
+				</div>
 
+				<div class='wiki-content'>
+					<div class="contentLayout2">
+						<!---------------------------------------------------->
+						<!--	История изменений							-->
+						<!---------------------------------------------------->
+						<div class="columnLayout single" data-layout="single">
+							<div class="cell normal" data-type="normal">
+								<div class="innerCell">
+									<a name="Bookmark1000"></a>
+									<h1 style="text-decoration: none;" id="Bookmark1000"><span class="nh-number">История изменений</span></h1>
+									<div class="table-wrap">
+										<table class="confluenceTable" style="font-size:1.0em">
+											<caption>История изменений спецификации</caption>
+											<thead>
+												<tr>
+													<th class="confluenceTh" scope="col">Версия</th>
+													<th class="confluenceTh" scope="col">Автор</th>
+													<th class="confluenceTh">Дата изменений</th>
+													<th class="confluenceTh">Описание изменений</th>
+													<th class="confluenceTh">Ссылка на задачу</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="confluenceTd" style="padding: 0.5em;">v.1.0</td>
+													<td class="confluenceTd" style="padding: 0.5em;"><a href="../../../pages/govorov/about.html">Говоров Андрей</a></td>
+													<td class="confluenceTd" style="padding: 0.5em;">24.05.2023</td>
+													<td class="confluenceTd" style="padding: 0.5em;">
+														<p>Исходная страница</p>
+													</td>
+													<td class="confluenceTd" style="padding: 0.5em;">
+														<span class="jira-issue">
+															<a href="https://www.atlassian.com/software/jira" class="jira-issue-key">
+																<span class="aui-icon aui-icon-wait issue-placeholder"></span>
+																B2C-29761
+															</a>
+															-
+															<span class="summary">
+																[back] Реализовать метод запроса типов фильтров для раздела "События"
+															</span>
+															<span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
+																ОПУБЛИКОВАНО
+															</span>
+														</span>
+													</td>
+												</tr>
+												<tr>
+													<td class="confluenceTd" style="padding: 0.5em;">v.1.1</td>
+													<td class="confluenceTd" style="padding: 0.5em;"><a href="../../../pages/govorov/about.html">Говоров Андрей</a></td>
+													<td class="confluenceTd" style="padding: 0.5em;">16.08.2023</td>
+													<td class="confluenceTd" style="padding: 0.5em;">
+														<p>Исходный вариант не масштабируем.</p>
+														<p>Изменение структуры ответа.</p>
+													</td>
+													<td class="confluenceTd" style="padding: 0.5em;"></td>
+												</tr>
+												<tr>
+													<td class="confluenceTd" style="padding: 0.5em;">v.1.2</td>
+													<td class="confluenceTd" style="padding: 0.5em;"><a href="../../../pages/govorov/about.html">Говоров Андрей</a></td>
+													<td class="confluenceTd" style="padding: 0.5em;">14.06.2024</td>
+													<td class="confluenceTd" style="padding: 0.5em;">
+														<p>Изменение названий событий</p>
+													</td>
+													<td class="confluenceTd" style="padding: 0.5em;">
+														<span class="jira-issue">
+															<a href="https://www.atlassian.com/software/jira" class="jira-issue-key">
+																<span class="aui-icon aui-icon-wait issue-placeholder"></span>
+																B2C-36337
+															</a>
+															-
+															<span class="summary">
+																[back] Изменить названия событий
+															</span>
+															<span class="aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-placeholder">
+																ОПУБЛИКОВАНО
+															</span>
+														</span>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!---------------------------------------------------->
+						<!---------------------------------------------------->
+						<!---------------------------------------------------->
+						<div class="columnLayout single" data-layout="single">
+							<div class="cell normal" data-type="normal">
+								<div class="innerCell">
+									<hr>
+								</div>
+							</div>
+						</div>
+						<!---------------------------------------------------->
+						<!--	Оглавление									-->
+						<!---------------------------------------------------->
+                        <div class="columnLayout single" data-layout="single">
+                            <div class="cell normal" data-type="normal">
+                                <div class="innerCell">
+									[ <a href="#Bookmark1000" title="Метод">			Метод</a> ]
+									[ <a href="#Bookmark1000" title="Запрос">			Запрос</a> ]
+									[ <a href="#Bookmark1000" title="Ответ">			Ответ</a> ]
+									[ <a href="#Bookmark1000" title="Возможные ошибки">	Возможные ошибки</a> ]
+									[ <a href="#Bookmark1000" title="Логика работы">	Логика работы</a> ]
+                                </div>
+                            </div>
+                        </div>
+                        <!---------------------------------------------------->
+                        <!---------------------------------------------------->
+                        <!---------------------------------------------------->
+                        <div class="columnLayout single" data-layout="single">
+                            <div class="cell normal" data-type="normal">
+                                <div class="innerCell">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+						<!---------------------------------------------------->
+						<!--	Метод										-->
+						<!---------------------------------------------------->
+						<div class="columnLayout single" data-layout="single">
+							<div class="cell normal" data-type="normal">
+								<div class="innerCell">
+									<a name="Bookmark1000"></a>
+									<h1 style="text-decoration: none;" id="Bookmark1000"><span class="nh-number">Метод</span></h1>
+                                    <div class="table-wrap">
+                                        <table class="confluenceTable" style="font-size:1.0em">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="confluenceTd" style="padding: 0.5em;"><b>Назначение</b></td>
+                                                    <td class="confluenceTd" style="padding: 0.5em;">Запрос типов фильтров</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="confluenceTd" style="padding: 0.5em;"><b>Статус</b></td>
+                                                    <td class="confluenceTd" style="padding: 0.5em;">ACTIVE</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="confluenceTd" style="padding: 0.5em;"><b>HTTP-метод</b></td>
+                                                    <td class="confluenceTd" style="padding: 0.5em;">GET</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="confluenceTd" style="padding: 0.5em;"><b>URL</b></td>
+                                                    <td class="confluenceTd" style="padding: 0.5em;">api/v3/events/filters</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="confluenceTd" style="padding: 0.5em;"><b>Swagger</b></td>
+                                                    <td class="confluenceTd" style="padding: 0.5em;"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+								</div>
+							</div>
+						</div>
+                        <!---------------------------------------------------->
+                        <!---------------------------------------------------->
+                        <!---------------------------------------------------->
+                        <div class="columnLayout single" data-layout="single">
+                            <div class="cell normal" data-type="normal">
+                                <div class="innerCell">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+						<!---------------------------------------------------->
+						<!--	Запрос										-->
+						<!---------------------------------------------------->
+						<div class="columnLayout single" data-layout="single">
+							<div class="cell normal" data-type="normal">
+								<div class="innerCell">
+									<a name="Bookmark1000"></a>
+									<h1 style="text-decoration: none;" id="Bookmark1000"><span class="nh-number">Запрос</span></h1>
+                                    <!---------------------------------------------------->
+                                    <!-- ##	Параметры запроса							-->
+                                    <!---------------------------------------------------->
+                                    <a name="Bookmark2100"></a>
+                                    <h2 id="Bookmark2100">Параметры запроса</h2>
+                                    <div class="table-wrap">
+                                        <table class="confluenceTable" style="font-size:1.0em">
+											<thead>
+												<tr>
+													<th class="confluenceTh">Название параметра</th>
+													<th class="confluenceTh">Описание</th>
+													<th class="confluenceTh">Тип</th>
+													<th class="confluenceTh">Формат</th>
+													<th class="confluenceTh">Допустимость отсутствия параметра</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="confluenceTd" colspan="5">Отсутствуют</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+                                    <!---------------------------------------------------->
+                                    <!-- ##	Тело запроса								-->
+                                    <!---------------------------------------------------->
+                                    <a name="Bookmark2100"></a>
+                                    <h2 id="Bookmark2100">Тело запроса</h2>
+                                    <div class="table-wrap">
+                                        <table class="confluenceTable" style="font-size:1.0em">
+											<thead>
+												<tr>
+													<th class="confluenceTh">Название параметра</th>
+													<th class="confluenceTh">Описание</th>
+													<th class="confluenceTh">Формат</th>
+													<th class="confluenceTh">Допустимость отсутствия параметра</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="confluenceTd" colspan="4">Отсутствуют</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+                                    <!---------------------------------------------------->
+                                    <!-- ##	Пример запроса								-->
+                                    <!---------------------------------------------------->
+                                    <a name="Bookmark2100"></a>
+                                    <h2 id="Bookmark2100">Пример запроса</h2>
+									<p>Отсутствует</p>
+								</div>
+							</div>
+						</div>
+                        <!---------------------------------------------------->
+                        <!---------------------------------------------------->
+                        <!---------------------------------------------------->
+                        <div class="columnLayout single" data-layout="single">
+                            <div class="cell normal" data-type="normal">
+                                <div class="innerCell">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+						<!---------------------------------------------------->
+						<!--	Ответ										-->
+						<!---------------------------------------------------->
+						<div class="columnLayout single" data-layout="single">
+							<div class="cell normal" data-type="normal">
+								<div class="innerCell">
+									<a name="Bookmark1000"></a>
+									<h1 style="text-decoration: none;" id="Bookmark1000"><span class="nh-number">Ответ</span></h1>
+                                    <!---------------------------------------------------->
+                                    <!-- ##	Код успешного ответа						-->
+                                    <!---------------------------------------------------->
+                                    <a name="Bookmark2100"></a>
+                                    <h2 id="Bookmark2100">Код успешного ответа</h2>
+                                    <div class="table-wrap">
+                                        <table class="confluenceTable" style="font-size:1.0em">
+											<tbody>
+                                                <tr>
+                                                    <td class="confluenceTd" style="padding: 0.5em;"><b>200</b></td>
+                                                    <td class="confluenceTd" style="padding: 0.5em;">ОК</td>
+                                                </tr>
+											</tbody>
+										</table>
+									</div>
+                                    <!---------------------------------------------------->
+                                    <!-- ##	Структура ответа							-->
+                                    <!---------------------------------------------------->
+                                    <a name="Bookmark2100"></a>
+                                    <h2 id="Bookmark2100">Структура ответа</h2>
+                                    <div class="table-wrap">
+                                        <table class="confluenceTable" style="font-size:1.0em">
+											<thead>
+												<tr>
+													<th class="confluenceTh" colspan="4">Название элемента</th>
+													<th class="confluenceTh">Описание</th>
+													<th class="confluenceTh">Формат</th>
+													<th class="confluenceTh">Допустимость отсутствия элемента</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="confluenceTd" colspan="4">filters</td>
+													<td class="confluenceTd">Объект для передачи фильтров</td>
+													<td class="confluenceTd">Object</td>
+													<td class="confluenceTd">Нет</td>
+												</tr>
+												<tr>
+													<td class="confluenceTd"></td>
+													<td class="confluenceTd" colspan="3">{filter_type}</td>
+													<td class="confluenceTd">Объект для передачи опций фильтра</td>
+													<td class="confluenceTd">Object</td>
+													<td class="confluenceTd">Нет</td>
+												</tr>
+												<tr>
+													<td class="confluenceTd"></td>
+													<td class="confluenceTd"></td>
+													<td class="confluenceTd" colspan="2">enabled</td>
+													<td class="confluenceTd">Доступность фильтра</td>
+													<td class="confluenceTd">Boolean</td>
+													<td class="confluenceTd">Нет</td>
+												</tr>
+												<tr>
+													<td class="confluenceTd"></td>
+													<td class="confluenceTd"></td>
+													<td class="confluenceTd" colspan="2">content</td>
+													<td class="confluenceTd">Массив для передачи значений фильтра</td>
+													<td class="confluenceTd">Array</td>
+													<td class="confluenceTd">Да</td>
+												</tr>
+												<tr>
+													<td class="confluenceTd"></td>
+													<td class="confluenceTd"></td>
+													<td class="confluenceTd"></td>
+													<td class="confluenceTd">id</td>
+													<td class="confluenceTd">Идентификатор значения фильтра</td>
+													<td class="confluenceTd">Int</td>
+													<td class="confluenceTd">Нет</td>
+												</tr>
+												<tr>
+													<td class="confluenceTd"></td>
+													<td class="confluenceTd"></td>
+													<td class="confluenceTd"></td>
+													<td class="confluenceTd">name</td>
+													<td class="confluenceTd">Наименование значения фильтра</td>
+													<td class="confluenceTd">Varchar</td>
+													<td class="confluenceTd">Нет</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+                                    <!---------------------------------------------------->
+                                    <!-- ###	Список фильтров							-->
+                                    <!---------------------------------------------------->
+                                    <a name="Bookmark2100"></a>
+                                    <h3 id="Bookmark2100">Список фильтров {filter_type}</h3>
+									<ul>
+										<li>groups - группы событий;</li>
+										<li>event_types - типы событий;</li>
+										<li>devices - устройства.</li>
+									</ul>
+                                    <!---------------------------------------------------->
+                                    <!-- ##	Пример ответа								-->
+                                    <!---------------------------------------------------->
+                                    <a name="Bookmark2100"></a>
+                                    <h2 id="Bookmark2100">Пример ответа</h2>
+									<div class="code-container">
+										<div class="code-header">
+											<span class="code-language">JSON</span>
+											<button class="copy-btn" onclick="copyCode(this)">Копировать</button>
+										</div>
+										<pre><code class="language-json">
+{
+   "filters": {
+      "groups": {
+         "content": [
+            {"id": 1, "name": "Учётная запись"},
+            {"id": 2, "name": "Устройства"},
+            {"id": 3, "name": "Камеры"},
+            {"id": 4, "name": "Мой дом"}
+            {"id": 5, "name": "Мои сценарии"},
+            {"id": 6, "name": "Баланс и услуги"},
+         ],
+         "enabled": true
+      },
+      "event_types": {
+         "enabled": true,
+         "content": [
+            {"id": 13, "name": "Движение"},
+            {"id": 14, "name": "Перекрытие обзора"},
+            {"id": 15, "name": "Пересечение линии"},
+            {"id": 18, "name": "Звук"},
+            {"id": 23, "name": "Камера не в сети"},
+            {"id": 24, "name": "Камера в сети"}
+         ]
+      },
+      "devices": {
+         "enabled": true
+      }
+   }
+}
+										</code></pre>
+									</div>
+								</div>
+							</div>
+						</div>
+                        <!---------------------------------------------------->
+                        <!---------------------------------------------------->
+                        <!---------------------------------------------------->
+                        <div class="columnLayout single" data-layout="single">
+                            <div class="cell normal" data-type="normal">
+                                <div class="innerCell">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+						<!---------------------------------------------------->
+						<!--	Возможные ошибки							-->
+						<!---------------------------------------------------->
+						<div class="columnLayout single" data-layout="single">
+							<div class="cell normal" data-type="normal">
+								<div class="innerCell">
+									<a name="Bookmark1000"></a>
+									<h1 style="text-decoration: none;" id="Bookmark1000"><span class="nh-number">Возможные ошибки</span></h1>
+									<div role="region" aria-label="Info" class="confluence-information-macro  confluence-information-macro-information">
+										<span role="presentation" class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+										<div class="confluence-information-macro-body">
+											<strong>Примечание</strong>
+											<p>Полный список ошибок: <a href="">Коды ошибок</a></p>
+										</div>
+									</div>
+									<p>Специализированные ошибки для данного метода отсутствуют.</p>
+								</div>
+							</div>
+						</div>
+                        <!---------------------------------------------------->
+                        <!---------------------------------------------------->
+                        <!---------------------------------------------------->
+                        <div class="columnLayout single" data-layout="single">
+                            <div class="cell normal" data-type="normal">
+                                <div class="innerCell">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+						<!---------------------------------------------------->
+						<!--	Логика работы								-->
+						<!---------------------------------------------------->
+						<div class="columnLayout single" data-layout="single">
+							<div class="cell normal" data-type="normal">
+								<div class="innerCell">
+									<a name="Bookmark1000"></a>
+									<h1 style="text-decoration: none;" id="Bookmark1000"><span class="nh-number">Логика работы</span></h1>
+									<ol>
+										<li>Бэк получает запрос <strong>GET api/v3/events/filters</strong> от Фронта</li>
+										<li>Бэк обращается к сущности БД <strong>events_groups</strong>:
+											<ol>
+												<li>Если таблица <strong>events_groups</strong> пустая, или в join-таблице <strong>event_type_groups</strong> отсутствуют актуальные связи с таблицей <strong>event_types</strong>, то в ответе в объекте <b>groups</b> указывается:
+													<ol>
+														<li>"enabled": false;</li>
+														<li>массив "content" отсутствует</li>
+													</ol>
+												</li>
+												<li>Если таблица events_groups заполнена, а в join-таблице event_type_groups есть актуальные связи с таблицей event_types, то в ответе в объекте groups указывается:
+													<ol>
+														<li>"enabled": true;</li>
+														<li>массив "content" наполняется значениями из таблицы events_groups</li>
+													</ol>
+												</li>
+											</ol>
+										</li>
+										<li>Бэк проверяет есть ли устройства, камеры или контроллеры у пользователя
+											<ol>
+												<li>Если устройства отсутствуют, то в ответе в объекте devices указывается "enabled": false;</li>
+												<li>Если есть хотя бы одно устройство, то в ответе в объекте devices указывается "enabled": true;</li>
+											</ol>
+										</li>
+										<li>Бэк проверяет есть ли камеры у пользователя
+											<ol>
+												<li>Если таблица event_types пустая, или нет ни одной записи для которых выполняются условия (origin_class = Device::Camera && filter_name != null), то в ответе в объекте event_types указывается:
+													<ol>
+														<li>"enabled": false;</li>
+														<li>массив "content" отсутствует</li>
+													</ol>
+												</li>
+												<li>Если у пользователя не подключено ни одной камеры, то в ответе в объекте event_types указывается:
+													<ol>
+														<li>"enabled": false;</li>
+														<li>массив "content" отсутствует</li>
+													</ol>
+												</li>
+												<li>Если у пользователя подключена хотя бы одна камера, то в ответе в объекте event_types указывается:
+													<ol>
+														<li>"enabled": true;</li>
+														<li>Чтобы заполнить массив "content" Бэк обращается к сущности БД events_types, находит все записи для которых выполняются условия (origin_class = ::Camera && filter_name != null) и наполняет значениями массив event_types с учётом следующих условий при проверке всех камер в таблице devices:
+															<ol>
+																<li>Если хотя бы у одной из камер data.caps.motion_detection = true, то в ответе в массив "content" добавляется {"id": xx, "name": "Движение"}</li>
+																<li>Если хотя бы у одной из камер data.caps.sound_detection = true, то в ответе в массив "content" добавляется {"id": xx, "name": "Звук"}</li>
+																<li>Если хотя бы у одной из камер data.caps.line_crossing_detection = true, то в ответе в массив "content" добавляется {"id": xx, "name": Пересечение линии"}</li>
+																<li>Если хотя бы у одной из камер data.caps.face_detection = true, то в ответе в массив "content" добавляется {"id": xx, "name": "Обнаружение лиц"}</li>
+																<li>Если хотя бы у одной из камер data.caps.tampering_detection = true, то в ответе в массив "content" добавляется {"id": xx, "name": "Перекрытие обзора"}</li>
+																<li>Если хотя бы у одной из камер data.caps.human_detection = true, то в ответе в массив "content" добавляется {"id": xx, "name": "Человек в кадре"}</li>
+																<li>{"id": xx, "name": "Камера не в сети"} и {"id": xx, "name": "Камера в сети"} всегда добавляются в массив "content"</li>
+															</ol>
+														</li>
+													</ol>
+												</li>
+											</ol>
+										</li>
+										<li>Бэк возвращает подготовленный ответ Фронту</li>
+									</ol>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<script>
-			Split(['#sidebar', '#content'], {
-				sizes: [15, 85],
-				minSize: 100
-			});
-		</script>
-	</body>
+	<script>
+		Split(['#sidebar', '#content'], {
+			sizes: [15, 85],
+			minSize: 100
+		});
+	</script>
+    <script>
+        // Функция копирования кода
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-container').querySelector('code');
+            const textArea = document.createElement('textarea');
+            textArea.value = codeBlock.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            // Визуальное подтверждение
+            const originalText = button.textContent;
+            button.textContent = 'Скопировано!';
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+        }
+        
+        // Инициализация Prism после загрузки страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof Prism !== 'undefined') {
+                Prism.highlightAll();
+            }
+        });
+    </script>
+</body>
 </html>

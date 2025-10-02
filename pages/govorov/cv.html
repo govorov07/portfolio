@@ -1,89 +1,101 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- 6.0.0-GA -->
-<html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Кодировка символов -->
+	<meta charset="UTF-8">
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!-- Адаптивность для мобильных устройств -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="stylesheet" href="/portfolio/assets/styles/combined.css" />
-		<link rel="stylesheet" href="/portfolio/assets/styles/custom.css" />
-		<link rel="stylesheet" href="/portfolio/assets/styles/inline_styles.css" />
-		<script src="/portfolio/assets/scripts/jquery-3.2.1.min.js"></script>
-		<script src="/portfolio/assets/scripts/split/split.min.js"></script>
-	</head>
+	<!-- Заголовок страницы (отображается во вкладке браузера) -->
+    <title>Интернет-магазин электроники - Главная</title>
+	
+	<!-- Описание для поисковых систем -->
+    <meta name="description" content="Лучший интернет-магазин электроники с гарантией качества">
+    
+	<!-- Ключевые слова -->	
+	<meta name="keywords" content="электроника, смартфоны, ноутбуки, техника">
+    
+	<!-- Автор страницы -->
+	<meta name="author" content="TechStore">
+    
+	<!-- Подключение CSS -->
+	<link rel="stylesheet" href="css/styles.css">
+    
+	<!-- Иконка сайта (favicon) -->
+	<link rel="icon" href="images/favicon.ico">
+    
+	<!-- Подключение внешних шрифтов -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+	<!-- Подключение JavaScript -->
+	<script src="js/main.js" defer></script>
+</head>
+<body>
+	<!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+			<!-- Навигационное меню -->
+            <nav class="nav">
+                <a href="/" class="logo">TechStore</a>
+                <ul class="nav-menu">
+                    <li><a href="#catalog">Каталог</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-	<body>
-		<div class="full-height-container">
-			<div id="sidebar" class="split">
-				<div class="navgroup" id="search">
-					<form action="C:\Users\nevsk\Downloads\SSM - Soft Systems Methodology by Checkland-v2-20250211_134004\pages\portofolio\search.html" class="aui">
-                        <input type="text" name="q" id="tipue_search_input" class="medium-field text">
-                        <input class="button submit" type="submit" value="Search">
-					</form>
-				</div>
+	<!-- Основное содержимое -->
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <h1>Добро пожаловать в TechStore</h1>
+                <p>Лучшая электроника по доступным ценам</p>
+                <button class="cta-button">Перейти к покупкам</button>
+            </div>
+        </section>
 
-				<div class="navgroup" id="navigation">
-					<ul>
-						<li><span>Говоров Андрей Сергеевич</span><input type="checkbox" checked/>
-							<ul>
-								<li><span><a href="/portfolio/pages/govorov/about.html">Обо мне</a></span></li>
-								<li><span><b>Резюме</b></span></li>
-							</ul>
-						</li>
-						
-						<li><span>Портфолио</span><input type="checkbox" />
-							<ul>
-								<li><span>01. Требования</span><input type="checkbox" />
-									<ul>
-										<li><span><a href="/portfolio/pages/portofolio/requirements/rfilters.html">Требования к фильтрации событий</a></span></li>
-									</ul>
-								</li>
-								
-								<li><span>02. Спецификации</span><input type="checkbox" />
-									<ul>
-										<li><span><a href="/portfolio/pages/portofolio/specifications/sfilters.html">Спецификация. Фильтрация событий</a></span></li>
-									</ul>
-								</li>
-								
-								<li><span>03. База данных</span><input type="checkbox" />
-									<ul>
-										<li><span><a href="/portfolio/pages/portofolio/database/events_groups.html">Группы событий</a></span></li>
-										<li><span><a href="/portfolio/pages/portofolio/database/event_types.html">Типы событий</a></span></li>
-										<li><span><a href="/portfolio/pages/portofolio/database/event_types_groups.html">Группы-типы событий</a></span></li>
-									</ul>
-								</li>
-								
-								<li><span>04. REST API</span><input type="checkbox" />
-									<ul>
-										<li><span><a href="/portfolio/pages/portofolio/api/postevents.html">POST api/v3/events</a></span></li>
-										<li><span><a href="/portfolio/pages/portofolio/api/getfilters.html">GET api/v3/events/filters</a></span></li>
-										<li><span><a href="/portfolio/pages/portofolio/api/postdays.html">POST api/v3/events/days</a></span></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
+        <section id="catalog" class="catalog">
+            <div class="container">
+                <h2>Наш каталог</h2>
+                <div class="products-grid">
+                    <!-- Карточки товаров -->
+                </div>
+            </div>
+        </section>
 
-			<div id="content" class="split">
-				<div class='wiki-page'>
-					<div class='wiki-title'>
-						<h1 class='page-title-lvl-cover' id='Bookmark1'>Резюме</h1>
-					</div>
+        <article class="about-company">
+            <div class="container">
+                <h2>О нашей компании</h2>
+                <p>Мы работаем на рынке электроники более 10 лет...</p>
+            </div>
+        </article>
+    </main>
 
-					<div class='wiki-content'>
+    <aside class="sidebar">
+        <!-- Боковая панель с дополнительной информацией -->
+    </aside>
 
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<script>
-			Split(['#sidebar', '#content'], {
-				sizes: [15, 85],
-				minSize: 100
-			});
-		</script>
-	</body>
+	<!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Телефон: +7 (999) 123-45-67</p>
+                    <p>Email: info@techstore.ru</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Мы в соцсетях</h3>
+                    <!-- Ссылки на социальные сети -->
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 TechStore. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>

@@ -1874,7 +1874,7 @@ form.aui .button {
 
 @font-face {
     font-family: "Atlassian Icons";
-    src: url(/portfolio/assets/fonts/Atlassian-icons.ttf) format("truetype");
+    src: url(../assets/fonts/Atlassian-icons.ttf) format("truetype");
     font-weight: normal;
     font-style: normal;
 }
