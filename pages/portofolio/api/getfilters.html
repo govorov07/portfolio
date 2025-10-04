@@ -453,245 +453,256 @@
 				<!--	Логика работы																											-->
 				<!-------------------------------------------------------------------------------------------------------------------------------->
 				<h1 id="section-xxx">Логика работы</h1>
-				<div class="complex-algorithm">
-                    <ol class="algorithm-list level-1">
-                        <li>
-                            <span class="algorithm-text">Бэк получает запрос <strong>GET api/v3/events/filters</strong> от Фронта</span>
-                        </li>
-                        <li>
-                            <span class="algorithm-text">Бэк обращается к сущности БД <strong>events_groups</strong>:</span>
-                            <ol class="algorithm-list level-2">
-                                <li>
-                                    <span class="algorithm-text">Если таблица <strong>events_groups</strong> пустая, или в join-таблице <strong>event_type_groups</strong> отсутствуют актуальные связи с таблицей <strong>event_types</strong>, то в ответе указывается:</span>
-                                    <ol class="algorithm-list level-3">
-                                        <li>
-                                            <span class="algorithm-text"><code>filters.groups.enabled = false</code></span>
-                                        </li>
-                                        <li>
-                                            <span class="algorithm-text"><code>filters.groups.content[]</code> - отсутствует</span>
-                                        </li>
-                                    </ol>
-                                </li>
-                                <li>
-                                    <span class="algorithm-text">Если таблица <strong>events_groups</strong> заполнена, а в join-таблице <strong>event_type_groups</strong> есть актуальные связи с таблицей <strong>event_types</strong>, то в ответе указывается:</span>
-                                    <ol class="algorithm-list level-3">
-                                        <li>
-                                            <span class="algorithm-text"><code>filters.groups.enabled = true</code></span>
-                                        </li>
-                                        <li>
-                                            <span class="algorithm-text"><code>filters.groups.content[]</code> - наполняется значениями из таблицы <strong>events_groups</strong></span>
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ol>
-                        </li>
-                        <li>
-                            <span class="algorithm-text">Бэк проверяет есть ли устройства, камеры или контроллеры у пользователя</span>
-                            <ol class="algorithm-list level-2">
-                                <li>
-                                    <span class="algorithm-text">Если устройства отсутствуют, то в ответе указывается <code>filters.devices.enabled = false</code></span>
-                                </li>
-                                <li>
-                                    <span class="algorithm-text">Если есть хотя бы одно устройство, то в ответе указывается <code>filters.devices.enabled = true</code></span>
-                                </li>
-                            </ol>
-                        </li>
-                        <li>
-                            <span class="algorithm-text">Бэк проверяет есть ли камеры у пользователя</span>
-                            <ol class="algorithm-list level-2">
-                                <li>
-                                    <span class="algorithm-text">Если таблица <strong>event_types</strong> пустая, или нет ни одной записи для которых выполняются условия <code>origin_class = Device::Camera && filter_name != null</code>, то в ответе указывается:</span>
-                                    <ol class="algorithm-list level-3">
-                                        <li>
-                                            <span class="algorithm-text"><code>filters.event_types.enabled = false</code></span>
-                                        </li>
-                                        <li>
-                                            <span class="algorithm-text"><code>filters.event_types.content[]</code> - отсутствует</span>
-                                        </li>
-                                    </ol>
-                                </li>
-                                <li>
-                                    <span class="algorithm-text">Если у пользователя не подключено ни одной камеры, то в ответе указывается:</span>
-                                    <ol class="algorithm-list level-3">
-                                        <li>
-                                            <span class="algorithm-text"><code>filters.event_types.enabled = false</code></span>
-                                        </li>
-                                        <li>
-                                            <span class="algorithm-text"><code>filters.event_types.content[]</code> - отсутствует</span>
-                                        </li>
-                                    </ol>
-                                </li>
-                                <li>
-                                    <span class="algorithm-text">Если у пользователя подключена хотя бы одна камера, то в ответе в объекте event_types указывается:</span>
-                                    <ol class="algorithm-list level-3">
-                                        <li>
-                                            <span class="algorithm-text"><code>filters.event_types.enabled = true</code></span>
-                                        </li>
-                                        <li>
-                                            <span class="algorithm-text">Чтобы заполнить filters.event_types.content[] Бэк обращается к таблице БД <strong>events_types</strong>, находит все записи, для которых выполняются условия (<code>origin_class = ::Camera && filter_name != null</code>) и наполняет значениями массив <code>filters.event_types.content[]</code> с учётом следующих условий при проверке всех камер в таблице БД <strong>devices</strong>:</span>
-                                            <ol class="algorithm-list level-4">
-                                                <li>
-                                                    <span class="algorithm-text">Если хотя бы у одной из камер <code>data.caps.motion_detection = true</code>, то в ответе в <code>filters.event_types.content[]</code> добавляется <code>{"id": xx, "name": "Движение"}</code></span>
-                                                </li>
-                                                <li>
-                                                    <span class="algorithm-text">Если хотя бы у одной из камер <code>data.caps.sound_detection = true</code>, то в ответе в <code>filters.event_types.content[]</code> добавляется <code>{"id": xx, "name": "Звук"}</code></span>
-                                                </li>
-                                                <li>
-                                                    <span class="algorithm-text">Если хотя бы у одной из камер <code>data.caps.line_crossing_detection = true</code>, то в ответе в <code>filters.event_types.content[]</code> добавляется <code>{"id": xx, "name": "Пересечение линии"}</code></span>
-                                                </li>
-                                                <li>
-                                                    <span class="algorithm-text">Если хотя бы у одной из камер <code>data.caps.face_detection = true</code>, то в ответе в <code>filters.event_types.content[]</code> добавляется <code>{"id": xx, "name": "Обнаружение лиц"}</code></span>
-                                                </li>
-                                                <li>
-                                                    <span class="algorithm-text">Если хотя бы у одной из камер <code>data.caps.tampering_detection = true</code>, то в ответе в <code>filters.event_types.content[]</code> добавляется <code>{"id": xx, "name": "Перекрытие обзора"}</code></span>
-                                                </li>
-                                                <li>
-                                                    <span class="algorithm-text">Если хотя бы у одной из камер <code>data.caps.human_detection = true</code>, то в ответе в <code>filters.event_types.content[]</code> добавляется <code>{"id": xx, "name": "Человек в кадре"}</code></span>
-                                                </li>
-                                                <li>
-                                                    <span class="algorithm-text"><code>{"id": xx, "name": "Камера не в сети"}</code> и <code>{"id": xx, "name": "Камера в сети"}</code> всегда добавляются в <code>filters.event_types.content[]</code></span>
-                                                </li>
-                                            </ol>
-                                        </li>
-                                    </ol>
-                                </li>
-                            </ol>
-                        </li>
-                        <li>
-                            <span class="algorithm-text">Бэк возвращает подготовленный ответ Фронту</span>
-                        </li>
-                    </ol>
-                </div>
-
-				<!-- Блок кода SQL -->
-				<div class="code-container">
-					<div class="code-header">
-						<span class="code-title">Запрос фильтров</span>
-						<div class="code-sql">SQL</div>
+				<div>
+					<div class="complex-algorithm">
+						<ol class="algorithm-list level-1">
+							<li>
+								<span class="algorithm-text">Бэк получает запрос <strong>GET api/v3/events/filters</strong> от Фронта</span>
+							</li>
+							<li>
+								<span class="algorithm-text">Бэк обращается к сущности БД <strong>events_groups</strong>:</span>
+								<ol class="algorithm-list level-2">
+									<li>
+										<span class="algorithm-text">Если таблица <strong>events_groups</strong> пустая, или в join-таблице <strong>event_type_groups</strong> отсутствуют актуальные связи с таблицей <strong>event_types</strong>, то в ответе указывается:</span>
+										<ol class="algorithm-list level-3">
+											<li>
+												<span class="algorithm-text"><code>filters.groups.enabled = false</code></span>
+											</li>
+											<li>
+												<span class="algorithm-text"><code>filters.groups.content[]</code> - отсутствует</span>
+											</li>
+										</ol>
+									</li>
+									<li>
+										<span class="algorithm-text">Если таблица <strong>events_groups</strong> заполнена, а в join-таблице <strong>event_type_groups</strong> есть актуальные связи с таблицей <strong>event_types</strong>, то в ответе указывается:</span>
+										<ol class="algorithm-list level-3">
+											<li>
+												<span class="algorithm-text"><code>filters.groups.enabled = true</code></span>
+											</li>
+											<li>
+												<span class="algorithm-text"><code>filters.groups.content[]</code> - наполняется значениями из таблицы <strong>events_groups</strong></span>
+											</li>
+										</ol>
+									</li>
+								</ol>
+							</li>
+							<li>
+								<span class="algorithm-text">Бэк проверяет есть ли устройства, камеры или контроллеры у пользователя</span>
+								<ol class="algorithm-list level-2">
+									<li>
+										<span class="algorithm-text">Если устройства отсутствуют, то в ответе указывается <code>filters.devices.enabled = false</code></span>
+									</li>
+									<li>
+										<span class="algorithm-text">Если есть хотя бы одно устройство, то в ответе указывается <code>filters.devices.enabled = true</code></span>
+									</li>
+								</ol>
+							</li>
+							<li>
+								<span class="algorithm-text">Бэк проверяет есть ли камеры у пользователя</span>
+								<ol class="algorithm-list level-2">
+									<li>
+										<span class="algorithm-text">Если таблица <strong>event_types</strong> пустая, или нет ни одной записи для которых выполняются условия <code>origin_class = Device::Camera && filter_name != null</code>, то в ответе указывается:</span>
+										<ol class="algorithm-list level-3">
+											<li>
+												<span class="algorithm-text"><code>filters.event_types.enabled = false</code></span>
+											</li>
+											<li>
+												<span class="algorithm-text"><code>filters.event_types.content[]</code> - отсутствует</span>
+											</li>
+										</ol>
+									</li>
+									<li>
+										<span class="algorithm-text">Если у пользователя не подключено ни одной камеры, то в ответе указывается:</span>
+										<ol class="algorithm-list level-3">
+											<li>
+												<span class="algorithm-text"><code>filters.event_types.enabled = false</code></span>
+											</li>
+											<li>
+												<span class="algorithm-text"><code>filters.event_types.content[]</code> - отсутствует</span>
+											</li>
+										</ol>
+									</li>
+									<li>
+										<span class="algorithm-text">Если у пользователя подключена хотя бы одна камера, то в ответе в объекте event_types указывается:</span>
+										<ol class="algorithm-list level-3">
+											<li>
+												<span class="algorithm-text"><code>filters.event_types.enabled = true</code></span>
+											</li>
+											<li>
+												<span class="algorithm-text">Чтобы заполнить filters.event_types.content[] Бэк обращается к таблице БД <strong>events_types</strong>, находит все записи, для которых выполняются условия (<code>origin_class = ::Camera && filter_name != null</code>) и наполняет значениями массив <code>filters.event_types.content[]</code> с учётом следующих условий при проверке всех камер в таблице БД <strong>devices</strong>:</span>
+												<ol class="algorithm-list level-4">
+													<li>
+														<span class="algorithm-text">Если хотя бы у одной из камер <code>data.caps.motion_detection = true</code>, то в ответе в <code>filters.event_types.content[]</code> добавляется <code>{"id": xx, "name": "Движение"}</code></span>
+													</li>
+													<li>
+														<span class="algorithm-text">Если хотя бы у одной из камер <code>data.caps.sound_detection = true</code>, то в ответе в <code>filters.event_types.content[]</code> добавляется <code>{"id": xx, "name": "Звук"}</code></span>
+													</li>
+													<li>
+														<span class="algorithm-text">Если хотя бы у одной из камер <code>data.caps.line_crossing_detection = true</code>, то в ответе в <code>filters.event_types.content[]</code> добавляется <code>{"id": xx, "name": "Пересечение линии"}</code></span>
+													</li>
+													<li>
+														<span class="algorithm-text">Если хотя бы у одной из камер <code>data.caps.face_detection = true</code>, то в ответе в <code>filters.event_types.content[]</code> добавляется <code>{"id": xx, "name": "Обнаружение лиц"}</code></span>
+													</li>
+													<li>
+														<span class="algorithm-text">Если хотя бы у одной из камер <code>data.caps.tampering_detection = true</code>, то в ответе в <code>filters.event_types.content[]</code> добавляется <code>{"id": xx, "name": "Перекрытие обзора"}</code></span>
+													</li>
+													<li>
+														<span class="algorithm-text">Если хотя бы у одной из камер <code>data.caps.human_detection = true</code>, то в ответе в <code>filters.event_types.content[]</code> добавляется <code>{"id": xx, "name": "Человек в кадре"}</code></span>
+													</li>
+													<li>
+														<span class="algorithm-text"><code>{"id": xx, "name": "Камера не в сети"}</code> и <code>{"id": xx, "name": "Камера в сети"}</code> всегда добавляются в <code>filters.event_types.content[]</code></span>
+													</li>
+												</ol>
+											</li>
+										</ol>
+									</li>
+								</ol>
+							</li>
+							<li>
+								<span class="algorithm-text">Бэк возвращает подготовленный ответ Фронту</span>
+							</li>
+						</ol>
 					</div>
-					<div>
-						<pre><code class="language-sql">
+
+					<!-- Блок кода SQL -->
+					<div class="code-container">
+						<div class="code-header">
+							<span class="code-title">Запрос фильтров</span>
+							<div class="code-sql">SQL</div>
+						</div>
+						<div>
+							<pre><code class="language-sql">
 WITH 
 -- Проверка групп событий
 groups_check AS (
-    SELECT 
-        COUNT(eg.id) > 0 AND COUNT(etg.event_type_id) > 0 AS groups_enabled
-    FROM events_groups eg
-    LEFT JOIN event_type_groups etg ON eg.id = etg.group_id
-    LEFT JOIN event_types et ON et.id = etg.event_type_id AND et.deleted_at IS NULL
-    WHERE eg.deleted_at IS NULL
+	SELECT 
+		COUNT(eg.id) > 0 AND COUNT(etg.event_type_id) > 0 AS groups_enabled
+	FROM events_groups eg
+	LEFT JOIN event_type_groups etg ON eg.id = etg.group_id
+	LEFT JOIN event_types et ON et.id = etg.event_type_id AND et.deleted_at IS NULL
+	WHERE eg.deleted_at IS NULL
 ),
 -- Данные групп событий (если enabled = true)
 groups_data AS (
-    SELECT 
-        eg.id,
-        eg.name,
-        eg.description
-    FROM events_groups eg
-    WHERE eg.deleted_at IS NULL
+	SELECT 
+		eg.id,
+		eg.name,
+		eg.description
+	FROM events_groups eg
+	WHERE eg.deleted_at IS NULL
 ),
 -- Проверка наличия устройств у пользователя
 devices_check AS (
-    SELECT 
-        EXISTS(
-            SELECT 1 FROM devices 
-            WHERE user_id = :user_id AND deleted_at IS NULL
-            UNION ALL
-            SELECT 1 FROM cameras 
-            WHERE user_id = :user_id AND deleted_at IS NULL
-            UNION ALL  
-            SELECT 1 FROM controllers 
-            WHERE user_id = :user_id AND deleted_at IS NULL
-        ) AS devices_enabled
+	SELECT 
+		EXISTS(
+			SELECT 1 FROM devices 
+			WHERE user_id = :user_id AND deleted_at IS NULL
+			UNION ALL
+			SELECT 1 FROM cameras 
+			WHERE user_id = :user_id AND deleted_at IS NULL
+			UNION ALL  
+			SELECT 1 FROM controllers 
+			WHERE user_id = :user_id AND deleted_at IS NULL
+		) AS devices_enabled
 ),
 -- Проверка наличия камер у пользователя
 cameras_check AS (
-    SELECT 
-        EXISTS(
-            SELECT 1 FROM cameras 
-            WHERE user_id = :user_id AND deleted_at IS NULL
-        ) AS has_cameras
+	SELECT 
+		EXISTS(
+			SELECT 1 FROM cameras 
+			WHERE user_id = :user_id AND deleted_at IS NULL
+		) AS has_cameras
 ),
 -- Проверка типов событий для камер
 event_types_base_check AS (
-    SELECT 
-        COUNT(*) > 0 AS has_event_types
-    FROM event_types et
-    WHERE et.origin_class = 'Device::Camera' 
-        AND et.filter_name IS NOT NULL
-        AND et.deleted_at IS NULL
+	SELECT 
+		COUNT(*) > 0 AS has_event_types
+	FROM event_types et
+	WHERE et.origin_class = 'Device::Camera' 
+		AND et.filter_name IS NOT NULL
+		AND et.deleted_at IS NULL
 ),
 -- Проверка возможностей камер пользователя
 camera_capabilities AS (
-    SELECT 
-        BOOL_OR(COALESCE((data->'caps'->>'motion_detection')::boolean, false)) AS has_motion_detection,
-        BOOL_OR(COALESCE((data->'caps'->>'sound_detection')::boolean, false)) AS has_sound_detection,
-        BOOL_OR(COALESCE((data->'caps'->>'line_crossing_detection')::boolean, false)) AS has_line_crossing,
-        BOOL_OR(COALESCE((data->'caps'->>'face_detection')::boolean, false)) AS has_face_detection,
-        BOOL_OR(COALESCE((data->'caps'->>'tampering_detection')::boolean, false)) AS has_tampering,
-        BOOL_OR(COALESCE((data->'caps'->>'human_detection')::boolean, false)) AS has_human_detection
-    FROM cameras 
-    WHERE user_id = :user_id AND deleted_at IS NULL
+	SELECT 
+		BOOL_OR(COALESCE((data->'caps'->>'motion_detection')::boolean, false)) AS has_motion_detection,
+		BOOL_OR(COALESCE((data->'caps'->>'sound_detection')::boolean, false)) AS has_sound_detection,
+		BOOL_OR(COALESCE((data->'caps'->>'line_crossing_detection')::boolean, false)) AS has_line_crossing,
+		BOOL_OR(COALESCE((data->'caps'->>'face_detection')::boolean, false)) AS has_face_detection,
+		BOOL_OR(COALESCE((data->'caps'->>'tampering_detection')::boolean, false)) AS has_tampering,
+		BOOL_OR(COALESCE((data->'caps'->>'human_detection')::boolean, false)) AS has_human_detection
+	FROM cameras 
+	WHERE user_id = :user_id AND deleted_at IS NULL
 ),
 -- Собираем типы событий для камер
 event_types_data AS (
-    SELECT 
-        et.id,
-        et.name
-    FROM event_types et
-    WHERE et.origin_class = 'Device::Camera' 
-        AND et.filter_name IS NOT NULL
-        AND et.deleted_at IS NULL
-        AND (
-            (et.filter_name = 'motion_detection' AND (SELECT has_motion_detection FROM camera_capabilities)) OR
-            (et.filter_name = 'sound_detection' AND (SELECT has_sound_detection FROM camera_capabilities)) OR
-            (et.filter_name = 'line_crossing_detection' AND (SELECT has_line_crossing FROM camera_capabilities)) OR
-            (et.filter_name = 'face_detection' AND (SELECT has_face_detection FROM camera_capabilities)) OR
-            (et.filter_name = 'tampering_detection' AND (SELECT has_tampering FROM camera_capabilities)) OR
-            (et.filter_name = 'human_detection' AND (SELECT has_human_detection FROM camera_capabilities)) OR
-            et.filter_name IN ('camera_offline', 'camera_online')
-        )
+	SELECT 
+		et.id,
+		et.name
+	FROM event_types et
+	WHERE et.origin_class = 'Device::Camera' 
+		AND et.filter_name IS NOT NULL
+		AND et.deleted_at IS NULL
+		AND (
+			(et.filter_name = 'motion_detection' AND (SELECT has_motion_detection FROM camera_capabilities)) OR
+			(et.filter_name = 'sound_detection' AND (SELECT has_sound_detection FROM camera_capabilities)) OR
+			(et.filter_name = 'line_crossing_detection' AND (SELECT has_line_crossing FROM camera_capabilities)) OR
+			(et.filter_name = 'face_detection' AND (SELECT has_face_detection FROM camera_capabilities)) OR
+			(et.filter_name = 'tampering_detection' AND (SELECT has_tampering FROM camera_capabilities)) OR
+			(et.filter_name = 'human_detection' AND (SELECT has_human_detection FROM camera_capabilities)) OR
+			et.filter_name IN ('camera_offline', 'camera_online')
+		)
 )
 
 -- Финальный результат
 SELECT 
-    -- Группы событий
-    json_build_object(
-        'enabled', (SELECT groups_enabled FROM groups_check),
-        'content', CASE 
-            WHEN (SELECT groups_enabled FROM groups_check) THEN 
-                (SELECT COALESCE(json_agg(json_build_object(
-                    'id', gd.id,
-                    'name', gd.name,
-                    'description', gd.description
-                )), '[]'::json) FROM groups_data gd)
-            ELSE NULL
-        END
-    ) AS groups,
-    
-    -- Устройства
-    json_build_object(
-        'enabled', (SELECT devices_enabled FROM devices_check)
-    ) AS devices,
-    
-    -- Типы событий
-    json_build_object(
-        'enabled', (
-            (SELECT has_event_types FROM event_types_base_check) AND 
-            (SELECT has_cameras FROM cameras_check)
-        ),
-        'content', CASE 
-            WHEN (SELECT has_event_types FROM event_types_base_check) AND 
-                 (SELECT has_cameras FROM cameras_check) THEN
-                (SELECT COALESCE(json_agg(json_build_object(
-                    'id', etd.id,
-                    'name', etd.name
-                )), '[]'::json) FROM event_types_data etd)
-            ELSE NULL
-        END
-    ) AS event_types;
-						</code></pre>
+	-- Группы событий
+	json_build_object(
+		'enabled', (SELECT groups_enabled FROM groups_check),
+		'content', CASE 
+			WHEN (SELECT groups_enabled FROM groups_check) THEN 
+				(SELECT COALESCE(json_agg(json_build_object(
+					'id', gd.id,
+					'name', gd.name,
+					'description', gd.description
+				)), '[]'::json) FROM groups_data gd)
+			ELSE NULL
+		END
+	) AS groups,
+	
+	-- Устройства
+	json_build_object(
+		'enabled', (SELECT devices_enabled FROM devices_check)
+	) AS devices,
+	
+	-- Типы событий
+	json_build_object(
+		'enabled', (
+			(SELECT has_event_types FROM event_types_base_check) AND 
+			(SELECT has_cameras FROM cameras_check)
+		),
+		'content', CASE 
+			WHEN (SELECT has_event_types FROM event_types_base_check) AND 
+					(SELECT has_cameras FROM cameras_check) THEN
+				(SELECT COALESCE(json_agg(json_build_object(
+					'id', etd.id,
+					'name', etd.name
+				)), '[]'::json) FROM event_types_data etd)
+			ELSE NULL
+		END
+	) AS event_types;
+							</code></pre>
+						</div>
 					</div>
+
+					<p><strong>Пояснения к запросу:</strong></p>
+					<ol>
+						<li><strong>CTE (Common Table Expressions)</strong> - использую временные представления для каждой проверки</li>
+						<li><strong>:user_id</strong> - параметр запроса, который нужно передать из бэкенда</li>
+						<li><strong>JSON построение</strong> - результат формируется в виде JSON структуры, готовой для отправки фронту</li>
+						<li><strong>Проверка capabilities камер</strong> - использую BOOL_OR для проверки, есть ли хотя бы одна камера с каждой capability</li>
+						<li><strong>Условия для event_types</strong> - фильтруем типы событий на основе capabilities камер пользователя</li>
+					</ol>
 				</div>
 			</article>
 		</div>
