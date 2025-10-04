@@ -1079,6 +1079,422 @@ div.code-toolbar > .toolbar a:hover {
     border-color: #DFE1E6;
 }
 
+/* Стили для Jira issue */
+.jira-issue-container {
+    background: #FFFFFF;
+    border: 1px solid #DFE1E6;
+    border-radius: 3px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.jira-issue {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.jira-issue-key {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #0052CC;
+    color: white;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.2s ease;
+}
+
+.jira-issue-key:hover {
+    background: #0747A6;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.jira-icon {
+    font-size: 12px;
+}
+
+.jira-summary {
+    color: #172B4D;
+    font-weight: 500;
+    flex: 1;
+    min-width: 200px;
+}
+
+.jira-status {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.jira-status-published {
+    background: #E3FCEF;
+    color: #006644;
+    border: 1px solid #ABF5D1;
+}
+
+.jira-status-in-progress {
+    background: #DEEBFF;
+    color: #0052CC;
+    border: 1px solid #B3D4FF;
+}
+
+.jira-status-done {
+    background: #E3FCEF;
+    color: #006644;
+    border: 1px solid #ABF5D1;
+}
+
+.jira-status-todo {
+    background: #DFE1E6;
+    color: #42526E;
+    border: 1px solid #C1C7D0;
+}
+
+.jira-status-review {
+    background: #FFF7E6;
+    color: #FF8B00;
+    border: 1px solid #FFE380;
+}
+
+/* Стили для макросов Confluence */
+.confluence-macro {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 3px;
+    border-left: 4px solid;
+    background: #FFFFFF;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #DFE1E6;
+    border-top: 1px solid #DFE1E6;
+    border-bottom: 1px solid #DFE1E6;
+}
+
+.macro-icon {
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.macro-content {
+    flex: 1;
+}
+
+.macro-content strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.macro-content p {
+    margin: 0;
+    color: #42526E;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.macro-content p:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+.macro-content code {
+    background: #F4F5F7;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid #DFE1E6;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 13px;
+    color: #172B4D;
+}
+
+/* Стили для разных типов макросов */
+.confluence-macro.info {
+    border-left-color: #0052CC;
+    background: #F0F7FF;
+}
+
+.confluence-macro.info .macro-content strong {
+    color: #0052CC;
+}
+
+.confluence-macro.warning {
+    border-left-color: #FF8B00;
+    background: #FFF7E6;
+}
+
+.confluence-macro.warning .macro-content strong {
+    color: #FF8B00;
+}
+
+.confluence-macro.note {
+    border-left-color: #6554C0;
+    background: #F4F5FF;
+}
+
+.confluence-macro.note .macro-content strong {
+    color: #6554C0;
+}
+
+.confluence-macro.tip {
+    border-left-color: #00875A;
+    background: #E3FCEF;
+}
+
+.confluence-macro.tip .macro-content strong {
+    color: #00875A;
+}
+
+/* Дополнительные варианты макросов */
+.confluence-macro.success {
+    border-left-color: #00875A;
+    background: #E3FCEF;
+}
+
+.confluence-macro.success .macro-content strong {
+    color: #00875A;
+}
+
+.confluence-macro.error {
+    border-left-color: #DE350B;
+    background: #FFEBE6;
+}
+
+.confluence-macro.error .macro-content strong {
+    color: #DE350B;
+}
+
+/* Стили для вложенных элементов в макросах */
+.macro-content ul,
+.macro-content ol {
+    margin: 8px 0;
+    padding-left: 20px;
+    color: #42526E;
+}
+
+.macro-content li {
+    margin-bottom: 4px;
+    line-height: 1.5;
+}
+
+.macro-content a {
+    color: #0052CC;
+    text-decoration: none;
+}
+
+.macro-content a:hover {
+    text-decoration: underline;
+}
+
+/* Эффекты при наведении */
+.confluence-macro:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+}
+
+/* Стили для сложного алгоритма */
+.complex-algorithm {
+    background: #FFFFFF;
+    border: 1px solid #DFE1E6;
+    border-radius: 3px;
+    padding: 24px;
+    margin: 20px 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.algorithm-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: algorithm-counter;
+}
+
+.algorithm-list > li {
+    counter-increment: algorithm-counter;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.algorithm-text {
+    display: block;
+    color: #172B4D;
+    font-size: 14px;
+    line-height: 1.6;
+    padding-left: 32px;
+}
+
+/* Стили для разных уровней вложенности */
+.algorithm-list.level-1 > li::before {
+    content: counter(algorithm-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #0052CC;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.algorithm-list.level-2 {
+    counter-reset: algorithm-counter-2;
+    margin: 12px 0 12px 20px;
+    padding-left: 12px;
+    border-left: 2px solid #EBECF0;
+}
+
+.algorithm-list.level-2 > li {
+    counter-increment: algorithm-counter-2;
+}
+
+.algorithm-list.level-2 > li::before {
+    content: counter(algorithm-counter) "." counter(algorithm-counter-2);
+    position: absolute;
+    left: -32px;
+    top: 0;
+    background: #4C9AFF;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.algorithm-list.level-3 {
+    counter-reset: algorithm-counter-3;
+    margin: 8px 0 8px 20px;
+    padding-left: 12px;
+    border-left: 2px solid #F4F5F7;
+}
+
+.algorithm-list.level-3 > li {
+    counter-increment: algorithm-counter-3;
+}
+
+.algorithm-list.level-3 > li::before {
+    content: counter(algorithm-counter) "." counter(algorithm-counter-2) "." counter(algorithm-counter-3);
+    position: absolute;
+    left: -32px;
+    top: 0;
+    background: #79F2C0;
+    color: #006644;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.algorithm-list.level-4 {
+    counter-reset: algorithm-counter-4;
+    margin: 6px 0 6px 20px;
+    padding-left: 12px;
+    border-left: 2px solid #F4F5F7;
+}
+
+.algorithm-list.level-4 > li {
+    counter-increment: algorithm-counter-4;
+}
+
+.algorithm-list.level-4 > li::before {
+    content: counter(algorithm-counter) "." counter(algorithm-counter-2) "." counter(algorithm-counter-3) "." counter(algorithm-counter-4);
+    position: absolute;
+    left: -32px;
+    top: 0;
+    background: #FFFFFF;
+    color: #42526E;
+    border: 1px solid #DFE1E6;
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 600;
+}
+
+/* Стили для элементов внутри алгоритма */
+.algorithm-text strong {
+    color: #0052CC;
+    font-weight: 600;
+}
+
+.algorithm-text code {
+    background: #F4F5F7;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid #DFE1E6;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 13px;
+    color: #172B4D;
+    margin: 0 2px;
+}
+
+.algorithm-text code.object {
+    background: #F4F5FF;
+    border-color: #C0B6F2;
+    color: #6554C0;
+}
+
+/* Эффекты при наведении */
+.algorithm-list > li:hover .algorithm-text {
+    background: #F8F9FA;
+    border-radius: 3px;
+    margin-left: -8px;
+    padding-left: 40px;
+    transition: all 0.2s ease;
+}
+
+.algorithm-list.level-1 > li:hover::before {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+/* Подсветка условий */
+.algorithm-condition {
+    background: #FFF7E6;
+    border: 1px solid #FFE380;
+    border-radius: 3px;
+    padding: 8px 12px;
+    margin: 8px 0;
+    font-size: 13px;
+    color: #172B4D;
+}
+
+.algorithm-condition code {
+    background: #FFFAE6;
+    border-color: #FFD580;
+}
+
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
     body {
@@ -1226,6 +1642,100 @@ div.code-toolbar > .toolbar a:hover {
         align-items: flex-start;
         gap: 4px;
     }
+
+    /* Адаптивность для Jira issue */
+    .jira-issue-container {
+        padding: 12px 16px;
+    }
+    
+    .jira-issue {
+        gap: 6px;
+        font-size: 13px;
+    }
+    
+    .jira-issue-key {
+        padding: 3px 6px;
+        font-size: 12px;
+    }
+    
+    .jira-summary {
+        min-width: 150px;
+    }
+    
+    .jira-status {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+
+    /* Адаптивность для макросов */
+    .confluence-macro {
+        padding: 12px 16px;
+        gap: 10px;
+    }
+    
+    .macro-icon {
+        font-size: 14px;
+    }
+    
+    .macro-content strong {
+        font-size: 13px;
+    }
+    
+    .macro-content p {
+        font-size: 13px;
+    }
+    
+    .macro-content code {
+        font-size: 12px;
+        padding: 1px 4px;
+    }
+
+    /* Адаптивность для алгоритма */
+    .complex-algorithm {
+        padding: 16px;
+    }
+    
+    .algorithm-text {
+        font-size: 13px;
+        padding-left: 28px;
+    }
+    
+    .algorithm-list.level-1 > li::before {
+        width: 20px;
+        height: 20px;
+        font-size: 11px;
+    }
+    
+    .algorithm-list.level-2 {
+        margin-left: 16px;
+        padding-left: 8px;
+    }
+    
+    .algorithm-list.level-2 > li::before {
+        left: -24px;
+        width: 18px;
+        height: 18px;
+        font-size: 9px;
+    }
+    
+    .algorithm-list.level-3 > li::before {
+        left: -24px;
+        width: 16px;
+        height: 16px;
+        font-size: 8px;
+    }
+    
+    .algorithm-list.level-4 > li::before {
+        left: -24px;
+        width: 14px;
+        height: 14px;
+        font-size: 7px;
+    }
+    
+    .algorithm-text code {
+        font-size: 12px;
+        padding: 1px 4px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1341,6 +1851,88 @@ div.code-toolbar > .toolbar a:hover {
     .multi-level > li {
         line-height: 1.6;
     }
+    
+    /* Адаптивность для Jira issue */
+    .jira-issue-container {
+        padding: 10px 12px;
+    }
+    
+    .jira-issue {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .jira-issue-key {
+        align-self: flex-start;
+    }
+    
+    .jira-summary {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .jira-status {
+        align-self: flex-start;
+    }
+
+    /* Адаптивность для макросов */
+    .confluence-macro {
+        padding: 10px 12px;
+        gap: 8px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .macro-icon {
+        margin-top: 0;
+    }
+    
+    .macro-content {
+        width: 100%;
+    }
+
+    /* Адаптивность для алгоритма */
+    .complex-algorithm {
+        padding: 12px;
+    }
+    
+    .algorithm-text {
+        font-size: 12px;
+        padding-left: 24px;
+        line-height: 1.5;
+    }
+    
+    .algorithm-list.level-1 > li::before {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+    }
+    
+    .algorithm-list.level-2,
+    .algorithm-list.level-3,
+    .algorithm-list.level-4 {
+        margin-left: 12px;
+        padding-left: 6px;
+    }
+    
+    .algorithm-list.level-2 > li::before {
+        left: -18px;
+        width: 16px;
+        height: 16px;
+    }
+    
+    .algorithm-list.level-3 > li::before {
+        left: -18px;
+        width: 14px;
+        height: 14px;
+    }
+    
+    .algorithm-list.level-4 > li::before {
+        left: -18px;
+        width: 12px;
+        height: 12px;
+    }
 }
 
 /* Улучшения для лучшей читаемости диаграммы */
@@ -1360,4 +1952,53 @@ div.code-toolbar > .toolbar a:hover {
 
 .uml-diagram::-webkit-scrollbar-thumb:hover {
     background: #B3BAC5;
+}
+
+/* Дополнительные стили для статусов Jira (можно использовать для других задач) */
+.jira-issue-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #F4F5F7;
+    padding: 4px 8px;
+    border-radius: 3px;
+    border: 1px solid #DFE1E6;
+    font-size: 12px;
+    text-decoration: none;
+    color: #42526E;
+    transition: all 0.2s ease;
+}
+
+.jira-issue-mini:hover {
+    background: #EBECF0;
+    border-color: #B3BAC5;
+    text-decoration: none;
+    color: #172B4D;
+}
+
+.jira-issue-mini .jira-icon {
+    font-size: 11px;
+}
+
+.jira-issue-mini .jira-status {
+    font-size: 9px;
+    padding: 1px 4px;
+}
+
+/* Компактная версия макросов */
+.confluence-macro.compact {
+    padding: 12px 16px;
+}
+
+.confluence-macro.compact .macro-icon {
+    font-size: 14px;
+}
+
+.confluence-macro.compact .macro-content strong {
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.confluence-macro.compact .macro-content p {
+    font-size: 13px;
 }
