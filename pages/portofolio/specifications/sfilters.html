@@ -1362,64 +1362,197 @@ end
 					<!--	Скрипты																	-->
 					<!-------------------------------------------------------------------------------->
 					<h2 id="section-18">Скрипты</h2>
-					<div>
-						<!---------------------------------------------------------------------------->
-						<!--	Скрипт наполнения таблицы БД "Группы событий" (event_groups)		-->
-						<!---------------------------------------------------------------------------->
-						<h3 id="section-19">Скрипт наполнения таблицы БД "Группы событий" (event_groups)</h3>
-						<div>
-							<ol>
-								<li>"id": auto, "name": "Учётная запись"</li>
-								<li>"id": auto, "name": "Устройства"</li>
-								<li>"id": auto, "name": "Камеры"</li>
-								<li>"id": auto, "name": "Мой дом"</li>
-								<li>"id": auto, "name": "Мои сценарии"</li>
-								<li>"id": auto, "name": "Баланс и услуги"</li>
-							</ol>
+					<div class="scripts-container">
+						<!-- Скрипт наполнения таблицы БД "Группы событий" -->
+						<div class="script-section">
+							<h3 id="section-19">Скрипт наполнения таблицы БД "Группы событий" (event_groups)</h3>
+							<div class="script-content">
+								<ol class="styled-list">
+									<li>
+										<span class="script-field">"id":</span> 
+										<span class="script-value auto">auto</span>, 
+										<span class="script-field">"name":</span> 
+										<span class="script-value string">"Учётная запись"</span>
+									</li>
+									<li>
+										<span class="script-field">"id":</span> 
+										<span class="script-value auto">auto</span>, 
+										<span class="script-field">"name":</span> 
+										<span class="script-value string">"Устройства"</span>
+									</li>
+									<li>
+										<span class="script-field">"id":</span> 
+										<span class="script-value auto">auto</span>, 
+										<span class="script-field">"name":</span> 
+										<span class="script-value string">"Камеры"</span>
+									</li>
+									<li>
+										<span class="script-field">"id":</span> 
+										<span class="script-value auto">auto</span>, 
+										<span class="script-field">"name":</span> 
+										<span class="script-value string">"Мой дом"</span>
+									</li>
+									<li>
+										<span class="script-field">"id":</span> 
+										<span class="script-value auto">auto</span>, 
+										<span class="script-field">"name":</span> 
+										<span class="script-value string">"Мои сценарии"</span>
+									</li>
+									<li>
+										<span class="script-field">"id":</span> 
+										<span class="script-value auto">auto</span>, 
+										<span class="script-field">"name":</span> 
+										<span class="script-value string">"Баланс и услуги"</span>
+									</li>
+								</ol>
+							</div>
 						</div>
 
-						<!---------------------------------------------------------------------------->
-						<!--	Скрипт наполнения таблицы БД "Типы событий" (event_types)			-->
-						<!---------------------------------------------------------------------------->
-						<h3 id="section-20">Скрипт наполнения таблицы БД "Типы событий" (event_types)</h3>
-						<div>
-							<ol>
-								<li>"id": auto</li>
-								<li>"event_name": "register_event" из definitions.rb</li>
-								<li>"filter_name":
-									<ol>
-										<li>{"filter_name": "Человек в кадре", для события с "eid": 20104}</li>
-										<li>{"filter_name": "Обнаружение лиц", для события с "eid": 20102}</li>
-										<li>{"filter_name": "Движение", для события с"eid": 20002}</li>
-										<li>{"filter_name": "Звук", для события с"eid": 20007}</li>
-										<li>{"filter_name": "Пересечение линии", для события с"eid": 20004}</li>
-										<li>{"filter_name": "Перекрытие обзора", для события с"eid": 20003}</li>
-										<li>{"filter_name": "Камера онлайн", для события с"eid": 32000}</li>
-										<li>{"filter_name": "Камера офлайн", для события с"eid": 32001}</li>
-										<li>{"filter_name": "Обрыв трансляции", для события с"eid": 60000}</li>
-									</ol>
-								</li>
-								<li>"origin_class": "origin_class" из definitions.rb</li>
-								<li>"eid": "eid" из definitions.rb</li>
-								<li>"icon_name": "icon" из definitions.rb</li>
-								<li>"default_message": "default" из events.yml для event_type = event_name</li>
-								<li>"popup": "popup" из definitions.rb</li>
-							</ol>
+						<!-- Скрипт наполнения таблицы БД "Типы событий" -->
+						<div class="script-section">
+							<h3 id="section-20">Скрипт наполнения таблицы БД "Типы событий" (event_types)</h3>
+							<div class="script-content">
+								<ol class="styled-list multi-level">
+									<li>
+										<span class="script-field">"id":</span> 
+										<span class="script-value auto">auto</span>
+									</li>
+									<li>
+										<span class="script-field">"event_name":</span> 
+										<span class="script-value string">"register_event"</span> 
+										<span class="script-comment">из definitions.rb</span>
+									</li>
+									<li>
+										<span class="script-field">"filter_name":</span>
+										<ol class="nested-list">
+											<li>
+												<span class="script-value object">{"filter_name": "Человек в кадре"}</span>
+												<span class="script-comment">для события с "eid": 20104</span>
+											</li>
+											<li>
+												<span class="script-value object">{"filter_name": "Обнаружение лиц"}</span>
+												<span class="script-comment">для события с "eid": 20102</span>
+											</li>
+											<li>
+												<span class="script-value object">{"filter_name": "Движение"}</span>
+												<span class="script-comment">для события с "eid": 20002</span>
+											</li>
+											<li>
+												<span class="script-value object">{"filter_name": "Звук"}</span>
+												<span class="script-comment">для события с "eid": 20007</span>
+											</li>
+											<li>
+												<span class="script-value object">{"filter_name": "Пересечение линии"}</span>
+												<span class="script-comment">для события с "eid": 20004</span>
+											</li>
+											<li>
+												<span class="script-value object">{"filter_name": "Перекрытие обзора"}</span>
+												<span class="script-comment">для события с "eid": 20003</span>
+											</li>
+											<li>
+												<span class="script-value object">{"filter_name": "Камера онлайн"}</span>
+												<span class="script-comment">для события с "eid": 32000</span>
+											</li>
+											<li>
+												<span class="script-value object">{"filter_name": "Камера офлайн"}</span>
+												<span class="script-comment">для события с "eid": 32001</span>
+											</li>
+											<li>
+												<span class="script-value object">{"filter_name": "Обрыв трансляции"}</span>
+												<span class="script-comment">для события с "eid": 60000</span>
+											</li>
+										</ol>
+									</li>
+									<li>
+										<span class="script-field">"origin_class":</span> 
+										<span class="script-value string">"origin_class"</span> 
+										<span class="script-comment">из definitions.rb</span>
+									</li>
+									<li>
+										<span class="script-field">"eid":</span> 
+										<span class="script-value string">"eid"</span> 
+										<span class="script-comment">из definitions.rb</span>
+									</li>
+									<li>
+										<span class="script-field">"icon_name":</span> 
+										<span class="script-value string">"icon"</span> 
+										<span class="script-comment">из definitions.rb</span>
+									</li>
+									<li>
+										<span class="script-field">"default_message":</span> 
+										<span class="script-value string">"default"</span> 
+										<span class="script-comment">из events.yml для event_type = event_name</span>
+									</li>
+									<li>
+										<span class="script-field">"popup":</span> 
+										<span class="script-value string">"popup"</span> 
+										<span class="script-comment">из definitions.rb</span>
+									</li>
+								</ol>
+							</div>
 						</div>
 
-						<!---------------------------------------------------------------------------->
-						<!--	Скрипт наполнения join-таблицы (event_types_groups)					-->
-						<!---------------------------------------------------------------------------->
-						<h3 id="section-21">Скрипт наполнения join-таблицы (event_types_groups)</h3>
-						<div>
-							<ol>
-								<li>"id" группы "Учётная запись" из event_groups | "id" типа события из event_types, для которых "origin_class" = Account + User</li>
-								<li>"id" группы "Устройства" из event_groups | "id" типа события из event_types, для которых "origin_class" = Device + Node</li>
-								<li>"id" группы "Камеры" из event_groups | "id" типа события из event_types, для которых "origin_class" = Device:Camera</li>
-								<li>"id" группы "Мой дом" из event_groups | "id" типа события из event_types, для которых "origin_class" = Home + Home:Mode + Room</li>
-								<li>"id" группы "Мои сценарии" из event_groups | "id" типа события из event_types, для которых "origin_class" = Rule</li>
-								<li>"id" группы "Баланс и услуги" из event_groups | "id" типа события из event_types, для которых "origin_class" = TariffOption</li>
-							</ol>
+						<!-- Скрипт наполнения join-таблицы -->
+						<div class="script-section">
+							<h3 id="section-21">Скрипт наполнения join-таблицы (event_types_groups)</h3>
+							<div class="script-content">
+								<ol class="styled-list complex-list">
+									<li>
+										<span class="script-field">"id" группы</span> 
+										<span class="script-value string">"Учётная запись"</span> 
+										<span class="script-comment">из event_groups</span>
+										<span class="script-operator">|</span>
+										<span class="script-field">"id" типа события</span> 
+										<span class="script-value string">из event_types</span>
+										<span class="script-comment">для которых "origin_class" = Account + User</span>
+									</li>
+									<li>
+										<span class="script-field">"id" группы</span> 
+										<span class="script-value string">"Устройства"</span> 
+										<span class="script-comment">из event_groups</span>
+										<span class="script-operator">|</span>
+										<span class="script-field">"id" типа события</span> 
+										<span class="script-value string">из event_types</span>
+										<span class="script-comment">для которых "origin_class" = Device + Node</span>
+									</li>
+									<li>
+										<span class="script-field">"id" группы</span> 
+										<span class="script-value string">"Камеры"</span> 
+										<span class="script-comment">из event_groups</span>
+										<span class="script-operator">|</span>
+										<span class="script-field">"id" типа события</span> 
+										<span class="script-value string">из event_types</span>
+										<span class="script-comment">для которых "origin_class" = Device:Camera</span>
+									</li>
+									<li>
+										<span class="script-field">"id" группы</span> 
+										<span class="script-value string">"Мой дом"</span> 
+										<span class="script-comment">из event_groups</span>
+										<span class="script-operator">|</span>
+										<span class="script-field">"id" типа события</span> 
+										<span class="script-value string">из event_types</span>
+										<span class="script-comment">для которых "origin_class" = Home + Home:Mode + Room</span>
+									</li>
+									<li>
+										<span class="script-field">"id" группы</span> 
+										<span class="script-value string">"Мои сценарии"</span> 
+										<span class="script-comment">из event_groups</span>
+										<span class="script-operator">|</span>
+										<span class="script-field">"id" типа события</span> 
+										<span class="script-value string">из event_types</span>
+										<span class="script-comment">для которых "origin_class" = Rule</span>
+									</li>
+									<li>
+										<span class="script-field">"id" группы</span> 
+										<span class="script-value string">"Баланс и услуги"</span> 
+										<span class="script-comment">из event_groups</span>
+										<span class="script-operator">|</span>
+										<span class="script-field">"id" типа события</span> 
+										<span class="script-value string">из event_types</span>
+										<span class="script-comment">для которых "origin_class" = TariffOption</span>
+									</li>
+								</ol>
+							</div>
 						</div>
 					</div>
 				</div>
