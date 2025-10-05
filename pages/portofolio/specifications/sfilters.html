@@ -690,70 +690,70 @@
 							</div>
 							<div>
 								<pre><code class="language-plantuml">
-@startuml
-skinparam responseMessageBelowArrow true
-'skinparam sequenceMessageAlign direction
-autonumber
+									@startuml
+									skinparam responseMessageBelowArrow true
+									'skinparam sequenceMessageAlign direction
+									autonumber
 
-actor "Пользователь УД" as u
-participant "Клиентское приложение" as f
-participant "Бэкенд УД" as b
-'database "База данных УД" as db
-participant EStore as e
+									actor "Пользователь УД" as u
+									participant "Клиентское приложение" as f
+									participant "Бэкенд УД" as b
+									'database "База данных УД" as db
+									participant EStore as e
 
-u -> f: Открывает страницу "События"
-activate f
-f -> u: Отображает страницу \nс заполнителями и лоадером 
-f -> b: GET api/v3/events/filters
-activate b
+									u -> f: Открывает страницу "События"
+									activate f
+									f -> u: Отображает страницу \nс заполнителями и лоадером 
+									f -> b: GET api/v3/events/filters
+									activate b
 
-alt Успех
-	b -> b: Формирует ответ по данным из БД \n(events_groups и event_types)
-	b --> f: Ответ со списком фильтров
-	f -> u: Отображает список \nактивных фильтров
-else Ошибка по таймауту
-	autonumber stop
-	autonumber "&lt;b>[5а0]"
-	b x-- f: Превышено время \nожидания ответа
-	f -> u: Отображает ошибку
-	autonumber stop
-else Ошибка запроса фильтров
-	autonumber stop
-	autonumber "&lt;b>[5б0]"
-	b --> f: Ответ с ошибкой
-	deactivate b
-	f -> u: Отображает ошибку
-	autonumber stop
-end
+									alt Успех
+										b -> b: Формирует ответ по данным из БД \n(events_groups и event_types)
+										b --> f: Ответ со списком фильтров
+										f -> u: Отображает список \nактивных фильтров
+									else Ошибка по таймауту
+										autonumber stop
+										autonumber "&lt;b>[5а0]"
+										b x-- f: Превышено время \nожидания ответа
+										f -> u: Отображает ошибку
+										autonumber stop
+									else Ошибка запроса фильтров
+										autonumber stop
+										autonumber "&lt;b>[5б0]"
+										b --> f: Ответ с ошибкой
+										deactivate b
+										f -> u: Отображает ошибку
+										autonumber stop
+									end
 
-autonumber 7
-f -> b: POST api/v3/events
-activate b
+									autonumber 7
+									f -> b: POST api/v3/events
+									activate b
 
-alt Успех
-	b -> b: формирует запрос в EStore
-	b -> e: POST api/estore/events/by_devices
-	activate e
-	e -> b: Ответ со списком событий
-	deactivate e
-	b -> b: Обогащает полученные события данными
-	b -> f: Ответ со списком событий
-	f -> u: Отображает список событий
-else Ошибка по таймауту
-	autonumber stop
-	autonumber "&lt;b>[11а0]"
-	b x-- f: Превышено время \nожидания ответа
-	f -> u: Отображает ошибку
-	autonumber stop
-else Ошибка запроса событий
-	autonumber stop
-	autonumber "&lt;b>[11б0]"
-	b --> f: Ответ с ошибкой
-	deactivate b
-	f -> u: Отображает ошибку
-	autonumber stop
-end
-@enduml
+									alt Успех
+										b -> b: формирует запрос в EStore
+										b -> e: POST api/estore/events/by_devices
+										activate e
+										e -> b: Ответ со списком событий
+										deactivate e
+										b -> b: Обогащает полученные события данными
+										b -> f: Ответ со списком событий
+										f -> u: Отображает список событий
+									else Ошибка по таймауту
+										autonumber stop
+										autonumber "&lt;b>[11а0]"
+										b x-- f: Превышено время \nожидания ответа
+										f -> u: Отображает ошибку
+										autonumber stop
+									else Ошибка запроса событий
+										autonumber stop
+										autonumber "&lt;b>[11б0]"
+										b --> f: Ответ с ошибкой
+										deactivate b
+										f -> u: Отображает ошибку
+										autonumber stop
+									end
+									@enduml
 								</code></pre>
 							</div>
 						</div>

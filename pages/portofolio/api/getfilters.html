@@ -103,7 +103,7 @@
 		
 		<!-- Основной контент -->
 		<main class="main-content">
-			<h1 id="section-xxx">GET api/v3/events/filters</h1>
+			<h1 id="section-1">GET api/v3/events/filters</h1>
 			<!-- Оглавление статьи -->
 			<nav class="article-toc" id="articleToc">
 				<div class="toc-header">На этой странице</div>
@@ -117,7 +117,7 @@
 				<!-------------------------------------------------------------------------------------------------------------------------------->
 				<!--	История изменений																										-->
 				<!-------------------------------------------------------------------------------------------------------------------------------->
-				<h1 id="section-xxx">История изменений</h1>
+				<h1 id="section-2">История изменений</h1>
 				<div>
 					<!-- Таблица истории изменений -->
 					<table class="confluence-table">
@@ -199,7 +199,7 @@
 				<!-------------------------------------------------------------------------------------------------------------------------------->
 				<!--	Метод																													-->
 				<!-------------------------------------------------------------------------------------------------------------------------------->
-				<h1 id="section-xxx">Метод</h1>
+				<h1 id="section-3">Метод</h1>
 				<div>
 					<table class="confluence-table">
 						<tbody>
@@ -230,12 +230,12 @@
 				<!-------------------------------------------------------------------------------------------------------------------------------->
 				<!--	Запрос																													-->
 				<!-------------------------------------------------------------------------------------------------------------------------------->
-				<h1 id="section-xxx">Запрос</h1>
+				<h1 id="section-4">Запрос</h1>
 				<div>
 					<!---------------------------------------------------------------------------------------------------------------------------->
 					<!--	Параметры запроса																									-->
 					<!---------------------------------------------------------------------------------------------------------------------------->
-					<h2 id="section-xxx">Параметры запроса</h2>
+					<h2 id="section-5">Параметры запроса</h2>
 					<div>
 						<table class="confluence-table">
 							<thead>
@@ -258,7 +258,7 @@
 					<!---------------------------------------------------------------------------------------------------------------------------->
 					<!--	Тело запроса																										-->
 					<!---------------------------------------------------------------------------------------------------------------------------->
-					<h2 id="section-xxx">Тело запроса</h2>
+					<h2 id="section-6">Тело запроса</h2>
 					<div>
 						<table class="confluence-table">
 							<thead>
@@ -280,7 +280,7 @@
 					<!---------------------------------------------------------------------------------------------------------------------------->
 					<!--	Пример запроса																										-->
 					<!---------------------------------------------------------------------------------------------------------------------------->
-					<h2 id="section-xxx">Пример запроса</h2>
+					<h2 id="section-7">Пример запроса</h2>
 					<div>
 						<p>Отсутствует</p>
 					</div>
@@ -289,12 +289,12 @@
 				<!-------------------------------------------------------------------------------------------------------------------------------->
 				<!--	Ответ																													-->
 				<!-------------------------------------------------------------------------------------------------------------------------------->
-				<h1 id="section-xxx">Ответ</h1>
+				<h1 id="section-8">Ответ</h1>
 				<div>
 					<!---------------------------------------------------------------------------------------------------------------------------->
 					<!--	Код успешного ответа																								-->
 					<!---------------------------------------------------------------------------------------------------------------------------->
-					<h2 id="section-xxx">Код успешного ответа</h2>
+					<h2 id="section-9">Код успешного ответа</h2>
 					<div>
 						<table class="confluence-table">
 							<tbody>
@@ -309,7 +309,7 @@
 					<!---------------------------------------------------------------------------------------------------------------------------->
 					<!--	Структура ответа																									-->
 					<!---------------------------------------------------------------------------------------------------------------------------->
-					<h2 id="section-xxx">Структура ответа</h2>
+					<h2 id="section-10">Структура ответа</h2>
 					<div>
 						<table class="confluence-table">
 							<thead>
@@ -374,7 +374,7 @@
 						<!------------------------------------------------------------------------------------------------------------------------>
 						<!--	Список фильтров																									-->
 						<!------------------------------------------------------------------------------------------------------------------------>
-						<h3 id="section-xxx">Список фильтров</h3>
+						<h3 id="section-11">Список фильтров</h3>
 						<div>
 							<ul>
 								<li>groups - группы событий;</li>
@@ -387,7 +387,7 @@
 					<!---------------------------------------------------------------------------------------------------------------------------->
 					<!--	Пример ответа																										-->
 					<!---------------------------------------------------------------------------------------------------------------------------->
-					<h2 id="section-xxx">Пример ответа</h2>
+					<h2 id="section-12">Пример ответа</h2>
 					<div>
 						<!-- Блок кода JSON -->
 						<div class="code-container">
@@ -397,35 +397,35 @@
 							</div>
 							<div>
 								<pre><code class="language-json">
-{
-	"filters": {
-		"groups": {
-			"content": [
-				{"id": 1, "name": "Учётная запись"},
-				{"id": 2, "name": "Устройства"},
-				{"id": 3, "name": "Камеры"},
-				{"id": 4, "name": "Мой дом"}
-				{"id": 5, "name": "Мои сценарии"},
-				{"id": 6, "name": "Баланс и услуги"},
-			],
-			"enabled": true
-		},
-		"event_types": {
-			"enabled": true,
-			"content": [
-				{"id": 13, "name": "Движение"},
-				{"id": 14, "name": "Перекрытие обзора"},
-				{"id": 15, "name": "Пересечение линии"},
-				{"id": 18, "name": "Звук"},
-				{"id": 23, "name": "Камера не в сети"},
-				{"id": 24, "name": "Камера в сети"}
-			]
-		},
-		"devices": {
-			"enabled": true
-		}
-	}
-}
+									{
+										"filters": {
+											"groups": {
+												"content": [
+													{"id": 1, "name": "Учётная запись"},
+													{"id": 2, "name": "Устройства"},
+													{"id": 3, "name": "Камеры"},
+													{"id": 4, "name": "Мой дом"}
+													{"id": 5, "name": "Мои сценарии"},
+													{"id": 6, "name": "Баланс и услуги"},
+												],
+												"enabled": true
+											},
+											"event_types": {
+												"enabled": true,
+												"content": [
+													{"id": 13, "name": "Движение"},
+													{"id": 14, "name": "Перекрытие обзора"},
+													{"id": 15, "name": "Пересечение линии"},
+													{"id": 18, "name": "Звук"},
+													{"id": 23, "name": "Камера не в сети"},
+													{"id": 24, "name": "Камера в сети"}
+												]
+											},
+											"devices": {
+												"enabled": true
+											}
+										}
+									}
 								</code></pre>
 							</div>
 						</div>
@@ -436,7 +436,7 @@
 				<!-------------------------------------------------------------------------------------------------------------------------------->
 				<!--	Возможные ошибки																										-->
 				<!-------------------------------------------------------------------------------------------------------------------------------->
-				<h1 id="section-xxx">Возможные ошибки</h1>
+				<h1 id="section-13">Возможные ошибки</h1>
 				<div>
 					<!-- Блок примечания -->
 					<div class="confluence-macro info">
@@ -452,7 +452,7 @@
 				<!-------------------------------------------------------------------------------------------------------------------------------->
 				<!--	Логика работы																											-->
 				<!-------------------------------------------------------------------------------------------------------------------------------->
-				<h1 id="section-xxx">Логика работы</h1>
+				<h1 id="section-14">Логика работы</h1>
 				<div>
 					<div class="complex-algorithm">
 						<ol class="algorithm-list level-1">
@@ -572,125 +572,125 @@
 						</div>
 						<div>
 							<pre><code class="language-sql">
-WITH 
--- Проверка групп событий
-groups_check AS (
-	SELECT 
-		COUNT(eg.id) > 0 AND COUNT(etg.event_type_id) > 0 AS groups_enabled
-	FROM events_groups eg
-	LEFT JOIN event_type_groups etg ON eg.id = etg.group_id
-	LEFT JOIN event_types et ON et.id = etg.event_type_id AND et.deleted_at IS NULL
-	WHERE eg.deleted_at IS NULL
-),
--- Данные групп событий (если enabled = true)
-groups_data AS (
-	SELECT 
-		eg.id,
-		eg.name,
-		eg.description
-	FROM events_groups eg
-	WHERE eg.deleted_at IS NULL
-),
--- Проверка наличия устройств у пользователя
-devices_check AS (
-	SELECT 
-		EXISTS(
-			SELECT 1 FROM devices 
-			WHERE user_id = :user_id AND deleted_at IS NULL
-			UNION ALL
-			SELECT 1 FROM cameras 
-			WHERE user_id = :user_id AND deleted_at IS NULL
-			UNION ALL  
-			SELECT 1 FROM controllers 
-			WHERE user_id = :user_id AND deleted_at IS NULL
-		) AS devices_enabled
-),
--- Проверка наличия камер у пользователя
-cameras_check AS (
-	SELECT 
-		EXISTS(
-			SELECT 1 FROM cameras 
-			WHERE user_id = :user_id AND deleted_at IS NULL
-		) AS has_cameras
-),
--- Проверка типов событий для камер
-event_types_base_check AS (
-	SELECT 
-		COUNT(*) > 0 AS has_event_types
-	FROM event_types et
-	WHERE et.origin_class = 'Device::Camera' 
-		AND et.filter_name IS NOT NULL
-		AND et.deleted_at IS NULL
-),
--- Проверка возможностей камер пользователя
-camera_capabilities AS (
-	SELECT 
-		BOOL_OR(COALESCE((data->'caps'->>'motion_detection')::boolean, false)) AS has_motion_detection,
-		BOOL_OR(COALESCE((data->'caps'->>'sound_detection')::boolean, false)) AS has_sound_detection,
-		BOOL_OR(COALESCE((data->'caps'->>'line_crossing_detection')::boolean, false)) AS has_line_crossing,
-		BOOL_OR(COALESCE((data->'caps'->>'face_detection')::boolean, false)) AS has_face_detection,
-		BOOL_OR(COALESCE((data->'caps'->>'tampering_detection')::boolean, false)) AS has_tampering,
-		BOOL_OR(COALESCE((data->'caps'->>'human_detection')::boolean, false)) AS has_human_detection
-	FROM cameras 
-	WHERE user_id = :user_id AND deleted_at IS NULL
-),
--- Собираем типы событий для камер
-event_types_data AS (
-	SELECT 
-		et.id,
-		et.name
-	FROM event_types et
-	WHERE et.origin_class = 'Device::Camera' 
-		AND et.filter_name IS NOT NULL
-		AND et.deleted_at IS NULL
-		AND (
-			(et.filter_name = 'motion_detection' AND (SELECT has_motion_detection FROM camera_capabilities)) OR
-			(et.filter_name = 'sound_detection' AND (SELECT has_sound_detection FROM camera_capabilities)) OR
-			(et.filter_name = 'line_crossing_detection' AND (SELECT has_line_crossing FROM camera_capabilities)) OR
-			(et.filter_name = 'face_detection' AND (SELECT has_face_detection FROM camera_capabilities)) OR
-			(et.filter_name = 'tampering_detection' AND (SELECT has_tampering FROM camera_capabilities)) OR
-			(et.filter_name = 'human_detection' AND (SELECT has_human_detection FROM camera_capabilities)) OR
-			et.filter_name IN ('camera_offline', 'camera_online')
-		)
-)
+								WITH 
+								-- Проверка групп событий
+								groups_check AS (
+									SELECT 
+										COUNT(eg.id) > 0 AND COUNT(etg.event_type_id) > 0 AS groups_enabled
+									FROM events_groups eg
+									LEFT JOIN event_type_groups etg ON eg.id = etg.group_id
+									LEFT JOIN event_types et ON et.id = etg.event_type_id AND et.deleted_at IS NULL
+									WHERE eg.deleted_at IS NULL
+								),
+								-- Данные групп событий (если enabled = true)
+								groups_data AS (
+									SELECT 
+										eg.id,
+										eg.name,
+										eg.description
+									FROM events_groups eg
+									WHERE eg.deleted_at IS NULL
+								),
+								-- Проверка наличия устройств у пользователя
+								devices_check AS (
+									SELECT 
+										EXISTS(
+											SELECT 1 FROM devices 
+											WHERE user_id = :user_id AND deleted_at IS NULL
+											UNION ALL
+											SELECT 1 FROM cameras 
+											WHERE user_id = :user_id AND deleted_at IS NULL
+											UNION ALL  
+											SELECT 1 FROM controllers 
+											WHERE user_id = :user_id AND deleted_at IS NULL
+										) AS devices_enabled
+								),
+								-- Проверка наличия камер у пользователя
+								cameras_check AS (
+									SELECT 
+										EXISTS(
+											SELECT 1 FROM cameras 
+											WHERE user_id = :user_id AND deleted_at IS NULL
+										) AS has_cameras
+								),
+								-- Проверка типов событий для камер
+								event_types_base_check AS (
+									SELECT 
+										COUNT(*) > 0 AS has_event_types
+									FROM event_types et
+									WHERE et.origin_class = 'Device::Camera' 
+										AND et.filter_name IS NOT NULL
+										AND et.deleted_at IS NULL
+								),
+								-- Проверка возможностей камер пользователя
+								camera_capabilities AS (
+									SELECT 
+										BOOL_OR(COALESCE((data->'caps'->>'motion_detection')::boolean, false)) AS has_motion_detection,
+										BOOL_OR(COALESCE((data->'caps'->>'sound_detection')::boolean, false)) AS has_sound_detection,
+										BOOL_OR(COALESCE((data->'caps'->>'line_crossing_detection')::boolean, false)) AS has_line_crossing,
+										BOOL_OR(COALESCE((data->'caps'->>'face_detection')::boolean, false)) AS has_face_detection,
+										BOOL_OR(COALESCE((data->'caps'->>'tampering_detection')::boolean, false)) AS has_tampering,
+										BOOL_OR(COALESCE((data->'caps'->>'human_detection')::boolean, false)) AS has_human_detection
+									FROM cameras 
+									WHERE user_id = :user_id AND deleted_at IS NULL
+								),
+								-- Собираем типы событий для камер
+								event_types_data AS (
+									SELECT 
+										et.id,
+										et.name
+									FROM event_types et
+									WHERE et.origin_class = 'Device::Camera' 
+										AND et.filter_name IS NOT NULL
+										AND et.deleted_at IS NULL
+										AND (
+											(et.filter_name = 'motion_detection' AND (SELECT has_motion_detection FROM camera_capabilities)) OR
+											(et.filter_name = 'sound_detection' AND (SELECT has_sound_detection FROM camera_capabilities)) OR
+											(et.filter_name = 'line_crossing_detection' AND (SELECT has_line_crossing FROM camera_capabilities)) OR
+											(et.filter_name = 'face_detection' AND (SELECT has_face_detection FROM camera_capabilities)) OR
+											(et.filter_name = 'tampering_detection' AND (SELECT has_tampering FROM camera_capabilities)) OR
+											(et.filter_name = 'human_detection' AND (SELECT has_human_detection FROM camera_capabilities)) OR
+											et.filter_name IN ('camera_offline', 'camera_online')
+										)
+								)
 
--- Финальный результат
-SELECT 
-	-- Группы событий
-	json_build_object(
-		'enabled', (SELECT groups_enabled FROM groups_check),
-		'content', CASE 
-			WHEN (SELECT groups_enabled FROM groups_check) THEN 
-				(SELECT COALESCE(json_agg(json_build_object(
-					'id', gd.id,
-					'name', gd.name,
-					'description', gd.description
-				)), '[]'::json) FROM groups_data gd)
-			ELSE NULL
-		END
-	) AS groups,
-	
-	-- Устройства
-	json_build_object(
-		'enabled', (SELECT devices_enabled FROM devices_check)
-	) AS devices,
-	
-	-- Типы событий
-	json_build_object(
-		'enabled', (
-			(SELECT has_event_types FROM event_types_base_check) AND 
-			(SELECT has_cameras FROM cameras_check)
-		),
-		'content', CASE 
-			WHEN (SELECT has_event_types FROM event_types_base_check) AND 
-					(SELECT has_cameras FROM cameras_check) THEN
-				(SELECT COALESCE(json_agg(json_build_object(
-					'id', etd.id,
-					'name', etd.name
-				)), '[]'::json) FROM event_types_data etd)
-			ELSE NULL
-		END
-	) AS event_types;
+								-- Финальный результат
+								SELECT 
+									-- Группы событий
+									json_build_object(
+										'enabled', (SELECT groups_enabled FROM groups_check),
+										'content', CASE 
+											WHEN (SELECT groups_enabled FROM groups_check) THEN 
+												(SELECT COALESCE(json_agg(json_build_object(
+													'id', gd.id,
+													'name', gd.name,
+													'description', gd.description
+												)), '[]'::json) FROM groups_data gd)
+											ELSE NULL
+										END
+									) AS groups,
+									
+									-- Устройства
+									json_build_object(
+										'enabled', (SELECT devices_enabled FROM devices_check)
+									) AS devices,
+									
+									-- Типы событий
+									json_build_object(
+										'enabled', (
+											(SELECT has_event_types FROM event_types_base_check) AND 
+											(SELECT has_cameras FROM cameras_check)
+										),
+										'content', CASE 
+											WHEN (SELECT has_event_types FROM event_types_base_check) AND 
+													(SELECT has_cameras FROM cameras_check) THEN
+												(SELECT COALESCE(json_agg(json_build_object(
+													'id', etd.id,
+													'name', etd.name
+												)), '[]'::json) FROM event_types_data etd)
+											ELSE NULL
+										END
+									) AS event_types;
 							</code></pre>
 						</div>
 					</div>
