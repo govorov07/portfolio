@@ -1,0 +1,659 @@
+openapi: 3.0.0
+info:
+  title: Events Management API
+  version: 3.0.0
+  description: Описание методов работы с фильтрацией событий в разделе "События" УД
+  contact:
+    name: Говоров Андрей
+    email: govorov07@ya.ru
+
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/OmniChat9/Filters/3.0.0
+  - url: https://api.smarthome.ru/v3
+    description: api/v3
+
+paths:
+  /events/filters:
+    get:
+      summary: Получение доступных фильтров событий
+      description: Возвращает список доступных фильтров для событий на основе групп событий, устройств пользователя и возможностей камер
+      tags:
+        - Events
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Успешный ответ со списком фильтров
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  filters:
+                    type: object
+                    properties:
+                      groups:
+                        type: object
+                        properties:
+                          enabled:
+                            type: boolean
+                            example: true
+                            description: Флаг доступности фильтрации по группам
+                          content:
+                            type: array
+                            description: Список доступных групп событий
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  format: int64
+                                  example: 1
+                                name:
+                                  type: string
+                                  example: "Учётная запись"
+                      event_types:
+                        type: object
+                        properties:
+                          enabled:
+                            type: boolean
+                            example: true
+                            description: Флаг доступности фильтрации по типам событий
+                          content:
+                            type: array
+                            description: Список доступных типов событий камер
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  format: int64
+                                  example: 13
+                                name:
+                                  type: string
+                                  example: "Движение"
+                      devices:
+                        type: object
+                        properties:
+                          enabled:
+                            type: boolean
+                            example: true
+                            description: Флаг наличия устройств у пользователя
+              example:
+                filters:
+                  groups:
+                    content:
+                      - id: 1
+                        name: "Учётная запись"
+                      - id: 2
+                        name: "Устройства"
+                      - id: 3
+                        name: "Камеры"
+                      - id: 4
+                        name: "Мой дом"
+                      - id: 5
+                        name: "Мои сценарии"
+                      - id: 6
+                        name: "Баланс и услуги"
+                    enabled: true
+                  event_types:
+                    enabled: true
+                    content:
+                      - id: 13
+                        name: "Движение"
+                      - id: 14
+                        name: "Перекрытие обзора"
+                      - id: 15
+                        name: "Пересечение линии"
+                      - id: 18
+                        name: "Звук"
+                      - id: 23
+                        name: "Камера не в сети"
+                      - id: 24
+                        name: "Камера в сети"
+                  devices:
+                    enabled: true
+        
+        '401':
+          description: Ошибки аутентификации
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                invalidRefreshToken:
+                  value:
+                    code: 401003
+                    message: "Неправильный Refresh токен"
+                tokenExpired:
+                  value:
+                    code: 401004
+                    message: "Срок действия истек"
+                sessionNotFound:
+                  value:
+                    code: 401005
+                    message: "Сессия не найдена"
+                missingSessionToken:
+                  value:
+                    code: 401006
+                    message: "В сессии отсутствует токен"
+                invalidSessionToken:
+                  value:
+                    code: 401007
+                    message: "Неправильный токен сессии"
+                invalidRefreshToken2:
+                  value:
+                    code: 401008
+                    message: "Refresh токен недействителен"
+                invalidAuthHeader:
+                  value:
+                    code: 401009
+                    message: "Неправильный формат заголовка Authorization"
+                notJWTToken:
+                  value:
+                    code: 401010
+                    message: "Переданный токен не является JWT"
+                wrongSignature:
+                  value:
+                    code: 401011
+                    message: "Чужой токен"
+        
+        '422':
+          description: Ошибки бизнес-логики
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                serviceUnavailable:
+                  value:
+                    code: 422034
+                    message: "Недоступно в данный момент. Попробуйте позже."
+                accountTypeRestriction:
+                  value:
+                    code: 422050
+                    message: "Действие недоступно для данного типа аккаунта"
+        
+        '424':
+          description: Ошибки внешних зависимостей
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                externalRequestFailed:
+                  value:
+                    code: 424003
+                    message: "Запрос не был выполнен во внешней системе"
+                cctvError:
+                  value:
+                    code: 424009
+                    message: "Не удалось выполнить запрос в ВН или запрос в ВН завершился с ошибкой"
+
+  /events/days:
+    post:
+      summary: Получение дней с событиями по фильтрам
+      description: |
+        Возвращает список дней, в которых зафиксированы события согласно переданным фильтрам.
+        Если все массивы фильтров пустые - возвращаются дни со всеми событиями пользователя.
+      tags:
+        - Events
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                groups:
+                  type: array
+                  description: Фильтрация по группе событий (id группы из БД events_groups)
+                  items:
+                    type: integer
+                    format: int64
+                  example: [5]
+                event_types:
+                  type: array
+                  description: Фильтрация по типу события (id типа события из БД event_types)
+                  items:
+                    type: integer
+                    format: int64
+                  example: [2, 4]
+                devices:
+                  type: array
+                  description: Список id устройств для отбора событий
+                  items:
+                    type: integer
+                    format: int64
+                  example: [1300028]
+                timezone:
+                  type: string
+                  description: Часовой пояс дома
+                  example: "Europe/Moscow"
+              required:
+                - groups
+                - event_types
+                - devices
+            examples:
+              default:
+                summary: Запрос по умолчанию
+                value:
+                  groups: []
+                  devices: []
+                  event_types: []
+                  timezone: "Europe/Moscow"
+              filtered:
+                summary: Запрос с фильтрацией
+                value:
+                  groups: [5]
+                  devices: [1300028]
+                  event_types: [2, 4]
+                  timezone: "Asia/Kamchatka"
+      responses:
+        '200':
+          description: Успешный ответ со списком дней
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  days:
+                    type: array
+                    description: Массив дней в формате YYYY-MM-DD, в которых зафиксированы события указанные в фильтре
+                    items:
+                      type: string
+                      format: date
+                      example: "2023-01-01"
+              example:
+                days:
+                  - "2023-01-01"
+                  - "2023-02-23"
+                  - "2023-03-08"
+        '404':
+          description: Указанный фильтр не существует
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                filterNotFound:
+                  value:
+                    code: 404025
+                    message: "Указанный фильтр не существует"
+        '424':
+          description: Ошибки внешних зависимостей
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                estoreError:
+                  value:
+                    code: 424008
+                    message: "Не удалось получить список событий"
+                externalRequestFailed:
+                  value:
+                    code: 424003
+                    message: "Запрос не был выполнен во внешней системе"
+                cctvError:
+                  value:
+                    code: 424009
+                    message: "Не удалось выполнить запрос в ВН или запрос в ВН завершился с ошибкой"
+        '401':
+          description: Ошибки аутентификации
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: Ошибки бизнес-логики
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /events:
+    post:
+      summary: Получение списка событий с фильтрацией и пагинацией
+      description: |
+        Возвращает список событий согласно переданным фильтрам с поддержкой пагинации.
+        Период между date_from и date_to не должен превышать 24 часов.
+      tags:
+        - Events
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                groups:
+                  type: array
+                  description: Фильтрация по группе событий (id группы из БД events_groups)
+                  items:
+                    type: integer
+                    format: int64
+                  example: [5]
+                event_types:
+                  type: array
+                  description: Фильтрация по типу события (id типа события из БД event_types)
+                  items:
+                    type: integer
+                    format: int64
+                  example: [2, 4]
+                devices:
+                  type: array
+                  description: Список id устройств для отбора событий
+                  items:
+                    type: integer
+                    format: int64
+                  example: [1300028]
+                date_from:
+                  type: integer
+                  format: int64
+                  description: Фильтрация по дате начала периода (timestamp unix)
+                  example: 1684368000
+                date_to:
+                  type: integer
+                  format: int64
+                  description: Фильтрация по дате конца периода (timestamp unix)
+                  example: 1684454399
+                page:
+                  type: integer
+                  format: int32
+                  description: Номер страницы
+                  minimum: 1
+                  example: 1
+                per_page:
+                  type: integer
+                  format: int32
+                  description: Количество событий на странице (максимум 50)
+                  minimum: 1
+                  maximum: 50
+                  example: 50
+              required:
+                - groups
+                - event_types
+                - devices
+                - date_from
+                - date_to
+                - page
+                - per_page
+            examples:
+              default:
+                summary: Запрос по умолчанию
+                value:
+                  groups: []
+                  devices: []
+                  event_types: []
+                  date_from: 1684368000
+                  date_to: 1684454399
+                  page: 1
+                  per_page: 50
+              filtered:
+                summary: Запрос с фильтрацией
+                value:
+                  groups: [5]
+                  devices: [1300028]
+                  event_types: [2, 4]
+                  date_from: 1684368000
+                  date_to: 1684454399
+                  page: 1
+                  per_page: 50
+      responses:
+        '200':
+          description: Успешный ответ со списком событий
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  events:
+                    type: array
+                    description: Список событий
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          format: int64
+                          description: Идентификатор события
+                          example: 1234567890
+                        message:
+                          type: string
+                          description: Сообщение о произошедшем событии
+                          example: 'Зафиксировано движение в кадре камеры <a href="http://lk.smarthome.rt.ru/devices/{device_id}">%camera_name%</a>'
+                        message_striped:
+                          type: string
+                          description: Сообщение без html-тегов
+                          example: "Зафиксировано движение в кадре камеры %camera_name%"
+                        level:
+                          type: string
+                          description: Уровень события
+                          example: "systema"
+                        type:
+                          type: string
+                          description: Тип события
+                          example: "camera_motion"
+                        origin_id:
+                          type: integer
+                          format: int64
+                          description: Идентификатор источника события
+                          example: 1234567
+                        origin_type:
+                          type: string
+                          description: Тип источника события
+                          example: "Device::Camera"
+                        icon:
+                          type: string
+                          description: Тип иконки
+                          example: "camera_motion"
+                        created_at:
+                          type: integer
+                          format: int64
+                          description: Дата и время когда событие произошло (timestamp unix)
+                          example: 1684411220
+                        updated_at:
+                          type: integer
+                          format: int64
+                          description: Дата и время последнего изменения события (timestamp unix)
+                          example: 1684411220
+                        extra:
+                          type: object
+                          description: Дополнительная информация по событию
+                          properties:
+                            event_uid:
+                              type: string
+                              description: Уникальный внутренний идентификатор события камеры (для событий camera_*)
+                              example: "12345aaa-a12a-1234-a123-12a1a12a1234"
+                            begin:
+                              type: string
+                              format: date-time
+                              description: Метка времени начала события (для событий camera_*, кроме camera_connected, camera_disconnected)
+                              example: "2023-05-18T12:00:20.423Z"
+                            end:
+                              type: string
+                              format: date-time
+                              description: Метка времени окончания события
+                              example: "2023-05-18T12:00:31.421Z"
+                            ts:
+                              type: string
+                              format: date-time
+                              description: Метка времени события (для событий camera_connected, camera_disconnected)
+                              example: "2023-05-16T04:17:25Z"
+                            before:
+                              type: object
+                              description: Состояние до события
+                              properties:
+                                status:
+                                  type: string
+                                  example: "blocked"
+                            after:
+                              type: object
+                              description: Состояние после события
+                              properties:
+                                status:
+                                  type: string
+                                  example: "active"
+                            template:
+                              type: string
+                              description: Шаблон события
+                              example: "account_state_unblocked"
+                  total_count:
+                    type: integer
+                    description: Общее количество событий
+                    example: 327
+                  filters:
+                    type: object
+                    description: Объект для передачи состояния фильтров
+                    properties:
+                      groups:
+                        type: object
+                        properties:
+                          state:
+                            type: string
+                            description: Доступность фильтра
+                            enum: [enabled, disabled]
+                            example: "enabled"
+                      event_types:
+                        type: object
+                        properties:
+                          state:
+                            type: string
+                            description: Доступность фильтра
+                            enum: [enabled, disabled]
+                            example: "disabled"
+                      devices:
+                        type: object
+                        properties:
+                          state:
+                            type: string
+                            description: Доступность фильтра
+                            enum: [enabled, disabled]
+                            example: "enabled"
+              example:
+                events:
+                  - id: 1234567890
+                    message: 'Зафиксировано движение в кадре камеры <a href="http://lk.smarthome.rt.ru/devices/{device_id}">%camera_name%</a>'
+                    message_striped: "Зафиксировано движение в кадре камеры %camera_name%"
+                    level: "systema"
+                    type: "camera_motion"
+                    icon: "camera_motion"
+                    origin_id: 1234567
+                    origin_type: "Device::Camera"
+                    created_at: 1684411220
+                    updated_at: 1684411220
+                    extra:
+                      event_uid: "12345aaa-a12a-1234-a123-12a1a12a1234"
+                      begin: "2023-05-18T12:00:20.423Z"
+                      end: "2023-05-18T12:00:31.421Z"
+                  - id: 1234567890
+                    message: 'В вашу систему управления "Умный Дом" выполнен вход через браузер Yandex на Windows'
+                    message_striped: 'В вашу систему управления "Умный Дом" выполнен вход через браузер Yandex на Windows'
+                    level: "systema"
+                    type: "login"
+                    icon: "enter"
+                    origin_id: 1234567
+                    origin_type: "User"
+                    created_at: 1684210645
+                    updated_at: 1684210645
+                    extra:
+                      event_uid: "12345aaa-a12a-1234-a123-12a1a12a1234"
+                      begin: "2023-05-16T04:17:25Z"
+                      end: "2023-05-16T04:17:25Z"
+                  - id: 1234567890
+                    message: "Снята финансовая блокировка"
+                    message_striped: "Снята финансовая блокировка"
+                    level: "systema"
+                    type: "account_state"
+                    icon: "square"
+                    origin_id: 1234567
+                    origin_type: "Account"
+                    created_at: 1683030820
+                    updated_at: 1683030820
+                    extra:
+                      before:
+                        status: "blocked"
+                      after:
+                        status: "active"
+                      template: "account_state_unblocked"
+                total_count: 327
+                filters:
+                  groups:
+                    state: "enabled"
+                  devices:
+                    state: "enabled"
+                  event_types:
+                    state: "disabled"
+        '404':
+          description: Указанный фильтр не существует
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                filterNotFound:
+                  value:
+                    code: 404025
+                    message: "Указанный фильтр не существует"
+        '422':
+          description: Ошибки бизнес-логики
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                invalidDateFormat:
+                  value:
+                    code: 422035
+                    message: "Указан неверный формат даты"
+                eventsLimitExceeded:
+                  value:
+                    code: 422036
+                    message: "Превышен лимит на кол-во событий в запросе"
+        '424':
+          description: Ошибки внешних зависимостей
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                estoreError:
+                  value:
+                    code: 424008
+                    message: "Не удалось получить список событий"
+        '401':
+          description: Ошибки аутентификации
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+          description: Код ошибки
+        message:
+          type: string
+          description: Сообщение об ошибке
+      required:
+        - code
+        - message
+  
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT токен аутентификации
