@@ -79,7 +79,7 @@ body {
     text-decoration: none;
     color: #42526E;
     border-radius: 3px;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, border-left-color 0.2s ease;
     font-size: 14px;
     line-height: 1.4;
     border-left: 3px solid transparent;
@@ -212,7 +212,7 @@ p {
     display: block;
     padding: 6px 8px 6px 22px;
     border-radius: 3px;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
     position: relative;
 }
 
@@ -273,6 +273,10 @@ p {
     background-color: white;
 }
 
+.confluence-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
 .confluence-table tbody tr:hover td {
     background-color: #F8F9FA;
 }
@@ -328,7 +332,7 @@ p {
     height: 50px;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -340,7 +344,6 @@ p {
 
 .scroll-to-top:hover {
     background: #0747A6;
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -941,6 +944,7 @@ div.code-toolbar > .toolbar a:hover {
     border-radius: 3px;
     position: relative;
     padding-left: 48px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .styled-list > li::before {
@@ -1070,8 +1074,6 @@ div.code-toolbar > .toolbar a:hover {
 .styled-list > li:hover {
     background: #F4F5F7;
     border-color: #B3BAC5;
-    transform: translateY(-1px);
-    transition: all 0.2s ease;
 }
 
 .nested-list > li:hover {
@@ -1109,13 +1111,12 @@ div.code-toolbar > .toolbar a:hover {
     border-radius: 3px;
     font-weight: 600;
     font-size: 13px;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .jira-issue-key:hover {
     background: #0747A6;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 82, 204, 0.3);
 }
 
 .jira-icon {
@@ -1183,6 +1184,7 @@ div.code-toolbar > .toolbar a:hover {
     border-right: 1px solid #DFE1E6;
     border-top: 1px solid #DFE1E6;
     border-bottom: 1px solid #DFE1E6;
+    transition: box-shadow 0.2s ease
 }
 
 .macro-icon {
@@ -1303,9 +1305,7 @@ div.code-toolbar > .toolbar a:hover {
 
 /* Эффекты при наведении */
 .confluence-macro:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Стили для сложного алгоритма */
@@ -1466,12 +1466,12 @@ div.code-toolbar > .toolbar a:hover {
 }
 
 /* Эффекты при наведении */
+.algorithm-list > li .algorithm-text {
+    transition: background-color 0.2s ease;
+}
+
 .algorithm-list > li:hover .algorithm-text {
     background: #F8F9FA;
-    border-radius: 3px;
-    margin-left: -8px;
-    padding-left: 40px;
-    transition: all 0.2s ease;
 }
 
 .algorithm-list.level-1 > li:hover::before {

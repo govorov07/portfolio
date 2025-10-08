@@ -1,5 +1,10 @@
 // Автоматическое создание оглавления
 document.addEventListener('DOMContentLoaded', function() {
+	// Принудительное аппаратное ускорение для анимаций
+	const style = document.createElement('style');
+	style.textContent = `.toc-link, .tree-link, .jira-issue-key, .scroll-to-top, .copy-button, .confluence-macro, .styled-list > li {transform: translateZ(0); backface-visibility: hidden; perspective: 1000px;}`;
+	document.head.appendChild(style);
+	
 	const toc = document.getElementById('toc');
 	const articleToc = document.getElementById('articleToc');
 	const scrollToTopBtn = document.getElementById('scrollToTop');
