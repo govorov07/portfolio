@@ -150,7 +150,7 @@
 											</a>
 											-
 											<span class="jira-summary">
-												Получение подробных данных проблемы…
+												[back] Реализовать таблицы БД для хранения групп, типов и связей фильтров
 											</span>
 											<span class="jira-status jira-status-published">
 												ОПУБЛИКОВАНО
@@ -177,55 +177,85 @@
 				<!-------------------------------------------------------------------------------------------------------------------------------->
 				<h1 id="section-2">Логическая схема</h1>
 				<div>
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="CLASS" height="332px" preserveAspectRatio="none" style="width:306px;height:332px;background:#FFFFFF;" version="1.1" viewBox="0 0 306 332" width="306px" zoomAndPan="magnify">
-						<defs/>
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="CLASS" height="332px" preserveAspectRatio="none" style="width:306px;height:332px;background:#FFFFFF;" version="1.1" viewBox="0 0 306 332" width="306px" zoomAndPan="magnify"><defs/>
 						<g>
 							<!--class events_groups-->
 							<g class="entity" data-entity="events_groups" data-source-line="1" data-uid="ent0002" id="entity_events_groups">
-								<rect fill="#F1F1F1" height="80.5938" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="179.1318" x="63.77" y="7"/>
-								<ellipse cx="98.886" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/>
-								<path d="M102.9953,29 L95.2766,29 L95.2766,16.6094 L102.9953,16.6094 L102.9953,18.7656 L97.7297,18.7656 L97.7297,21.4375 L102.4953,21.4375 L102.4953,23.5938 L97.7297,23.5938 L97.7297,26.8438 L102.9953,26.8438 L102.9953,29 Z " fill="#000000"/>
-								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102.4297" x="117.3562" y="27.8467">events_groups</text>
-								<line style="stroke:#181818;stroke-width:0.5;" x1="64.77" x2="241.9018" y1="39" y2="39"/>
-								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="137.8672" x="69.77" y="55.9951">id &#1075;&#1088;&#1091;&#1087;&#1087;&#1099;&#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1081;</text>
-								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="167.1318" x="69.77" y="72.292">&#1053;&#1072;&#1080;&#1084;&#1077;&#1085;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;&#1075;&#1088;&#1091;&#1087;&#1087;&#1099;</text>
-								<line style="stroke:#181818;stroke-width:0.5;" x1="64.77" x2="241.9018" y1="79.5938" y2="79.5938" />
+								<rect fill="#F1F1F1" height="80.5938" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="245.8848" x="30.4" y="7"/>
+								<ellipse cx="97.8775" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/>
+								<path d="M101.9869,29 L94.2682,29 L94.2682,16.6094 L101.9869,16.6094 L101.9869,18.7656 L96.7213,18.7656 L96.7213,21.4375 L101.4869,21.4375 L101.4869,23.5938 L96.7213,23.5938 L96.7213,26.8438 L101.9869,26.8438 L101.9869,29 Z " fill="#000000"/>
+								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102.4297" x="118.3775" y="27.8467">events_groups</text>
+								<line style="stroke:#181818;stroke-width:0.5;" x1="31.4" x2="275.2848" y1="39" y2="39"/>
+								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="212.2832" x="36.4" y="55.9951">Уникальный идентификатор</text>
+								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="233.8848" x="36.4" y="72.292">Наименование группы событий</text>
+								<line style="stroke:#181818;stroke-width:0.5;" x1="31.4" x2="275.2848" y1="79.5938" y2="79.5938"/>
 							</g>
 							
 							<!--class events_types-->
-							<g class="entity" data-entity="events_types" data-source-line="5" data-uid="ent0003" id="entity_events_types">
-								<rect fill="#F1F1F1" height="178.375" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="292.6768" x="7" y="147.59" />
-								<ellipse cx="102.7202" cy="163.59" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" />
-								<path d="M106.8296,169.59 L99.1108,169.59 L99.1108,157.1994 L106.8296,157.1994 L106.8296,159.3556 L101.564,159.3556 L101.564,162.0275 L106.3296,162.0275 L106.3296,164.1838 L101.564,164.1838 L101.564,167.4338 L106.8296,167.4338 L106.8296,169.59 Z " fill="#000000" />
+							<g class="entity" data-entity="events_types" data-source-line="6" data-uid="ent0003" id="entity_events_types">
+								<rect fill="#F1F1F1" height="178.375" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="292.6768" x="7" y="147.59"/>
+								<ellipse cx="102.7202" cy="163.59" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/>
+								<path d="M106.8296,169.59 L99.1108,169.59 L99.1108,157.1994 L106.8296,157.1994 L106.8296,159.3556 L101.564,159.3556 L101.564,162.0275 L106.3296,162.0275 L106.3296,164.1838 L101.564,164.1838 L101.564,167.4338 L106.8296,167.4338 L106.8296,169.59 Z " fill="#000000"/>
 								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.7363" x="123.2202" y="168.4367">events_types</text>
-								<line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="298.6768" y1="179.59" y2="179.59" />
-								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="118.2891" x="13" y="196.5851">id &#1090;&#1080;&#1087;&#1072; &#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1103;</text>
-								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="184.8506" x="13" y="212.882">&#1053;&#1072;&#1080;&#1084;&#1077;&#1085;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;&#1090;&#1080;&#1087;&#1072; &#1074; &#1059;&#1044;</text>
-								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="248.0693" x="13" y="229.1789">&#1053;&#1072;&#1080;&#1084;&#1077;&#1085;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;&#1090;&#1080;&#1087;&#1072; &#1076;&#1083;&#1103; &#1092;&#1080;&#1083;&#1100;&#1090;&#1088;&#1072;</text>
-								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135.9463" x="13" y="245.4757">&#1048;&#1089;&#1090;&#1086;&#1095;&#1085;&#1080;&#1082;&#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1103;</text>
-								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140.5674" x="13" y="261.7726">id &#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1103; &#1074; Estore</text>
-								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="232.1484" x="13" y="278.0695">&#1053;&#1072;&#1080;&#1084;&#1077;&#1085;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;&#1080;&#1082;&#1086;&#1085;&#1082;&#1080; &#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1103;</text>
-								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="280.6768" x="13" y="294.3664">&#1055;&#1088;&#1080;&#1079;&#1085;&#1072;&#1082;&#1074;&#1089;&#1087;&#1083;&#1099;&#1074;&#1072;&#1102;&#1097;&#1077;&#1075;&#1086;&#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1103;</text>
-								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="253.9824" x="13" y="310.6632">&#1058;&#1077;&#1082;&#1089;&#1090;&#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1103; &#1087;&#1086;&#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102;</text>
-								<line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="298.6768" y1="317.965" y2="317.965" />
+								<line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="298.6768" y1="179.59" y2="179.59"/>
+								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="212.2832" x="13" y="196.5851">Уникальный идентификатор</text>
+								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="211.4902" x="13" y="212.882">Наименование события в УД</text>
+								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="274.709" x="13" y="229.1789">Наименование события для фильтра</text>
+								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135.9463" x="13" y="245.4757">Источник события</text>
+								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140.8066" x="13" y="261.7726">Id события в Estore</text>
+								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="232.1484" x="13" y="278.0695">Наименование иконки события</text>
+								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="280.6768" x="13" y="294.3664">Признак всплывающего уведомления</text>
+								<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="253.9824" x="13" y="310.6632">Текст уведомления по умолчанию</text>
+								<line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="298.6768" y1="317.965" y2="317.965"/>
 							</g>
 							
 							<!--link events_groups to events_types-->
-							<g class="link" data-entity-1="events_groups" data-entity-2="events_types" data-source-line="16" data-uid="lnk4" id="link_events_groups_events_types">
-								<path codeLine="16" d="M153.34,106.06 C153.34,123.47 153.34,108.65 153.34,129.48" fill="none" id="events_groups-events_types" style="stroke:#181818;stroke-width:1;" />
-								<line style="stroke:#181818;stroke-width:1;" x1="153.34" x2="147.34" y1="96.06" y2="88.06" />
-								<line style="stroke:#181818;stroke-width:1;" x1="153.34" x2="159.34" y1="96.06" y2="88.06" />
-								<line style="stroke:#181818;stroke-width:1;" x1="153.34" x2="153.34" y1="96.06" y2="88.06" />
-								<ellipse cx="153.34" cy="102.06" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1;" />
-								<line style="stroke:#181818;stroke-width:1;" x1="153.34" x2="159.34" y1="139.48" y2="147.48" />
-								<line style="stroke:#181818;stroke-width:1;" x1="153.34" x2="147.34" y1="139.48" y2="147.48" />
-								<line style="stroke:#181818;stroke-width:1;" x1="153.34" x2="153.34" y1="139.48" y2="147.48" />
-								<ellipse cx="153.34" cy="133.48" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1;" />
+							<g class="link" data-entity-1="events_groups" data-entity-2="events_types" data-source-line="17" data-uid="lnk4" id="link_events_groups_events_types">
+								<path codeLine="17" d="M153.34,96.06 C153.34,113.47 153.34,118.65 153.34,139.48" fill="none" id="events_groups-events_types" style="stroke:#181818;stroke-width:1;"/>
+								<line style="stroke:#181818;stroke-width:1;" x1="153.34" x2="147.34" y1="96.06" y2="88.06"/>
+								<line style="stroke:#181818;stroke-width:1;" x1="153.34" x2="159.34" y1="96.06" y2="88.06"/>
+								<line style="stroke:#181818;stroke-width:1;" x1="153.34" x2="153.34" y1="96.06" y2="88.06"/>
+								<line style="stroke:#181818;stroke-width:1;" x1="149.34" x2="157.34" y1="98.06" y2="98.06"/>
+								<line style="stroke:#181818;stroke-width:1;" x1="153.34" x2="159.34" y1="139.48" y2="147.48"/>
+								<line style="stroke:#181818;stroke-width:1;" x1="153.34" x2="147.34" y1="139.48" y2="147.48"/>
+								<line style="stroke:#181818;stroke-width:1;" x1="153.34" x2="153.34" y1="139.48" y2="147.48"/>
+								<line style="stroke:#181818;stroke-width:1;" x1="157.34" x2="149.34" y1="137.48" y2="137.48"/>
 							</g>
-							
-							<!--SRC=[ZL5BQW915DpFATu5F8RdoCP6t3ZYT0GHGKqWX0cwSP5D2EW5nb79nFbTeTwDKjC1iK4JUp5qlQbNLQ-VwTkU7OiPcRwD7hh3y74GoIGGdbv7iDUPFg56hR7e71Ls6ki26RuT1Hz820eSKV9dIbGI7xt6O1eOpyME1-R2nEdLI3m3NVrjS6v2AjXYVI_xW5nNei_4kRxfGcT8VdlVTKvQfI-kvtGjJHFMgpRkxSY6G_FFSr2GXPBVxEgOdyoHuOkCXDP8oQaPC6uqTAclLDoZ4Zvfokk10WLoPtEMs12UcXbki8IAJg5WFUUOBfmkkPx0N_yqRBN2YRUj7m00]-->
+							<!--SRC=[jPB1IiD048RlUOfvWJw61v_2YujuQKkp5KfRIAiW4cal7hmKGLyWfYccIPgymZzlvByR45Cgui4zxUp-yyq_EslwzjfEnDoOlWqlhaQ3yJ2KQI1SUCC1EGeaAFKH1usn5nvas35O8jUxzfhxMgCsPqDrZif9K2Dbv1WxmLOZlKM3HcFH1U_UDNOGx8Dv49YE3JiPcdznyRsmhWMfmp_zBIUZZxNugZIaIusGj8HdNNWJzwtZeqolERyyuU4ij8EH-UNzN8yrWmBvAJ1Uw2F71nK9IoEbfg71s35qfGyaRb4BPv1ocn5GeVHblX2l30lNmmyg8T4JAfwNRDERqvKVOES3pMUztcpQ6USd]-->
 						</g>
 					</svg>
+					
+					<div class="code-container">
+						<div class="code-header">
+							<span class="code-title">Логическая схема</span>
+							<div class="code-language">PlantUML</div>
+						</div>
+						<div>
+							<pre><code class="language-plantuml">
+								@startuml
+								
+								entity events_groups {
+									Уникальный идентификатор
+									Наименование группы событий
+								}
+								
+								entity events_types {
+									Уникальный идентификатор
+									Наименование события в УД
+									Наименование события для фильтра
+									Источник события
+									Id события в Estore
+									Наименование иконки события
+									Признак всплывающего уведомления
+									Текст уведомления по умолчанию
+								}
+								
+								events_groups }|--|{ events_types
+								
+								@enduml
+							</code></pre>
+						</div>
+					</div>
 				</div>
 
 				<!-------------------------------------------------------------------------------------------------------------------------------->
@@ -289,7 +319,7 @@
 							<tbody>
 								<tr>
 									<th>dbdiagram.io</th>
-									<td><a href="https://dbdiagram.io/d/Event-filters-68e2bdbdd2b621e422590e7d">Физическая схема</a></td>
+									<td><a href="https://dbdiagram.io/d/Event-filters-68e2bdbdd2b621e422590e7d" target="_blank">Физическая схема</a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -497,7 +527,7 @@
 					
 					<div class="code-container">
 						<div class="code-header">
-							<span class="code-title">Ответ на запрос GET api/v3/events/filters</span>
+							<span class="code-title">DDL-script</span>
 							<div class="code-language">SQL</div>
 						</div>
 						<div>
@@ -544,6 +574,36 @@
 							</code></pre>
 						</div>
 					</div>
+				</div>
+
+				<!-------------------------------------------------------------------------------------------------------------------------------->
+				<!--	Процессы																												-->
+				<!-------------------------------------------------------------------------------------------------------------------------------->
+				<h1 id="section-2">Процессы</h1>
+
+				<!-------------------------------------------------------------------------------------------------------------------------------->
+				<!--	Жизненный цикл																											-->
+				<!-------------------------------------------------------------------------------------------------------------------------------->
+				<h1 id="section-2">Жизненный цикл</h1>
+
+				<!-------------------------------------------------------------------------------------------------------------------------------->
+				<!--	Применение																												-->
+				<!-------------------------------------------------------------------------------------------------------------------------------->
+				<h1 id="section-2">Применение</h1>
+				<div>
+					<p>Используется при формировании ответа на запрос
+						<a href="../../../pages/portofolio/api/getfilters.html">GET api/v3/events/filters</a></p>
+				</div>
+
+				<!-------------------------------------------------------------------------------------------------------------------------------->
+				<!--	Полезные ссылки																											-->
+				<!-------------------------------------------------------------------------------------------------------------------------------->
+				<h1 id="section-2">Полезные ссылки</h1>
+				<div>
+					<ul>
+						<li>Типы событий (smart) (Архитектурная модель)</li>
+						<li>Связь Группы событий - Типы событий (smart) (Архитектурная модель)</li>
+					</ul>
 				</div>
 			</article>
 		</main>
