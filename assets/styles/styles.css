@@ -105,9 +105,13 @@ body {
     color: #172B4D;
 }
 
-.toc-level-2 { padding-left: 24px; }
+.toc-level-2 {
+    padding-left: 24px;
+}
 
-.toc-level-3 { padding-left: 36px; }
+.toc-level-3 {
+    padding-left: 36px;
+}
 
 .toc-level-4 { 
     padding-left: 48px; 
@@ -1495,6 +1499,247 @@ div.code-toolbar > .toolbar a:hover {
     border-color: #FFD580;
 }
 
+/* Стили для страницы "Обо мне" */
+
+/* Заголовок профиля */
+.profile-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #DFE1E6;
+}
+
+.profile-avatar {
+    flex-shrink: 0;
+}
+
+.avatar-placeholder {
+    width: 120px;
+    height: 120px;
+    background: #F4F5F7;
+    border: 3px solid #DFE1E6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+}
+
+.profile-info h1 {
+    color: #172B4D;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+}
+
+.profile-title {
+    color: #0052CC;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 12px 0;
+}
+
+.profile-description {
+    color: #42526E;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Секция навыков */
+.skills-section {
+    margin: 32px 0;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.skill-category {
+    background: #FFFFFF;
+    border: 1px solid #DFE1E6;
+    border-radius: 3px;
+    padding: 20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.skill-category h3 {
+    color: #172B4D;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #DFE1E6;
+}
+
+.skills-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.skills-list li {
+    padding: 8px 0;
+    color: #42526E;
+    font-size: 14px;
+    line-height: 1.5;
+    border-bottom: 1px solid #F4F5F7;
+}
+
+.skills-list li:last-child {
+    border-bottom: none;
+}
+
+.skills-list li::before {
+    content: "•";
+    color: #0052CC;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Секция опыта работы */
+.experience-section {
+    margin: 32px 0;
+}
+
+.experience-timeline {
+    margin-top: 20px;
+}
+
+.experience-item {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #F4F5F7;
+}
+
+.experience-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.experience-period {
+    flex: 0 0 150px;
+    background: #0052CC;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    height: fit-content;
+}
+
+.experience-details {
+    flex: 1;
+}
+
+.experience-details h3 {
+    color: #172B4D;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.company {
+    color: #0052CC;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 12px 0;
+}
+
+.experience-description {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.experience-description li {
+    padding: 6px 0;
+    color: #42526E;
+    font-size: 14px;
+    line-height: 1.5;
+    padding-left: 16px;
+    position: relative;
+}
+
+.experience-description li::before {
+    content: "▸";
+    color: #0052CC;
+    position: absolute;
+    left: 0;
+}
+
+/* Секция контактов */
+.contacts-section {
+    margin: 32px 0;
+}
+
+.contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #FFFFFF;
+    border: 1px solid #DFE1E6;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.contact-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info strong {
+    display: block;
+    color: #172B4D;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.contact-info a {
+    color: #0052CC;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Ссылки внутри контента */
+.internal-link {
+    color: #0052CC;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.internal-link:hover {
+    text-decoration: underline;
+}
+
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
     body {
@@ -1736,6 +1981,47 @@ div.code-toolbar > .toolbar a:hover {
         font-size: 12px;
         padding: 1px 4px;
     }
+
+    /* Адаптивность для страницы "Обо мне" */
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+    
+    .avatar-placeholder {
+        width: 100px;
+        height: 100px;
+        font-size: 36px;
+        margin: 0 auto;
+    }
+    
+    .profile-info h1 {
+        font-size: 24px;
+    }
+    
+    .profile-title {
+        font-size: 16px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .experience-item {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .experience-period {
+        flex: none;
+        width: fit-content;
+    }
+    
+    .contacts-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1932,6 +2218,24 @@ div.code-toolbar > .toolbar a:hover {
         left: -18px;
         width: 12px;
         height: 12px;
+    }
+
+    /* Адаптивность для страницы "Обо мне" */
+    .profile-info h1 {
+        font-size: 20px;
+    }
+    
+    .skill-category {
+        padding: 16px;
+    }
+    
+    .contact-item {
+        padding: 12px;
+    }
+    
+    .experience-period {
+        font-size: 12px;
+        padding: 6px 10px;
     }
 }
 
