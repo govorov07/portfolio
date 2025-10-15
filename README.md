@@ -1,44 +1,24 @@
-# Стандартный рабочий процесс
-## Внесите изменения:
- 1. Откройте файлы в VS Code
- 2. Внесите необходимые изменения
- 3. Сохраните файлы (Ctrl+S)
-
-## Проверьте изменения локально:
-```bash
-# Откройте index.html в браузере или используйте Live Server
-# В VS Code: правой кнопкой на index.html → "Open with Live Server"
-```
-
-## Закоммитьте и отправьте изменения:
-```bash
-# Проверить статус изменений
-git status
-
-# Добавить все изменения
-git add .
-
-# Или добавить конкретные файлы
-git add index.html css/style.js
-
-# Создать коммит
-git commit -m "Описание изменений"
-
-# Отправить на GitHub
-git push origin main
-```
-
-## Полезные команды Git для повседневной работы
-```bash
-# Посмотреть историю коммитов
-git log --oneline
-
-# Посмотреть изменения в файлах
-git diff
-
-# Отменить изменения в конкретном файле
-git checkout -- filename.html
-
-# Получить последние изменения с GitHub (если работаете с нескольких устройств)
-git pull origin main
-```
+portfolio/
+├── assets/                     # Ресурсы
+│   ├── drafts/                 # Черновики
+│   ├── images/                 # Графические ресурсы
+│   │   ├── diagrams/
+│   │   ├── icons/
+│   │   └── screenshots/
+│   │
+│   ├── scripts/                # Скрипты
+│   └── styles/                 # Стили
+│
+├── pages/
+│   ├── govorov/                # About me
+│   │   ├── about.html          # Short notes
+│   │   └── cv.html             # Curriculum Vitae
+│   │
+│   └── portfolio/              # Portfolio
+│       ├── api/                # API description pages
+│       ├── database/           # DB description pages
+│       ├── requirements/       # Pages for requirements
+│       └── specifications/     # Pages for specifications
+│
+├── index.html                  # Start page
+└── README.md                   # Structure
