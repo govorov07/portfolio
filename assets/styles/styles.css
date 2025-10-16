@@ -15,7 +15,7 @@ body {
 	margin: 0 auto;
 	gap: 30px;
 }
-.sidebar {
+/* .sidebar {
 	width: 300px;
 	background: white;
 	border-radius: 3px;
@@ -24,7 +24,7 @@ body {
 	position: sticky;
 	top: 20px;
 	height: fit-content;
-}
+} */
 .main-content {
 	flex: 1;
 	min-width: 0; /* Для правильного сжатия flex-элемента */
@@ -154,25 +154,53 @@ p {
 	font-size: 14px;
 }
 .tree-header {
-	font-weight: 600;
-	color: #172B4D;
-	margin-bottom: 16px;
-	padding-bottom: 8px;
-	border-bottom: 1px solid #DFE1E6;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: #172B4D;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #DFE1E6;
+}
+.collapse-all {
+    background: none;
+    border: none;
+    color: #42526E;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 3px;
+}
+.collapse-all:hover {
+    background: #F4F5F7;
 }
 .tree-item {
 	margin: 2px 0;
 }
 .tree-folder {
 	display: flex;
-	align-items: center;
-	gap: 6px;
-	padding: 6px 8px;
-	cursor: pointer;
-	border-radius: 3px;
-	transition: background-color 0.2s ease;
-	font-weight: 500;
-	color: #172B4D;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 8px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+    font-weight: 500;
+    color: #172B4D;
+}
+.tree-toggle {
+    background: none;
+    border: none;
+    color: #42526E;
+    cursor: pointer;
+    font-size: 10px;
+    padding: 2px;
+    margin-left: auto;
+    transition: transform 0.2s ease;
+}
+.tree-toggle.collapsed {
+    transform: rotate(-90deg);
 }
 .tree-folder:hover {
 	background-color: #F4F5F7;
@@ -187,8 +215,14 @@ p {
 }
 .tree-children {
 	margin-left: 16px;
-	border-left: 1px solid #DFE1E6;
-	padding-left: 8px;
+    border-left: 1px solid #DFE1E6;
+    padding-left: 8px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.tree-children.collapsed {
+    max-height: 0;
+    opacity: 0;
 }
 .tree-link {
 	color: #42526E;
@@ -215,6 +249,97 @@ p {
 	top: 50%;
 	transform: translateY(-50%);
 	font-size: 12px;
+}
+/* Стили для сворачиваемого сайдбара */
+.sidebar {
+    width: 300px;
+    background: white;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    transition: all 0.3s ease;
+    transform: translateX(0);
+}
+.sidebar.collapsed {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #DFE1E6;
+}
+.sidebar-header h3 {
+    margin: 0;
+    color: #172B4D;
+    font-size: 16px;
+    font-weight: 600;
+}
+.sidebar-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #42526E;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 3px;
+}
+.sidebar-close:hover {
+    background: #F4F5F7;
+}
+/* Кнопки управления сайдбаром */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #0052CC;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 16px;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.sidebar-toggle:hover {
+    background: #0747A6;
+    transform: translateY(-1px);
+}
+.desktop-only {
+    display: none;
+}
+.mobile-only {
+    display: none;
+}
+/* Overlay для мобильных */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: all;
 }
 
 /* ================================================================================================================== */
@@ -1899,32 +2024,58 @@ div.code-toolbar > .toolbar a:hover {
 	body {
 		padding: 15px;
 	}
-	
 	.container {
-		flex-direction: column;
-		gap: 20px;
-	}
-	
+        flex-direction: column;
+        gap: 0;
+    }
 	.sidebar {
-		width: auto;
-		position: static;
-	}
-	
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 280px;
+        z-index: 1000;
+        transform: translateX(-100%);
+        opacity: 1;
+        pointer-events: all;
+        border-radius: 0;
+        padding: 60px 20px 20px 20px;
+        overflow-y: auto;
+    }
+	.sidebar.active {
+        transform: translateX(0);
+    }
+    .sidebar.collapsed {
+        transform: translateX(-100%);
+    }
+    .mobile-only {
+        display: flex;
+    }
+    .desktop-only {
+        display: none;
+    }
+	.main-content {
+        margin-left: 0;
+        padding: 60px 15px 20px 15px;
+    }
+    .sidebar-toggle {
+        display: flex;
+    }
+    .sidebar-toggle.desktop-only {
+        display: none;
+    }
 	.content {
 		padding: 20px;
 	}
-	
 	.scroll-to-top {
 		bottom: 20px;
 		right: 20px;
 		width: 45px;
 		height: 45px;
 	}
-	
 	.confluence-table {
 		font-size: 12px;
 	}
-	
 	.confluence-table th,
 	.confluence-table td {
 		padding: 8px 12px;
@@ -1933,285 +2084,228 @@ div.code-toolbar > .toolbar a:hover {
 	.use-case-container {
 		padding: 16px;
 	}
-	
 	.scenario-table th,
 	.scenario-table td {
 		padding: 8px 12px;
 		font-size: 13px;
 	}
-	
 	.extension-header {
 		flex-direction: column;
 		gap: 8px;
 	}
-	
 	.extension-content {
 		margin-left: 0;
 	}
-	
 	.platform-variant {
 		padding: 10px;
 	}
-
 	/* Адаптивность для UML диаграммы */
 	.uml-container {
 		padding: 16px;
 	}
-	
 	.uml-diagram {
 		padding: 12px;
 	}
-	
 	.legend-items {
 		flex-direction: column;
 		gap: 8px;
 	}
-	
 	.uml-svg {
 		min-width: 800px; /* Минимальная ширина для читаемости */
 	}
-
 	/* Адаптивность для блоков кода */
 	.code-header {
 		padding: 10px 12px;
 	}
-	
 	.code-title {
 		font-size: 13px;
 	}
-	
 	.code-language {
 		font-size: 10px;
 		padding: 3px 6px;
 	}
-	
 	.code-content pre[class*="language-"] {
 		padding: 12px;
 	}
-	
 	.code-content code[class*="language-"] {
 		font-size: 12px;
 	}
-
 	/* Адаптивность для скриптов */
 	.script-section h3 {
 		padding: 12px 16px;
 		font-size: 15px;
 	}
-	
 	.script-content {
 		padding: 16px;
 	}
-	
 	.styled-list > li {
 		padding: 10px 12px 10px 44px;
 		margin-bottom: 8px;
 	}
-	
 	.styled-list > li::before {
 		left: 12px;
 		width: 20px;
 		height: 20px;
 		font-size: 11px;
 	}
-	
 	.nested-list > li {
 		padding: 6px 8px 6px 32px;
 		margin-bottom: 6px;
 	}
-	
 	.nested-list > li::before {
 		left: 8px;
 		width: 16px;
 		height: 16px;
 		font-size: 9px;
 	}
-	
 	.script-field,
 	.script-value {
 		font-size: 12px;
 	}
-	
 	.script-comment {
 		font-size: 11px;
 	}
-	
 	.complex-list > li {
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 4px;
 	}
-
 	/* Адаптивность для Jira issue */
 	.jira-issue-container {
 		padding: 12px 16px;
 	}
-	
 	.jira-issue {
 		gap: 6px;
 		font-size: 13px;
 	}
-	
 	.jira-issue-key {
 		padding: 3px 6px;
 		font-size: 12px;
 	}
-	
 	.jira-summary {
 		min-width: 150px;
 	}
-	
 	.jira-status {
 		font-size: 10px;
 		padding: 2px 6px;
 	}
-
 	/* Адаптивность для макросов */
 	.confluence-macro {
 		padding: 12px 16px;
 		gap: 10px;
 	}
-	
 	.macro-icon {
 		font-size: 14px;
 	}
-	
 	.macro-content strong {
 		font-size: 13px;
 	}
-	
 	.macro-content p {
 		font-size: 13px;
 	}
-	
 	.macro-content code {
 		font-size: 12px;
 		padding: 1px 4px;
 	}
-
 	/* Адаптивность для алгоритма */
 	.complex-algorithm {
 		padding: 16px;
 	}
-	
 	.algorithm-text {
 		font-size: 13px;
 		padding-left: 28px;
 	}
-	
 	.algorithm-list.level-1 > li::before {
 		width: 20px;
 		height: 20px;
 		font-size: 11px;
 	}
-	
 	.algorithm-list.level-2 {
 		margin-left: 16px;
 		padding-left: 8px;
 	}
-	
 	.algorithm-list.level-2 > li::before {
 		left: -24px;
 		width: 18px;
 		height: 18px;
 		font-size: 9px;
 	}
-	
 	.algorithm-list.level-3 > li::before {
 		left: -24px;
 		width: 16px;
 		height: 16px;
 		font-size: 8px;
 	}
-	
 	.algorithm-list.level-4 > li::before {
 		left: -24px;
 		width: 14px;
 		height: 14px;
 		font-size: 7px;
 	}
-	
 	.algorithm-text code {
 		font-size: 12px;
 		padding: 1px 4px;
 	}
-
 	/* Адаптивность для страницы "Обо мне" */
 	.profile-header {
 		flex-direction: column;
 		text-align: center;
 		gap: 16px;
 	}
-	
 	.avatar-placeholder {
 		width: 100px;
 		height: 100px;
 		font-size: 36px;
 		margin: 0 auto;
 	}
-	
 	.profile-info h1 {
 		font-size: 24px;
 	}
-	
 	.profile-title {
 		font-size: 16px;
 	}
-	
 	.skills-grid {
 		grid-template-columns: 1fr;
 		gap: 16px;
 	}
-	
 	.experience-item {
 		flex-direction: column;
 		gap: 12px;
 	}
-	
 	.experience-period {
 		flex: none;
 		width: fit-content;
 	}
-	
 	.contacts-grid {
 		grid-template-columns: 1fr;
 	}
-
 	/* Адаптивность для резюме */
 	.cv-header {
 		flex-direction: column;
 		text-align: center;
 	}
-	
 	.cv-avatar {
 		margin: 16px auto 0;
 	}
-	
 	.cv-title-section h1 {
 		font-size: 24px;
 	}
-	
 	.cv-profession {
 		font-size: 18px;
 	}
-	
 	.cv-section {
 		padding: 16px;
 	}
-	
 	.cv-section-title {
 		font-size: 20px;
 	}
-	
 	.cv-contacts {
 		grid-template-columns: 1fr;
 	}
-
 	.experience-item {
         flex-direction: column;
         gap: 16px;
     }
-	
 	.experience-header {
         flex: none;
         width: 100%;
@@ -2219,35 +2313,63 @@ div.code-toolbar > .toolbar a:hover {
         justify-content: space-between;
         align-items: center;
     }
-
 	.experience-period {
         text-align: left;
         flex: 1;
     }
-	
 	.experience-duration {
         flex: none;
     }
-
 	.education-item,
     .course-item {
         flex-direction: column;
         gap: 8px;
     }
-	
 	.education-period,
     .course-period {
         flex: none;
         width: 100%;
     }
-	
 	.skills-tags {
 		gap: 6px;
 	}
-	
 	.skill-tag {
 		font-size: 12px;
 		padding: 4px 8px;
+	}
+}
+
+@media (min-width: 769px) {
+	.desktop-only {
+		display: block;
+	}
+	.mobile-only {
+		display: none;
+	}
+	.sidebar-toggle.desktop-only {
+		position: absolute;
+		top: 20px;
+		left: -40px;
+		background: #0052CC;
+		color: white;
+		border: none;
+		border-radius: 3px 0 0 3px;
+		padding: 8px 4px;
+		cursor: pointer;
+		z-index: 100;
+		transition: all 0.3s ease;
+	}
+	.sidebar-toggle.desktop-only:hover {
+		background: #0747A6;
+	}
+	.container.collapsed .sidebar-toggle.desktop-only {
+		left: 0;
+	}
+	.container.collapsed .sidebar-toggle.desktop-only .toggle-icon {
+		transform: rotate(180deg);
+	}
+	.container.collapsed .main-content {
+		margin-left: 0;
 	}
 }
 
@@ -2565,4 +2687,40 @@ div.code-toolbar > .toolbar a:hover {
 }
 .confluence-macro.compact .macro-content p {
 	font-size: 13px;
+}
+
+/* Плавные переходы для контента */
+.main-content {
+	transition: margin-left 0.3s ease;
+}
+.container.collapsed .main-content {
+	margin-left: -300px;
+}
+/* Улучшения для UX */
+.tree-folder:hover {
+	background-color: #F4F5F7;
+}
+.tree-link {
+	transition: all 0.2s ease;
+}
+.tree-link:hover {
+	background-color: #F4F5F7;
+	color: #0052CC;
+}
+/* Анимации */
+@keyframes slideIn {
+	from {
+		transform: translateX(-100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+@keyframes slideOut {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
 }
