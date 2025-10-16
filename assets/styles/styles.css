@@ -1,4 +1,6 @@
-/* Основные стили в духе Confluence */
+/* ================================================================================================================== */
+/* =====	ОСНОВНЫЕ СТИЛИ СТРАНИЦЫ																				===== */
+/* ================================================================================================================== */
 body {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 	line-height: 1.6;
@@ -7,14 +9,12 @@ body {
 	margin: 0;
 	padding: 20px 30px;
 }
-
 .container {
 	display: flex;
 	max-width: 100%;
 	margin: 0 auto;
 	gap: 30px;
 }
-
 .sidebar {
 	width: 300px;
 	background: white;
@@ -25,12 +25,10 @@ body {
 	top: 20px;
 	height: fit-content;
 }
-
 .main-content {
 	flex: 1;
 	min-width: 0; /* Для правильного сжатия flex-элемента */
 }
-
 .content {
 	background: white;
 	border-radius: 3px;
@@ -39,7 +37,9 @@ body {
 	margin-bottom: 20px;
 }
 
-/* Стили для оглавления в начале статьи */
+/* ================================================================================================================== */
+/* =====	СТИЛИ ДЛЯ ОГЛАВЛЕНИЯ																				===== */
+/* ================================================================================================================== */
 .article-toc {
 	background: #F8F9FA;
 	border: 1px solid #DFE1E6;
@@ -47,7 +47,6 @@ body {
 	padding: 20px;
 	margin-bottom: 30px;
 }
-
 .toc-header {
 	font-size: 16px;
 	font-weight: 600;
@@ -57,22 +56,18 @@ body {
 	align-items: center;
 	gap: 8px;
 }
-
 .toc-header::before {
 	content: "📑";
 	font-size: 14px;
 }
-
 .toc-list {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
-
 .toc-item {
 	margin: 4px 0;
 }
-
 .toc-link {
 	display: block;
 	padding: 8px 12px;
@@ -84,48 +79,43 @@ body {
 	line-height: 1.4;
 	border-left: 3px solid transparent;
 }
-
 .toc-link:hover {
 	background-color: #F4F5F7;
 	color: #0052CC;
 	border-left-color: #0052CC;
 }
-
 .toc-link.active {
 	background-color: #DEEBFF;
 	color: #0052CC;
 	font-weight: 500;
 	border-left-color: #0052CC;
 }
-
 /* Отступы для вложенных уровней */
 .toc-level-1 { 
 	padding-left: 12px;
 	font-weight: 600;
 	color: #172B4D;
 }
-
 .toc-level-2 {
 	padding-left: 24px;
 }
-
 .toc-level-3 {
 	padding-left: 36px;
 }
-
 .toc-level-4 { 
 	padding-left: 48px; 
 	font-size: 13px;
 	color: #5E6C84;
 }
-
 /* Компактный вариант оглавления */
 .toc-compact .toc-link {
 	padding: 6px 12px;
 	font-size: 13px;
 }
 
-/* Стили для контента */
+/* ================================================================================================================== */
+/* =====	СТИЛИ ДЛЯ КОНТЕНТА																					===== */
+/* ================================================================================================================== */
 h1 {
 	color: #172B4D;
 	font-size: 28px;
@@ -134,38 +124,35 @@ h1 {
 	padding-bottom: 12px;
 	border-bottom: 1px solid #DFE1E6;
 }
-
 h2 {
 	color: #172B4D;
 	font-size: 22px;
 	font-weight: 600;
 	margin: 32px 0 16px 0;
 }
-
 h3 {
 	color: #172B4D;
 	font-size: 18px;
 	font-weight: 600;
 	margin: 24px 0 12px 0;
 }
-
 h4 {
 	color: #42526E;
 	font-size: 16px;
 	font-weight: 600;
 	margin: 20px 0 10px 0;
 }
-
 p {
 	margin-bottom: 16px;
 	color: #42526E;
 }
 
-/* Стили для сайдбара с деревом страниц */
+/* ================================================================================================================== */
+/* =====	СТИЛИ ДЛЯ САЙДБАРА																					===== */
+/* ================================================================================================================== */
 .sidebar-tree {
 	font-size: 14px;
 }
-
 .tree-header {
 	font-weight: 600;
 	color: #172B4D;
@@ -173,11 +160,9 @@ p {
 	padding-bottom: 8px;
 	border-bottom: 1px solid #DFE1E6;
 }
-
 .tree-item {
 	margin: 2px 0;
 }
-
 .tree-folder {
 	display: flex;
 	align-items: center;
@@ -189,27 +174,22 @@ p {
 	font-weight: 500;
 	color: #172B4D;
 }
-
 .tree-folder:hover {
 	background-color: #F4F5F7;
 }
-
 .tree-folder-icon {
 	font-size: 12px;
 	width: 16px;
 	text-align: center;
 }
-
 .tree-folder-name {
 	flex: 1;
 }
-
 .tree-children {
 	margin-left: 16px;
 	border-left: 1px solid #DFE1E6;
 	padding-left: 8px;
 }
-
 .tree-link {
 	color: #42526E;
 	text-decoration: none;
@@ -219,18 +199,15 @@ p {
 	transition: background-color 0.2s ease, color 0.2s ease;
 	position: relative;
 }
-
 .tree-link:hover {
 	background-color: #F4F5F7;
 	color: #0052CC;
 }
-
 .tree-link.active {
 	background-color: #DEEBFF;
 	color: #0052CC;
 	font-weight: 500;
 }
-
 .tree-link::before {
 	content: "📄";
 	position: absolute;
@@ -240,7 +217,9 @@ p {
 	font-size: 12px;
 }
 
-/* Стили для таблицы */
+/* ================================================================================================================== */
+/* =====	СТИЛИ ДЛЯ ТАБЛИЦ																					===== */
+/* ================================================================================================================== */
 .confluence-table {
 	width: 100%;
 	border-collapse: collapse;
@@ -250,7 +229,6 @@ p {
 	border-radius: 3px;
 	overflow: hidden;
 }
-
 .confluence-table caption {
 	font-size: 16px;
 	font-weight: 600;
@@ -259,7 +237,6 @@ p {
 	margin-bottom: 12px;
 	padding: 0;
 }
-
 .confluence-table th {
 	background-color: #F4F5F7;
 	color: #42526E;
@@ -269,38 +246,34 @@ p {
 	border-bottom: 2px solid #DFE1E6;
 	font-size: 13px;
 }
-
 .confluence-table td {
 	padding: 12px 16px;
 	border-bottom: 1px solid #DFE1E6;
 	vertical-align: top;
 	background-color: white;
 }
-
 .confluence-table tbody tr {
 	transition: background-color 0.2s ease;
 }
-
 .confluence-table tbody tr:hover td {
 	background-color: #F8F9FA;
 }
-
 .confluence-table a {
 	color: #0052CC;
 	text-decoration: none;
 }
-
 .confluence-table a:hover {
 	text-decoration: underline;
 }
-
 .confluence-table p {
 	margin: 4px 0;
 	color: #42526E;
 	font-size: 14px;
 }
 
-/* Стили для статусных чипов */
+/* ================================================================================================================== */
+/* =====	СТИЛИ ДЛЯ СТАТУСНЫХ ЧИПОВ																			===== */
+/* ================================================================================================================== */
 .status-chip {
 	display: inline-block;
 	padding: 4px 8px;
@@ -310,20 +283,20 @@ p {
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
 }
-
 .status-approved {
 	background-color: #E3FCEF;
 	color: #006644;
 	border: 1px solid #ABF5D1;
 }
-
 .status-pending {
 	background-color: #DEEBFF;
 	color: #0052CC;
 	border: 1px solid #B3D4FF;
 }
 
-/* Кнопка "Вверх" */
+/* ================================================================================================================== */
+/* =====	СТИЛИ ДЛЯ КНОПКИ "ВВЕРХ"																			===== */
+/* ================================================================================================================== */
 .scroll-to-top {
 	position: fixed;
 	bottom: 30px;
@@ -345,26 +318,24 @@ p {
 	visibility: hidden;
 	z-index: 1000;
 }
-
 .scroll-to-top:hover {
 	background: #0747A6;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-
 .scroll-to-top:active {
 	transform: translateY(0);
 }
-
 .scroll-to-top.show {
 	opacity: 1;
 	visibility: visible;
 }
-
 .scroll-to-top::before {
 	content: "↑";
 }
 
-/* Стили для Use Case */
+/* ================================================================================================================== */
+/* =====	СТИЛИ ДЛЯ USE CASE																					===== */
+/* ================================================================================================================== */
 .use-case-container {
 	background: #F8F9FA;
 	border: 1px solid #DFE1E6;
@@ -372,27 +343,23 @@ p {
 	padding: 24px;
 	margin: 20px 0;
 }
-
 .use-case-header {
 	margin-bottom: 20px;
 	padding-bottom: 16px;
 	border-bottom: 1px solid #DFE1E6;
 }
-
 .use-case-header h3 {
 	color: #0052CC;
 	font-size: 18px;
 	margin: 0 0 8px 0;
 	font-weight: 600;
 }
-
 .use-case-description {
 	color: #42526E;
 	font-size: 16px;
 	margin: 0;
 	font-weight: 500;
 }
-
 .use-case-table {
 	width: 100%;
 	border-collapse: collapse;
@@ -402,7 +369,6 @@ p {
 	overflow: hidden;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-
 .use-case-table th {
 	background-color: #F4F5F7;
 	color: #42526E;
@@ -412,14 +378,12 @@ p {
 	border-bottom: 1px solid #DFE1E6;
 	font-size: 14px;
 }
-
 .use-case-table td {
 	padding: 12px 16px;
 	border-bottom: 1px solid #DFE1E6;
 	background-color: white;
 	color: #172B4D;
 }
-
 .scenario-title {
 	color: #172B4D;
 	font-size: 16px;
@@ -428,7 +392,6 @@ p {
 	padding-bottom: 8px;
 	border-bottom: 1px solid #DFE1E6;
 }
-
 .scenario-table {
 	width: 100%;
 	border-collapse: collapse;
@@ -438,7 +401,6 @@ p {
 	overflow: hidden;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-
 .scenario-table th {
 	background-color: #0052CC;
 	color: white;
@@ -447,7 +409,6 @@ p {
 	text-align: left;
 	font-size: 13px;
 }
-
 .scenario-table td {
 	padding: 12px 16px;
 	border-bottom: 1px solid #DFE1E6;
@@ -455,15 +416,12 @@ p {
 	font-size: 14px;
 	line-height: 1.5;
 }
-
 .scenario-table tbody tr:nth-child(even) {
 	background-color: #FAFBFC;
 }
-
 .scenario-table tbody tr:hover {
 	background-color: #F4F5F7;
 }
-
 /* Стили для расширений */
 .extension-group {
 	margin-bottom: 20px;
@@ -473,7 +431,6 @@ p {
 	border-left: 4px solid #FFAB00;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-
 .extension-header {
 	display: flex;
 	align-items: flex-start;
@@ -482,7 +439,6 @@ p {
 	padding-bottom: 8px;
 	border-bottom: 1px solid #DFE1E6;
 }
-
 .extension-step {
 	background: #FFAB00;
 	color: white;
@@ -493,18 +449,15 @@ p {
 	min-width: 32px;
 	text-align: center;
 }
-
 .extension-condition {
 	color: #172B4D;
 	font-weight: 500;
 	flex: 1;
 	font-size: 14px;
 }
-
 .extension-content {
 	margin-left: 44px;
 }
-
 .platform-variant {
 	margin-bottom: 16px;
 	padding: 12px;
@@ -512,35 +465,32 @@ p {
 	border-radius: 3px;
 	border-left: 3px solid #B3D4FF;
 }
-
 .platform-variant:last-child {
 	margin-bottom: 0;
 }
-
 .platform-variant strong {
 	color: #0052CC;
 	font-weight: 600;
 	display: block;
 	margin-bottom: 8px;
 }
-
 .platform-variant ul {
 	margin: 8px 0 0 0;
 	padding-left: 20px;
 	color: #42526E;
 }
-
 .platform-variant li {
 	margin-bottom: 4px;
 	font-size: 14px;
 	line-height: 1.4;
 }
-
 .platform-variant li:last-child {
 	margin-bottom: 0;
 }
 
-/* Стили для UML диаграммы */
+/* ================================================================================================================== */
+/* =====	СТИЛИ ДЛЯ UML ДИАГРАММ																				===== */
+/* ================================================================================================================== */
 .uml-container {
 	background: #FFFFFF;
 	border: 1px solid #DFE1E6;
@@ -549,26 +499,22 @@ p {
 	margin: 20px 0;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-
 .uml-header {
 	margin-bottom: 20px;
 	padding-bottom: 16px;
 	border-bottom: 1px solid #DFE1E6;
 }
-
 .uml-header h3 {
 	color: #172B4D;
 	font-size: 18px;
 	margin: 0 0 8px 0;
 	font-weight: 600;
 }
-
 .uml-description {
 	color: #42526E;
 	font-size: 14px;
 	margin: 0;
 }
-
 .uml-diagram {
 	background: #FAFBFC;
 	border: 1px solid #DFE1E6;
@@ -579,52 +525,42 @@ p {
 	text-align: center;
 	position: relative;
 }
-
 .uml-svg {
 	max-width: 100%;
 	height: auto;
 	filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
-
 /* Улучшаем читаемость SVG */
 .uml-svg text {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
 }
-
 .uml-svg .participant-head rect {
 	fill: #E6F2FF !important;
 	stroke: #0052CC !important;
 }
-
 .uml-svg .participant-head text {
 	fill: #172B4D !important;
 	font-weight: 500 !important;
 }
-
 .uml-svg .message text {
 	fill: #42526E !important;
 	font-size: 12px !important;
 }
-
 .uml-svg .message line {
 	stroke: #0052CC !important;
 }
-
 .uml-svg .message polygon {
 	fill: #0052CC !important;
 	stroke: #0052CC !important;
 }
-
 /* Подсветка альтернативных сценариев */
 .uml-svg rect[fill="#EEEEEE"] {
 	fill: #F8F9FA !important;
 	stroke: #DFE1E6 !important;
 }
-
 .uml-svg text[fill="#000000"] {
 	fill: #42526E !important;
 }
-
 /* Легенда диаграммы */
 .uml-legend {
 	background: #F8F9FA;
@@ -633,54 +569,48 @@ p {
 	padding: 16px;
 	margin-top: 20px;
 }
-
 .uml-legend h4 {
 	color: #172B4D;
 	font-size: 14px;
 	font-weight: 600;
 	margin: 0 0 12px 0;
 }
-
 .legend-items {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 16px;
 }
-
 .legend-item {
 	display: flex;
 	align-items: center;
 	gap: 8px;
 }
-
 .legend-color {
 	width: 16px;
 	height: 16px;
 	border-radius: 2px;
 	border: 1px solid #DFE1E6;
 }
-
 .legend-color.success {
 	background: #E3FCEF;
 	border-color: #ABF5D1;
 }
-
 .legend-color.error {
 	background: #FFEBE6;
 	border-color: #FFBDAD;
 }
-
 .legend-color.timeout {
 	background: #FFF7E6;
 	border-color: #FFE380;
 }
-
 .legend-item span {
 	color: #42526E;
 	font-size: 13px;
 }
 
-/* Стили для блоков кода с Prism.js */
+/* ================================================================================================================== */
+/* =====	СТИЛИ ДЛЯ БЛОКОВ КОДА С Prism.js 																	===== */
+/* ================================================================================================================== */
 .code-container {
 	background: #FFFFFF;
 	border: 1px solid #DFE1E6;
@@ -689,7 +619,6 @@ p {
 	overflow: hidden;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-
 .code-header {
 	display: flex;
 	justify-content: space-between;
@@ -698,13 +627,11 @@ p {
 	background: #F4F5F7;
 	border-bottom: 1px solid #DFE1E6;
 }
-
 .code-title {
 	color: #172B4D;
 	font-size: 14px;
 	font-weight: 600;
 }
-
 .code-language {
 	background: #0052CC;
 	color: white;
@@ -715,13 +642,11 @@ p {
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
 }
-
 .code-content {
 	position: relative;
 	background: #2D2D2D;
 	overflow-x: auto;
 }
-
 /* Переопределение стилей Prism.js для соответствия дизайну */
 .code-content pre[class*="language-"] {
 	margin: 0;
@@ -730,7 +655,6 @@ p {
 	border-radius: 0;
 	overflow: visible;
 }
-
 .code-content code[class*="language-"] {
 	font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 	font-size: 13px;
@@ -738,23 +662,19 @@ p {
 	text-shadow: none;
 	background: transparent;
 }
-
 /* Стили для нумерации строк */
 .line-numbers .line-numbers-rows {
 	border-right: 1px solid #444;
 	padding-right: 1em;
 }
-
 .line-numbers-rows > span:before {
 	color: #6E7681;
 	font-size: 12px;
 }
-
 /* Стили для тулбара копирования */
 div.code-toolbar {
 	position: relative;
 }
-
 div.code-toolbar > .toolbar {
 	position: absolute;
 	top: 8px;
@@ -762,15 +682,12 @@ div.code-toolbar > .toolbar {
 	opacity: 0;
 	transition: opacity 0.3s ease;
 }
-
 div.code-toolbar:hover > .toolbar {
 	opacity: 1;
 }
-
 div.code-toolbar > .toolbar .toolbar-item {
 	display: inline-block;
 }
-
 div.code-toolbar > .toolbar a {
 	background: #0052CC;
 	color: white;
@@ -781,133 +698,107 @@ div.code-toolbar > .toolbar a {
 	cursor: pointer;
 	transition: background 0.2s ease;
 }
-
 div.code-toolbar > .toolbar a:hover {
 	background: #0747A6;
 }
-
 /* Кастомные стили для PlantUML */
 .token.comment {
 	color: #6A9955;
 	font-style: italic;
 }
-
 .token.keyword {
 	color: #569CD6;
 	font-weight: bold;
 }
-
 .token.string {
 	color: #CE9178;
 }
-
 .token.function {
 	color: #DCDCAA;
 }
-
 .token.number {
 	color: #B5CEA8;
 }
-
 .token.operator {
 	color: #D4D4D4;
 }
-
 .token.punctuation {
 	color: #D4D4D4;
 }
-
 .token.selector {
 	color: #D7BA7D;
 }
-
 .token.property {
 	color: #9CDCFE;
 }
-
 .token.tag {
 	color: #569CD6;
 }
-
 .token.attr-name {
 	color: #9CDCFE;
 }
-
 .token.attr-value {
 	color: #CE9178;
 }
-
 .token.namespace {
 	color: #4EC9B0;
 }
-
 /* Специфичные стили для PlantUML */
 .language-plantuml .token.directive {
 	color: #C586C0;
 	font-weight: bold;
 }
-
 .language-plantuml .token.participant {
 	color: #4EC9B0;
 }
-
 .language-plantuml .token.actor {
 	color: #FFD700;
 }
-
 .language-plantuml .token.arrow {
 	color: #569CD6;
 	font-weight: bold;
 }
-
 .language-plantuml .token.activation {
 	color: #CE9178;
 	font-weight: bold;
 }
-
 .language-plantuml .token.alt {
 	color: #FF6B6B;
 	font-weight: bold;
 }
-
 .language-plantuml .token.group {
 	color: #FFA500;
 	font-weight: bold;
 }
-
 .language-plantuml .token.title {
 	color: #FFD700;
 	font-weight: bold;
 }
-
 .language-plantuml .token.note {
 	color: #6A9955;
 	font-style: italic;
 }
-
 /* Стили для скроллбара блока кода */
 .code-content::-webkit-scrollbar {
 	height: 8px;
 }
-
 .code-content::-webkit-scrollbar-track {
 	background: #1E1E1E;
 }
-
 .code-content::-webkit-scrollbar-thumb {
 	background: #444;
 	border-radius: 4px;
 }
-
 .code-content::-webkit-scrollbar-thumb:hover {
 	background: #666;
 }
 
-/* Стили для раздела скриптов */
+/* ================================================================================================================== */
+/* =====	СТИЛИ ДЛЯ РАЗДЕЛА СКРИПТОВ 																			===== */
+/* ================================================================================================================== */
 .scripts-container {
 	margin: 20px 0;
 }
-
 .script-section {
 	background: #FFFFFF;
 	border: 1px solid #DFE1E6;
@@ -916,7 +807,6 @@ div.code-toolbar > .toolbar a:hover {
 	overflow: hidden;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-
 .script-section h3 {
 	background: #F4F5F7;
 	color: #172B4D;
@@ -926,11 +816,9 @@ div.code-toolbar > .toolbar a:hover {
 	padding: 16px 20px;
 	border-bottom: 1px solid #DFE1E6;
 }
-
 .script-content {
 	padding: 20px;
 }
-
 /* Стили для списков */
 .styled-list {
 	margin: 0;
@@ -938,7 +826,6 @@ div.code-toolbar > .toolbar a:hover {
 	list-style: none;
 	counter-reset: script-counter;
 }
-
 .styled-list > li {
 	counter-increment: script-counter;
 	margin-bottom: 12px;
@@ -950,7 +837,6 @@ div.code-toolbar > .toolbar a:hover {
 	padding-left: 48px;
 	transition: background-color 0.2s ease, border-color 0.2s ease;
 }
-
 .styled-list > li::before {
 	content: counter(script-counter);
 	position: absolute;
@@ -968,7 +854,6 @@ div.code-toolbar > .toolbar a:hover {
 	font-size: 12px;
 	font-weight: 600;
 }
-
 /* Стили для вложенных списков */
 .nested-list {
 	margin: 12px 0 0 0;
@@ -976,7 +861,6 @@ div.code-toolbar > .toolbar a:hover {
 	list-style: none;
 	counter-reset: nested-counter;
 }
-
 .nested-list > li {
 	counter-increment: nested-counter;
 	margin-bottom: 8px;
@@ -987,7 +871,6 @@ div.code-toolbar > .toolbar a:hover {
 	position: relative;
 	padding-left: 36px;
 }
-
 .nested-list > li::before {
 	content: counter(nested-counter);
 	position: absolute;
@@ -1005,7 +888,6 @@ div.code-toolbar > .toolbar a:hover {
 	font-size: 10px;
 	font-weight: 600;
 }
-
 /* Стили для элементов скрипта */
 .script-field {
 	color: #0052CC;
@@ -1013,18 +895,15 @@ div.code-toolbar > .toolbar a:hover {
 	font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 	font-size: 13px;
 }
-
 .script-value {
 	font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 	font-size: 13px;
 	margin: 0 4px;
 }
-
 .script-value.auto {
 	color: #FF6B6B;
 	font-weight: 600;
 }
-
 .script-value.string {
 	color: #00875A;
 	background: #E3FCEF;
@@ -1032,7 +911,6 @@ div.code-toolbar > .toolbar a:hover {
 	border-radius: 3px;
 	border: 1px solid #ABF5D1;
 }
-
 .script-value.object {
 	color: #6554C0;
 	background: #F4F5FF;
@@ -1041,21 +919,18 @@ div.code-toolbar > .toolbar a:hover {
 	border: 1px solid #C0B6F2;
 	font-weight: 500;
 }
-
 .script-comment {
 	color: #6B778C;
 	font-size: 12px;
 	font-style: italic;
 	margin-left: 8px;
 }
-
 .script-operator {
 	color: #FF6B6B;
 	font-weight: bold;
 	margin: 0 8px;
 	font-size: 14px;
 }
-
 /* Специфичные стили для сложных списков */
 .complex-list > li {
 	display: flex;
@@ -1063,29 +938,27 @@ div.code-toolbar > .toolbar a:hover {
 	align-items: center;
 	gap: 4px;
 }
-
 .multi-level > li {
 	display: block;
 }
-
 .multi-level .script-field,
 .multi-level .script-value,
 .multi-level .script-comment {
 	display: inline;
 }
-
 /* Эффекты при наведении */
 .styled-list > li:hover {
 	background: #F4F5F7;
 	border-color: #B3BAC5;
 }
-
 .nested-list > li:hover {
 	background: #FAFBFC;
 	border-color: #DFE1E6;
 }
 
-/* Стили для Jira issue */
+/* ================================================================================================================== */
+/* =====	СТИЛИ ДЛЯ JIRA ISSUE 																				===== */
+/* ================================================================================================================== */
 .jira-issue-container {
 	background: #FFFFFF;
 	border: 1px solid #DFE1E6;
@@ -1094,7 +967,6 @@ div.code-toolbar > .toolbar a:hover {
 	margin: 20px 0;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-
 .jira-issue {
 	display: flex;
 	align-items: center;
@@ -1103,7 +975,6 @@ div.code-toolbar > .toolbar a:hover {
 	font-size: 14px;
 	line-height: 1.4;
 }
-
 .jira-issue-key {
 	display: inline-flex;
 	align-items: center;
@@ -1117,23 +988,19 @@ div.code-toolbar > .toolbar a:hover {
 	font-size: 13px;
 	transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
-
 .jira-issue-key:hover {
 	background: #0747A6;
 	box-shadow: 0 2px 8px rgba(0, 82, 204, 0.3);
 }
-
 .jira-icon {
 	font-size: 12px;
 }
-
 .jira-summary {
 	color: #172B4D;
 	font-weight: 500;
 	flex: 1;
 	min-width: 200px;
 }
-
 .jira-status {
 	padding: 2px 8px;
 	border-radius: 12px;
@@ -1143,38 +1010,35 @@ div.code-toolbar > .toolbar a:hover {
 	letter-spacing: 0.5px;
 	white-space: nowrap;
 }
-
 .jira-status-published {
 	background: #E3FCEF;
 	color: #006644;
 	border: 1px solid #ABF5D1;
 }
-
 .jira-status-in-progress {
 	background: #DEEBFF;
 	color: #0052CC;
 	border: 1px solid #B3D4FF;
 }
-
 .jira-status-done {
 	background: #E3FCEF;
 	color: #006644;
 	border: 1px solid #ABF5D1;
 }
-
 .jira-status-todo {
 	background: #DFE1E6;
 	color: #42526E;
 	border: 1px solid #C1C7D0;
 }
-
 .jira-status-review {
 	background: #FFF7E6;
 	color: #FF8B00;
 	border: 1px solid #FFE380;
 }
 
-/* Стили для макросов Confluence */
+/* ================================================================================================================== */
+/* =====	СТИЛИ ДЛЯ МАКРОСОВ CONFLUENCE																		===== */
+/* ================================================================================================================== */
 .confluence-macro {
 	display: flex;
 	align-items: flex-start;
@@ -1190,35 +1054,29 @@ div.code-toolbar > .toolbar a:hover {
 	border-bottom: 1px solid #DFE1E6;
 	transition: box-shadow 0.2s ease
 }
-
 .macro-icon {
 	font-size: 16px;
 	flex-shrink: 0;
 	margin-top: 2px;
 }
-
 .macro-content {
 	flex: 1;
 }
-
 .macro-content strong {
 	display: block;
 	margin-bottom: 8px;
 	font-size: 14px;
 	font-weight: 600;
 }
-
 .macro-content p {
 	margin: 0;
 	color: #42526E;
 	font-size: 14px;
 	line-height: 1.5;
 }
-
 .macro-content p:not(:last-child) {
 	margin-bottom: 8px;
 }
-
 .macro-content code {
 	background: #F4F5F7;
 	padding: 2px 6px;
@@ -1228,63 +1086,50 @@ div.code-toolbar > .toolbar a:hover {
 	font-size: 13px;
 	color: #172B4D;
 }
-
 /* Стили для разных типов макросов */
 .confluence-macro.info {
 	border-left-color: #0052CC;
 	background: #F0F7FF;
 }
-
 .confluence-macro.info .macro-content strong {
 	color: #0052CC;
 }
-
 .confluence-macro.warning {
 	border-left-color: #FF8B00;
 	background: #FFF7E6;
 }
-
 .confluence-macro.warning .macro-content strong {
 	color: #FF8B00;
 }
-
 .confluence-macro.note {
 	border-left-color: #6554C0;
 	background: #F4F5FF;
 }
-
 .confluence-macro.note .macro-content strong {
 	color: #6554C0;
 }
-
 .confluence-macro.tip {
 	border-left-color: #00875A;
 	background: #E3FCEF;
 }
-
 .confluence-macro.tip .macro-content strong {
 	color: #00875A;
 }
-
 /* Дополнительные варианты макросов */
 .confluence-macro.success {
 	border-left-color: #00875A;
 	background: #E3FCEF;
 }
-
 .confluence-macro.success .macro-content strong {
 	color: #00875A;
 }
-
 .confluence-macro.error {
 	border-left-color: #DE350B;
 	background: #FFEBE6;
 }
-
 .confluence-macro.error .macro-content strong {
 	color: #DE350B;
 }
-
 /* Стили для вложенных элементов в макросах */
 .macro-content ul,
 .macro-content ol {
@@ -1292,27 +1137,25 @@ div.code-toolbar > .toolbar a:hover {
 	padding-left: 20px;
 	color: #42526E;
 }
-
 .macro-content li {
 	margin-bottom: 4px;
 	line-height: 1.5;
 }
-
 .macro-content a {
 	color: #0052CC;
 	text-decoration: none;
 }
-
 .macro-content a:hover {
 	text-decoration: underline;
 }
-
 /* Эффекты при наведении */
 .confluence-macro:hover {
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Стили для сложного алгоритма */
+/* ================================================================================================================== */
+/* =====	СТИЛИ ДЛЯ ОПИСАНИЯ ЛОГИКИ ЭНДПОИНТОВ																===== */
+/* ================================================================================================================== */
 .complex-algorithm {
 	background: #FFFFFF;
 	border: 1px solid #DFE1E6;
@@ -1321,20 +1164,17 @@ div.code-toolbar > .toolbar a:hover {
 	margin: 20px 0;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-
 .algorithm-list {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	counter-reset: algorithm-counter;
 }
-
 .algorithm-list > li {
 	counter-increment: algorithm-counter;
 	margin-bottom: 12px;
 	position: relative;
 }
-
 .algorithm-text {
 	display: block;
 	color: #172B4D;
@@ -1342,7 +1182,6 @@ div.code-toolbar > .toolbar a:hover {
 	line-height: 1.6;
 	padding-left: 32px;
 }
-
 /* Стили для разных уровней вложенности */
 .algorithm-list.level-1 > li::before {
 	content: counter(algorithm-counter);
@@ -1360,18 +1199,15 @@ div.code-toolbar > .toolbar a:hover {
 	font-size: 12px;
 	font-weight: 600;
 }
-
 .algorithm-list.level-2 {
 	counter-reset: algorithm-counter-2;
 	margin: 12px 0 12px 20px;
 	padding-left: 12px;
 	border-left: 2px solid #EBECF0;
 }
-
 .algorithm-list.level-2 > li {
 	counter-increment: algorithm-counter-2;
 }
-
 .algorithm-list.level-2 > li::before {
 	content: counter(algorithm-counter) "." counter(algorithm-counter-2);
 	position: absolute;
@@ -1388,18 +1224,15 @@ div.code-toolbar > .toolbar a:hover {
 	font-size: 10px;
 	font-weight: 600;
 }
-
 .algorithm-list.level-3 {
 	counter-reset: algorithm-counter-3;
 	margin: 8px 0 8px 20px;
 	padding-left: 12px;
 	border-left: 2px solid #F4F5F7;
 }
-
 .algorithm-list.level-3 > li {
 	counter-increment: algorithm-counter-3;
 }
-
 .algorithm-list.level-3 > li::before {
 	content: counter(algorithm-counter) "." counter(algorithm-counter-2) "." counter(algorithm-counter-3);
 	position: absolute;
@@ -1416,18 +1249,15 @@ div.code-toolbar > .toolbar a:hover {
 	font-size: 9px;
 	font-weight: 600;
 }
-
 .algorithm-list.level-4 {
 	counter-reset: algorithm-counter-4;
 	margin: 6px 0 6px 20px;
 	padding-left: 12px;
 	border-left: 2px solid #F4F5F7;
 }
-
 .algorithm-list.level-4 > li {
 	counter-increment: algorithm-counter-4;
 }
-
 .algorithm-list.level-4 > li::before {
 	content: counter(algorithm-counter) "." counter(algorithm-counter-2) "." counter(algorithm-counter-3) "." counter(algorithm-counter-4);
 	position: absolute;
@@ -1445,13 +1275,11 @@ div.code-toolbar > .toolbar a:hover {
 	font-size: 8px;
 	font-weight: 600;
 }
-
 /* Стили для элементов внутри алгоритма */
 .algorithm-text strong {
 	color: #0052CC;
 	font-weight: 600;
 }
-
 .algorithm-text code {
 	background: #F4F5F7;
 	padding: 2px 6px;
@@ -1462,27 +1290,22 @@ div.code-toolbar > .toolbar a:hover {
 	color: #172B4D;
 	margin: 0 2px;
 }
-
 .algorithm-text code.object {
 	background: #F4F5FF;
 	border-color: #C0B6F2;
 	color: #6554C0;
 }
-
 /* Эффекты при наведении */
 .algorithm-list > li .algorithm-text {
 	transition: background-color 0.2s ease;
 }
-
 .algorithm-list > li:hover .algorithm-text {
 	background: #F8F9FA;
 }
-
 .algorithm-list.level-1 > li:hover::before {
 	transform: scale(1.1);
 	transition: transform 0.2s ease;
 }
-
 /* Подсветка условий */
 .algorithm-condition {
 	background: #FFF7E6;
@@ -1493,14 +1316,14 @@ div.code-toolbar > .toolbar a:hover {
 	font-size: 13px;
 	color: #172B4D;
 }
-
 .algorithm-condition code {
 	background: #FFFAE6;
 	border-color: #FFD580;
 }
 
-/* Стили для страницы "Обо мне" */
-
+/* ================================================================================================================== */
+/* =====	СТИЛИ ДЛЯ СТРАНИЦЫ "ОБО МНЕ"																		===== */
+/* ================================================================================================================== */
 /* Заголовок профиля */
 .profile-header {
 	display: flex;
@@ -1510,11 +1333,9 @@ div.code-toolbar > .toolbar a:hover {
 	padding-bottom: 24px;
 	border-bottom: 1px solid #DFE1E6;
 }
-
 .profile-avatar {
 	flex-shrink: 0;
 }
-
 .avatar-placeholder {
 	width: 120px;
 	height: 120px;
@@ -1526,40 +1347,34 @@ div.code-toolbar > .toolbar a:hover {
 	justify-content: center;
 	font-size: 48px;
 }
-
 .profile-info h1 {
 	color: #172B4D;
 	font-size: 32px;
 	font-weight: 600;
 	margin: 0 0 8px 0;
 }
-
 .profile-title {
 	color: #0052CC;
 	font-size: 18px;
 	font-weight: 500;
 	margin: 0 0 12px 0;
 }
-
 .profile-description {
 	color: #42526E;
 	font-size: 16px;
 	line-height: 1.6;
 	margin: 0;
 }
-
 /* Секция навыков */
 .skills-section {
 	margin: 32px 0;
 }
-
 .skills-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 24px;
 	margin-top: 20px;
 }
-
 .skill-category {
 	background: #FFFFFF;
 	border: 1px solid #DFE1E6;
@@ -1567,7 +1382,6 @@ div.code-toolbar > .toolbar a:hover {
 	padding: 20px;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-
 .skill-category h3 {
 	color: #172B4D;
 	font-size: 16px;
@@ -1576,13 +1390,11 @@ div.code-toolbar > .toolbar a:hover {
 	padding-bottom: 8px;
 	border-bottom: 1px solid #DFE1E6;
 }
-
 .skills-list {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
-
 .skills-list li {
 	padding: 8px 0;
 	color: #42526E;
@@ -1590,11 +1402,9 @@ div.code-toolbar > .toolbar a:hover {
 	line-height: 1.5;
 	border-bottom: 1px solid #F4F5F7;
 }
-
 .skills-list li:last-child {
 	border-bottom: none;
 }
-
 .skills-list li::before {
 	content: "•";
 	color: #0052CC;
@@ -1603,16 +1413,13 @@ div.code-toolbar > .toolbar a:hover {
 	width: 1em;
 	margin-left: -1em;
 }
-
 /* Секция опыта работы */
 .about-experience-section {
 	margin: 32px 0;
 }
-
 .about-experience-timeline {
 	margin-top: 20px;
 }
-
 .about-experience-item {
 	display: flex;
 	gap: 24px;
@@ -1620,13 +1427,11 @@ div.code-toolbar > .toolbar a:hover {
 	padding-bottom: 24px;
 	border-bottom: 1px solid #F4F5F7;
 }
-
 .about-experience-item:last-child {
 	margin-bottom: 0;
 	padding-bottom: 0;
 	border-bottom: none;
 }
-
 .about-experience-period {
 	flex: 0 0 100px;
 	background: #0052CC;
@@ -1638,31 +1443,26 @@ div.code-toolbar > .toolbar a:hover {
 	text-align: center;
 	height: fit-content;
 }
-
 .about-experience-details {
 	flex: 1;
 }
-
 .about-experience-details h3 {
 	color: #172B4D;
 	font-size: 18px;
 	font-weight: 600;
 	margin: 0 0 4px 0;
 }
-
 .about-company {
 	color: #0052CC;
 	font-size: 16px;
 	font-weight: 500;
 	margin: 0 0 12px 0;
 }
-
 .about-experience-description {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
-
 .about-experience-description li {
 	padding: 6px 0;
 	color: #42526E;
@@ -1671,26 +1471,22 @@ div.code-toolbar > .toolbar a:hover {
 	padding-left: 16px;
 	position: relative;
 }
-
 .about-experience-description li::before {
 	content: "▸";
 	color: #0052CC;
 	position: absolute;
 	left: 0;
 }
-
 /* Секция контактов */
 .contacts-section {
 	margin: 32px 0;
 }
-
 .contacts-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	gap: 16px;
 	margin-top: 20px;
 }
-
 .contact-item {
 	display: flex;
 	align-items: center;
@@ -1701,15 +1497,12 @@ div.code-toolbar > .toolbar a:hover {
 	border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-
 .contact-icon {
 	flex-shrink: 0;
 }
-
 .contact-info {
 	flex: 1;
 }
-
 .contact-info strong {
 	display: block;
 	color: #172B4D;
@@ -1717,29 +1510,27 @@ div.code-toolbar > .toolbar a:hover {
 	font-weight: 600;
 	margin-bottom: 4px;
 }
-
 .contact-info a {
 	color: #0052CC;
 	text-decoration: none;
 	font-size: 14px;
 }
-
 .contact-info a:hover {
 	text-decoration: underline;
 }
-
 /* Ссылки внутри контента */
 .internal-link {
 	color: #0052CC;
 	text-decoration: none;
 	font-weight: 500;
 }
-
 .internal-link:hover {
 	text-decoration: underline;
 }
 
-/* Стили для страницы резюме в стиле hh.ru */
+/* ================================================================================================================== */
+/* =====	СТИЛИ ДЛЯ СТРАНИЦЫ "РЕЗЮМЕ"																			===== */
+/* ================================================================================================================== */
 /* Заголовок резюме */
 .cv-header {
 	display: flex;
@@ -1749,36 +1540,30 @@ div.code-toolbar > .toolbar a:hover {
 	padding-bottom: 24px;
 	border-bottom: 2px solid #0052CC;
 }
-
 .cv-title-section {
 	flex: 1;
 }
-
 .cv-title-section h1 {
 	color: #172B4D;
 	font-size: 32px;
 	font-weight: 700;
 	margin: 0 0 8px 0;
 }
-
 .cv-profession {
 	color: #0052CC;
 	font-size: 20px;
 	font-weight: 600;
 	margin: 0 0 12px 0;
 }
-
 .cv-salary {
 	color: #42526E;
 	font-size: 16px;
 	font-weight: 500;
 }
-
 .cv-avatar {
 	flex-shrink: 0;
 	margin-left: 24px;
 }
-
 .cv-avatar .avatar-placeholder {
 	width: 100px;
 	height: 100px;
@@ -1790,7 +1575,6 @@ div.code-toolbar > .toolbar a:hover {
 	justify-content: center;
 	font-size: 40px;
 }
-
 /* Секции резюме */
 .cv-section {
 	margin: 32px 0;
@@ -1800,7 +1584,6 @@ div.code-toolbar > .toolbar a:hover {
 	border-radius: 8px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-
 .cv-section-title {
 	color: #172B4D;
 	font-size: 24px;
@@ -1809,20 +1592,17 @@ div.code-toolbar > .toolbar a:hover {
 	padding-bottom: 12px;
 	border-bottom: 2px solid #F4F5F7;
 }
-
 /* Контакты */
 .cv-contacts {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 12px;
 }
-
 .contact-row {
 	display: flex;
 	align-items: flex-start;
 	padding: 8px 0;
 }
-
 .contact-label {
 	color: #42526E;
 	font-weight: 600;
@@ -1831,7 +1611,6 @@ div.code-toolbar > .toolbar a:hover {
 	display: flex;
     gap: 8px;
 }
-
 .contact-value {
 	color: #0052CC;
 	text-decoration: none;
@@ -1839,11 +1618,9 @@ div.code-toolbar > .toolbar a:hover {
     align-items: center;
     gap: 6px;
 }
-
 .contact-value:hover {
 	text-decoration: underline;
 }
-
 /* SVG иконки */
 .icon-phone{
 	background-image: url(../images/icons/phone.svg);
@@ -1851,61 +1628,52 @@ div.code-toolbar > .toolbar a:hover {
 	height: 24px;
 	width: 24px;
 }
-
 .icon-setka {
     background-image: url(../images/icons/setka.svg);
     background-size: cover;
     height: 24px;
     width: 24px;
 }
-
 .icon-telegram {
 	background-image: url(../images/icons/telegram.svg);
 	background-size: cover;
 	height: 24px;
 	width: 24px;
 }
-
 .icon-whatsapp {
 	background-image: url(../images/icons/whatsapp.svg);
 	background-size: cover;
 	height: 24px;
 	width: 24px;
 }
-
 .icon-yandexmail {
 	background-image: url(../images/icons/yandexmail.svg);
 	background-size: cover;
 	height: 24px;
 	width: 24px;
 }
-
 .icon-linkedin {
 	background-image: url(../images/icons/linkedin.svg);
 	background-size: cover;
 	height: 24px;
 	width: 24px;
 }
-
 .icon-github {
 	background-image: url(../images/icons/github.svg);
 	background-size: cover;
 	height: 24px;
 	width: 24px;
 }
-
 .icon-hhru {
 	background-image: url(../images/icons/hh.ru.svg);
 	background-size: cover;
 	height: 24px;
 	width: 24px;
 }
-
 /* Опыт работы */
 .cv-experience {
     margin-top: 20px;
 }
-
 .experience-item {
     display: flex;
     gap: 24px;
@@ -1913,20 +1681,17 @@ div.code-toolbar > .toolbar a:hover {
     padding-bottom: 24px;
     border-bottom: 1px solid #F4F5F7;
 }
-
 .experience-item:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: none;
 }
-
 .experience-header {
 	flex: 0 0 180px; /* Фиксированная ширина */
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
-
 .experience-period {
     display: flex;
 	background: #0052CC;
@@ -1939,7 +1704,6 @@ div.code-toolbar > .toolbar a:hover {
 	height: fit-content;
     line-height: 1.3;
 }
-
 .experience-duration {
     color: #42526E;
 	font-size: 14px;
@@ -1948,77 +1712,62 @@ div.code-toolbar > .toolbar a:hover {
 	border-radius: 12px;
 	width: fit-content;
 }
-
 .experience-content {
     flex: 1;
 }
-
 .experience-content h3.company-name {
     color: #172B4D;
     font-size: 20px;
     font-weight: 700;
     margin: 0 0 4px 0;
 }
-
 .company-site {
     color: #0052CC;
 	font-size: 14px;
 	margin: 0 0 8px 0;
 }
-
 .position {
 	color: #42526E;
 	font-size: 18px;
 	font-weight: 600;
 	margin: 0 0 16px 0;
 }
-
 .experience-description {
     color: #172B4D;
 }
-
 .experience-description p {
     margin: 0 0 12px 0;
     line-height: 1.6;
 }
-
 .experience-description ul {
     margin: 12px 0;
     padding-left: 20px;
 }
-
 .experience-description li {
     margin-bottom: 6px;
     line-height: 1.5;
 }
-
 .experience-description strong {
     color: #0052CC;
 }
-
-
 /* Навыки */
 .cv-skills {
 	margin-top: 20px;
 }
-
 .skills-category {
 	margin-bottom: 24px;
 }
-
 .skills-category h3 {
 	color: #172B4D;
 	font-size: 18px;
 	font-weight: 600;
 	margin: 0 0 12px 0;
 }
-
 .skills-tags {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 8px;
 }
-
 .skill-tag {
 	background: #F4F5F7;
 	color: #42526E;
@@ -2028,17 +1777,14 @@ div.code-toolbar > .toolbar a:hover {
 	font-weight: 500;
 	border: 1px solid #DFE1E6;
 }
-
 .skill-tag:hover {
 	background: #EBECF0;
 	border-color: #B3BAC5;
 }
-
 /* Образование */
 .cv-education {
     margin-top: 20px;
 }
-
 .education-item {
     display: flex;
     gap: 24px;
@@ -2046,13 +1792,11 @@ div.code-toolbar > .toolbar a:hover {
     padding-bottom: 24px;
     border-bottom: 1px solid #F4F5F7;
 }
-
 .education-item:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: none;
 }
-
 .education-period {
     flex: 0 0 180px; /* Фиксированная ширина */
     color: #0052CC;
@@ -2060,42 +1804,35 @@ div.code-toolbar > .toolbar a:hover {
     font-size: 16px;
     line-height: 1.3;
 }
-
 .education-content {
     flex: 1;
 }
-
 .education-institution {
     color: #172B4D;
 	font-size: 18px;
 	font-weight: 700;
 	margin: 0 0 4px 0;
 }
-
 .education-faculty {
     color: #42526E;
 	font-size: 16px;
 	font-weight: 500;
 	margin: 0 0 4px 0;
 }
-
 .education-specialty {
     color: #172B4D;
     font-size: 16px;
     margin: 0 0 4px 0;
 }
-
 .education-degree {
     color: #0052CC;
     font-weight: 600;
     font-size: 14px;
 }
-
 /* Дополнительное образование */
 .cv-courses {
     margin-top: 20px;
 }
-
 .course-item {
     display: flex;
     gap: 24px;
@@ -2103,13 +1840,11 @@ div.code-toolbar > .toolbar a:hover {
     padding-bottom: 20px;
     border-bottom: 1px solid #F4F5F7;
 }
-
 .course-item:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: none;
 }
-
 .course-period {
     flex: 0 0 180px; /* Фиксированная ширина */
     color: #42526E;
@@ -2117,56 +1852,49 @@ div.code-toolbar > .toolbar a:hover {
     font-size: 14px;
     line-height: 1.3;
 }
-
 .course-content {
     flex: 1;
 }
-
 .course-name {
 	color: #172B4D;
 	font-size: 16px;
 	font-weight: 600;
 	margin: 0 0 4px 0;
 }
-
 .course-provider {
     color: #0052CC;
     font-size: 14px;
     margin: 0 0 4px 0;
 }
-
 .course-duration {
     color: #42526E;
     font-size: 14px;
 }
-
 /* О себе */
 .cv-about {
 	margin-top: 20px;
 }
-
 .about-content p {
 	margin: 0 0 16px 0;
 	line-height: 1.6;
 	color: #172B4D;
 }
-
 .about-content ul {
 	margin: 12px 0;
 	padding-left: 20px;
 }
-
 .about-content li {
 	margin-bottom: 6px;
 	line-height: 1.5;
 	color: #172B4D;
 }
-
 .about-content strong {
 	color: #0052CC;
 }
 
-/* Адаптивность для мобильных устройств */
+/* ================================================================================================================== */
+/* =====	АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ																===== */
+/* ================================================================================================================== */
 @media (max-width: 768px) {
 	body {
 		padding: 15px;
@@ -2784,17 +2512,14 @@ div.code-toolbar > .toolbar a:hover {
 .uml-diagram::-webkit-scrollbar {
 	height: 8px;
 }
-
 .uml-diagram::-webkit-scrollbar-track {
 	background: #F4F5F7;
 	border-radius: 4px;
 }
-
 .uml-diagram::-webkit-scrollbar-thumb {
 	background: #DFE1E6;
 	border-radius: 4px;
 }
-
 .uml-diagram::-webkit-scrollbar-thumb:hover {
 	background: #B3BAC5;
 }
@@ -2813,18 +2538,15 @@ div.code-toolbar > .toolbar a:hover {
 	color: #42526E;
 	transition: all 0.2s ease;
 }
-
 .jira-issue-mini:hover {
 	background: #EBECF0;
 	border-color: #B3BAC5;
 	text-decoration: none;
 	color: #172B4D;
 }
-
 .jira-issue-mini .jira-icon {
 	font-size: 11px;
 }
-
 .jira-issue-mini .jira-status {
 	font-size: 9px;
 	padding: 1px 4px;
@@ -2834,16 +2556,13 @@ div.code-toolbar > .toolbar a:hover {
 .confluence-macro.compact {
 	padding: 12px 16px;
 }
-
 .confluence-macro.compact .macro-icon {
 	font-size: 14px;
 }
-
 .confluence-macro.compact .macro-content strong {
 	font-size: 13px;
 	margin-bottom: 4px;
 }
-
 .confluence-macro.compact .macro-content p {
 	font-size: 13px;
 }
