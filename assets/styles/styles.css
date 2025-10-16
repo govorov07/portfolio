@@ -2338,7 +2338,6 @@ div.code-toolbar > .toolbar a:hover {
 		padding: 4px 8px;
 	}
 }
-
 @media (min-width: 769px) {
 	.desktop-only {
 		display: block;
@@ -2349,7 +2348,7 @@ div.code-toolbar > .toolbar a:hover {
 	.sidebar-toggle.desktop-only {
 		position: absolute;
 		top: 20px;
-		left: -40px;
+		left: 10px;
 		background: #0052CC;
 		color: white;
 		border: none;
@@ -2372,7 +2371,6 @@ div.code-toolbar > .toolbar a:hover {
 		margin-left: 0;
 	}
 }
-
 @media (max-width: 480px) {
 	body {
 		padding: 10px;

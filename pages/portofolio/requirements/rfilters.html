@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,17 +17,17 @@
 
 <body>
 	<!-- Кнопка для мобильных устройств -->
-    <button class="sidebar-toggle mobile-only" id="sidebarToggle">
-        <span class="toggle-icon">📁</span>
-        <span class="toggle-text">Меню</span>
-    </button>
+	<button class="sidebar-toggle mobile-only" id="sidebarToggle">
+		<span class="toggle-icon">📁</span>
+		<span class="toggle-text">Меню</span>
+	</button>
 
 	<!-- Overlay для мобильных -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+	<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 	<div class="container">
 		<!-- Сайдбар с деревом страниц -->
-		<aside class="sidebar">
+		<aside class="sidebar" id="sidebar">
 			<div class="sidebar-tree">
 				<div class="tree-header">
 					<span>Дерево страниц</span>
@@ -122,9 +123,9 @@
 		<!-- Основной контент -->
 		<main class="main-content">
 			<!-- Кнопка сворачивания сайдбара для десктопа -->
-            <button class="sidebar-toggle desktop-only" id="desktopSidebarToggle">
-                <span class="toggle-icon">◀</span>
-            </button>
+			<button class="sidebar-toggle desktop-only" id="desktopSidebarToggle">
+				<span class="toggle-icon">◀</span>
+			</button>
 
 			<h1 id="section-1">Требования к фильтрации событий</h1>
 			<!-- Оглавление статьи -->
