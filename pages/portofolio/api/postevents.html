@@ -16,15 +16,28 @@
 </head>
 
 <body>
+	<!-- Кнопка для мобильных устройств -->
+    <button class="sidebar-toggle mobile-only" id="sidebarToggle">
+        <span class="toggle-icon">📁</span>
+        <span class="toggle-text">Меню</span>
+    </button>
+
+	<!-- Overlay для мобильных -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
 	<div class="container">
 		<!-- Сайдбар с деревом страниц -->
-		<aside class="sidebar">
+		<aside class="sidebar" id="sidebar">
 			<div class="sidebar-tree">
-				<div class="tree-header">Дерево страниц</div>
+				<div class="tree-header">
+					<span>Дерево страниц</span>
+					<button class="collapse-all" id="collapseAll">−</button>
+				</div>
 				<div class="tree-item">
 					<div class="tree-folder">
 						<span class="tree-folder-icon">📁</span>
 						<span class="tree-folder-name">Говоров Андрей Сергеевич</span>
+						<button class="tree-toggle">▶</button>
 					</div>
 					<div class="tree-children">
 						<div class="tree-item">
@@ -39,12 +52,14 @@
 					<div class="tree-folder">
 						<span class="tree-folder-icon">📁</span>
 						<span class="tree-folder-name">Портфолио</span>
+						<button class="tree-toggle">▶</button>
 					</div>
 					<div class="tree-children">
 						<div class="tree-item">
 							<div class="tree-folder">
 								<span class="tree-folder-icon">📁</span>
 								<span class="tree-folder-name">Требования</span>
+								<button class="tree-toggle">▶</button>
 							</div>
 							<div class="tree-children">
 								<div class="tree-item">
@@ -56,6 +71,7 @@
 							<div class="tree-folder">
 								<span class="tree-folder-icon">📁</span>
 								<span class="tree-folder-name">Спецификации</span>
+								<button class="tree-toggle">▶</button>
 							</div>
 							<div class="tree-children">
 								<div class="tree-item">
@@ -67,6 +83,7 @@
 							<div class="tree-folder">
 								<span class="tree-folder-icon">📁</span>
 								<span class="tree-folder-name">База данных</span>
+								<button class="tree-toggle">▶</button>
 							</div>
 							<div class="tree-children">
 								<div class="tree-item">
@@ -84,6 +101,7 @@
 							<div class="tree-folder">
 								<span class="tree-folder-icon">📁</span>
 								<span class="tree-folder-name">REST API</span>
+								<button class="tree-toggle">▶</button>
 							</div>
 							<div class="tree-children">
 								<div class="tree-item">
@@ -104,8 +122,12 @@
 		
 		<!-- Основной контент -->
 		<main class="main-content">
+			<!-- Кнопка сворачивания сайдбара для десктопа -->
+			<button class="sidebar-toggle desktop-only" id="desktopSidebarToggle">
+				<span class="toggle-icon">◀</span>
+			</button>
+
 			<h1 id="section-1">POST api/v3/events</h1>
-			
 			<!-- Оглавление статьи -->
 			<nav class="article-toc" id="articleToc">
 				<div class="toc-header">На этой странице</div>
