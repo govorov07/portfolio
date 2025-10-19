@@ -110,7 +110,9 @@
 <script>
 // Обработка ссылок в сайдбаре после загрузки
 document.addEventListener('DOMContentLoaded', function() {
-    processSidebarLinks();
+	if (typeof processSidebarLinks === 'function') {
+		processSidebarLinks();
+	}
 });
 
 function processSidebarLinks() {

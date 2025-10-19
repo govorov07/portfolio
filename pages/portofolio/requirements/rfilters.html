@@ -742,5 +742,21 @@
 	<script src="/assets/scripts/load-sidebar.js"></script>
 	<script src="/assets/scripts/prism.js"></script>
 	<script src="/assets/scripts/script.js"></script>
+
+	<script>
+	// Обработка ссылок с data-path в основном контенте
+	document.addEventListener('DOMContentLoaded', function() {
+		const contentLinks = document.querySelectorAll('#content a[data-path]');
+		contentLinks.forEach(link => {
+			const relativePath = link.getAttribute('data-path');
+			if (typeof getAbsolutePath === 'function') {
+				link.href = getAbsolutePath(relativePath);
+			} else {
+				// Fallback - используем абсолютный путь от корня
+				link.href = '/' + relativePath;
+			}
+		});
+	});
+	</script>
 </body>
 </html>

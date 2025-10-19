@@ -10,6 +10,8 @@
 	<meta name="keywords" content="about, me, cv">
 	<meta name="author" content="Govorov Andrew">
 
+	<script src="/assets/scripts/config.js"></script>
+
 	<link rel="stylesheet" href="/assets/styles/styles.css">
 	<link rel="stylesheet" href="/assets/styles/prism.css">
 </head>
@@ -146,7 +148,7 @@
 							<span class="contact-icon icon-linkedin"></span>
 							<div class="contact-info">
 								<strong>LinkedIn</strong>
-								<a href="www.linkedin.com/in/govorov07" target="_blank">Говоров Андрей</a>
+								<a href="https://www.linkedin.com/in/govorov07" target="_blank">Говоров Андрей</a>
 							</div>
 						</div>
 
@@ -169,7 +171,7 @@
 						<div class="macro-icon">📄</div>
 						<div class="macro-content">
 							<strong>Полное резюме</strong>
-							<p>Для получения подробной информации о профессиональном опыте, образовании и завершенных проектах, ознакомьтесь с <a href="../../pages/govorov/cv.html" class="internal-link">полной версией резюме</a>, либо <a href="https://hh.ru/resume/fea7a31fff07ddea890039ed1f786959756938" class="internal-link" target="_blank">на сайте HeadHunter</a>.</p>
+							<p>Для получения подробной информации о профессиональном опыте, образовании и завершенных проектах, ознакомьтесь с <a href="#" data-path="pages/govorov/cv.html" class="internal-link">полной версией резюме</a>, либо <a href="https://hh.ru/resume/fea7a31fff07ddea890039ed1f786959756938" class="internal-link" target="_blank">на сайте HeadHunter</a>.</p>
 						</div>
 					</div>
 					
@@ -232,9 +234,24 @@
 	<!-- Кнопка "Вверх" -->
 	<button class="scroll-to-top" id="scrollToTop" aria-label="Вернуться к началу страницы"></button>
 	
-	<script src="../../assets/scripts/config.js"></script>
 	<script src="/assets/scripts/load-sidebar.js"></script>
 	<script src="/assets/scripts/prism.js"></script>
 	<script src="/assets/scripts/script.js"></script>
+
+	<script>
+	// Обработка ссылок с data-path в основном контенте
+	document.addEventListener('DOMContentLoaded', function() {
+		const contentLinks = document.querySelectorAll('#content a[data-path]');
+		contentLinks.forEach(link => {
+			const relativePath = link.getAttribute('data-path');
+			if (typeof getAbsolutePath === 'function') {
+				link.href = getAbsolutePath(relativePath);
+			} else {
+				// Fallback - используем абсолютный путь от корня
+				link.href = '/' + relativePath;
+			}
+		});
+	});
+	</script>
 </body>
 </html>

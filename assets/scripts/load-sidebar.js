@@ -1,10 +1,8 @@
 // Загрузка и вставка сайдбара
 async function loadSidebar() {
     try {
-        // Используем функцию из config.js для получения правильного пути
-        const sidebarPath = typeof getAssetPath === 'function' 
-            ? getAssetPath('templates/sidebar.html')
-            : '../../assets/templates/sidebar.html'; // Fallback
+        // Всегда используем getAssetPath для загрузки шаблонов
+        const sidebarPath = getAssetPath('templates/sidebar.html');
         
         const response = await fetch(sidebarPath);
         
@@ -55,6 +53,8 @@ async function loadSidebar() {
         
         // Инициализируем функциональность сайдбара
         initSidebar();
+
+        console.log('✅ Sidebar loaded successfully from:', sidebarPath);
     } catch (error) {
         console.error('❌ Error loading sidebar:', error);
     }
