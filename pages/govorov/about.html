@@ -4,131 +4,28 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<title>Говоров Андрей - Системный аналитик</title>
 	<meta name="description" content="Обо мне">
 	<meta name="keywords" content="about, me, cv">
 	<meta name="author" content="Govorov Andrew">
 
-	<link rel="stylesheet" href="../../assets/styles/styles.css">
-	
-	<!-- Prism.js CSS -->
-	<link rel="stylesheet" href="../../assets/styles/prism.css">
+	<script src="/assets/scripts/config.js"></script>
+
+	<link rel="stylesheet" href="/assets/styles/styles.css">
+	<link rel="stylesheet" href="/assets/styles/prism.css">
 </head>
 
 <body>
-	<!-- Кнопка для мобильных устройств -->
-    <button class="sidebar-toggle mobile-only" id="sidebarToggle">
-        <span class="toggle-icon">📁</span>
-        <span class="toggle-text">Меню</span>
-    </button>
-
-	<!-- Overlay для мобильных -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-	<div class="container">
-		<!-- Сайдбар с деревом страниц -->
-		<aside class="sidebar" id="sidebar">
-			<div class="sidebar-tree">
-				<div class="tree-header">
-					<span>Дерево страниц</span>
-					<button class="collapse-all" id="collapseAll">−</button>
-				</div>
-				<div class="tree-item">
-					<div class="tree-folder">
-						<span class="tree-folder-icon">📁</span>
-						<span class="tree-folder-name">Говоров Андрей Сергеевич</span>
-						<button class="tree-toggle">▶</button>
-					</div>
-					<div class="tree-children">
-						<div class="tree-item">
-							<a href="../../../portfolio/pages/govorov/about.html" class="tree-link active">Обо мне</a>
-						</div>
-						<div class="tree-item">
-							<a href="../../../portfolio/pages/govorov/cv.html" class="tree-link">Резюме</a>
-						</div>
-					</div>
-				</div>
-				<div class="tree-item">
-					<div class="tree-folder">
-						<span class="tree-folder-icon">📁</span>
-						<span class="tree-folder-name">Портфолио</span>
-						<button class="tree-toggle">▶</button>
-					</div>
-					<div class="tree-children">
-						<div class="tree-item">
-							<div class="tree-folder">
-								<span class="tree-folder-icon">📁</span>
-								<span class="tree-folder-name">Требования</span>
-								<button class="tree-toggle">▶</button>
-							</div>
-							<div class="tree-children">
-								<div class="tree-item">
-									<a href="../../../portfolio/pages/portofolio/requirements/rfilters.html" class="tree-link">Требования к фильтрации событий</a>
-								</div>
-							</div>
-						</div>
-						<div class="tree-item">
-							<div class="tree-folder">
-								<span class="tree-folder-icon">📁</span>
-								<span class="tree-folder-name">Спецификации</span>
-								<button class="tree-toggle">▶</button>
-							</div>
-							<div class="tree-children">
-								<div class="tree-item">
-									<a href="../../../portfolio/pages/portofolio/specifications/sfilters.html" class="tree-link">Спецификация. Фильтрация событий</a>
-								</div>
-							</div>
-						</div>
-						<div class="tree-item">
-							<div class="tree-folder">
-								<span class="tree-folder-icon">📁</span>
-								<span class="tree-folder-name">База данных</span>
-								<button class="tree-toggle">▶</button>
-							</div>
-							<div class="tree-children">
-								<div class="tree-item">
-									<a href="../../../portfolio/pages/portofolio/database/events_groups.html" class="tree-link">Группы событий</a>
-								</div>
-								<div class="tree-item">
-									<a href="../../../portfolio/pages/portofolio/database/event_types.html" class="tree-link">Типы событий</a>
-								</div>
-								<div class="tree-item">
-									<a href="../../../portfolio/pages/portofolio/database/event_types_groups.html" class="tree-link">Группы-типы событий</a>
-								</div>
-							</div>
-						</div>
-						<div class="tree-item">
-							<div class="tree-folder">
-								<span class="tree-folder-icon">📁</span>
-								<span class="tree-folder-name">REST API</span>
-								<button class="tree-toggle">▶</button>
-							</div>
-							<div class="tree-children">
-								<div class="tree-item">
-									<a href="../../../portfolio/pages/portofolio/api/postevents.html" class="tree-link">POST api/v3/events</a>
-								</div>
-								<div class="tree-item">
-									<a href="../../../portfolio/pages/portofolio/api/getfilters.html" class="tree-link">GET api/v3/events/filters</a>
-								</div>
-								<div class="tree-item">
-									<a href="../../../portfolio/pages/portofolio/api/postdays.html" class="tree-link">POST api/v3/events/days</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</aside>
-		
+	<!-- Кнопка и оверлей для мобилок загрузится автоматически из sidebar.html через load-sidebar.html -->
+	<div class="container" id="container">
+		<!-- Сайдбар загрузится автоматически из sidebar.html через load-sidebar.html -->
 		<!-- Основной контент -->
-		<main class="main-content">
-			<!-- Кнопка сворачивания сайдбара для десктопа -->
-			<button class="sidebar-toggle desktop-only" id="desktopSidebarToggle">
-				<span class="toggle-icon">◀</span>
-			</button>
+		<main class="main-content" id="main-content">
+			<!-- Кнопка сворачивания сайдбара загрузится автоматически из sidebar.html через load-sidebar.html -->
 
 			<!-- Контент статьи -->
-			<article class="content">
+			<article class="content" id="content">
 				<!-- Заголовок и основная информация -->
 				<header class="profile-header">
 					<div class="profile-avatar">
@@ -337,7 +234,8 @@
 	<!-- Кнопка "Вверх" -->
 	<button class="scroll-to-top" id="scrollToTop" aria-label="Вернуться к началу страницы"></button>
 	
-	<script src="../../assets/scripts/prism.js"></script>
-	<script src="../../assets/scripts/script.js"></script>
+	<script src="/assets/scripts/load-sidebar.js"></script>
+	<script src="/assets/scripts/prism.js"></script>
+	<script src="/assets/scripts/script.js"></script>
 </body>
 </html>

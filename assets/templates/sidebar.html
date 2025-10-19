@@ -1,0 +1,139 @@
+<!-- Кнопка для мобильных устройств -->
+<button class="sidebar-toggle mobile-only" id="sidebarToggle">
+	<span class="toggle-icon">📁</span>
+	<span class="toggle-text">Меню</span>
+</button>
+
+<!-- Overlay для мобильных -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Сайдбар с деревом страниц -->
+<aside class="sidebar" id="sidebar">
+	<div class="sidebar-tree">
+		<div class="tree-header">
+			<span>Дерево страниц</span>
+			<button class="collapse-all" id="collapseAll">−</button>
+		</div>
+		<div class="tree-item">
+			<div class="tree-folder">
+				<span class="tree-folder-icon">📁</span>
+				<span class="tree-folder-name">Говоров Андрей Сергеевич</span>
+				<button class="tree-toggle">▶</button>
+			</div>
+			<div class="tree-children">
+				<div class="tree-item">
+					<a href="#" data-path="pages/govorov/about.html" class="tree-link active">Обо мне</a>
+				</div>
+				<div class="tree-item">
+					<a href="#" data-path="pages/govorov/cv.html" class="tree-link">Резюме</a>
+				</div>
+			</div>
+		</div>
+		<div class="tree-item">
+			<div class="tree-folder">
+				<span class="tree-folder-icon">📁</span>
+				<span class="tree-folder-name">Портфолио</span>
+				<button class="tree-toggle">▶</button>
+			</div>
+			<div class="tree-children">
+				<div class="tree-item">
+					<div class="tree-folder">
+						<span class="tree-folder-icon">📁</span>
+						<span class="tree-folder-name">Требования</span>
+						<button class="tree-toggle">▶</button>
+					</div>
+					<div class="tree-children">
+						<div class="tree-item">
+							<a href="#" data-path="pages/portofolio/requirements/rfilters.html" class="tree-link">Требования к фильтрации событий</a>
+						</div>
+					</div>
+				</div>
+				<div class="tree-item">
+					<div class="tree-folder">
+						<span class="tree-folder-icon">📁</span>
+						<span class="tree-folder-name">Спецификации</span>
+						<button class="tree-toggle">▶</button>
+					</div>
+					<div class="tree-children">
+						<div class="tree-item">
+							<a href="#" data-path="pages/portofolio/specifications/sfilters.html" class="tree-link">Спецификация. Фильтрация событий</a>
+						</div>
+					</div>
+				</div>
+				<div class="tree-item">
+					<div class="tree-folder">
+						<span class="tree-folder-icon">📁</span>
+						<span class="tree-folder-name">База данных</span>
+						<button class="tree-toggle">▶</button>
+					</div>
+					<div class="tree-children">
+						<div class="tree-item">
+							<a href="#" data-path="pages/portofolio/database/events_groups.html" class="tree-link">Группы событий</a>
+						</div>
+						<div class="tree-item">
+							<a href="#" data-path="pages/portofolio/database/event_types.html" class="tree-link">Типы событий</a>
+						</div>
+						<div class="tree-item">
+							<a href="#" data-path="pages/portofolio/database/event_types_groups.html" class="tree-link">Группы-типы событий</a>
+						</div>
+					</div>
+				</div>
+				<div class="tree-item">
+					<div class="tree-folder">
+						<span class="tree-folder-icon">📁</span>
+						<span class="tree-folder-name">REST API</span>
+						<button class="tree-toggle">▶</button>
+					</div>
+					<div class="tree-children">
+						<div class="tree-item">
+							<a href="#" data-path="pages/portofolio/api/postevents.html" class="tree-link">POST api/v3/events</a>
+						</div>
+						<div class="tree-item">
+							<a href="#" data-path="pages/portofolio/api/getfilters.html" class="tree-link">GET api/v3/events/filters</a>
+						</div>
+						<div class="tree-item">
+							<a href="#" data-path="pages/portofolio/api/postdays.html" class="tree-link">POST api/v3/events/days</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</aside>
+
+<!-- Кнопка сворачивания сайдбара для десктопа -->
+<button class="sidebar-toggle desktop-only" id="desktopSidebarToggle">
+	<span class="toggle-icon">◀</span>
+</button>
+
+
+<script>
+// Обработка ссылок в сайдбаре после загрузки
+document.addEventListener('DOMContentLoaded', function() {
+    processSidebarLinks();
+});
+
+function processSidebarLinks() {
+    const sidebar = document.getElementById('sidebar');
+    if (!sidebar) return;
+    
+    const links = sidebar.querySelectorAll('a[data-path]');
+    links.forEach(link => {
+        const relativePath = link.getAttribute('data-path');
+        if (typeof getAbsolutePath === 'function') {
+            link.href = getAbsolutePath(relativePath);
+        } else {
+            // Fallback на случай если config.js не загружен
+            console.warn('getAbsolutePath function not found. Using relative paths.');
+            link.href = relativePath;
+        }
+        
+        // Помечаем активную ссылку
+        if (link.href === window.location.href) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+</script>
