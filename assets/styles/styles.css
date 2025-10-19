@@ -2348,11 +2348,11 @@ div.code-toolbar > .toolbar a:hover {
 	.sidebar-toggle.desktop-only {
 		position: absolute;
 		top: 20px;
-		left: 10px;
+		left: 380px;
 		background: #0052CC;
 		color: white;
 		border: none;
-		border-radius: 3px 0 0 3px;
+		border-radius: 3px 3px 0 3px;
 		padding: 8px 4px;
 		cursor: pointer;
 		z-index: 100;

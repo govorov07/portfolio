@@ -1,127 +1,5 @@
 // Автоматическое создание оглавления
 document.addEventListener('DOMContentLoaded', function() {
-	// Управление сайдбаром
-	const sidebar = document.getElementById('sidebar');
-	const sidebarToggle = document.getElementById('sidebarToggle');
-	const desktopSidebarToggle = document.getElementById('desktopSidebarToggle');
-	const sidebarClose = document.getElementById('sidebarClose');
-	const sidebarOverlay = document.getElementById('sidebarOverlay');
-	const container = document.querySelector('.container');
-	const collapseAll = document.getElementById('collapseAll');
-
-	// Функции для управления сайдбаром
-	function openSidebar() {
-		sidebar.classList.add('active');
-		sidebarOverlay.classList.add('active');
-		document.body.style.overflow = 'hidden';
-	}
-
-	function closeSidebar() {
-		sidebar.classList.remove('active');
-		sidebarOverlay.classList.remove('active');
-		document.body.style.overflow = '';
-	}
-
-	function toggleSidebar() {
-		if (window.innerWidth <= 768) {
-			// На мобильных - открываем/закрываем overlay
-			if (sidebar.classList.contains('active')) {
-				closeSidebar();
-			} else {
-				openSidebar();
-			}
-		} else {
-			// На десктопе - сворачиваем/разворачиваем
-			container.classList.toggle('collapsed');
-			sidebar.classList.toggle('collapsed');
-		}
-	}
-
-	// Обработчики событий
-	if (sidebarToggle) {
-		sidebarToggle.addEventListener('click', toggleSidebar);
-	}
-
-	if (desktopSidebarToggle) {
-		desktopSidebarToggle.addEventListener('click', toggleSidebar);
-	}
-
-	if (sidebarClose) {
-		sidebarClose.addEventListener('click', closeSidebar);
-	}
-
-	if (sidebarOverlay) {
-		sidebarOverlay.addEventListener('click', closeSidebar);
-	}
-
-	// Закрытие сайдбара при нажатии ESC
-	document.addEventListener('keydown', function(e) {
-		if (e.key === 'Escape') {
-			closeSidebar();
-		}
-	});
-
-	// Управление сворачиванием папок
-	const treeToggles = document.querySelectorAll('.tree-toggle');
-	const treeFolders = document.querySelectorAll('.tree-folder');
-
-	treeToggles.forEach((toggle, index) => {
-		toggle.addEventListener('click', function(e) {
-			e.stopPropagation();
-			const children = this.closest('.tree-item').querySelector('.tree-children');
-			if (children) {
-				children.classList.toggle('collapsed');
-				this.classList.toggle('collapsed');
-			}
-		});
-	});
-
-	treeFolders.forEach(folder => {
-		folder.addEventListener('click', function() {
-			const toggle = this.querySelector('.tree-toggle');
-			const children = this.closest('.tree-item').querySelector('.tree-children');
-			if (children && toggle) {
-				children.classList.toggle('collapsed');
-				toggle.classList.toggle('collapsed');
-			}
-		});
-	});
-
-	// Кнопка "Свернуть все"
-	if (collapseAll) {
-		collapseAll.addEventListener('click', function() {
-			const allChildren = document.querySelectorAll('.tree-children');
-			const allToggles = document.querySelectorAll('.tree-toggle');
-			
-			allChildren.forEach(children => {
-				children.classList.add('collapsed');
-			});
-			
-			allToggles.forEach(toggle => {
-				toggle.classList.add('collapsed');
-			});
-		});
-	}
-
-	// Автоматическое закрытие сайдбара на мобильных при клике на ссылку
-	const treeLinks = document.querySelectorAll('.tree-link');
-	treeLinks.forEach(link => {
-		link.addEventListener('click', function() {
-			if (window.innerWidth <= 768) {
-				closeSidebar();
-			}
-		});
-	});
-
-	// Адаптивное поведение при изменении размера окна
-	window.addEventListener('resize', function() {
-		if (window.innerWidth > 768) {
-			// На десктопе - убираем overlay и восстанавливаем стандартное состояние
-			closeSidebar();
-			container.classList.remove('collapsed');
-			sidebar.classList.remove('collapsed');
-		}
-	});
 
 	// Принудительное аппаратное ускорение для анимаций
 	const style = document.createElement('style');
@@ -134,27 +12,45 @@ document.addEventListener('DOMContentLoaded', function() {
 	const headers = document.querySelectorAll('h1, h2, h3, h4');
 	const tocLinks = [];
 
+	const currentPage = getCurrentPage();
+	if (currentPage == 'about.html' || currentPage == 'cv.html') return;
+
 	// Создаем элементы оглавления
 	headers.forEach(header => {
 		if (!header.id) return;
-		
+
 		const level = parseInt(header.tagName.substring(1));
 		const listItem = document.createElement('li');
 		listItem.className = 'toc-item';
-		
+
 		const link = document.createElement('a');
 		link.href = `#${header.id}`;
 		link.textContent = header.textContent;
 		link.className = `toc-link toc-level-${level}`;
-		
+
 		listItem.appendChild(link);
 		toc.appendChild(listItem);
-		
+
 		tocLinks.push({
 			link: link,
 			element: header
 		});
 	});
+
+	function getCurrentPage() {
+		const path = window.location.pathname;
+		// Обрабатываем разные случаи:
+		// - index.html или главная страница
+		// - страницы в подпапках
+		// - чистые URL без .html
+		if (path.endsWith('/') || path === '' || path.endsWith('/index.html')) {
+			return 'index.html';
+		}
+		
+		const page = path.split('/').pop();
+		// Добавляем .html если его нет
+		return page.includes('.') ? page : `${page}.html`;
+	}
 
 	// Скрываем оглавление если мало разделов
 	if (tocLinks.length <= 2) {
