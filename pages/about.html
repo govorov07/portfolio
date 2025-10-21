@@ -10,10 +10,37 @@
 	<meta name="keywords" content="about, me, cv">
 	<meta name="author" content="Govorov Andrew">
 
-	<script src="../assets/scripts/config.js"></script>
+	<!-- Базовый конфиг ДО загрузки config.js -->
+	<script>
+		// Определяем базовый путь до загрузки config.js
+		window.SITE_BASE_PATH = window.location.hostname === '127.0.0.1' || 
+							   window.location.hostname === 'localhost' ? 
+							   '/' : '/portfolio/';
+		
+		// Функция для получения правильных путей к ресурсам
+		function getResourcePath(path) {
+			const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+			return window.SITE_BASE_PATH + cleanPath;
+		}
+	</script>
+	
+	<!-- Загружаем конфиг с правильным путем -->
+	<script src="./assets/scripts/config.js"></script>
+	
+	<!-- Используем функцию для загрузки стилей -->
+	<link rel="stylesheet" href="./assets/styles/styles.css" id="styles-css">
+	<link rel="stylesheet" href="./assets/styles/prism.css" id="prism-css">
 
-	<link rel="stylesheet" href="/assets/styles/styles.css">
-	<link rel="stylesheet" href="/assets/styles/prism.css">
+	<script>
+		// Динамически обновляем пути к CSS после загрузки базового конфига
+		document.addEventListener('DOMContentLoaded', function() {
+			const stylesLink = document.getElementById('styles-css');
+			const prismLink = document.getElementById('prism-css');
+			
+			if (stylesLink) stylesLink.href = getResourcePath('assets/styles/styles.css');
+			if (prismLink) prismLink.href = getResourcePath('assets/styles/prism.css');
+		});
+	</script>
 </head>
 
 <body>
@@ -234,9 +261,40 @@
 	<!-- Кнопка "Вверх" -->
 	<button class="scroll-to-top" id="scrollToTop" aria-label="Вернуться к началу страницы"></button>
 	
-	<script src="/assets/scripts/load-sidebar.js"></script>
-	<script src="/assets/scripts/prism.js"></script>
-	<script src="/assets/scripts/script.js"></script>
+	<script>
+		// Динамически загружаем скрипты с правильными путями
+		document.addEventListener('DOMContentLoaded', function() {
+			const scripts = [
+				'scripts/load-sidebar.js',
+				'scripts/prism.js',
+				'scripts/script.js'
+			];
+			
+			function loadScriptsSequentially(index = 0) {
+				if (index >= scripts.length) return;
+				
+				const script = document.createElement('script');
+				script.src = getResourcePath('assets/' + scripts[index]);
+				script.onload = function() {
+					loadScriptsSequentially(index + 1);
+				};
+				script.onerror = function() {
+					console.error('Failed to load:', scripts[index]);
+					loadScriptsSequentially(index + 1);
+				};
+				document.body.appendChild(script);
+			}
+			
+			loadScriptsSequentially();
+			
+			// Обработка ссылок с data-path в основном контенте
+			const contentLinks = document.querySelectorAll('#content a[data-path]');
+			contentLinks.forEach(link => {
+				const relativePath = link.getAttribute('data-path');
+				link.href = getAbsolutePath(relativePath);
+			});
+		});
+	</script>
 
 	<script>
 	// Обработка ссылок с data-path в основном контенте

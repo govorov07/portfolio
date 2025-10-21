@@ -2,24 +2,20 @@
 	Конфигурация путей для локальной и продакшен среды
 ********************************************************* */
 const SITE_CONFIG = {
-	// Определяем среду выполнения
+    // Используем уже определенный базовый путь или определяем сами
+    basePath: window.SITE_BASE_PATH || (function() {
+        return (window.location.hostname === '127.0.0.1' || 
+                window.location.hostname === 'localhost') ? 
+                '/' : '/portfolio/';
+    })(),
+    
+    // Для обратной совместимости
     isLocal: window.location.hostname === '127.0.0.1' || 
-             window.location.hostname === 'localhost' ||
-             window.location.hostname === '0.0.0.0',
-	
-	// Базовые пути для разных сред
-	basePath: null,
-    rootPath: null
+             window.location.hostname === 'localhost'
 };
 
-// Устанавливаем базовые пути в зависимости от среды
-if (SITE_CONFIG.isLocal) {
-    SITE_CONFIG.basePath = '/';
-    SITE_CONFIG.rootPath = '/';
-} else {
-    SITE_CONFIG.basePath = '/portfolio/';
-    SITE_CONFIG.rootPath = '/portfolio/';
-}
+// Обновляем глобальную переменную для consistency
+window.SITE_BASE_PATH = SITE_CONFIG.basePath;
 
 /* *********************************************************
 	Функция для получения абсолютного пути
@@ -28,7 +24,6 @@ if (SITE_CONFIG.isLocal) {
 	// @returns {string} Абсолютный путь
 
 function getAbsolutePath(relativePath) {
-    // Убираем начальный слеш если есть
     const cleanPath = relativePath.startsWith('/') ? relativePath.slice(1) : relativePath;
     return SITE_CONFIG.basePath + cleanPath;
 }
@@ -41,7 +36,7 @@ function getAbsolutePath(relativePath) {
 
 function getAssetPath(assetPath) {
     const cleanPath = assetPath.startsWith('/') ? assetPath.slice(1) : assetPath;
-    return SITE_CONFIG.rootPath + 'assets/' + cleanPath;
+    return SITE_CONFIG.basePath + 'assets/' + cleanPath;
 }
 
 /* *********************************************************
@@ -50,14 +45,19 @@ function getAssetPath(assetPath) {
 	// @param {string} path - Относительный путь
 	// @returns {string} Полный URL
 
-function getFullUrl(path) {
-    return window.location.origin + getAbsolutePath(path);
+function loadScript(scriptPath) {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = getAssetPath(scriptPath);
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+    });
 }
 
 // Для отладки
-console.log('Site config loaded:', {
+console.log('🚀 Site config loaded:', {
     environment: SITE_CONFIG.isLocal ? 'Local' : 'Production',
     basePath: SITE_CONFIG.basePath,
-    rootPath: SITE_CONFIG.rootPath,
-    currentHost: window.location.hostname
+    currentURL: window.location.href
 });
