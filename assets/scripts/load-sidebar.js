@@ -2,7 +2,9 @@
 async function loadSidebar() {
     try {
         // Всегда используем getAssetPath для загрузки шаблонов
-        const sidebarPath = getAssetPath('templates/sidebar.html');
+        const sidebarPath = typeof getAssetPath === 'function' 
+            ? getAssetPath('templates/sidebar.html')
+            : '../../assets/templates/sidebar.html';
         
         const response = await fetch(sidebarPath);
         
