@@ -2,7 +2,7 @@
 async function loadSidebar() {
 	try {
 		// Используем относительный путь для шаблона
-		const response = await fetch('../assets/templates/sidebar.html');
+		const response = await fetch('../../assets/templates/sidebar.html');
 
 		if (!response.ok) {
 			throw new Error(`HTTP error! status: ${response.status}`);
