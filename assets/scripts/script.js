@@ -202,7 +202,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	// }
 
 	// Слушатели событий
-	window.addEventListener('scroll', handleScroll);
 	window.addEventListener('resize', updateActiveTocLink);
 
 	// Инициализация
