@@ -41,76 +41,104 @@ body {
 /* =====	СТИЛИ ДЛЯ ОГЛАВЛЕНИЯ																				===== */
 /* ================================================================================================================== */
 .article-toc {
-	background: #F8F9FA;
-	border: 1px solid #DFE1E6;
-	border-radius: 3px;
-	padding: 20px;
-	margin-bottom: 30px;
+    background: #F8F9FA;
+    border: 1px solid #DFE1E6;
+    border-radius: 3px;
+    padding: 16px;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
 }
 .toc-header {
-	font-size: 16px;
-	font-weight: 600;
-	color: #172B4D;
-	margin-bottom: 16px;
-	display: flex;
-	align-items: center;
-	gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #172B4D;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    cursor: pointer;
+    padding: 4px 0;
 }
 .toc-header::before {
-	content: "📑";
-	font-size: 14px;
+    content: "📑";
+    font-size: 14px;
+    margin-right: 8px;
+}
+.toc-toggle {
+    background: none;
+    border: none;
+    color: #42526E;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 4px;
+    border-radius: 3px;
+    transition: transform 0.3s ease;
+}
+.toc-toggle:hover {
+    background: #F4F5F7;
+}
+.toc-toggle.collapsed {
+    transform: rotate(-90deg);
+}
+.toc-content {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.toc-content.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
 }
 .toc-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+    list-style: none;
+    margin: 12px 0 0 0;
+    padding: 0;
 }
 .toc-item {
-	margin: 4px 0;
+    margin: 1px 0;
+    line-height: 0.5;
 }
 .toc-link {
-	display: block;
-	padding: 8px 12px;
-	text-decoration: none;
-	color: #42526E;
-	border-radius: 3px;
-	transition: background-color 0.2s ease, color 0.2s ease, border-left-color 0.2s ease;
-	font-size: 14px;
-	line-height: 1.4;
-	border-left: 3px solid transparent;
+    display: block;
+    padding: 6px 8px;
+    text-decoration: none;
+    color: #42526E;
+    border-radius: 3px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 13px;
+    border-left: 2px solid transparent;
 }
 .toc-link:hover {
-	background-color: #F4F5F7;
-	color: #0052CC;
-	border-left-color: #0052CC;
+    background-color: #F4F5F7;
+    color: #0052CC;
 }
 .toc-link.active {
-	background-color: #DEEBFF;
-	color: #0052CC;
-	font-weight: 500;
-	border-left-color: #0052CC;
+    background-color: #DEEBFF;
+    color: #0052CC;
+    font-weight: 500;
+    border-left-color: #0052CC;
 }
-/* Отступы для вложенных уровней */
+/* Убраны отступы для вложенных уровней - все элементы на одном уровне */
 .toc-level-1 { 
-	padding-left: 12px;
+	padding-left: 10px;
 	font-weight: 600;
 	color: #172B4D;
 }
 .toc-level-2 {
-	padding-left: 24px;
+	padding-left: 30px;
 }
 .toc-level-3 {
-	padding-left: 36px;
+	padding-left: 50px;
 }
 .toc-level-4 { 
-	padding-left: 48px; 
+	padding-left: 70px; 
 	font-size: 13px;
 	color: #5E6C84;
 }
 /* Компактный вариант оглавления */
 .toc-compact .toc-link {
-	padding: 6px 12px;
-	font-size: 13px;
+    padding: 4px 8px;
+    font-size: 12px;
 }
 
 /* ================================================================================================================== */
@@ -2348,11 +2376,11 @@ div.code-toolbar > .toolbar a:hover {
 	.sidebar-toggle.desktop-only {
 		position: absolute;
 		top: 20px;
-		left: 380px;
+		left: 370px;
 		background: #0052CC;
 		color: white;
 		border: none;
-		border-radius: 3px 3px 0 3px;
+		border-radius: 0 3px 3px 0;
 		padding: 8px 4px;
 		cursor: pointer;
 		z-index: 100;

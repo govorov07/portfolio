@@ -184,22 +184,22 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Применяем Prism.js ко всем блокам кода
 	Prism.highlightAll();
 
-	// Сворачиваем оглавление при скролле (опционально)
-	let lastScrollTop = 0;
-	function handleScroll() {
-		const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	// // Сворачиваем оглавление при скролле (опционально)
+	// let lastScrollTop = 0;
+	// function handleScroll() {
+	// 	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 		
-		if (scrollTop > lastScrollTop && scrollTop > 200) {
-			// Прокрутка вниз - можно добавить компактный режим
-			articleToc.classList.add('toc-compact');
-		} else {
-			articleToc.classList.remove('toc-compact');
-		}
+	// 	if (scrollTop > lastScrollTop && scrollTop > 200) {
+	// 		// Прокрутка вниз - можно добавить компактный режим
+	// 		articleToc.classList.add('toc-compact');
+	// 	} else {
+	// 		articleToc.classList.remove('toc-compact');
+	// 	}
 		
-		lastScrollTop = scrollTop;
-		updateActiveTocLink();
-		toggleScrollToTopButton();
-	}
+	// 	lastScrollTop = scrollTop;
+	// 	updateActiveTocLink();
+	// 	toggleScrollToTopButton();
+	// }
 
 	// Слушатели событий
 	window.addEventListener('scroll', handleScroll);
