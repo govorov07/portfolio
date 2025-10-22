@@ -1,6 +1,5 @@
-/* ================================================================================================================== */
-/* =====	ОСНОВНЫЕ СТИЛИ СТРАНИЦЫ																				===== */
-/* ================================================================================================================== */
+/* ======================================== ОСНОВНЫЕ СТИЛИ СТРАНИЦЫ ======================================== */
+
 body {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 	line-height: 1.6;
@@ -15,16 +14,6 @@ body {
 	margin: 0 auto;
 	gap: 30px;
 }
-/* .sidebar {
-	width: 300px;
-	background: white;
-	border-radius: 3px;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-	padding: 20px;
-	position: sticky;
-	top: 20px;
-	height: fit-content;
-} */
 .main-content {
 	flex: 1;
 	min-width: 0; /* Для правильного сжатия flex-элемента */
@@ -37,9 +26,8 @@ body {
 	margin-bottom: 20px;
 }
 
-/* ================================================================================================================== */
-/* =====	СТИЛИ ДЛЯ ОГЛАВЛЕНИЯ																				===== */
-/* ================================================================================================================== */
+/* ======================================== СТИЛИ ДЛЯ ОГЛАВЛЕНИЯ ======================================== */
+
 .article-toc {
 	background: #F8F9FA;
 	border: 1px solid #DFE1E6;
@@ -108,14 +96,14 @@ body {
 	color: #5E6C84;
 }
 /* Компактный вариант оглавления */
+
 .toc-compact .toc-link {
 	padding: 6px 12px;
 	font-size: 13px;
 }
 
-/* ================================================================================================================== */
-/* =====	СТИЛИ ДЛЯ КОНТЕНТА																					===== */
-/* ================================================================================================================== */
+/* ======================================== СТИЛИ ДЛЯ КОНТЕНТА ======================================== */
+
 h1 {
 	color: #172B4D;
 	font-size: 28px;
@@ -147,9 +135,8 @@ p {
 	color: #42526E;
 }
 
-/* ================================================================================================================== */
-/* =====	СТИЛИ ДЛЯ САЙДБАРА																					===== */
-/* ================================================================================================================== */
+/* ======================================== СТИЛИ ДЛЯ САЙДБАРА ======================================== */
+
 .sidebar-tree {
 	font-size: 14px;
 }
@@ -159,7 +146,7 @@ p {
     align-items: center;
     font-weight: 600;
     color: #172B4D;
-    margin-bottom: 16px;
+	margin-bottom: 16px;
     padding-bottom: 8px;
     border-bottom: 1px solid #DFE1E6;
 }
@@ -183,9 +170,9 @@ p {
     align-items: center;
     gap: 6px;
     padding: 6px 8px;
-    cursor: pointer;
-    border-radius: 3px;
-    transition: background-color 0.2s ease;
+	cursor: pointer;
+	border-radius: 3px;
+	transition: background-color 0.2s ease;
     font-weight: 500;
     color: #172B4D;
 }
@@ -197,7 +184,6 @@ p {
     font-size: 10px;
     padding: 2px;
     margin-left: auto;
-    transition: transform 0.2s ease;
 }
 .tree-toggle.collapsed {
     transform: rotate(-90deg);
@@ -217,8 +203,8 @@ p {
 	margin-left: 16px;
     border-left: 1px solid #DFE1E6;
     padding-left: 8px;
-    transition: all 0.3s ease;
-    overflow: hidden;
+	transition: all 0.3s ease;
+	overflow: hidden;
 }
 .tree-children.collapsed {
     max-height: 0;
@@ -252,7 +238,7 @@ p {
 }
 /* Стили для сворачиваемого сайдбара */
 .sidebar {
-    width: 300px;
+	width: 300px;
     background: white;
     border-radius: 3px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -273,8 +259,8 @@ p {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #DFE1E6;
+	padding-bottom: 12px;
+	border-bottom: 1px solid #DFE1E6;
 }
 .sidebar-header h3 {
     margin: 0;
@@ -302,7 +288,7 @@ p {
     background: #0052CC;
     color: white;
     border: none;
-    border-radius: 3px;
+	border-radius: 3px;
     padding: 10px 16px;
     cursor: pointer;
     z-index: 1001;
@@ -312,11 +298,10 @@ p {
     font-size: 14px;
     font-weight: 500;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 .sidebar-toggle:hover {
     background: #0747A6;
-    transform: translateY(-1px);
 }
 .desktop-only {
     display: none;
@@ -326,7 +311,7 @@ p {
 }
 /* Overlay для мобильных */
 .sidebar-overlay {
-    position: fixed;
+	position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -342,9 +327,8 @@ p {
     pointer-events: all;
 }
 
-/* ================================================================================================================== */
-/* =====	СТИЛИ ДЛЯ ТАБЛИЦ																					===== */
-/* ================================================================================================================== */
+/* ======================================== СТИЛИ ДЛЯ ТАБЛИЦ ======================================== */
+
 .confluence-table {
 	width: 100%;
 	border-collapse: collapse;
@@ -396,9 +380,8 @@ p {
 	font-size: 14px;
 }
 
-/* ================================================================================================================== */
-/* =====	СТИЛИ ДЛЯ СТАТУСНЫХ ЧИПОВ																			===== */
-/* ================================================================================================================== */
+ /* ======================================== СТИЛИ ДЛЯ СТАТУСНЫХ ЧИПОВ ======================================== */
+
 .status-chip {
 	display: inline-block;
 	padding: 4px 8px;
@@ -419,9 +402,8 @@ p {
 	border: 1px solid #B3D4FF;
 }
 
-/* ================================================================================================================== */
-/* =====	СТИЛИ ДЛЯ КНОПКИ "ВВЕРХ"																			===== */
-/* ================================================================================================================== */
+/* ======================================== СТИЛИ ДЛЯ КНОПКИ "ВВЕРХ" ======================================== */
+
 .scroll-to-top {
 	position: fixed;
 	bottom: 30px;
@@ -458,9 +440,8 @@ p {
 	content: "↑";
 }
 
-/* ================================================================================================================== */
-/* =====	СТИЛИ ДЛЯ USE CASE																					===== */
-/* ================================================================================================================== */
+/* ======================================== СТИЛИ ДЛЯ USE CASE ======================================== */
+
 .use-case-container {
 	background: #F8F9FA;
 	border: 1px solid #DFE1E6;
@@ -613,9 +594,8 @@ p {
 	margin-bottom: 0;
 }
 
-/* ================================================================================================================== */
-/* =====	СТИЛИ ДЛЯ UML ДИАГРАММ																				===== */
-/* ================================================================================================================== */
+/* ======================================== СТИЛИ ДЛЯ UML ДИАГРАММ ======================================== */
+
 .uml-container {
 	background: #FFFFFF;
 	border: 1px solid #DFE1E6;
@@ -733,9 +713,8 @@ p {
 	font-size: 13px;
 }
 
-/* ================================================================================================================== */
-/* =====	СТИЛИ ДЛЯ БЛОКОВ КОДА С Prism.js 																	===== */
-/* ================================================================================================================== */
+/* ======================================== СТИЛИ ДЛЯ БЛОКОВ КОДА С Prism.js ======================================== */
+
 .code-container {
 	background: #FFFFFF;
 	border: 1px solid #DFE1E6;
@@ -918,9 +897,8 @@ div.code-toolbar > .toolbar a:hover {
 	background: #666;
 }
 
-/* ================================================================================================================== */
-/* =====	СТИЛИ ДЛЯ РАЗДЕЛА СКРИПТОВ 																			===== */
-/* ================================================================================================================== */
+/* ======================================== СТИЛИ ДЛЯ РАЗДЕЛА СКРИПТОВ ======================================== */
+
 .scripts-container {
 	margin: 20px 0;
 }
@@ -1081,9 +1059,8 @@ div.code-toolbar > .toolbar a:hover {
 	border-color: #DFE1E6;
 }
 
-/* ================================================================================================================== */
-/* =====	СТИЛИ ДЛЯ JIRA ISSUE 																				===== */
-/* ================================================================================================================== */
+/* ======================================== СТИЛИ ДЛЯ JIRA ISSUE ======================================== */
+
 .jira-issue-container {
 	background: #FFFFFF;
 	border: 1px solid #DFE1E6;
@@ -1111,11 +1088,10 @@ div.code-toolbar > .toolbar a:hover {
 	border-radius: 3px;
 	font-weight: 600;
 	font-size: 13px;
-	transition: background-color 0.2s ease, box-shadow 0.2s ease;
+	transition: background-color 0.2s ease;
 }
 .jira-issue-key:hover {
 	background: #0747A6;
-	box-shadow: 0 2px 8px rgba(0, 82, 204, 0.3);
 }
 .jira-icon {
 	font-size: 12px;
@@ -1161,9 +1137,8 @@ div.code-toolbar > .toolbar a:hover {
 	border: 1px solid #FFE380;
 }
 
-/* ================================================================================================================== */
-/* =====	СТИЛИ ДЛЯ МАКРОСОВ CONFLUENCE																		===== */
-/* ================================================================================================================== */
+/* ======================================== СТИЛИ ДЛЯ МАКРОСОВ CONFLUENCE ======================================== */
+
 .confluence-macro {
 	display: flex;
 	align-items: flex-start;
@@ -1171,1554 +1146,267 @@ div.code-toolbar > .toolbar a:hover {
 	padding: 16px 20px;
 	margin: 20px 0;
 	border-radius: 3px;
-	border-left: 4px solid;
-	background: #FFFFFF;
+	border-left: 4px solid #0052CC;
+	background: #F8F9FA;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-	border-right: 1px solid #DFE1E6;
-	border-top: 1px solid #DFE1E6;
-	border-bottom: 1px solid #DFE1E6;
-	transition: box-shadow 0.2s ease
 }
 .macro-icon {
 	font-size: 16px;
+	width: 20px;
+	text-align: center;
 	flex-shrink: 0;
 	margin-top: 2px;
 }
 .macro-content {
 	flex: 1;
 }
-.macro-content strong {
-	display: block;
-	margin-bottom: 8px;
-	font-size: 14px;
+.macro-content h4 {
+	color: #172B4D;
+	font-size: 16px;
 	font-weight: 600;
+	margin: 0 0 8px 0;
 }
 .macro-content p {
-	margin: 0;
 	color: #42526E;
+	margin: 0;
 	font-size: 14px;
 	line-height: 1.5;
 }
-.macro-content p:not(:last-child) {
-	margin-bottom: 8px;
-}
-.macro-content code {
-	background: #F4F5F7;
-	padding: 2px 6px;
-	border-radius: 3px;
-	border: 1px solid #DFE1E6;
-	font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-	font-size: 13px;
-	color: #172B4D;
-}
-/* Стили для разных типов макросов */
-.confluence-macro.info {
+/* Варианты макросов */
+.macro-info {
 	border-left-color: #0052CC;
-	background: #F0F7FF;
+	background: #F4F5FF;
 }
-.confluence-macro.info .macro-content strong {
-	color: #0052CC;
-}
-.confluence-macro.warning {
+.macro-warning {
 	border-left-color: #FF8B00;
 	background: #FFF7E6;
 }
-.confluence-macro.warning .macro-content strong {
-	color: #FF8B00;
-}
-.confluence-macro.note {
-	border-left-color: #6554C0;
-	background: #F4F5FF;
-}
-.confluence-macro.note .macro-content strong {
-	color: #6554C0;
-}
-.confluence-macro.tip {
+.macro-success {
 	border-left-color: #00875A;
 	background: #E3FCEF;
 }
-.confluence-macro.tip .macro-content strong {
-	color: #00875A;
-}
-/* Дополнительные варианты макросов */
-.confluence-macro.success {
-	border-left-color: #00875A;
-	background: #E3FCEF;
-}
-.confluence-macro.success .macro-content strong {
-	color: #00875A;
-}
-.confluence-macro.error {
+.macro-error {
 	border-left-color: #DE350B;
 	background: #FFEBE6;
 }
-.confluence-macro.error .macro-content strong {
-	color: #DE350B;
-}
-/* Стили для вложенных элементов в макросах */
-.macro-content ul,
-.macro-content ol {
-	margin: 8px 0;
-	padding-left: 20px;
-	color: #42526E;
-}
-.macro-content li {
-	margin-bottom: 4px;
-	line-height: 1.5;
-}
-.macro-content a {
-	color: #0052CC;
-	text-decoration: none;
-}
-.macro-content a:hover {
-	text-decoration: underline;
-}
-/* Эффекты при наведении */
-.confluence-macro:hover {
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* ================================================================================================================== */
-/* =====	СТИЛИ ДЛЯ ОПИСАНИЯ ЛОГИКИ ЭНДПОИНТОВ																===== */
-/* ================================================================================================================== */
-.complex-algorithm {
-	background: #FFFFFF;
-	border: 1px solid #DFE1E6;
-	border-radius: 3px;
-	padding: 24px;
-	margin: 20px 0;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-.algorithm-list {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	counter-reset: algorithm-counter;
-}
-.algorithm-list > li {
-	counter-increment: algorithm-counter;
-	margin-bottom: 12px;
-	position: relative;
-}
-.algorithm-text {
-	display: block;
-	color: #172B4D;
-	font-size: 14px;
-	line-height: 1.6;
-	padding-left: 32px;
-}
-/* Стили для разных уровней вложенности */
-.algorithm-list.level-1 > li::before {
-	content: counter(algorithm-counter);
-	position: absolute;
-	left: 0;
-	top: 0;
-	background: #0052CC;
-	color: white;
-	width: 24px;
-	height: 24px;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 12px;
-	font-weight: 600;
-}
-.algorithm-list.level-2 {
-	counter-reset: algorithm-counter-2;
-	margin: 12px 0 12px 20px;
-	padding-left: 12px;
-	border-left: 2px solid #EBECF0;
-}
-.algorithm-list.level-2 > li {
-	counter-increment: algorithm-counter-2;
-}
-.algorithm-list.level-2 > li::before {
-	content: counter(algorithm-counter) "." counter(algorithm-counter-2);
-	position: absolute;
-	left: -32px;
-	top: 0;
-	background: #4C9AFF;
-	color: white;
-	width: 20px;
-	height: 20px;
-	border-radius: 3px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 10px;
-	font-weight: 600;
-}
-.algorithm-list.level-3 {
-	counter-reset: algorithm-counter-3;
-	margin: 8px 0 8px 20px;
-	padding-left: 12px;
-	border-left: 2px solid #F4F5F7;
-}
-.algorithm-list.level-3 > li {
-	counter-increment: algorithm-counter-3;
-}
-.algorithm-list.level-3 > li::before {
-	content: counter(algorithm-counter) "." counter(algorithm-counter-2) "." counter(algorithm-counter-3);
-	position: absolute;
-	left: -32px;
-	top: 0;
-	background: #79F2C0;
-	color: #006644;
-	width: 18px;
-	height: 18px;
-	border-radius: 2px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 9px;
-	font-weight: 600;
-}
-.algorithm-list.level-4 {
-	counter-reset: algorithm-counter-4;
-	margin: 6px 0 6px 20px;
-	padding-left: 12px;
-	border-left: 2px solid #F4F5F7;
-}
-.algorithm-list.level-4 > li {
-	counter-increment: algorithm-counter-4;
-}
-.algorithm-list.level-4 > li::before {
-	content: counter(algorithm-counter) "." counter(algorithm-counter-2) "." counter(algorithm-counter-3) "." counter(algorithm-counter-4);
-	position: absolute;
-	left: -32px;
-	top: 0;
-	background: #FFFFFF;
-	color: #42526E;
-	border: 1px solid #DFE1E6;
-	width: 16px;
-	height: 16px;
-	border-radius: 2px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 8px;
-	font-weight: 600;
-}
-/* Стили для элементов внутри алгоритма */
-.algorithm-text strong {
-	color: #0052CC;
-	font-weight: 600;
-}
-.algorithm-text code {
-	background: #F4F5F7;
-	padding: 2px 6px;
-	border-radius: 3px;
-	border: 1px solid #DFE1E6;
-	font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-	font-size: 13px;
-	color: #172B4D;
-	margin: 0 2px;
-}
-.algorithm-text code.object {
+.macro-tip {
+	border-left-color: #6554C0;
 	background: #F4F5FF;
-	border-color: #C0B6F2;
-	color: #6554C0;
 }
-/* Эффекты при наведении */
-.algorithm-list > li .algorithm-text {
-	transition: background-color 0.2s ease;
+.macro-note {
+	border-left-color: #6B778C;
+	background: #F4F5F7;
 }
-.algorithm-list > li:hover .algorithm-text {
-	background: #F8F9FA;
-}
-.algorithm-list.level-1 > li:hover::before {
-	transform: scale(1.1);
-	transition: transform 0.2s ease;
-}
-/* Подсветка условий */
-.algorithm-condition {
-	background: #FFF7E6;
-	border: 1px solid #FFE380;
-	border-radius: 3px;
-	padding: 8px 12px;
-	margin: 8px 0;
-	font-size: 13px;
-	color: #172B4D;
-}
-.algorithm-condition code {
-	background: #FFFAE6;
-	border-color: #FFD580;
-}
+/* Иконки для разных типов макросов */
+.macro-info .macro-icon { color: #0052CC; }
+.macro-warning .macro-icon { color: #FF8B00; }
+.macro-success .macro-icon { color: #00875A; }
+.macro-error .macro-icon { color: #DE350B; }
+.macro-tip .macro-icon { color: #6554C0; }
+.macro-note .macro-icon { color: #6B778C; }
 
-/* ================================================================================================================== */
-/* =====	СТИЛИ ДЛЯ СТРАНИЦЫ "ОБО МНЕ"																		===== */
-/* ================================================================================================================== */
-/* Заголовок профиля */
-.profile-header {
-	display: flex;
-	align-items: flex-start;
-	gap: 24px;
-	margin-bottom: 32px;
-	padding-bottom: 24px;
-	border-bottom: 1px solid #DFE1E6;
-}
-.profile-avatar {
-	flex-shrink: 0;
-}
-.avatar-placeholder {
-	width: 120px;
-	height: 120px;
-	background: #F4F5F7;
-	border: 3px solid #DFE1E6;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 48px;
-}
-.profile-info h1 {
-	color: #172B4D;
-	font-size: 32px;
-	font-weight: 600;
-	margin: 0 0 8px 0;
-}
-.profile-title {
-	color: #0052CC;
-	font-size: 18px;
-	font-weight: 500;
-	margin: 0 0 12px 0;
-}
-.profile-description {
-	color: #42526E;
-	font-size: 16px;
-	line-height: 1.6;
-	margin: 0;
-}
-/* Секция навыков */
-.skills-section {
-	margin: 32px 0;
-}
-.skills-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	gap: 24px;
-	margin-top: 20px;
-}
-.skill-category {
-	background: #FFFFFF;
-	border: 1px solid #DFE1E6;
-	border-radius: 3px;
-	padding: 20px;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-.skill-category h3 {
-	color: #172B4D;
-	font-size: 16px;
-	font-weight: 600;
-	margin: 0 0 16px 0;
-	padding-bottom: 8px;
-	border-bottom: 1px solid #DFE1E6;
-}
-.skills-list {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-.skills-list li {
-	padding: 8px 0;
-	color: #42526E;
-	font-size: 14px;
-	line-height: 1.5;
-	border-bottom: 1px solid #F4F5F7;
-}
-.skills-list li:last-child {
-	border-bottom: none;
-}
-.skills-list li::before {
-	content: "•";
-	color: #0052CC;
-	font-weight: bold;
-	display: inline-block;
-	width: 1em;
-	margin-left: -1em;
-}
-/* Секция опыта работы */
-.about-experience-section {
-	margin: 32px 0;
-}
-.about-experience-timeline {
-	margin-top: 20px;
-}
-.about-experience-item {
-	display: flex;
-	gap: 24px;
-	margin-bottom: 32px;
-	padding-bottom: 24px;
-	border-bottom: 1px solid #F4F5F7;
-}
-.about-experience-item:last-child {
-	margin-bottom: 0;
-	padding-bottom: 0;
-	border-bottom: none;
-}
-.about-experience-period {
-	flex: 0 0 100px;
-	background: #0052CC;
-	color: white;
-	padding: 8px 12px;
-	border-radius: 3px;
-	font-size: 14px;
-	font-weight: 600;
-	text-align: center;
-	height: fit-content;
-}
-.about-experience-details {
-	flex: 1;
-}
-.about-experience-details h3 {
-	color: #172B4D;
-	font-size: 18px;
-	font-weight: 600;
-	margin: 0 0 4px 0;
-}
-.about-company {
-	color: #0052CC;
-	font-size: 16px;
-	font-weight: 500;
-	margin: 0 0 12px 0;
-}
-.about-experience-description {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-.about-experience-description li {
-	padding: 6px 0;
-	color: #42526E;
-	font-size: 14px;
-	line-height: 1.5;
-	padding-left: 16px;
-	position: relative;
-}
-.about-experience-description li::before {
-	content: "▸";
-	color: #0052CC;
-	position: absolute;
-	left: 0;
-}
-/* Секция контактов */
-.contacts-section {
-	margin: 32px 0;
-}
-.contacts-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 16px;
-	margin-top: 20px;
-}
-.contact-item {
-	display: flex;
-	align-items: center;
-	gap: 12px;
-	padding: 16px;
-	background: #FFFFFF;
-	border: 1px solid #DFE1E6;
-	border-radius: 3px;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-.contact-icon {
-	flex-shrink: 0;
-}
-.contact-info {
-	flex: 1;
-}
-.contact-info strong {
-	display: block;
-	color: #172B4D;
-	font-size: 14px;
-	font-weight: 600;
-	margin-bottom: 4px;
-}
-.contact-info a {
-	color: #0052CC;
-	text-decoration: none;
-	font-size: 14px;
-}
-.contact-info a:hover {
-	text-decoration: underline;
-}
-/* Ссылки внутри контента */
-.internal-link {
-	color: #0052CC;
-	text-decoration: none;
-	font-weight: 500;
-}
-.internal-link:hover {
-	text-decoration: underline;
-}
+/* ======================================== СТИЛИ ДЛЯ АДАПТИВНОСТИ ======================================== */
 
-/* ================================================================================================================== */
-/* =====	СТИЛИ ДЛЯ СТРАНИЦЫ "РЕЗЮМЕ"																			===== */
-/* ================================================================================================================== */
-/* Заголовок резюме */
-.cv-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	margin-bottom: 32px;
-	padding-bottom: 24px;
-	border-bottom: 2px solid #0052CC;
+@media (max-width: 1200px) {
+	.container {
+		flex-direction: column;
+		gap: 20px;
+	}
+	.sidebar {
+		width: 100%;
+		position: static;
+		transform: none !important;
+		opacity: 1 !important;
+		pointer-events: all !important;
+	}
+	.sidebar-toggle {
+		display: none;
+	}
+	.sidebar-overlay {
+		display: none;
+	}
+	.desktop-only {
+		display: none;
+	}
+	.mobile-only {
+		display: block;
+	}
 }
-.cv-title-section {
-	flex: 1;
-}
-.cv-title-section h1 {
-	color: #172B4D;
-	font-size: 32px;
-	font-weight: 700;
-	margin: 0 0 8px 0;
-}
-.cv-profession {
-	color: #0052CC;
-	font-size: 20px;
-	font-weight: 600;
-	margin: 0 0 12px 0;
-}
-.cv-salary {
-	color: #42526E;
-	font-size: 16px;
-	font-weight: 500;
-}
-.cv-avatar {
-	flex-shrink: 0;
-	margin-left: 24px;
-}
-.cv-avatar .avatar-placeholder {
-	width: 100px;
-	height: 100px;
-	background: #F4F5F7;
-	border: 3px solid #DFE1E6;
-	border-radius: 8px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 40px;
-}
-/* Секции резюме */
-.cv-section {
-	margin: 32px 0;
-	padding: 24px;
-	background: #FFFFFF;
-	border: 1px solid #DFE1E6;
-	border-radius: 8px;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-.cv-section-title {
-	color: #172B4D;
-	font-size: 24px;
-	font-weight: 700;
-	margin: 0 0 20px 0;
-	padding-bottom: 12px;
-	border-bottom: 2px solid #F4F5F7;
-}
-/* Контакты */
-.cv-contacts {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	gap: 12px;
-}
-.contact-row {
-	display: flex;
-	align-items: flex-start;
-	padding: 8px 0;
-}
-.contact-label {
-	color: #42526E;
-	font-weight: 600;
-	min-width: 120px;
-	margin-right: 12px;
-	display: flex;
-    gap: 8px;
-}
-.contact-value {
-	color: #0052CC;
-	text-decoration: none;
-	display: flex;
-    align-items: center;
-    gap: 6px;
-}
-.contact-value:hover {
-	text-decoration: underline;
-}
-/* SVG иконки */
-.icon-phone{
-	background-image: url(../images/icons/phone.svg);
-	background-size: cover;
-	height: 24px;
-	width: 24px;
-}
-.icon-setka {
-    background-image: url(../images/icons/setka.svg);
-    background-size: cover;
-    height: 24px;
-    width: 24px;
-}
-.icon-telegram {
-	background-image: url(../images/icons/telegram.svg);
-	background-size: cover;
-	height: 24px;
-	width: 24px;
-}
-.icon-whatsapp {
-	background-image: url(../images/icons/whatsapp.svg);
-	background-size: cover;
-	height: 24px;
-	width: 24px;
-}
-.icon-yandexmail {
-	background-image: url(../images/icons/yandexmail.svg);
-	background-size: cover;
-	height: 24px;
-	width: 24px;
-}
-.icon-linkedin {
-	background-image: url(../images/icons/linkedin.svg);
-	background-size: cover;
-	height: 24px;
-	width: 24px;
-}
-.icon-github {
-	background-image: url(../images/icons/github.svg);
-	background-size: cover;
-	height: 24px;
-	width: 24px;
-}
-.icon-hhru {
-	background-image: url(../images/icons/hh.ru.svg);
-	background-size: cover;
-	height: 24px;
-	width: 24px;
-}
-/* Опыт работы */
-.cv-experience {
-    margin-top: 20px;
-}
-.experience-item {
-    display: flex;
-    gap: 24px;
-    margin-bottom: 32px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid #F4F5F7;
-}
-.experience-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-.experience-header {
-	flex: 0 0 180px; /* Фиксированная ширина */
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-.experience-period {
-    display: flex;
-	background: #0052CC;
-	color: white;
-	padding: 8px 12px;
-	border-radius: 3px;
-	font-size: 16px;
-	font-weight: 600;
-	text-align: center;
-	height: fit-content;
-    line-height: 1.3;
-}
-.experience-duration {
-    color: #42526E;
-	font-size: 14px;
-	background: #F4F5F7;
-	padding: 4px 8px;
-	border-radius: 12px;
-	width: fit-content;
-}
-.experience-content {
-    flex: 1;
-}
-.experience-content h3.company-name {
-    color: #172B4D;
-    font-size: 20px;
-    font-weight: 700;
-    margin: 0 0 4px 0;
-}
-.company-site {
-    color: #0052CC;
-	font-size: 14px;
-	margin: 0 0 8px 0;
-}
-.position {
-	color: #42526E;
-	font-size: 18px;
-	font-weight: 600;
-	margin: 0 0 16px 0;
-}
-.experience-description {
-    color: #172B4D;
-}
-.experience-description p {
-    margin: 0 0 12px 0;
-    line-height: 1.6;
-}
-.experience-description ul {
-    margin: 12px 0;
-    padding-left: 20px;
-}
-.experience-description li {
-    margin-bottom: 6px;
-    line-height: 1.5;
-}
-.experience-description strong {
-    color: #0052CC;
-}
-/* Навыки */
-.cv-skills {
-	margin-top: 20px;
-}
-.skills-category {
-	margin-bottom: 24px;
-}
-.skills-category h3 {
-	color: #172B4D;
-	font-size: 18px;
-	font-weight: 600;
-	margin: 0 0 12px 0;
-}
-.skills-tags {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 8px;
-}
-.skill-tag {
-	background: #F4F5F7;
-	color: #42526E;
-	padding: 6px 12px;
-	border-radius: 16px;
-	font-size: 14px;
-	font-weight: 500;
-	border: 1px solid #DFE1E6;
-}
-.skill-tag:hover {
-	background: #EBECF0;
-	border-color: #B3BAC5;
-}
-/* Образование */
-.cv-education {
-    margin-top: 20px;
-}
-.education-item {
-    display: flex;
-    gap: 24px;
-    margin-bottom: 24px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid #F4F5F7;
-}
-.education-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-.education-period {
-    flex: 0 0 180px; /* Фиксированная ширина */
-    color: #0052CC;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 1.3;
-}
-.education-content {
-    flex: 1;
-}
-.education-institution {
-    color: #172B4D;
-	font-size: 18px;
-	font-weight: 700;
-	margin: 0 0 4px 0;
-}
-.education-faculty {
-    color: #42526E;
-	font-size: 16px;
-	font-weight: 500;
-	margin: 0 0 4px 0;
-}
-.education-specialty {
-    color: #172B4D;
-    font-size: 16px;
-    margin: 0 0 4px 0;
-}
-.education-degree {
-    color: #0052CC;
-    font-weight: 600;
-    font-size: 14px;
-}
-/* Дополнительное образование */
-.cv-courses {
-    margin-top: 20px;
-}
-.course-item {
-    display: flex;
-    gap: 24px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #F4F5F7;
-}
-.course-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-.course-period {
-    flex: 0 0 180px; /* Фиксированная ширина */
-    color: #42526E;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 1.3;
-}
-.course-content {
-    flex: 1;
-}
-.course-name {
-	color: #172B4D;
-	font-size: 16px;
-	font-weight: 600;
-	margin: 0 0 4px 0;
-}
-.course-provider {
-    color: #0052CC;
-    font-size: 14px;
-    margin: 0 0 4px 0;
-}
-.course-duration {
-    color: #42526E;
-    font-size: 14px;
-}
-/* О себе */
-.cv-about {
-	margin-top: 20px;
-}
-.about-content p {
-	margin: 0 0 16px 0;
-	line-height: 1.6;
-	color: #172B4D;
-}
-.about-content ul {
-	margin: 12px 0;
-	padding-left: 20px;
-}
-.about-content li {
-	margin-bottom: 6px;
-	line-height: 1.5;
-	color: #172B4D;
-}
-.about-content strong {
-	color: #0052CC;
-}
-
-/* ================================================================================================================== */
-/* =====	АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ																===== */
-/* ================================================================================================================== */
 @media (max-width: 768px) {
 	body {
 		padding: 15px;
 	}
-	.container {
-        flex-direction: column;
-        gap: 0;
-    }
-	.sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        width: 280px;
-        z-index: 1000;
-        transform: translateX(-100%);
-        opacity: 1;
-        pointer-events: all;
-        border-radius: 0;
-        padding: 60px 20px 20px 20px;
-        overflow-y: auto;
-    }
-	.sidebar.active {
-        transform: translateX(0);
-    }
-    .sidebar.collapsed {
-        transform: translateX(-100%);
-    }
-    .mobile-only {
-        display: flex;
-    }
-    .desktop-only {
-        display: none;
-    }
-	.main-content {
-        margin-left: 0;
-        padding: 60px 15px 20px 15px;
-    }
-    .sidebar-toggle {
-        display: flex;
-    }
-    .sidebar-toggle.desktop-only {
-        display: none;
-    }
 	.content {
 		padding: 20px;
 	}
-	.scroll-to-top {
-		bottom: 20px;
-		right: 20px;
-		width: 45px;
-		height: 45px;
+	h1 {
+		font-size: 24px;
 	}
-	.confluence-table {
-		font-size: 12px;
+	h2 {
+		font-size: 20px;
+	}
+	h3 {
+		font-size: 18px;
+	}
+	.confluence-table,
+	.use-case-table,
+	.scenario-table {
+		font-size: 13px;
 	}
 	.confluence-table th,
-	.confluence-table td {
-		padding: 8px 12px;
-	}
-	/* Адаптивность для Use Case */
-	.use-case-container {
-		padding: 16px;
-	}
+	.confluence-table td,
+	.use-case-table th,
+	.use-case-table td,
 	.scenario-table th,
 	.scenario-table td {
 		padding: 8px 12px;
-		font-size: 13px;
 	}
-	.extension-header {
-		flex-direction: column;
-		gap: 8px;
-	}
-	.extension-content {
-		margin-left: 0;
-	}
-	.platform-variant {
-		padding: 10px;
-	}
-	/* Адаптивность для UML диаграммы */
-	.uml-container {
+	.uml-container,
+	.use-case-container {
 		padding: 16px;
 	}
-	.uml-diagram {
-		padding: 12px;
-	}
-	.legend-items {
-		flex-direction: column;
-		gap: 8px;
-	}
-	.uml-svg {
-		min-width: 800px; /* Минимальная ширина для читаемости */
-	}
-	/* Адаптивность для блоков кода */
 	.code-header {
-		padding: 10px 12px;
-	}
-	.code-title {
-		font-size: 13px;
-	}
-	.code-language {
-		font-size: 10px;
-		padding: 3px 6px;
+		padding: 8px 12px;
 	}
 	.code-content pre[class*="language-"] {
 		padding: 12px;
 	}
-	.code-content code[class*="language-"] {
-		font-size: 12px;
-	}
-	/* Адаптивность для скриптов */
-	.script-section h3 {
-		padding: 12px 16px;
-		font-size: 15px;
-	}
-	.script-content {
-		padding: 16px;
-	}
-	.styled-list > li {
-		padding: 10px 12px 10px 44px;
-		margin-bottom: 8px;
-	}
-	.styled-list > li::before {
-		left: 12px;
-		width: 20px;
-		height: 20px;
-		font-size: 11px;
-	}
-	.nested-list > li {
-		padding: 6px 8px 6px 32px;
-		margin-bottom: 6px;
-	}
-	.nested-list > li::before {
-		left: 8px;
-		width: 16px;
-		height: 16px;
-		font-size: 9px;
-	}
-	.script-field,
-	.script-value {
-		font-size: 12px;
-	}
-	.script-comment {
-		font-size: 11px;
-	}
-	.complex-list > li {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 4px;
-	}
-	/* Адаптивность для Jira issue */
-	.jira-issue-container {
-		padding: 12px 16px;
+	.scripts-container .styled-list > li {
+		padding: 8px 12px 8px 40px;
 	}
 	.jira-issue {
-		gap: 6px;
-		font-size: 13px;
-	}
-	.jira-issue-key {
-		padding: 3px 6px;
-		font-size: 12px;
-	}
-	.jira-summary {
-		min-width: 150px;
-	}
-	.jira-status {
-		font-size: 10px;
-		padding: 2px 6px;
-	}
-	/* Адаптивность для макросов */
-	.confluence-macro {
-		padding: 12px 16px;
-		gap: 10px;
-	}
-	.macro-icon {
-		font-size: 14px;
-	}
-	.macro-content strong {
-		font-size: 13px;
-	}
-	.macro-content p {
-		font-size: 13px;
-	}
-	.macro-content code {
-		font-size: 12px;
-		padding: 1px 4px;
-	}
-	/* Адаптивность для алгоритма */
-	.complex-algorithm {
-		padding: 16px;
-	}
-	.algorithm-text {
-		font-size: 13px;
-		padding-left: 28px;
-	}
-	.algorithm-list.level-1 > li::before {
-		width: 20px;
-		height: 20px;
-		font-size: 11px;
-	}
-	.algorithm-list.level-2 {
-		margin-left: 16px;
-		padding-left: 8px;
-	}
-	.algorithm-list.level-2 > li::before {
-		left: -24px;
-		width: 18px;
-		height: 18px;
-		font-size: 9px;
-	}
-	.algorithm-list.level-3 > li::before {
-		left: -24px;
-		width: 16px;
-		height: 16px;
-		font-size: 8px;
-	}
-	.algorithm-list.level-4 > li::before {
-		left: -24px;
-		width: 14px;
-		height: 14px;
-		font-size: 7px;
-	}
-	.algorithm-text code {
-		font-size: 12px;
-		padding: 1px 4px;
-	}
-	/* Адаптивность для страницы "Обо мне" */
-	.profile-header {
 		flex-direction: column;
-		text-align: center;
-		gap: 16px;
-	}
-	.avatar-placeholder {
-		width: 100px;
-		height: 100px;
-		font-size: 36px;
-		margin: 0 auto;
-	}
-	.profile-info h1 {
-		font-size: 24px;
-	}
-	.profile-title {
-		font-size: 16px;
-	}
-	.skills-grid {
-		grid-template-columns: 1fr;
-		gap: 16px;
-	}
-	.experience-item {
-		flex-direction: column;
+		align-items: flex-start;
 		gap: 12px;
 	}
-	.experience-period {
-		flex: none;
-		width: fit-content;
+	.jira-summary {
+		min-width: auto;
 	}
-	.contacts-grid {
-		grid-template-columns: 1fr;
+	.confluence-macro {
+		padding: 12px 16px;
 	}
-	/* Адаптивность для резюме */
-	.cv-header {
-		flex-direction: column;
-		text-align: center;
-	}
-	.cv-avatar {
-		margin: 16px auto 0;
-	}
-	.cv-title-section h1 {
-		font-size: 24px;
-	}
-	.cv-profession {
-		font-size: 18px;
-	}
-	.cv-section {
-		padding: 16px;
-	}
-	.cv-section-title {
-		font-size: 20px;
-	}
-	.cv-contacts {
-		grid-template-columns: 1fr;
-	}
-	.experience-item {
-        flex-direction: column;
-        gap: 16px;
-    }
-	.experience-header {
-        flex: none;
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-	.experience-period {
-        text-align: left;
-        flex: 1;
-    }
-	.experience-duration {
-        flex: none;
-    }
-	.education-item,
-    .course-item {
-        flex-direction: column;
-        gap: 8px;
-    }
-	.education-period,
-    .course-period {
-        flex: none;
-        width: 100%;
-    }
-	.skills-tags {
-		gap: 6px;
-	}
-	.skill-tag {
-		font-size: 12px;
-		padding: 4px 8px;
-	}
-}
-@media (min-width: 769px) {
-	.desktop-only {
-		display: block;
-	}
-	.mobile-only {
-		display: none;
-	}
-	.sidebar-toggle.desktop-only {
-		position: absolute;
-		top: 20px;
-		left: 380px;
-		background: #0052CC;
-		color: white;
-		border: none;
-		border-radius: 3px 3px 0 3px;
-		padding: 8px 4px;
-		cursor: pointer;
-		z-index: 100;
-		transition: all 0.3s ease;
-	}
-	.sidebar-toggle.desktop-only:hover {
-		background: #0747A6;
-	}
-	.container.collapsed .sidebar-toggle.desktop-only {
-		left: 0;
-	}
-	.container.collapsed .sidebar-toggle.desktop-only .toggle-icon {
-		transform: rotate(180deg);
-	}
-	.container.collapsed .main-content {
-		margin-left: 0;
+	.scroll-to-top {
+		bottom: 20px;
+		right: 20px;
+		width: 44px;
+		height: 44px;
+		font-size: 16px;
 	}
 }
 @media (max-width: 480px) {
 	body {
 		padding: 10px;
 	}
-	
 	.content {
-		padding: 15px;
-	}
-	
-	.article-toc {
-		padding: 15px;
-	}
-	
-	h1 {
-		font-size: 24px;
-	}
-	
-	h2 {
-		font-size: 20px;
-	}
-	
-	h3 {
-		font-size: 17px;
-	}
-	
-	.confluence-table {
-		display: block;
-		overflow-x: auto;
-	}
-
-	/* Адаптивность для Use Case */
-	.use-case-container {
-		padding: 12px;
-	}
-	
-	.scenario-table {
-		display: block;
-		overflow-x: auto;
-	}
-	
-	.extension-group {
-		padding: 12px;
-	}
-
-	/* Адаптивность для UML диаграммы */
-	.uml-container {
-		padding: 12px;
-	}
-	
-	.uml-header h3 {
-		font-size: 16px;
-	}
-	
-	.uml-description {
-		font-size: 13px;
-	}
-
-	/* Адаптивность для блоков кода */
-	.code-header {
-		flex-direction: column;
-		gap: 8px;
-		align-items: flex-start;
-	}
-	
-	.code-language {
-		align-self: flex-start;
-	}
-	
-	.code-content pre[class*="language-"] {
-		padding: 8px;
-	}
-	
-	.code-content code[class*="language-"] {
-		font-size: 11px;
-	}
-	
-	div.code-toolbar > .toolbar {
-		position: relative;
-		top: 0;
-		right: 0;
-		opacity: 1;
-		margin-top: 8px;
-		text-align: right;
-	}
-
-	/* Адаптивность для скриптов */
-	.script-section h3 {
-		padding: 10px 12px;
-		font-size: 14px;
-	}
-	
-	.script-content {
-		padding: 12px;
-	}
-	
-	.styled-list > li {
-		padding: 8px 10px 8px 40px;
-	}
-	
-	.styled-list > li::before {
-		width: 18px;
-		height: 18px;
-		font-size: 10px;
-	}
-	
-	.script-field,
-	.script-value {
-		font-size: 11px;
-	}
-	
-	.multi-level > li {
-		line-height: 1.6;
-	}
-	
-	/* Адаптивность для Jira issue */
-	.jira-issue-container {
-		padding: 10px 12px;
-	}
-	
-	.jira-issue {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 8px;
-	}
-	
-	.jira-issue-key {
-		align-self: flex-start;
-	}
-	
-	.jira-summary {
-		min-width: auto;
-		width: 100%;
-	}
-	
-	.jira-status {
-		align-self: flex-start;
-	}
-
-	/* Адаптивность для макросов */
-	.confluence-macro {
-		padding: 10px 12px;
-		gap: 8px;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-	
-	.macro-icon {
-		margin-top: 0;
-	}
-	
-	.macro-content {
-		width: 100%;
-	}
-
-	/* Адаптивность для алгоритма */
-	.complex-algorithm {
-		padding: 12px;
-	}
-	
-	.algorithm-text {
-		font-size: 12px;
-		padding-left: 24px;
-		line-height: 1.5;
-	}
-	
-	.algorithm-list.level-1 > li::before {
-		width: 18px;
-		height: 18px;
-		font-size: 10px;
-	}
-	
-	.algorithm-list.level-2,
-	.algorithm-list.level-3,
-	.algorithm-list.level-4 {
-		margin-left: 12px;
-		padding-left: 6px;
-	}
-	
-	.algorithm-list.level-2 > li::before {
-		left: -18px;
-		width: 16px;
-		height: 16px;
-	}
-	
-	.algorithm-list.level-3 > li::before {
-		left: -18px;
-		width: 14px;
-		height: 14px;
-	}
-	
-	.algorithm-list.level-4 > li::before {
-		left: -18px;
-		width: 12px;
-		height: 12px;
-	}
-
-	/* Адаптивность для страницы "Обо мне" */
-	.profile-info h1 {
-		font-size: 20px;
-	}
-	
-	.skill-category {
 		padding: 16px;
 	}
-	
-	.contact-item {
-		padding: 12px;
+	.article-toc {
+		padding: 16px;
 	}
-	
-	.experience-period {
+	.toc-link {
+		padding: 6px 8px;
+		font-size: 13px;
+	}
+	.sidebar {
+		padding: 16px;
+	}
+	.sidebar-tree {
+		font-size: 13px;
+	}
+	.tree-link {
+		padding: 4px 6px 4px 20px;
+	}
+	.tree-folder {
+		padding: 4px 6px;
+	}
+	.confluence-table,
+	.use-case-table,
+	.scenario-table {
 		font-size: 12px;
-		padding: 6px 10px;
 	}
-
-	/* Адаптивность для резюме */
-	.cv-title-section h1 {
-		font-size: 20px;
+	.confluence-table th,
+	.confluence-table td,
+	.use-case-table th,
+	.use-case-table td,
+	.scenario-table th,
+	.scenario-table td {
+		padding: 6px 8px;
 	}
-	
-	.cv-profession {
-		font-size: 16px;
+	.code-content pre[class*="language-"] {
+		padding: 8px;
+		font-size: 12px;
 	}
-	
-	.cv-salary {
-		font-size: 14px;
+	.scripts-container .styled-list > li {
+		padding: 6px 8px 6px 36px;
 	}
-	
-	.cv-section {
-		padding: 12px;
-		margin: 24px 0;
+	.script-field,
+	.script-value {
+		font-size: 12px;
 	}
-	
-	.contact-row {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 4px;
+	.jira-issue-container {
+		padding: 12px 16px;
 	}
-
-	.experience-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-    
-    .experience-period {
-        width: 100%;
-    }
-    
-    .experience-duration {
-        width: fit-content;
-    }
-	
-	.contact-label {
-		min-width: auto;
+	.confluence-macro {
+		padding: 10px 12px;
 	}
 }
 
-/* Улучшения для лучшей читаемости диаграммы */
-.uml-diagram::-webkit-scrollbar {
-	height: 8px;
-}
-.uml-diagram::-webkit-scrollbar-track {
-	background: #F4F5F7;
-	border-radius: 4px;
-}
-.uml-diagram::-webkit-scrollbar-thumb {
-	background: #DFE1E6;
-	border-radius: 4px;
-}
-.uml-diagram::-webkit-scrollbar-thumb:hover {
-	background: #B3BAC5;
-}
+/* ======================================== СТИЛИ ДЛЯ ПЕЧАТИ ======================================== */
 
-/* Дополнительные стили для статусов Jira (можно использовать для других задач) */
-.jira-issue-mini {
-	display: inline-flex;
-	align-items: center;
-	gap: 6px;
-	background: #F4F5F7;
-	padding: 4px 8px;
-	border-radius: 3px;
-	border: 1px solid #DFE1E6;
-	font-size: 12px;
-	text-decoration: none;
-	color: #42526E;
-	transition: all 0.2s ease;
-}
-.jira-issue-mini:hover {
-	background: #EBECF0;
-	border-color: #B3BAC5;
-	text-decoration: none;
-	color: #172B4D;
-}
-.jira-issue-mini .jira-icon {
-	font-size: 11px;
-}
-.jira-issue-mini .jira-status {
-	font-size: 9px;
-	padding: 1px 4px;
-}
-
-/* Компактная версия макросов */
-.confluence-macro.compact {
-	padding: 12px 16px;
-}
-.confluence-macro.compact .macro-icon {
-	font-size: 14px;
-}
-.confluence-macro.compact .macro-content strong {
-	font-size: 13px;
-	margin-bottom: 4px;
-}
-.confluence-macro.compact .macro-content p {
-	font-size: 13px;
-}
-
-/* Плавные переходы для контента */
-.main-content {
-	transition: margin-left 0.3s ease;
-}
-.container.collapsed .main-content {
-	margin-left: -300px;
-}
-/* Улучшения для UX */
-.tree-folder:hover {
-	background-color: #F4F5F7;
-}
-.tree-link {
-	transition: all 0.2s ease;
-}
-.tree-link:hover {
-	background-color: #F4F5F7;
-	color: #0052CC;
-}
-/* Анимации */
-@keyframes slideIn {
-	from {
-		transform: translateX(-100%);
+@media print {
+	body {
+		background: white;
+		color: black;
+		padding: 0;
+		font-size: 12pt;
+		line-height: 1.4;
 	}
-	to {
-		transform: translateX(0);
+	.container {
+		display: block;
 	}
-}
-@keyframes slideOut {
-	from {
-		transform: translateX(0);
+	.sidebar {
+		display: none;
 	}
-	to {
-		transform: translateX(-100%);
+	.sidebar-toggle {
+		display: none;
+	}
+	.content {
+		background: white;
+		box-shadow: none;
+		padding: 0;
+		margin: 0;
+	}
+	.article-toc {
+		background: white;
+		border: 1px solid #ccc;
+	}
+	.confluence-table,
+	.use-case-table,
+	.scenario-table {
+		box-shadow: none;
+		border: 1px solid #ccc;
+	}
+	.code-container {
+		box-shadow: none;
+		border: 1px solid #ccc;
+	}
+	.scroll-to-top {
+		display: none;
+	}
+	/* Улучшение читаемости при печати */
+	h1, h2, h3, h4 {
+		color: black;
+	}
+	p, li, td {
+		color: #333;
+	}
+	a {
+		color: #0052CC;
+		text-decoration: underline;
+	}
+	/* Скрытие ненужных элементов */
+	.sidebar-overlay,
+	.sidebar-toggle {
+		display: none;
 	}
 }

@@ -22,10 +22,10 @@
 			</div>
 			<div class="tree-children">
 				<div class="tree-item">
-					<a href="#" data-path="pages/about.html" class="tree-link active">Обо мне</a>
+					<a href="about.html" class="tree-link active">Обо мне</a>
 				</div>
 				<div class="tree-item">
-					<a href="#" data-path="pages/cv.html" class="tree-link">Резюме</a>
+					<a href="cv.html" class="tree-link">Резюме</a>
 				</div>
 			</div>
 		</div>
@@ -44,7 +44,7 @@
 					</div>
 					<div class="tree-children">
 						<div class="tree-item">
-							<a href="#" data-path="pages/rfilters.html" class="tree-link">Требования к фильтрации событий</a>
+							<a href="brd.html" class="tree-link">Требования к фильтрации событий</a>
 						</div>
 					</div>
 				</div>
@@ -56,7 +56,7 @@
 					</div>
 					<div class="tree-children">
 						<div class="tree-item">
-							<a href="#" data-path="pages//sfilters.html" class="tree-link">Спецификация. Фильтрация событий</a>
+							<a href="srs.html" class="tree-link">Спецификация. Фильтрация событий</a>
 						</div>
 					</div>
 				</div>
@@ -68,13 +68,13 @@
 					</div>
 					<div class="tree-children">
 						<div class="tree-item">
-							<a href="#" data-path="pages/events_groups.html" class="tree-link">Группы событий</a>
+							<a href="db-event-groups.html" class="tree-link">Группы событий</a>
 						</div>
 						<div class="tree-item">
-							<a href="#" data-path="pages/event_types.html" class="tree-link">Типы событий</a>
+							<a href="db-event-types.html" class="tree-link">Типы событий</a>
 						</div>
 						<div class="tree-item">
-							<a href="#" data-path="pages/event_types_groups.html" class="tree-link">Группы-типы событий</a>
+							<a href="db-join-table.html" class="tree-link">Группы-типы событий</a>
 						</div>
 					</div>
 				</div>
@@ -86,13 +86,13 @@
 					</div>
 					<div class="tree-children">
 						<div class="tree-item">
-							<a href="#" data-path="pages/postevents.html" class="tree-link">POST api/v3/events</a>
+							<a href="api-post-events.html" class="tree-link">POST api/v3/events</a>
 						</div>
 						<div class="tree-item">
-							<a href="#" data-path="pages/getfilters.html" class="tree-link">GET api/v3/events/filters</a>
+							<a href="api-get-filters.html" class="tree-link">GET api/v3/events/filters</a>
 						</div>
 						<div class="tree-item">
-							<a href="#" data-path="pages/postdays.html" class="tree-link">POST api/v3/events/days</a>
+							<a href="api-post-days.html" class="tree-link">POST api/v3/events/days</a>
 						</div>
 					</div>
 				</div>
@@ -105,37 +105,3 @@
 <button class="sidebar-toggle desktop-only" id="desktopSidebarToggle">
 	<span class="toggle-icon">◀</span>
 </button>
-
-
-<script>
-// Обработка ссылок в сайдбаре после загрузки
-document.addEventListener('DOMContentLoaded', function() {
-	if (typeof processSidebarLinks === 'function') {
-		processSidebarLinks();
-	}
-});
-
-function processSidebarLinks() {
-    const sidebar = document.getElementById('sidebar');
-    if (!sidebar) return;
-    
-    const links = sidebar.querySelectorAll('a[data-path]');
-    links.forEach(link => {
-        const relativePath = link.getAttribute('data-path');
-        if (typeof getAbsolutePath === 'function') {
-            link.href = getAbsolutePath(relativePath);
-        } else {
-            // Fallback на случай если config.js не загружен
-            console.warn('getAbsolutePath function not found. Using relative paths.');
-            link.href = relativePath;
-        }
-        
-        // Помечаем активную ссылку
-        if (link.href === window.location.href) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-}
-</script>

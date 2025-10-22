@@ -10,10 +10,8 @@
 	<meta name="keywords" content="database, DB, events, groups, filters">
 	<meta name="author" content="Govorov Andrew">
 
-	<script src="/assets/scripts/config.js"></script>
-
-	<link rel="stylesheet" href="/assets/styles/styles.css">
-	<link rel="stylesheet" href="/assets/styles/prism.css">
+	<link rel="stylesheet" href="../assets/styles/prism.css"/>
+	<link rel="stylesheet" href="../assets/styles/styles.css"/>
 </head>
 
 <body>
@@ -55,7 +53,7 @@
 						<tbody>
 							<tr>
 								<td>v.1.0</td>
-								<td><a href="/pages/govorov/about.html">Говоров Андрей</a></td>
+								<td><a href="about.html">Говоров Андрей</a></td>
 								<td>17.05.2023</td>
 								<td>
 									<p>Исходная страница</p>
@@ -63,7 +61,7 @@
 								<td>
 									<div class="jira-issue-container">
 										<span class="jira-issue">
-											<a href="https://jira.example.com/browse/B2C-29444" class="jira-issue-key" target="_blank">
+											<a href="" class="jira-issue-key" target="_blank">
 												<span class="jira-icon">📋</span>
 												<span style="color: white;">B2C-29444</span>
 											</a>
@@ -511,7 +509,7 @@
 				<h1 id="section-2">Применение</h1>
 				<div>
 					<p>Используется при формировании ответа на запрос
-						<a href="/pages/portofolio/api/getfilters.html">GET api/v3/events/filters</a></p>
+						<a href="api-get-filters.html">GET api/v3/events/filters</a></p>
 				</div>
 
 				<!-------------------------------------------------------------------------------------------------------------------------------->
@@ -520,8 +518,8 @@
 				<h1 id="section-2">Полезные ссылки</h1>
 				<div>
 					<ul>
-						<li><a href="/pages/portofolio/database/event_types.html">Типы событий (smart) (Архитектурная модель)</a></li>
-						<li><a href="/pages/portofolio/database/event_types_groups.html">Связь Группы событий - Типы событий (smart) (Архитектурная модель)</a></li>
+						<li><a href="db-event-types.html">Типы событий (smart) (Архитектурная модель)</a></li>
+						<li><a href="db-join-table.html">Связь Группы событий - Типы событий (smart) (Архитектурная модель)</a></li>
 					</ul>
 				</div>
 			</article>
@@ -531,24 +529,8 @@
 	<!-- Кнопка "Вверх" -->
 	<button class="scroll-to-top" id="scrollToTop" aria-label="Вернуться к началу страницы"></button>
 	
-	<script src="/assets/scripts/load-sidebar.js"></script>
-	<script src="/assets/scripts/prism.js"></script>
-	<script src="/assets/scripts/script.js"></script>
-
-	<script>
-	// Обработка ссылок с data-path в основном контенте
-	document.addEventListener('DOMContentLoaded', function() {
-		const contentLinks = document.querySelectorAll('#content a[data-path]');
-		contentLinks.forEach(link => {
-			const relativePath = link.getAttribute('data-path');
-			if (typeof getAbsolutePath === 'function') {
-				link.href = getAbsolutePath(relativePath);
-			} else {
-				// Fallback - используем абсолютный путь от корня
-				link.href = '/' + relativePath;
-			}
-		});
-	});
-	</script>
+	<script src="../assets/scripts/load-sidebar.js"></script>
+	<script src="../assets/scripts/prism.js"></script>
+	<script src="../assets/scripts/script.js"></script>
 </body>
 </html>

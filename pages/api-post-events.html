@@ -10,10 +10,8 @@
 	<meta name="keywords" content="REST, API, POST, events, filters, method, endpoint">
 	<meta name="author" content="Govorov Andrew">
 
-	<script src="/assets/scripts/config.js"></script>
-
-	<link rel="stylesheet" href="/assets/styles/styles.css">
-	<link rel="stylesheet" href="/assets/styles/prism.css">
+	<link rel="stylesheet" href="../assets/styles/prism.css"/>
+	<link rel="stylesheet" href="../assets/styles/styles.css"/>
 </head>
 
 <body>
@@ -55,7 +53,7 @@
 						<tbody>
 							<tr>
 								<td>v.1.0</td>
-								<td><a href="/pages/govorov/about.html">Говоров Андрей</a></td>
+								<td><a href="about.html">Говоров Андрей</a></td>
 								<td>18.05.2023</td>
 								<td>
 									<p>Исходная страница</p>
@@ -63,7 +61,7 @@
 								<td>
 									<div class="jira-issue-container">
 										<span class="jira-issue">
-											<a href="https://jira.example.com/browse/B2C-29443" class="jira-issue-key" target="_blank">
+											<a href="" class="jira-issue-key" target="_blank">
 												<span class="jira-icon">📋</span>
 												<span style="color: white;">B2C-29443</span>
 											</a>
@@ -80,7 +78,7 @@
 							</tr>
 							<tr>
 								<td>v.1.1</td>
-								<td><a href="/pages/govorov/about.html">Говоров Андрей</a></td>
+								<td><a href="about.html">Говоров Андрей</a></td>
 								<td>16.08.2023</td>
 								<td>
 									<p>Добавление в ответ объекта с информацией по доступности фильтров.</p>
@@ -89,7 +87,7 @@
 								<td>
 									<div class="jira-issue-container">
 										<span class="jira-issue">
-											<a href="https://jira.example.com/browse/B2C-31638" class="jira-issue-key" target="_blank">
+											<a href="" class="jira-issue-key" target="_blank">
 												<span class="jira-icon">📋</span>
 												<span style="color: white;">B2C-31638</span>
 											</a>
@@ -106,7 +104,7 @@
 							</tr>
 							<tr>
 								<td>v.1.2</td>
-								<td><a href="/pages/govorov/about.html">Говоров Андрей</a></td>
+								<td><a href="about.html">Говоров Андрей</a></td>
 								<td>04.10.2023</td>
 								<td>
 									<p>Формирование события</p>
@@ -114,7 +112,7 @@
 								<td>
 									<div class="jira-issue-container">
 										<span class="jira-issue">
-											<a href="https://jira.example.com/browse/B2C-32246" class="jira-issue-key" target="_blank">
+											<a href="" class="jira-issue-key" target="_blank">
 												<span class="jira-icon">📋</span>
 												<span style="color: white;">B2C-32246</span>
 											</a>
@@ -131,7 +129,7 @@
 							</tr>
 							<tr>
 								<td>v.1.3</td>
-								<td><a href="/display/~konstantin.kainov">Каинов Константин</a></td>
+								<td><a href="">Каинов Константин</a></td>
 								<td>27.10.2023</td>
 								<td>
 									<p>Учёт часового пояса дома в логике работы метода</p>
@@ -167,7 +165,7 @@
 							</tr>
 							<tr>
 								<th>Swagger</th>
-								<td><a href="" target="_blank">post_events</a></td>
+								<td><a href="https://app.swaggerhub.com/apis-docs/OmniChat9/eventFilters/3.0.0#/Events/post_events" target="_blank">post_events</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -919,10 +917,10 @@
 						<li><span class="algorithm-text">Полученный ответ насыщается данными и возвращается на фронт</span></li>
 						<li><span class="algorithm-text">
 							Если estore вернул список событий, то cформировать сообщение
-							<a href="/pages/viewpage.action?pageId=98569071">Пользовательские действия в интерфейсе (smart)</a> в соответствии
-							с <a href="/pages/viewpage.action?pageId=98570457">Маппинг для метода v3/events (если estore вернул события)</a>,
+							<a href="">Пользовательские действия в интерфейсе (smart)</a> в соответствии
+							с <a href="">Маппинг для метода v3/events (если estore вернул события)</a>,
 							если же произошла ошибка или estore ничего не нашел, то вернуть
-							<a href="/pages/viewpage.action?pageId=98570404">Маппинг для метода v3/events (события не найдены или ошибка)</a>
+							<a href="">Маппинг для метода v3/events (события не найдены или ошибка)</a>
 						</span></li>
 					</ol>
 
@@ -1178,24 +1176,8 @@
 	<!-- Кнопка "Вверх" -->
 	<button class="scroll-to-top" id="scrollToTop" aria-label="Вернуться к началу страницы"></button>
 	
-	<script src="/assets/scripts/load-sidebar.js"></script>
-	<script src="/assets/scripts/prism.js"></script>
-	<script src="/assets/scripts/script.js"></script>
-
-	<script>
-	// Обработка ссылок с data-path в основном контенте
-	document.addEventListener('DOMContentLoaded', function() {
-		const contentLinks = document.querySelectorAll('#content a[data-path]');
-		contentLinks.forEach(link => {
-			const relativePath = link.getAttribute('data-path');
-			if (typeof getAbsolutePath === 'function') {
-				link.href = getAbsolutePath(relativePath);
-			} else {
-				// Fallback - используем абсолютный путь от корня
-				link.href = '/' + relativePath;
-			}
-		});
-	});
-	</script>
+	<script src="../assets/scripts/load-sidebar.js"></script>
+	<script src="../assets/scripts/prism.js"></script>
+	<script src="../assets/scripts/script.js"></script>
 </body>
 </html>

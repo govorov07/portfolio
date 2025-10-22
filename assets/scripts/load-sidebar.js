@@ -1,273 +1,250 @@
-// Загрузка и вставка сайдбара
 async function loadSidebar() {
 	try {
-		// Используем относительный путь для шаблона
-		const response = await fetch('../../assets/templates/sidebar.html');
-
-		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`);
+		const sidebarPath = '../assets/templates/sidebar.html';							// Используем относительный путь для шаблона
+		const response = await fetch(sidebarPath);										// Загружаем шаблон сайдбара
+		if (!response.ok) {																// Проверяем успешность ответа
+			throw new Error(`HTTP error! status: ${response.status}`);					// Если ошибка, выбрасываем исключение
 		}
-		
-		const sidebarHTML = await response.text();
-		
-		// Создаем временный контейнер для парсинга HTML
-		const tempDiv = document.createElement('div');
-		tempDiv.innerHTML = sidebarHTML;
 
-		// Извлекаем отдельные элементы из шаблона
+		const sidebarHTML = await response.text();										// Получаем HTML шаблона сайдбара
+
+		const tempDiv = document.createElement('div');									// Создаем временный контейнер для парсинга HTML
+		tempDiv.innerHTML = sidebarHTML;												// Вставляем HTML в временный контейнер
+
+		// Извлекаем элемент сайдбара из временного контейнера
 		const sidebarToggle = tempDiv.querySelector('#sidebarToggle');
 		const sidebarOverlay = tempDiv.querySelector('#sidebarOverlay');
 		const sidebar = tempDiv.querySelector('#sidebar');
 		const desktopSidebarToggle = tempDiv.querySelector('#desktopSidebarToggle');
 
 		// Вставляем элементы в нужные контейнеры
-		if (sidebarToggle) {
-			document.body.insertBefore(sidebarToggle, document.body.firstChild);
+		if (sidebarToggle) {															// Проверяем наличие элемента перед вставкой
+			document.body.insertBefore(sidebarToggle, document.body.firstChild);		// Вставляем сайдбар в начало body
 		}
 
-		if (sidebarOverlay) {
-			if (sidebarToggle) {
-				document.body.insertBefore(sidebarOverlay, sidebarToggle.nextSibling);
-			} else {
-				document.body.insertBefore(sidebarOverlay, document.body.firstChild);
+		if (sidebarOverlay) {															// Проверяем наличие элемента перед вставкой
+			if (sidebarToggle) {														// Если сайдбар вставлен, вставляем оверлей после него
+				document.body.insertBefore(sidebarOverlay, sidebarToggle.nextSibling);	// Вставляем оверлей сразу после сайдбара
+			} else {																	// Если сайдбар не вставлен, вставляем оверлей в начало body
+				document.body.insertBefore(sidebarOverlay, document.body.firstChild);	// Вставляем оверлей в начало body
 			}
 		}
 
-		const container = document.querySelector('.container');
-		if (sidebar && container) {
-			container.insertBefore(sidebar, container.firstChild);
+		const container = document.querySelector('.container');							// Находим контейнер для основного контента
+		if (sidebar && container) {														// Проверяем наличие элементов перед вставкой
+			container.insertBefore(sidebar, container.firstChild);						// Вставляем сайдбар в начало контейнера
 		}
 
-		const mainContent = document.querySelector('.main-content');
-		if (desktopSidebarToggle && mainContent) {
-			mainContent.insertBefore(desktopSidebarToggle, mainContent.firstChild);
+		const mainContent = document.querySelector('.main-content');					// Находим основной контент
+		if (desktopSidebarToggle && mainContent) {										// Проверяем наличие элементов перед вставкой
+			mainContent.insertBefore(desktopSidebarToggle, mainContent.firstChild);		// Вставляем десктопный переключатель в начало основного контента
 		}
-		
-		// Обрабатываем ссылки с data-path атрибутами
-		processSidebarLinks();
-		
-		// Автоматически определяем активную страницу
-		setActivePage();
-		
-		// Инициализируем функциональность сайдбара
-		initSidebar();
 
-		console.log('✅ Sidebar loaded successfully from:', sidebarPath);
+		setActivePage();																// Вызываем функцию для установки активной страницы
+		initSidebar();																	// Вызываем функцию для инициализации сайдбара
+
+		console.log('✅ Sidebar loaded successfully from:', sidebarPath);	
 	} catch (error) {
 		console.error('❌ Error loading sidebar:', error);
+		return;
 	}
 }
 
-// Обработка ссылок с data-path атрибутами
-function processSidebarLinks() {
-	const links = document.querySelectorAll('a[data-path]');
-	
-	links.forEach(link => {
-		const relativePath = link.getAttribute('data-path');
-		
-		// Используем функцию из config.js или fallback
-		if (typeof getAbsolutePath === 'function') {
-			link.href = getAbsolutePath(relativePath);
-		} else {
-			// Fallback для случая, когда config.js не загружен
-			console.warn('Config not loaded, using relative paths');
-			// Простая логика для относительных путей (может потребовать доработки)
-			link.href = relativePath;
-		}
-	});
-}
-
 // Автоматическое определение активной страницы
-function setActivePage() {
-	const currentPath = window.location.pathname;
-	
+function setActivePage() {																// Функция для установки активной страницы в сайдбаре
+	const currentPath = window.location.pathname;										// Получаем текущий путь страницы
+
 	// Убираем активный класс у всех ссылок
-	document.querySelectorAll('.tree-link').forEach(link => {
-		link.classList.remove('active');
+	document.querySelectorAll('#sidebar .tree-link').forEach(link => {					// Проходим по всем ссылкам в сайдбаре
+		link.classList.remove('active');												// Убираем класс 'active'
 	});
-	
+
 	// Находим ссылку на текущую страницу и делаем её активной
-	const links = document.querySelectorAll('.tree-link');
-	let currentLink = null;
-	
-	links.forEach(link => {
-		try {
-			const linkPath = new URL(link.href, window.location.origin).pathname;
-			
+	const links = document.querySelectorAll('.tree-link');								// Получаем все ссылки в сайдбаре
+	let currentLink = null;																// Переменная для хранения текущей ссылки
+
+	links.forEach(link => {																// Проходим по всем ссылкам
+		try {																			// Обрабатываем возможные ошибки
+			const linkPath = new URL(link.href, window.location.origin).pathname;		// Получаем путь ссылки
+
 			// Сравниваем пути, учитывая возможные различия в слешах
-			const normalizePath = (path) => path.replace(/\/+/g, '/').replace(/\/$/, '');
-			
-			if (normalizePath(linkPath) === normalizePath(currentPath)) {
-				currentLink = link;
-				link.classList.add('active');
+			const normalizePath = (path) => path.replace(/\/+/g, '/').replace(/\/$/, '');	// Функция для нормализации пути
+
+			if (normalizePath(linkPath) === normalizePath(currentPath)) {				// Сравниваем нормализованные пути
+				currentLink = link;														// Если совпадают, сохраняем ссылку
+				link.classList.add('active');											// Добавляем класс 'active' к текущей ссылке
 			}
-		} catch (e) {
-			console.warn('Error processing link:', link.href, e);
+		} catch (e) {																	// Обработка ошибок при парсинге URL
+			console.warn('Error processing link:', link.href, e);						// Выводим предупреждение в консоль	
 		}
 	});
-	
+
 	// Автоматически раскрываем родительские папки для активной страницы
-	if (currentLink) {
-		let parentFolder = currentLink.closest('.tree-children');
-		while (parentFolder) {
-			parentFolder.classList.remove('collapsed');
-			const toggle = parentFolder.previousElementSibling?.querySelector('.tree-toggle');
-			if (toggle) {
-				toggle.classList.remove('collapsed');
-				toggle.textContent = '▼'; // Раскрытое состояние
+	if (currentLink) {																	// Если найдена текущая ссылка
+		let parentFolder = currentLink.closest('.tree-children');						// Находим ближайший родительский элемент с классом 'tree-children'
+		while (parentFolder) {															// Пока есть родительский элемент
+			parentFolder.classList.remove('collapsed');									// Убираем класс 'collapsed' для раскрытия папки
+			const toggle = parentFolder.previousElementSibling?.querySelector('.tree-toggle');	// Находим переключатель папки
+			if (toggle) {																// Если переключатель найден
+				toggle.classList.remove('collapsed');									// Убираем класс 'collapsed' у переключателя
+				toggle.textContent = '▼';												// Устанавливаем текст для раскрытого состояния
 			}
-			parentFolder = parentFolder.parentElement?.closest('.tree-children');
+			parentFolder = parentFolder.parentElement?.closest('.tree-children');		// Переходим к следующему родительскому элементу
 		}
 	}
 }
 
 // Инициализация функциональности сайдбара
-function initSidebar() {
-	// Управление сайдбаром
-	const sidebar = document.getElementById('sidebar');
-	const sidebarToggle = document.getElementById('sidebarToggle');
-	const desktopSidebarToggle = document.getElementById('desktopSidebarToggle');
-	const sidebarClose = document.getElementById('sidebarClose');
-	const sidebarOverlay = document.getElementById('sidebarOverlay');
-	const container = document.querySelector('.container');
-	const collapseAll = document.getElementById('collapseAll');
+function initSidebar() {																// Функция для инициализации функциональности сайдбара
+	const sidebar = document.getElementById('sidebar');									// Находим элемент сайдбара
+	const sidebarToggle = document.getElementById('sidebarToggle');						// Находим элемент переключателя сайдбара
+	const desktopSidebarToggle = document.getElementById('desktopSidebarToggle');		// Находим элемент десктопного переключателя сайдбара
+	const sidebarClose = document.getElementById('sidebarClose');						// Находим элемент закрытия сайдбара
+	const sidebarOverlay = document.getElementById('sidebarOverlay');					// Находим элемент оверлея сайдбара
+	const container = document.querySelector('.container');								// Находим контейнер основного контента
+	const collapseAll = document.getElementById('collapseAll');							// Находим элемент "Свернуть все"
 
-	// Создаем overlay если его нет
-	if (!sidebarOverlay && document.getElementById('sidebarOverlay') === null) {
-		const overlay = document.createElement('div');
-		overlay.id = 'sidebarOverlay';
-		overlay.className = 'sidebar-overlay';
-		document.body.appendChild(overlay);
+	// Создаём overlay для мобильного сайдбара, если его нет
+	if (!sidebarOverlay && document.getElementById('sidebarOverlay') === null) {		// Проверяем наличие оверлея
+		const overlay = document.createElement('div');									// Создаем новый div элемент
+		overlay.id = 'sidebarOverlay';													// Устанавливаем id для оверлея
+		overlay.className = 'sidebar-overlay';											// Устанавливаем класс для оверлея
+		document.body.appendChild(overlay);												// Добавляем оверлей в тело документа
 	}
 
-	// Функции для управления сайдбаром
+	// Функция для открытия сайдбара
 	function openSidebar() {
-		if (sidebar) sidebar.classList.add('active');
-		if (document.getElementById('sidebarOverlay')) {
-			document.getElementById('sidebarOverlay').classList.add('active');
+		if (sidebar) sidebar.classList.add('active');									// Добавляем класс 'active' к сайдбару
+		if (document.getElementById('sidebarOverlay')) {								// Проверяем наличие оверлея
+			document.getElementById('sidebarOverlay').classList.add('active');			// Добавляем класс 'active' к оверлею
 		}
-		document.body.style.overflow = 'hidden';
+		document.body.style.overflow = 'hidden';										// Блокируем прокрутку страницы
 	}
 
+	// Функция для закрытия сайдбара
 	function closeSidebar() {
-		if (sidebar) sidebar.classList.remove('active');
-		if (document.getElementById('sidebarOverlay')) {
-			document.getElementById('sidebarOverlay').classList.remove('active');
+		if (sidebar) sidebar.classList.remove('active');								// Убираем класс 'active' у сайдбара
+		if (document.getElementById('sidebarOverlay')) {								// Проверяем наличие оверлея
+			document.getElementById('sidebarOverlay').classList.remove('active');		// Убираем класс 'active' у оверлея
 		}
-		document.body.style.overflow = '';
+		document.body.style.overflow = '';												// Восстанавливаем прокрутку страницы
 	}
 
+	// Функция для переключения состояния сайдбара
 	function toggleSidebar() {
-		if (window.innerWidth <= 768) {
-			// На мобильных - открываем/закрываем overlay
-			if (sidebar && sidebar.classList.contains('active')) {
-				closeSidebar();
-			} else {
-				openSidebar();
+		if (window.innerWidth <= 768) {													// Проверяем ширину окна для мобильного устройства
+			// На мобильных устройствах переключаем сайдбар
+			if (sidebar && sidebar.classList.contains('active')) {						// Если сайдбар активен
+				closeSidebar();															// Закрываем сайдбар
+			} else {																	// Если сайдбар неактивен
+				openSidebar();															// Открываем сайдбар
 			}
 		} else {
-			// На десктопе - сворачиваем/разворачиваем
-			if (container) container.classList.toggle('collapsed');
-			if (sidebar) sidebar.classList.toggle('collapsed');
+			// На десктопах просто переключаем класс активного состояния
+			if (container) container.classList.toggle('collapsed');						// Переключаем класс 'collapsed' у контейнера
+			if (sidebar) sidebar.classList.toggle('collapsed');							// Переключаем класс 'collapsed' у сайдбара
 		}
 	}
 
-	// Обработчики событий
-	if (sidebarToggle) {
-		sidebarToggle.addEventListener('click', toggleSidebar);
+	// Обработчики событий для элементов управления сайдбаром
+	if (sidebarToggle) {																// Проверяем наличие переключателя сайдбара
+		sidebarToggle.addEventListener('click', toggleSidebar);							// Добавляем обработчик клика для переключения сайдбара
 	}
 
-	if (desktopSidebarToggle) {
-		desktopSidebarToggle.addEventListener('click', toggleSidebar);
+	if (desktopSidebarToggle) {															// Проверяем наличие десктопного переключателя сайдбара
+		desktopSidebarToggle.addEventListener('click', toggleSidebar);					// Добавляем обработчик клика для переключения сайдбара на десктопе
 	}
 
-	if (sidebarClose) {
-		sidebarClose.addEventListener('click', closeSidebar);
+	if (sidebarClose) {																	// Проверяем наличие элемента закрытия сайдбара
+		sidebarClose.addEventListener('click', closeSidebar);							// Добавляем обработчик клика для закрытия сайдбара
 	}
 
-	// Overlay обработчик
-	const overlay = document.getElementById('sidebarOverlay');
-	if (overlay) {
-		overlay.addEventListener('click', closeSidebar);
+	if (document.getElementById('sidebarOverlay')) {									// Проверяем наличие оверлея сайдбара
+		document.getElementById('sidebarOverlay').addEventListener('click', closeSidebar); // Добавляем обработчик клика для закрытия сайдбара при клике на оверлей
 	}
 
-	// Закрытие сайдбара при нажатии ESC
+	// Закрытие сайдбара при нажатии клавиши Escape
 	document.addEventListener('keydown', function(e) {
-		if (e.key === 'Escape') {
-			closeSidebar();
+		if (e.key === 'Escape') {														// Проверяем, была ли нажата клавиша Escape
+			closeSidebar();																// Закрываем сайдбар
 		}
 	});
 
-	// Управление сворачиванием папок
-	const treeToggles = document.querySelectorAll('.tree-toggle');
-	const treeFolders = document.querySelectorAll('.tree-folder');
+	// Управление сворачиванием/разворачиванием папок
+	const treeToggles = document.querySelectorAll('.tree-toggle');						// Находим все элементы переключателей папок
+	const treeFolders = document.querySelectorAll('.tree-folder');						// Находим все папки в дереве
 
-	treeToggles.forEach((toggle) => {
-		toggle.addEventListener('click', function(e) {
-			e.stopPropagation();
-			const children = this.closest('.tree-item').querySelector('.tree-children');
-			if (children) {
-				children.classList.toggle('collapsed');
-				this.classList.toggle('collapsed');
-				// Меняем иконку
-				this.textContent = this.classList.contains('collapsed') ? '▶' : '▼';
+	treeToggles.forEach(toggle => {														// Проходим по всем переключателям папок
+		toggle.addEventListener('click', function(e) {									// Добавляем обработчик клика для каждого переключателя
+			e.stopPropagation();														// Останавливаем всплытие события
+			const children = this.closest('.tree-item').querySelector('.tree-children');	// Находим дочерние элементы папки
+			if (children) {																// Если дочерние элементы найдены
+				children.classList.toggle('collapsed');									// Переключаем класс 'collapsed' у дочерних элементов
+				this.classList.toggle('collapsed');										// Переключаем класс 'collapsed' у переключателя
+				// Обновляем текст переключателя в зависимости от состояния
+				if (children.classList.contains('collapsed')) {							// Если папка свернута
+					this.textContent = '▶';												// Устанавливаем текст для свернутого состояния
+				} else {																// Если папка развернута
+					this.textContent = '▼';												// Устанавливаем текст для развернутого состояния
+				}
 			}
 		});
 	});
 
-	treeFolders.forEach(folder => {
-		folder.addEventListener('click', function() {
-			const toggle = this.querySelector('.tree-toggle');
-			const children = this.closest('.tree-item').querySelector('.tree-children');
-			if (children && toggle) {
-				children.classList.toggle('collapsed');
-				toggle.classList.toggle('collapsed');
-				toggle.textContent = toggle.classList.contains('collapsed') ? '▶' : '▼';
+	treeFolders.forEach(folder => {														// Проходим по всем папкам
+		folder.addEventListener('click', function() {									// Добавляем обработчик клика для каждой папки
+			const toggle = this.querySelector('.tree-toggle');							// Находим переключатель папки
+			const children = this.closest('.tree-item').querySelector('.tree-children');// Находим дочерние элементы папки
+			if (children && toggle) {													// Если дочерние элементы и переключатель найдены
+				children.classList.toggle('collapsed');									// Переключаем класс 'collapsed' у дочерних элементов
+				toggle.classList.toggle('collapsed');									// Переключаем класс 'collapsed' у переключателя
+				// Обновляем текст переключателя в зависимости от состояния
+				if (children.classList.contains('collapsed')) {							// Если папка свернута
+					toggle.textContent = '▶';											// Устанавливаем текст для свернутого состояния
+				} else {																// Если папка развернута
+					toggle.textContent = '▼';											// Устанавливаем текст для развернутого состояния
+				}
 			}
 		});
 	});
 
-	// Кнопка "Свернуть все"
-	if (collapseAll) {
-		collapseAll.addEventListener('click', function() {
-			const allChildren = document.querySelectorAll('.tree-children');
-			const allToggles = document.querySelectorAll('.tree-toggle');
-			
-			allChildren.forEach(children => {
-				children.classList.add('collapsed');
+	// Обработчик для кнопки "Свернуть все"
+	if (collapseAll) {																	// Проверяем наличие кнопки "Свернуть все"
+		collapseAll.addEventListener('click', function() {								// Добавляем обработчик клика для кнопки
+			const allChildren = document.querySelectorAll('.tree-children');			// Находим все дочерние элементы папок
+			const allToggles = document.querySelectorAll('.tree-toggle');				// Находим все переключатели папок
+
+			allChildren.forEach(children => {											// Проходим по всем дочерним элементам
+				children.classList.add('collapsed');									// Добавляем класс 'collapsed' для сворачивания папок
 			});
-			
-			allToggles.forEach(toggle => {
-				toggle.classList.add('collapsed');
-				toggle.textContent = '▶';
+
+			allToggles.forEach(toggle => {												// Проходим по всем переключателям
+				toggle.classList.add('collapsed');										// Добавляем класс 'collapsed' для переключателей
+				toggle.textContent = '▶';												// Устанавливаем текст для свернутого состояния
 			});
 		});
 	}
 
-	// Автоматическое закрытие сайдбара на мобильных при клике на ссылку
-	const treeLinks = document.querySelectorAll('.tree-link');
-	treeLinks.forEach(link => {
-		link.addEventListener('click', function() {
-			if (window.innerWidth <= 768) {
-				closeSidebar();
+	// Автоматическое закрытие сайдбара на мобильных устройствах при клике на ссылку
+	const treeLinks = document.querySelectorAll('.tree-link');							// Находим все ссылки в дереве
+	treeLinks.forEach(link => {															// Проходим по всем ссылкам
+		link.addEventListener('click', function() {										// Добавляем обработчик клика для каждой ссылки
+			if (window.innerWidth <= 768) {												// Проверяем ширину окна для мобильного устройства
+				closeSidebar();															// Закрываем сайдбар
 			}
 		});
 	});
 
-	// Адаптивное поведение при изменении размера окна
-	window.addEventListener('resize', function() {
-		if (window.innerWidth > 768) {
-			// На десктопе - убираем overlay и восстанавливаем стандартное состояние
-			closeSidebar();
-			if (container) container.classList.remove('collapsed');
-			if (sidebar) sidebar.classList.remove('collapsed');
+	// Адаптация сайдбара при изменении размера окна
+	window.addEventListener('resize', function() {										// Добавляем обработчик события изменения размера окна
+		if (window.innerWidth > 768) {													// Если ширина окна больше 768px (десктоп)
+			// Восстанавливаем прокрутку страницы и закрываем мобильный сайдбар
+			closeSidebar();																// Закрываем сайдбар
+			if (container) container.classList.remove('collapsed');						// Убираем класс 'collapsed' у контейнера
+			if (sidebar) sidebar.classList.remove('collapsed');							// Убираем класс 'collapsed' у сайдбара
 		}
 	});
 }
 
 // Загружаем сайдбар при загрузке страницы
-document.addEventListener('DOMContentLoaded', loadSidebar);
-
-// Делаем функции глобальными для использования в sidebar.html
-window.processSidebarLinks = processSidebarLinks;
-window.setActivePage = setActivePage;
+document.addEventListener('DOMContentLoaded', loadSidebar);								// Вызываем функцию загрузки сайдбара при загрузке DOMContentLoaded
