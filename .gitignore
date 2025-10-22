@@ -1,2 +1,21 @@
 # Игнорировать папку drafts и всё её содержимое
 assets/drafts/
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# Логи
+*.log
+
+# Резервные копии
+*.bak
+*.backup
+
+# IDE файлы
+.vscode/
+.idea/
+*.swp
+*.swo
